@@ -12,9 +12,11 @@ const LivingRecordsSection = () => {
              <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=100&auto=format&fit=crop" alt="Cyclist" className="w-full h-full object-cover opacity-80" />
           </span> 
           records of culture that connect stories, people, and 
-          <span className="inline-flex items-center justify-center text-4xl align-middle mx-3 drop-shadow-md">
-            💎
-          </span> 
+          <img 
+            alt="Diamond"
+            src="Vector.png"
+            className="inline-flex items-center justify-center text-5xl align-middle mx-3 drop-shadow-md 
+          "/> 
           meaning across generations.
         </h2>
 

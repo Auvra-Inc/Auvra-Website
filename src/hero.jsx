@@ -50,7 +50,7 @@ const Hero = () => {
         </div>
 
         {/* Heading */}
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
+        <h1 className="text-3xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
           The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
         </h1>
         

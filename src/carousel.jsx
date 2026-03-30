@@ -131,4 +131,4 @@ export default function TestimonialCarousel() {
   );
 };
 
-xport default TestimonialCarousel
+export default TestimonialCarousel;

@@ -3,10 +3,20 @@ import { FaApple, FaGooglePlay } from 'react-icons/fa';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#edf2f9] via-white to-[#e4e9f0] rounded-b-[2%] overflow-hidden font-clash text-black">
+    <div className="relative min-h-screen rounded-b-[2%] overflow-hidden font-clash text-black bg-[#edf2f9]">
       
+      {/* 1. The New Background Image */}
+      <img 
+        src="/hassan-kibwana-9Rof7St92fM-unsplash.jpg" 
+        alt="Auvra Hero Background" 
+        className="absolute inset-0 w-full h-full object-cover object-center z-0" 
+      />
+
+      {/* 2. Light Frosted Glass Overlay (Crucial for readable black text!) */}
+      <div className="absolute inset-0  z-0"></div>
+
       {/* Top Floating Navigation */}
-      <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white rounded-full px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
+      <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white/80 backdrop-blur-md rounded-2xl px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
         <div className="flex items-center gap-3 font-semibold text-xl tracking-wide">
           <img 
              src="/Vector.jpg" 
@@ -17,51 +27,50 @@ const Hero = () => {
         </div>
       
         <div className="flex gap-2">
-          <button className="w-10 h-10 bg-gray-100 text-gray-800 rounded-full flex items-center justify-center hover:bg-gray-200 transition shadow-sm">
+          <button className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
             <FaApple className="text-xl" />
           </button>
-          <button className="w-10 h-10 bg-gray-100 text-gray-800 rounded-full flex items-center justify-center hover:bg-gray-200 transition shadow-sm">
+          <button className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
             <FaGooglePlay className="text-lg" />
           </button>
-          <button className="w-10 h-10 bg-gray-100 rounded-full flex flex-col justify-center items-center gap-1 hover:bg-gray-200 transition shadow-sm">
+          <button className="w-10 h-10 bg-white rounded-full flex flex-col justify-center items-center gap-1 hover:bg-gray-50 transition shadow-sm border border-gray-100">
             <div className="w-4 h-[2px] bg-black"></div>
             <div className="w-4 h-[2px] bg-black"></div>
           </button>
         </div>
       </nav>
 
-      {/* Main Hero Content - Kept your exact alignment and max-widths! */}
-      <main className="relative z-20 flex flex-col items-center text-center px-6 mt-12 text-black">
+      {/* Main Hero Content */}
+      <main className="relative z-20 flex flex-col items-center text-center px-6 mt-15 text-black">
         
-        {/* New Pill Badge */}
-        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full border border-gray-200 bg-white mb-6 shadow-sm">
-          <span className="bg-[#111] text-white px-3 py-1 rounded-full text-sm font-medium">New</span>
-          <span className="text-sm font-medium tracking-wide">A new way to preserve culture</span>
+        {/* UPDATED: Glassmorphism Pill Badge */}
+        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6 shadow-lg">
+          <span className="bg-black text-white border border-white/10 px-3 py-1 rounded-full text-md font-medium">New</span>
+          <span className="text-sm font-medium tracking-wide text-white">A new way to preserve culture</span>
         </div>
 
-        {/* Heading with the italic, smaller human span */}
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4 max-w-lg">
-          The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide">human</span> culture
+        {/* Heading */}
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
+          The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
         </h1>
         
         {/* Subheading */}
-        <p className="text-lg text-gray-600 mb-10 max-w-sm font-light leading-snug">
+        <p className="text-lg text-gray-800 mb-10 max-w-sm font-medium leading-snug">
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
-        {/* CTA Button */}
-        <button className="px-8 py-3.5 rounded-full bg-white border border-gray-200 text-lg font-medium hover:bg-gray-50 transition-all shadow-sm">
+        {/* UPDATED: Glassmorphism CTA Button */}
+        <button className="px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-lg font-medium hover:bg-white/20 transition-all shadow-lg">
           Start preserving
         </button>
       </main>
 
-      {/* Bottom Mockups - Cleaned up shadows, added SVGs, kept your layout dimensions */}
+      {/* Bottom Mockups */}
       <div className="relative z-20 mt-16 w-full max-w-3xl mx-auto flex justify-center items-end h-[350px]">
         
         {/* Left Card */}
         <div className="absolute left-2 md:left-8 bottom-20 w-32 bg-gradient-to-b from-gray-400 to-gray-600 rounded-2xl border border-gray-300 p-4 flex flex-col items-center justify-center z-30 shadow-md">
            <div className="w-10 h-10 bg-[#F59E0B] rounded-full flex items-center justify-center mb-3">
-             {/* Crisp SVG Medal */}
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-white">
                 <circle cx="12" cy="8" r="7"></circle>
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
@@ -84,7 +93,6 @@ const Hero = () => {
            
            <div className="flex justify-between items-center text-white text-lg font-medium px-2 mb-4">
              <span>My Orbit</span>
-             {/* Crisp SVG Settings Gear */}
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 opacity-90">
                 <circle cx="12" cy="12" r="3"></circle>
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
@@ -99,7 +107,6 @@ const Hero = () => {
              <div className="text-[8px] text-white/70 mb-2">People connected to your cultural legacy</div>
              <div className="text-green-300 text-xl font-bold flex items-center gap-1">18.2k <span className="text-[7px] font-normal text-white/60 mt-1">total witnesses across all works</span></div>
              
-             {/* Crisp SVG Globe */}
              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 text-white">
                   <circle cx="12" cy="12" r="10"></circle>
@@ -115,19 +122,16 @@ const Hero = () => {
             <p className="text-[10px] text-white/90 text-center mb-3 leading-tight">Today's goal: Complete 3 oral histories</p>
             <div className="flex justify-between px-1 mb-1">
                <div className="w-7 h-7 border border-white/20 rounded-full flex items-center justify-center text-white">
-                 {/* Crisp SVG Crown */}
                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
                     <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"></path>
                  </svg>
                </div>
                <div className="w-7 h-7 border border-white/20 rounded-full flex items-center justify-center text-white">
-                 {/* Crisp SVG Chat Bubble */}
                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
                     <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
                  </svg>
                </div>
                <div className="w-7 h-7 bg-white text-black rounded-full flex items-center justify-center">
-                 {/* Crisp SVG Checkmark */}
                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"></path>
                  </svg>
@@ -141,8 +145,8 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Very light fade at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#f4f6f9] to-transparent z-40 pointer-events-none"></div>
+      {/* Very light fade at the bottom to transition to the next section smoothly */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-40 pointer-events-none"></div>
 
     </div>
   );

@@ -9,7 +9,7 @@ const LivingRecordsSection = () => {
         <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-gray-900">
           Build living 
           <span className="inline-flex items-center justify-center w-20 h-10 bg-orange-200 rounded-full align-middle mx-3 overflow-hidden shadow-inner">
-             <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=100&auto=format&fit=crop" alt="Cyclist" className="w-full h-full object-cover opacity-80" />
+             <img src="One.png" alt="Cyclist" className="w-full h-full object-cover opacity-80" />
           </span> 
           records of culture that connect stories, people, and 
           <img 

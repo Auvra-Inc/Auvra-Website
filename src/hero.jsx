@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaApple, FaGooglePlay } from 'react-icons/fa';
+import { FaApple, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="absolute inset-0  z-0"></div>
 
       {/* Top Floating Navigation */}
-      <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white/80 backdrop-blur-md rounded-2xl px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
+      <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white rounded-2xl px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
         <div className="flex items-center gap-3 font-semibold text-xl tracking-wide">
           <img 
              src="/Vector.jpg" 
@@ -27,15 +27,15 @@ const Hero = () => {
         </div>
       
         <div className="flex gap-2">
-          <button className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
+          <button className="w-10 h-10 bg-grey-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
             <FaApple className="text-xl" />
           </button>
-          <button className="w-10 h-10 bg-white text-gray-800 rounded-full flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
+          <button className="w-10 h-10 bg-grey-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
             <FaGooglePlay className="text-lg" />
           </button>
-          <button className="w-10 h-10 bg-white rounded-full flex flex-col justify-center items-center gap-1 hover:bg-gray-50 transition shadow-sm border border-gray-100">
-            <div className="w-4 h-[2px] bg-black"></div>
-            <div className="w-4 h-[2px] bg-black"></div>
+          <button className="w-10 h-10 bg-grey-400 rounded-2xl flex flex-col justify-center items-center gap-1 hover:bg-gray-50 transition shadow-sm border border-gray-100">
+            <div className="w-4 h-0.5 bg-black"></div>
+            <div className="w-4 h-0.5 bg-black"></div>
           </button>
         </div>
       </nav>
@@ -50,7 +50,7 @@ const Hero = () => {
         </div>
 
         {/* Heading */}
-        <h1 className="text-3xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
           The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
         </h1>
         
@@ -66,10 +66,10 @@ const Hero = () => {
       </main>
 
       {/* Bottom Mockups */}
-      <div className="relative z-20 mt-16 w-full max-w-3xl mx-auto flex justify-center items-end h-[350px]">
+      <div className="relative z-20 mt-16 w-full max-w-3xl mx-auto flex justify-center items-end h-87.5"> 
         
         {/* Left Card */}
-        <div className="absolute left-2 md:left-8 bottom-20 w-32 bg-gradient-to-b from-gray-400 to-gray-600 rounded-2xl border border-gray-300 p-4 flex flex-col items-center justify-center z-30 shadow-md">
+        <div className="absolute left-2 md:left-8 bottom-20 w-32 bg-linear-to-b from-gray-600 to-gray-800 rounded-2xl border border-gray-300 p-4 flex flex-col items-center justify-center z-30 shadow-md">
            <div className="w-10 h-10 bg-[#F59E0B] rounded-full flex items-center justify-center mb-3">
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-white">
                 <circle cx="12" cy="8" r="7"></circle>
@@ -79,41 +79,80 @@ const Hero = () => {
            <p className="text-[10px] text-white text-center leading-tight">7-day preservation streak</p>
         </div>
 
-        {/* Center Phone */}
-        <div className="w-64 h-[350px] bg-gradient-to-b from-[#A3A3A3] to-[#8C8C8C] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] border-[#e0e0e0] shadow-md">
+        <div className="w-64 h-[350px] bg-gradient-to-b from-[#A3A3A3] to-[#8C8C8C] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] border-[#e0e0e0] shadow-md overflow-hidden">
+           
+           {/* Dynamic Notch */}
            <div className="w-16 h-1.5 bg-white/40 rounded-full mx-auto mb-6"></div>
            
+           {/* Top Status Bar (Mon, 07:32, Network signal lines) */}
            <div className="flex justify-between items-center text-white/90 text-[10px] mb-4 px-2">
              <span>Mon, 07:32</span>
              <div className="flex gap-1 items-center">
-                <span className="w-3 h-2 bg-white/80 rounded-sm"></span>
-                <span className="w-2 h-2 bg-white/80 rounded-full"></span>
+                <span className="w-3 h-2 bg-white/80 rounded-sm"></span> {/* simplified signal bars */}
+                <span className="w-2 h-2 bg-white/80 rounded-full"></span> {/* simplified wifi */}
              </div>
            </div>
            
+           {/* My Orbit Header (Text + Gear Icon using FaCog) */}
            <div className="flex justify-between items-center text-white text-lg font-medium px-2 mb-4">
              <span>My Orbit</span>
-             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 opacity-90">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-             </svg>
+             <FaCog className="w-5 h-5 opacity-90 text-white" />
            </div>
 
-           <div className="w-full flex-1 rounded-2xl bg-white/10 border border-white/20 relative overflow-hidden p-3 backdrop-blur-sm">
+           {/* Main Inner Frost Card */}
+           <div className="w-full flex-1 rounded-2xl bg-white/10 border border-white/20 relative p-3 backdrop-blur-sm">
+             
+             {/* Header section (text + badge) */}
              <div className="flex justify-between items-center mb-1">
                 <div className="text-[10px] text-white">Your Cultural Orbit</div>
                 <div className="bg-white/20 px-2 py-0.5 rounded-full text-[7px] text-white">10k orbiters</div>
              </div>
+             
+             {/* Subtext */}
              <div className="text-[8px] text-white/70 mb-2">People connected to your cultural legacy</div>
+             
+             {/* total witnesses text */}
              <div className="text-green-300 text-xl font-bold flex items-center gap-1">18.2k <span className="text-[7px] font-normal text-white/60 mt-1">total witnesses across all works</span></div>
              
-             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 text-white">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  <path d="M2 12h20"></path>
+             {/* Orbital Visualization Area - Concentric lines and profile circles */}
+             <div className="absolute inset-x-0 bottom-4 h-32 flex justify-center items-center">
+                
+                {/* SVG Orbital Lines (round lines) - Very faint concentric rings */}
+                <svg viewBox="0 0 100 100" className="absolute w-full h-full stroke-white/20 fill-none">
+                  <circle cx="50" cy="50" r="20" strokeDasharray="2 2" />
+                  <circle cx="50" cy="50" r="30" strokeDasharray="2 2" />
+                  <circle cx="50" cy="50" r="40" strokeDasharray="2 2" />
                 </svg>
+                
+                {/* Six Profile Circles (Absolutes positioned) */}
+                
+                {/* Compulsory Node 1: Red patterned Headwrap gesture from image 0 */}
+                <div className="absolute top-[10%] left-[20%] w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
+                    <img src="/1img.jpg" alt="Profile node Red Headwrap pattern" className="w-full h-full object-cover" />
+                </div>
+                
+                {/* Compulsory Node 2: Hmong Family girl portrait in detailed embroidery from image 1 */}
+                <div className="absolute bottom-[10%] left-[50%] -translate-x-1/2 w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
+                    <img src="/hs.jpg" alt="Profile node Hmong Girl portrait" className="w-full h-full object-cover" />
+                </div>
+                
+                {/* Other generic nodes from design image 5 to complete the set of 6 */}
+                <div className="absolute top-[20%] right-[30%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
+                    <img src="/2img.jpg" alt="Profile circle African Child" className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute top-[40%] right-[10%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
+                    <img src="/justin-lagat-9fPrUATxdIc-unsplash.jpg" alt="Profile circle Older Asian Elder" className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute bottom-[30%] right-[20%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
+                    <img src="/hassan-kibwana-G85LQv2dj2o-unsplash.jpg" alt="Profile circle African Woman" className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute bottom-[20%] left-[10%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
+                    <img src="/One.png" alt="Profile circle portrait diverse" className="w-full h-full object-cover" />
+                </div>
+                
              </div>
+             
+             {/* Original globe is removed from this card. Visualization is in the card. */}
            </div>
         </div>
 
@@ -146,7 +185,7 @@ const Hero = () => {
       </div>
       
       {/* Very light fade at the bottom to transition to the next section smoothly */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-40 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-7 bg-linear-to-t from-white to-transparent z-40 pointer-events-none"></div>
 
     </div>
   );

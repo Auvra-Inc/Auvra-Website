@@ -3,21 +3,18 @@ import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen rounded-b-[2%] overflow-hidden font-clash text-black bg-[#edf2f9]">
-      
-      {/* 1. The New Background Image */}
-      <img 
-        src="/pin copy.jpg" 
-        alt="Auvra Hero Background" 
-        className="absolute inset-0 w-full h-full object-cover object-center z-0" 
-      />
+    <div className="relative min-h-screen rounded-b-[2%] overflow-hidden font-clash text-black">
+
+      {/* Animated flowing background (nature-style movement) */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#dbeafe] via-[#bae6fd] to-[#e0f2fe] animate-hero-bg"></div>
+      <div className="absolute inset-0 -z-5 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.25),transparent_40%)] animate-hero-clouds"></div>
 
       {/* 2. Light Frosted Glass Overlay (Crucial for readable black text!) */}
-      <div className="absolute inset-0  z-0"></div>
+      <div className="absolute inset-0 bg-white/20 backdrop-blur-sm z-0"></div>
 
       {/* Top Floating Navigation */}
-      <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white/90 rounded-2xl px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
-        <div className="flex items-center justify-between font-medium text-xl tracking-wide">
+      <nav className="relative z-20 mx-3 sm:mx-4 md:mx-8 mt-5 sm:mt-6 bg-white/90 rounded-2xl px-3 sm:px-4 py-2.5 flex justify-between items-center border border-gray-100 shadow-sm">
+        <div className="flex items-center justify-between font-medium text-lg sm:text-xl tracking-wide">
           <img 
              src="/Vector.jpg" 
              alt="Auvra Logo" 
@@ -27,13 +24,13 @@ const Hero = () => {
         </div>
       
         <div className="flex gap-2">
-          <button className="w-10 h-10 bg-grey-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
-            <FaAppStore className="text-mdfont-bold bg-black rounded-2xl text-white/90 md:text-lg " />
+          <button className="w-10 h-10 bg-gray-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
+            <FaAppStore className="text-lg" />
           </button>
-          <button className="w-10 h-10 bg-grey-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
-            <FaGooglePlay className="text-md md:text-lg" />
+          <button className="w-10 h-10 bg-gray-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
+            <FaGooglePlay className="text-lg font-bold" />
           </button>
-          <button className="w-10 h-10 bg-grey-400 rounded-2xl flex flex-col justify-center items-center gap-1 hover:bg-gray-50 transition shadow-sm border border-gray-100">
+          <button className="w-10 h-10 bg-gray-400 rounded-2xl flex flex-col justify-center items-center gap-1 hover:bg-gray-50 transition shadow-sm border border-gray-100">
             <div className="w-4 h-0.5 bg-black"></div>
             <div className="w-4 h-0.5 bg-black"></div>
           </button>
@@ -41,10 +38,10 @@ const Hero = () => {
       </nav>
 
       {/* Main Hero Content */}
-      <main className="relative z-20 flex flex-col items-center text-center px-6 mt-15 text-black">
+      <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-14 sm:mt-16 md:mt-20 text-black max-w-4xl mx-auto">
         
         {/* UPDATED: Glassmorphism Pill Badge */}
-        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6 shadow-lg">
+        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full border border-white/30 bg-white/20 backdrop-blur-md mb-6 shadow-lg">
           <span className="bg-black text-white border border-white/10 px-3 py-1 rounded-full text-md font-medium">New</span>
           <span className="text-sm font-medium tracking-wide text-black">A new way to preserve culture</span>
         </div>
@@ -55,21 +52,21 @@ const Hero = () => {
         </h1>
         
         {/* Subheading */}
-        <p className="text-lg text-[#e0e0e0] mb-4 max-w-sm font-medium leading-snug">
+        <p className="text-lg text-gray-700 mb-4 max-w-sm font-medium leading-snug">
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
         {/* UPDATED: Glassmorphism CTA Button */}
-        <button className="px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-lg font-medium hover:bg-white/20 transition-all shadow-lg">
+        <button className="px-8 py-3.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-black text-lg font-medium hover:bg-white/30 transition-all shadow-lg">
           Start preserving
         </button>
       </main>
 
       {/* Bottom Mockups */}
-      <div className="relative z-20 mt-16 w-full max-w-3xl mx-auto flex justify-center items-end h-87.5"> 
+      <div className="relative z-20 mt-14 sm:mt-16 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
         
         {/* Left Card */}
-        <div className="absolute left-2 md:left-8 bottom-20 w-32 bg-linear-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-4 flex flex-col items-center justify-center z-30 shadow-md">
+        <div className="absolute left-1 sm:left-2 md:left-8 bottom-16 sm:bottom-18 md:bottom-20 w-28 sm:w-32 md:w-40 bg-gradient-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-3 sm:p-4 flex flex-col items-center justify-center z-30 shadow-md">
            <div className="w-10 h-10 bg-[#F59E0B] rounded-full flex items-center justify-center mb-3">
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-white">
                 <circle cx="12" cy="8" r="7"></circle>
@@ -79,10 +76,10 @@ const Hero = () => {
            <p className="text-[10px] text-white text-center leading-tight">7-day preservation streak</p>
         </div>
 
-        <div className="w-64 h-[350px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] border-[#e0e0e0] shadow-md overflow-hidden">
+        <div className="w-64 md:w-80 h-[350px] md:h-[450px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] border-[#e0e0e0] shadow-md overflow-hidden">
            
            {/* Dynamic Notch */}
-           <div className="w-16 h-1.5 bg-black rounded-full mx-auto mb-6"></div>
+           <div className="w-16 h-1.5 bg-white rounded-full mx-auto mb-6"></div>
            
            {/* Top Status Bar (Mon, 07:32, Network signal lines) */}
            <div className="flex justify-between items-center text-white text-[13px] mb-4 px-2 font-semi-bold">
@@ -157,7 +154,7 @@ const Hero = () => {
         </div>
 
         {/* Right Card */}
-        <div className="absolute right-2 md:right-8 bottom-24 w-36 p-4 bg-[#141414] rounded-2xl border border-gray-800 flex flex-col z-30 shadow-md">
+        <div className="absolute right-1 sm:right-2 md:right-8 bottom-16 sm:bottom-20 md:bottom-24 w-32 sm:w-36 md:w-44 p-3 sm:p-4 bg-[#141414] rounded-2xl border border-gray-800 flex flex-col z-30 shadow-md">
             <p className="text-[10px] text-white/90 text-center mb-3 leading-tight">Today's goal: Complete 3 oral histories</p>
             <div className="flex justify-between px-1 mb-1">
                <div className="w-7 h-7 border border-white/20 rounded-full flex items-center justify-center text-white">

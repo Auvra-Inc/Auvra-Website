@@ -35,44 +35,44 @@ const LivingRecordsSection = () => {
       </div>
 
       {/* Floating Mockup Area */}
-      <div className="relative max-w-5xl mx-auto h-[700px] flex justify-center items-center mt-10">
+      <div className="relative max-w-5xl mx-auto h-[500px] sm:h-[600px] md:h-[700px] flex justify-center items-center mt-10">
         
         {/* Central Phone Mockup - Static */}
         <img 
           src="div.framer-13hbuxv.jpg" 
           alt="Auvra Mobile App" 
-          className="relative z-20 w-[320px] h-[650px] object-contain drop-shadow-2xl" 
+          className="relative z-20 w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-contain drop-shadow-2xl" 
         />
 
         {/* FLOATING CARDS - Notice the new animate-float classes added! */}
         
         {/* Left Side Floating */}
-        <div className="hidden md:block absolute left-[5%] top-[40%] w-24 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 text-center z-10 -translate-y-1/2 animate-float-normal">
+        <div className="absolute left-[2%] sm:left-[5%] md:left-[5%] top-[40%] w-16 sm:w-20 md:w-24 bg-white p-2 sm:p-3 rounded-2xl shadow-xl border border-gray-100 text-center z-10 -translate-y-1/2 animate-float-normal">
           <div className="w-10 h-10 mx-auto bg-orange-100 text-orange-500 rounded-full flex items-center justify-center mb-2 shadow-inner">🚶</div>
           <p className="text-[10px] font-medium leading-tight text-gray-600">Cultural footprint</p>
         </div>
         
-        <div className="hidden md:block absolute left-[15%] top-[25%] w-32 h-32 rounded-3xl shadow-xl overflow-hidden z-0 rotate-[-5deg] animate-float-slow">
+        <div className="absolute left-[8%] sm:left-[15%] md:left-[15%] top-[25%] w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 rounded-3xl shadow-xl overflow-hidden z-0 rotate-[-5deg] animate-float-slow">
           <img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?q=80&w=200&auto=format&fit=crop" alt="Red harvest" className="w-full h-full object-cover" />
         </div>
 
-        <div className="hidden md:block absolute left-[8%] bottom-[15%] w-40 h-40 rounded-3xl shadow-2xl overflow-hidden z-30 animate-float-fast">
+        <div className="absolute left-[5%] sm:left-[8%] md:left-[8%] bottom-[15%] w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-40 rounded-3xl shadow-2xl overflow-hidden z-30 animate-float-fast">
           <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200&auto=format&fit=crop" alt="Elder" className="w-full h-full object-cover" />
         </div>
 
         {/* Right Side Floating */}
-        <div className="hidden md:block absolute right-[15%] top-[25%] w-32 h-32 rounded-3xl shadow-xl overflow-hidden z-0 rotate-[5deg] animate-float-normal" style={{ animationDelay: '1s' }}>
+        <div className="absolute right-[8%] sm:right-[15%] md:right-[15%] top-[25%] w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 rounded-3xl shadow-xl overflow-hidden z-0 rotate-[5deg] animate-float-normal" style={{ animationDelay: '1s' }}>
           <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=200&auto=format&fit=crop" alt="Blue dancer" className="w-full h-full object-cover" />
         </div>
 
-        <div className="hidden md:block absolute right-[2%] top-[35%] w-32 bg-white p-4 rounded-3xl shadow-xl border border-gray-100 text-center z-10 animate-float-fast" style={{ animationDelay: '2s' }}>
-          <div className="w-12 h-12 mx-auto bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-3 shadow-lg shadow-blue-200">A</div>
-          <p className="text-xs font-bold leading-tight text-gray-800">3 Languages documented</p>
+        <div className="absolute right-[2%] sm:right-[2%] md:right-[2%] top-[35%] w-20 sm:w-24 md:w-32 bg-white p-2 sm:p-3 md:p-4 rounded-3xl shadow-xl border border-gray-100 text-center z-10 animate-float-fast" style={{ animationDelay: '2s' }}>
+          <div className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 mx-auto bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-2 sm:mb-3 shadow-lg shadow-blue-200">A</div>
+          <p className="text-[8px] sm:text-[10px] md:text-xs font-bold leading-tight text-gray-800">3 Languages documented</p>
         </div>
 
-        <div className="hidden md:block absolute right-[8%] bottom-[20%] w-28 bg-white p-4 rounded-3xl shadow-xl border border-gray-100 text-center z-30 animate-float-slow">
-          <div className="w-10 h-10 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center mb-2 shadow-lg shadow-blue-200">🏆</div>
-          <p className="text-[10px] font-bold leading-tight text-gray-800">New Badge claimed</p>
+        <div className="absolute right-[5%] sm:right-[8%] md:right-[8%] bottom-[20%] w-16 sm:w-20 md:w-28 bg-white p-2 sm:p-3 md:p-4 rounded-3xl shadow-xl border border-gray-100 text-center z-30 animate-float-slow">
+          <div className="w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center mb-1 sm:mb-2 shadow-lg shadow-blue-200">🏆</div>
+          <p className="text-[8px] sm:text-[9px] md:text-[10px] font-bold leading-tight text-gray-800">New Badge claimed</p>
         </div>
 
       </div>

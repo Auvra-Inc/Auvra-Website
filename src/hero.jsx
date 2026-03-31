@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaApple, FaGooglePlay, FaCog } from 'react-icons/fa';
+import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -7,7 +7,7 @@ const Hero = () => {
       
       {/* 1. The New Background Image */}
       <img 
-        src="/hassan-kibwana-9Rof7St92fM-unsplash.jpg" 
+        src="/pin.jpg" 
         alt="Auvra Hero Background" 
         className="absolute inset-0 w-full h-full object-cover object-center z-0" 
       />
@@ -17,7 +17,7 @@ const Hero = () => {
 
       {/* Top Floating Navigation */}
       <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white/90 rounded-2xl px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
-        <div className="flex items-center gap-3 font-semibold text-xl tracking-wide">
+        <div className="flex items-center justify-between font-medium text-xl tracking-wide">
           <img 
              src="/Vector.jpg" 
              alt="Auvra Logo" 
@@ -28,10 +28,10 @@ const Hero = () => {
       
         <div className="flex gap-2">
           <button className="w-10 h-10 bg-grey-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
-            <FaApple className="text-xl" />
+            <FaAppStore className="text-mdfont-bold bg-black rounded-2xl text-white/90 md:text-lg " />
           </button>
           <button className="w-10 h-10 bg-grey-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
-            <FaGooglePlay className="text-lg" />
+            <FaGooglePlay className="text-md md:text-lg" />
           </button>
           <button className="w-10 h-10 bg-grey-400 rounded-2xl flex flex-col justify-center items-center gap-1 hover:bg-gray-50 transition shadow-sm border border-gray-100">
             <div className="w-4 h-0.5 bg-black"></div>
@@ -46,16 +46,16 @@ const Hero = () => {
         {/* UPDATED: Glassmorphism Pill Badge */}
         <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6 shadow-lg">
           <span className="bg-black text-white border border-white/10 px-3 py-1 rounded-full text-md font-medium">New</span>
-          <span className="text-sm font-medium tracking-wide text-white">A new way to preserve culture</span>
+          <span className="text-sm font-medium tracking-wide text-black">A new way to preserve culture</span>
         </div>
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-black">
           The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
         </h1>
         
         {/* Subheading */}
-        <p className="text-lg text-gray-800 mb-10 max-w-sm font-medium leading-snug">
+        <p className="text-lg text-[#e0e0e0] mb-4 max-w-sm font-medium leading-snug">
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
@@ -69,7 +69,7 @@ const Hero = () => {
       <div className="relative z-20 mt-16 w-full max-w-3xl mx-auto flex justify-center items-end h-87.5"> 
         
         {/* Left Card */}
-        <div className="absolute left-2 md:left-8 bottom-20 w-32 bg-linear-to-b from-gray-600 to-gray-800 rounded-2xl border border-gray-300 p-4 flex flex-col items-center justify-center z-30 shadow-md">
+        <div className="absolute left-2 md:left-8 bottom-20 w-32 bg-linear-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-4 flex flex-col items-center justify-center z-30 shadow-md">
            <div className="w-10 h-10 bg-[#F59E0B] rounded-full flex items-center justify-center mb-3">
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-white">
                 <circle cx="12" cy="8" r="7"></circle>
@@ -79,13 +79,13 @@ const Hero = () => {
            <p className="text-[10px] text-white text-center leading-tight">7-day preservation streak</p>
         </div>
 
-        <div className="w-64 h-[350px] bg-gradient-to-b from-[#A3A3A3] to-[#8C8C8C] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] border-[#e0e0e0] shadow-md overflow-hidden">
+        <div className="w-64 h-[350px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] border-[#e0e0e0] shadow-md overflow-hidden">
            
            {/* Dynamic Notch */}
-           <div className="w-16 h-1.5 bg-white/40 rounded-full mx-auto mb-6"></div>
+           <div className="w-16 h-1.5 bg-black rounded-full mx-auto mb-6"></div>
            
            {/* Top Status Bar (Mon, 07:32, Network signal lines) */}
-           <div className="flex justify-between items-center text-white/90 text-[10px] mb-4 px-2">
+           <div className="flex justify-between items-center text-white text-[13px] mb-4 px-2 font-semi-bold">
              <span>Mon, 07:32</span>
              <div className="flex gap-1 items-center">
                 <span className="w-3 h-2 bg-white/80 rounded-sm"></span> {/* simplified signal bars */}
@@ -94,25 +94,25 @@ const Hero = () => {
            </div>
            
            {/* My Orbit Header (Text + Gear Icon using FaCog) */}
-           <div className="flex justify-between items-center text-white text-lg font-medium px-2 mb-4">
+           <div className="flex justify-between items-center text-white text-lg font-semi-bold px-2 mb-4">
              <span>My Orbit</span>
              <FaCog className="w-5 h-5 opacity-90 text-white" />
            </div>
 
            {/* Main Inner Frost Card */}
-           <div className="w-full flex-1 rounded-2xl bg-white/10 border border-white/20 relative p-3 backdrop-blur-sm">
+           <div className="w-full flex-1 rounded-2xl bg-white/20 border border-white/20 relative p-3 backdrop-blur-md shadow-inner">
              
              {/* Header section (text + badge) */}
              <div className="flex justify-between items-center mb-1">
                 <div className="text-[10px] text-white">Your Cultural Orbit</div>
-                <div className="bg-white/20 px-2 py-0.5 rounded-full text-[7px] text-white">10k orbiters</div>
+                <div className=" px-2 py-0.5 rounded-full text-[7px] text-blue-800 bg-blue-400">10k orbiters</div>
              </div>
              
              {/* Subtext */}
-             <div className="text-[8px] text-white/70 mb-2">People connected to your cultural legacy</div>
+             <div className="text-[8px] text-white mb-2 font-semibold">People connected to your cultural legacy</div>
              
              {/* total witnesses text */}
-             <div className="text-green-300 text-xl font-bold flex items-center gap-1">18.2k <span className="text-[7px] font-normal text-white/60 mt-1">total witnesses across all works</span></div>
+             <div className="text-green-800 text-xl font-medium flex items-center gap-1 mb-2">18.2k <span className="text-[7px] font-medium text-white/60 mt-1">total witnesses across all works</span></div>
              
              {/* Orbital Visualization Area - Concentric lines and profile circles */}
              <div className="absolute inset-x-0 bottom-4 h-32 flex justify-center items-center">
@@ -127,7 +127,7 @@ const Hero = () => {
                 {/* Six Profile Circles (Absolutes positioned) */}
                 
                 {/* Compulsory Node 1: Red patterned Headwrap gesture from image 0 */}
-                <div className="absolute top-[10%] left-[20%] w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
+                <div className="absolute top-[20%] left-[25%] w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/1img.jpg" alt="Profile node Red Headwrap pattern" className="w-full h-full object-cover" />
                 </div>
                 

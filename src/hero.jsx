@@ -63,7 +63,7 @@ const Hero = () => {
       </main>
 
       {/* Bottom Mockups */}
-      <div className="relative z-20 mt-14 sm:mt-16 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
+      <div className="relative z-20 mt-7 sm:mt-16 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
         
         {/* Left Card */}
         <div className="absolute left-1 sm:left-2 md:left-8 bottom-16 sm:bottom-18 md:bottom-20 w-28 sm:w-32 md:w-40 bg-gradient-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-3 sm:p-4 flex flex-col items-center justify-center z-30 shadow-md">

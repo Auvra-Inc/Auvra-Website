@@ -7,7 +7,7 @@ const Hero = () => {
       
       {/* 1. The New Background Image */}
       <img 
-        src="/pin.jpg" 
+        src="/pin copy.jpg" 
         alt="Auvra Hero Background" 
         className="absolute inset-0 w-full h-full object-cover object-center z-0" 
       />

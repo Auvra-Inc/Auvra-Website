@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="absolute inset-0  z-0"></div>
 
       {/* Top Floating Navigation */}
-      <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white rounded-2xl px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
+      <nav className="relative z-20 mx-4 md:mx-18 mt-6 bg-white/90 rounded-2xl px-4 py-3 flex justify-between items-center border border-gray-100 shadow-sm">
         <div className="flex items-center gap-3 font-semibold text-xl tracking-wide">
           <img 
              src="/Vector.jpg" 
@@ -140,15 +140,15 @@ const Hero = () => {
                 <div className="absolute top-[20%] right-[30%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/2img.jpg" alt="Profile circle African Child" className="w-full h-full object-cover" />
                 </div>
-                <div className="absolute top-[40%] right-[10%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
+                <div className="absolute bottom-[20%] left-[14%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/justin-lagat-9fPrUATxdIc-unsplash.jpg" alt="Profile circle Older Asian Elder" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute bottom-[30%] right-[20%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/hassan-kibwana-G85LQv2dj2o-unsplash.jpg" alt="Profile circle African Woman" className="w-full h-full object-cover" />
                 </div>
-                <div className="absolute bottom-[20%] left-[10%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
+                {/* <div className="absolute bottom-[20%] left-[10%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/One.png" alt="Profile circle portrait diverse" className="w-full h-full object-cover" />
-                </div>
+                </div> */}
                 
              </div>
              

@@ -63,7 +63,7 @@ const Hero = () => {
       </main>
 
       {/* Bottom Mockups */}
-      <div className="relative z-20 mt-7 sm:mt-16 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
+      <div className="relative z-20 mt-4 sm:mt-16 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
         
         {/* Left Card */}
         <div className="absolute left-1 sm:left-2 md:left-8 bottom-16 sm:bottom-18 md:bottom-20 w-28 sm:w-32 md:w-40 bg-gradient-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-3 sm:p-4 flex flex-col items-center justify-center z-30 shadow-md">
@@ -82,7 +82,7 @@ const Hero = () => {
            <div className="w-16 h-1.5 bg-white rounded-full mx-auto mb-6"></div>
            
            {/* Top Status Bar (Mon, 07:32, Network signal lines) */}
-           <div className="flex justify-between items-center text-white text-[13px] mb-4 px-2 font-semi-bold">
+           <div className="flex justify-between items-center text-white text-[13px] mb-14 px-2 font-semi-bold">
              <span>Mon, 07:32</span>
              <div className="flex gap-1 items-center">
                 <span className="w-3 h-2 bg-white/80 rounded-sm"></span> {/* simplified signal bars */}

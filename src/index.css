@@ -1,13 +1,13 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
 
-@theme {
-  /* This creates your font-clash class */
-  --font-clash: "Clash Display", sans-serif;
-  
-  /* If you still need that Damion font for the yellow text, add it here too! */
-  --font-damion: "Damion", cursive; 
+@layer base {
+  :root {
+    /* This creates your font-clash class */
+    --font-clash: "Clash Display", sans-serif;
+    
+    /* If you still need that Damion font for the yellow text, add it here too! */
+    --font-damion: "Damion", cursive;
+  }
 }
 
 @keyframes float {
@@ -78,3 +78,10 @@
 .animate-hero-clouds {
   animation: hero-clouds 18s ease-in-out infinite;
 }
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+

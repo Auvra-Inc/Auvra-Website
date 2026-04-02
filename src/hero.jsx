@@ -7,7 +7,7 @@ const Hero = () => {
 
       {/* Background Image */}
       <img 
-        src="/nature.avif" 
+        src="/nature2.avif" 
         alt="Culture Background" 
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -79,7 +79,7 @@ const Hero = () => {
            <p className="text-[10px] text-white text-center leading-tight">7-day preservation streak</p>
         </div>
 
-        <div className="w-64 md:w-80 h-[350px] md:h-[450px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] shadow-md overflow-hidden">
+        <div className="w-64 md:w-80 h-[350px] md:h-[450px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8  shadow-md overflow-hidden">
            
            {/* Dynamic Notch */}
            <div className="w-16 h-1.5 bg-[#444343] rounded-full mx-auto mb-6"></div>

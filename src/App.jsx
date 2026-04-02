@@ -7,6 +7,7 @@ import PhotoStack from './photoStack'
 import VaultSection from './vaultSection'
 import Design from './design'
 import AudienceSection from './audienceSection'
+import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 
 function App() {
   

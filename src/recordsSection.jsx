@@ -20,14 +20,14 @@ const LivingRecordsSection = () => {
           meaning across generations.
         </h2>
 
-        <p className="text-lg text-gray-600 font-sans mb-8">
+        <p className="text-lg text-gray-600 font-clash mb-5">
           Used by people who believe culture deserves to last forever
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap justify-center gap-3 font-sans">
+        <div className="flex flex-wrap justify-center gap-3 font-clash">
           {['#Creators', '#Families', '#Communities', '#Collectors', '#Diaspora', '#Museums'].map((tag) => (
-            <span key={tag} className="px-5 py-2.5 bg-gray-100/80 rounded-full text-sm font-medium text-gray-700 border border-gray-200 shadow-sm">
+            <span key={tag} className="px-3 bg-gray-100/80 rounded-full text-sm font-medium text-gray-700 border border-gray-200 shadow-sm">
               {tag}
             </span>
           ))}

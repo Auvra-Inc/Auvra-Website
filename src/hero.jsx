@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="relative min-h-screen overflow-hidden font-clash  text-black">
+    <div className="relative min-h-screen overflow-hidden font-clash text-black">
 
       {/* Background Image */}
       <img 
@@ -12,11 +27,17 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Light Frosted Glass Overlay (Crucial for readable black text!) */}
-      <div className="absolute inset-0 bg-white/20  z-0"></div>
+      {/* Light Frosted Glass Overlay */}
+      <div className="absolute inset-0 bg-white/20 z-0"></div>
 
-      {/* Top Floating Navigation */}
-      <nav className="relative z-20 mx-3 sm:mx-4 md:mx-8 mt-5 sm:mt-6 bg-white/90 rounded-2xl px-3 sm:px-4 py-2.5 flex justify-between items-center border border-gray-100 shadow-sm">
+      {/* Dynamic Floating Navigation */}
+      <nav 
+        className={`fixed z-50 flex justify-between items-center px-3 sm:px-4 py-2.5 shadow-sm transition-all duration-300 ease-in-out
+          ${isScrolled 
+            ? 'top-0 left-0 right-0 w-full bg-white/60 backdrop-blur-md rounded-none border-b border-gray-200/50' 
+            : 'top-5 sm:top-6 left-3 right-3 sm:left-4 sm:right-4 md:left-8 md:right-8 bg-white/90 rounded-2xl border border-gray-100'
+          }`}
+      >
         <div className="flex items-center gap-3 font-medium text-lg sm:text-xl tracking-wide">
           <img 
              src="/Vector.jpg" 
@@ -40,10 +61,10 @@ const Hero = () => {
         </div>
       </nav>
 
-      {/* Main Hero Content */}
-      <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-20 sm:mt-24 md:mt-28 text-black max-w-4xl mx-auto">
+      {/* Main Hero Content - UPDATED MARGINS HERE */}
+      <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-32 sm:mt-40 md:mt-48 text-black max-w-4xl mx-auto">
         
-        {/* UPDATED: Glassmorphism Pill Badge */}
+        {/* Glassmorphism Pill Badge */}
         <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-white/10 backdrop-blur-md text-white mb-6 ">
           <span className="bg-black text-white px-3 py-1 rounded-full text-md font-medium">New</span>
           <span className="text-sm font-medium tracking-wide">A new way to preserve culture</span>
@@ -51,7 +72,7 @@ const Hero = () => {
 
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
-          The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
+          The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human </span> culture
         </h1>
         
         {/* Subheading */}
@@ -59,8 +80,8 @@ const Hero = () => {
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
-        {/* UPDATED: Glassmorphism CTA Button */}
-        <button className="px-8 mt-7 rounded-full bg-white/10 h-[40.1px] backdrop-blur-md text-white text-md font-medium hover:bg-white/20 transition-all ">
+        {/* Glassmorphism CTA Button */}
+        <button className="px-8 mt- rounded-full bg-white/10 h-[40.1px] backdrop-blur-md text-white text-md font-medium hover:bg-white/20 transition-all ">
           Start preserving
         </button>
       </main>
@@ -79,21 +100,21 @@ const Hero = () => {
            <p className="text-[10px] text-white text-center leading-tight">7-day preservation streak</p>
         </div>
 
-        <div className="w-64 md:w-80 h-[350px] md:h-[450px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8  shadow-md overflow-hidden">
+        <div className="w-64 z-100 md:w-80 h-[350px] md:h-[450px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8  shadow-md overflow-hidden">
            
            {/* Dynamic Notch */}
            <div className="w-16 h-1.5 bg-[#444343] rounded-full mx-auto mb-6"></div>
            
-           {/* Top Status Bar (Mon, 07:32, Network signal lines) */}
+           {/* Top Status Bar */}
            <div className="flex justify-between items-center text-white text-[13px] mb-6 sm:mb-10 md:mb-14 px-2 font-semi-bold">
              <span>Mon, 07:32</span>
              <div className="flex gap-1 items-center">
-                <span className="w-3 h-2 bg-white/80 rounded-sm"></span> {/* simplified signal bars */}
-                <span className="w-2 h-2 bg-white/80 rounded-full"></span> {/* simplified wifi */}
+                <span className="w-3 h-2 bg-white/80 rounded-sm"></span>
+                <span className="w-2 h-2 bg-white/80 rounded-full"></span>
              </div>
            </div>
            
-           {/* My Orbit Header (Text + Gear Icon using FaCog) */}
+           {/* My Orbit Header */}
            <div className="flex justify-between items-center text-white text-lg font-semi-bold px-2 mb-4">
              <span>My Orbit</span>
              <FaCog className="w-5 h-5 opacity-90 text-white" />
@@ -102,7 +123,7 @@ const Hero = () => {
            {/* Main Inner Frost Card */}
            <div className="w-full flex-1 rounded-2xl bg-white/20 border border-white/20 relative p-3 backdrop-blur-md shadow-inner">
              
-             {/* Header section (text + badge) */}
+             {/* Header section */}
              <div className="flex justify-between items-center mb-1">
                 <div className="text-[10px] text-white">Your Cultural Orbit</div>
                 <div className=" px-2 py-0.5 rounded-full text-[7px] text-blue-800 bg-blue-400">10k orbiters</div>
@@ -111,32 +132,28 @@ const Hero = () => {
              {/* Subtext */}
              <div className="text-[8px] text-white mb-2 font-semibold">People connected to your cultural legacy</div>
              
-             {/* total witnesses text */}
+             {/* Total witnesses text */}
              <div className="text-green-800 text-xl font-medium flex items-center gap-1 mb-2">18.2k <span className="text-[7px] font-medium text-white/60 mt-1">total witnesses across all works</span></div>
              
-             {/* Orbital Visualization Area - Concentric lines and profile circles */}
+             {/* Orbital Visualization Area */}
              <div className="absolute inset-x-0 bottom-4 h-32 flex justify-center items-center">
                 
-                {/* SVG Orbital Lines (round lines) - Very faint concentric rings */}
+                {/* SVG Orbital Lines */}
                 <svg viewBox="0 0 100 100" className="absolute w-full h-full stroke-white/20 fill-none">
                   <circle cx="50" cy="50" r="20" strokeDasharray="2 2" />
                   <circle cx="50" cy="50" r="30" strokeDasharray="2 2" />
                   <circle cx="50" cy="50" r="40" strokeDasharray="2 2" />
                 </svg>
                 
-                {/* Six Profile Circles (Absolutes positioned) */}
-                
-                {/* Compulsory Node 1: Red patterned Headwrap gesture from image 0 */}
+                {/* Six Profile Circles */}
                 <div className="absolute top-[20%] left-[25%] w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/1img.jpg" alt="Profile node Red Headwrap pattern" className="w-full h-full object-cover" />
                 </div>
                 
-                {/* Compulsory Node 2: Hmong Family girl portrait in detailed embroidery from image 1 */}
                 <div className="absolute bottom-[10%] left-[50%] -translate-x-1/2 w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/hs.jpg" alt="Profile node Hmong Girl portrait" className="w-full h-full object-cover" />
                 </div>
                 
-                {/* Other generic nodes from design image 5 to complete the set of 6 */}
                 <div className="absolute top-[20%] right-[30%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/2img.jpg" alt="Profile circle African Child" className="w-full h-full object-cover" />
                 </div>
@@ -146,13 +163,7 @@ const Hero = () => {
                 <div className="absolute bottom-[30%] right-[20%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
                     <img src="/hassan-kibwana-G85LQv2dj2o-unsplash.jpg" alt="Profile circle African Woman" className="w-full h-full object-cover" />
                 </div>
-                {/* <div className="absolute bottom-[20%] left-[10%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
-                    <img src="/One.png" alt="Profile circle portrait diverse" className="w-full h-full object-cover" />
-                </div> */}
-                
              </div>
-             
-             {/* Original globe is removed from this card. Visualization is in the card. */}
            </div>
         </div>
 
@@ -184,7 +195,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Very light fade at the bottom to transition to the next section smoothly */}
+      {/* Light fade */}
       <div className="absolute bottom- -3 left-0 right-0 h-7 bg-linear-to-t from-white to-transparent z-40 pointer-events-none"></div>
 
     </div>

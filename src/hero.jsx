@@ -3,14 +3,21 @@ import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#edf2f9] overflow-hidden font-clash via-white to-[#f4f6f9] rounded-b-[2%] overflow-hidden font-clash text-black">
+    <div className="relative min-h-screen overflow-hidden font-clash rounded-b-[2%] text-black">
 
-      {/* 2. Light Frosted Glass Overlay (Crucial for readable black text!) */}
-      <div className="absolute inset-0 bg-white/20 backdrop-blur-sm z-0"></div>
+      {/* Background Image */}
+      <img 
+        src="/sushanta-rokka-nhPxuYKIN6A-unsplash.jpg" 
+        alt="Culture Background" 
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Light Frosted Glass Overlay (Crucial for readable black text!) */}
+      <div className="absolute inset-0 bg-white/20  z-0"></div>
 
       {/* Top Floating Navigation */}
       <nav className="relative z-20 mx-3 sm:mx-4 md:mx-8 mt-5 sm:mt-6 bg-white/90 rounded-2xl px-3 sm:px-4 py-2.5 flex justify-between items-center border border-gray-100 shadow-sm">
-        <div className="flex items-center justify-between font-medium text-lg sm:text-xl tracking-wide">
+        <div className="flex items-center gap-3 font-medium text-lg sm:text-xl tracking-wide">
           <img 
              src="/Vector.jpg" 
              alt="Auvra Logo" 
@@ -34,26 +41,26 @@ const Hero = () => {
       </nav>
 
       {/* Main Hero Content */}
-      <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-14 sm:mt-16 md:mt-20 text-black max-w-4xl mx-auto">
+      <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-20 sm:mt-24 md:mt-28 text-white max-w-4xl mx-auto">
         
         {/* UPDATED: Glassmorphism Pill Badge */}
-        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full border border-white/30 bg-white/20 backdrop-blur-md mb-6 shadow-lg">
-          <span className="bg-black text-white border border-white/10 px-3 py-1 rounded-full text-md font-medium">New</span>
-          <span className="text-sm font-medium tracking-wide text-black">A new way to preserve culture</span>
+        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-black/40 backdrop-blur-md text-white mb-6 shadow-lg">
+          <span className="bg-white text-black px-3 py-1 rounded-full text-md font-medium">New</span>
+          <span className="text-sm font-medium tracking-wide">A new way to preserve culture</span>
         </div>
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-black">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
           The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
         </h1>
         
         {/* Subheading */}
-        <p className="text-lg text-gray-700 mb-4 max-w-sm font-medium leading-snug">
+        <p className="text-lg text-white/90 mb-4 max-w-sm font-medium leading-snug" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
         {/* UPDATED: Glassmorphism CTA Button */}
-        <button className="px-8 py-3.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-black text-lg font-medium hover:bg-white/30 transition-all shadow-lg">
+        <button className="px-8 py-3.5 rounded-full bg-black/40 backdrop-blur-md text-white text-lg font-medium hover:bg-black/50 transition-all shadow-lg">
           Start preserving
         </button>
       </main>
@@ -62,7 +69,7 @@ const Hero = () => {
       <div className="relative z-20 mt-4 sm:mt-16 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
         
         {/* Left Card */}
-        <div className="absolute left-1 sm:left-2 md:left-8 bottom-16 sm:bottom-18 md:bottom-20 w-28 sm:w-32 md:w-40 bg-gradient-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-3 sm:p-4 flex flex-col items-center justify-center z-30 shadow-md">
+        <div className="absolute left-1 sm:left-2 md:left-8 bottom-16 sm:bottom-18 md:bottom-20 w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 bg-gradient-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-3 sm:p-4 flex flex-col items-center justify-center z-10 shadow-md">
            <div className="w-10 h-10 bg-[#F59E0B] rounded-full flex items-center justify-center mb-3">
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-white">
                 <circle cx="12" cy="8" r="7"></circle>
@@ -78,7 +85,7 @@ const Hero = () => {
            <div className="w-16 h-1.5 bg-white rounded-full mx-auto mb-6"></div>
            
            {/* Top Status Bar (Mon, 07:32, Network signal lines) */}
-           <div className="flex justify-between items-center text-white text-[13px] mb-14 px-2 font-semi-bold">
+           <div className="flex justify-between items-center text-white text-[13px] mb-6 sm:mb-10 md:mb-14 px-2 font-semi-bold">
              <span>Mon, 07:32</span>
              <div className="flex gap-1 items-center">
                 <span className="w-3 h-2 bg-white/80 rounded-sm"></span> {/* simplified signal bars */}
@@ -150,7 +157,7 @@ const Hero = () => {
         </div>
 
         {/* Right Card */}
-        <div className="absolute right-1 sm:right-2 md:right-8 bottom-16 sm:bottom-20 md:bottom-24 w-32 sm:w-36 md:w-44 p-3 sm:p-4 bg-[#141414] rounded-2xl border border-gray-800 flex flex-col z-30 shadow-md">
+        <div className="absolute right-1 sm:right-2 md:right-8 bottom-20 sm:bottom-24 md:bottom-28 w-32 sm:w-36 md:w-44 lg:w-52 xl:w-60 p-3 sm:p-4 bg-[#141414] rounded-2xl border border-gray-800 flex flex-col z-10 shadow-md">
             <p className="text-[10px] text-white/90 text-center mb-3 leading-tight">Today's goal: Complete 3 oral histories</p>
             <div className="flex justify-between px-1 mb-1">
                <div className="w-7 h-7 border border-white/20 rounded-full flex items-center justify-center text-white">

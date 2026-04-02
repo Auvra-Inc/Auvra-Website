@@ -6,7 +6,7 @@ const LivingRecordsSection = () => {
 
       {/* Header Section */}
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <h2 className="text-2xl md:text-5xl lg:text-6xl font-semibold leading-tight 
+        <h2 className="text-xl md:text-5xl lg:text-6xl font-semibold leading-tight 
 mb-8 text-gray-900">
           Build living
           <span className="inline-flex items-center justify-center w-20 h-10 bg-orange-200 rounded-full align-middle mx-3 overflow-hidden shadow-inner">        

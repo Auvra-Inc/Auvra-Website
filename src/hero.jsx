@@ -168,7 +168,7 @@ const Hero = () => {
         </div>
 
         {/* Right Card */}
-        <div className="absolute right-1 sm:right-2 md:right-8 bottom-20 sm:bottom-24 md:bottom-28 w-32 sm:w-36 md:w-44 lg:w-52 xl:w-60 p-3 sm:p-4 bg-[#141414] rounded-2xl border border-gray-800 flex flex-col z-10 shadow-md">
+        <div className="absolute right-1 sm:right-2 md:right-8 bottom-15 sm:bottom-24 md:bottom-28 w-32 sm:w-36 md:w-44 lg:w-52 xl:w-60 p-3 sm:p-4 bg-[#141414] rounded-2xl border border-gray-800 flex flex-col z-10 shadow-md">
             <p className="text-[10px] text-white/90 text-center mb-3 leading-tight">Today's goal: Complete 3 oral histories</p>
             <div className="flex justify-between px-1 mb-1">
                <div className="w-7 h-7 border border-white/20 rounded-full flex items-center justify-center text-white">

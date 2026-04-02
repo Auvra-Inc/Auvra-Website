@@ -2,7 +2,7 @@ import React from 'react';
 
 const LivingRecordsSection = () => {
   return (
-    <section className="py-24 px-6 overflow-hidden bg-white font-clash">        
+    <section className="py-15 px-6 overflow-hidden bg-white font-clash">        
 
       {/* Header Section */}
       <div className="max-w-4xl mx-auto text-center mb-16">
@@ -57,7 +57,7 @@ const LivingRecordsSection = () => {
         </div>
 
         <div className="absolute left-[5%] sm:left-[8%] md:left-[8%] bottom-[15%] w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-40 rounded-3xl shadow-2xl overflow-hidden z-30 animate-float-fast">
-          <img src="IMG_2857.png" alt="Elder" className="w-full h-full object-cover" />
+          <img src="1img.jpg" alt="Elder" className="w-full h-full object-cover" />
         </div>
 
         {/* Right Side Floating */}

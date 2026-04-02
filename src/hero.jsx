@@ -7,7 +7,7 @@ const Hero = () => {
 
       {/* Background Image */}
       <img 
-        src="/sushanta-rokka-nhPxuYKIN6A-unsplash.jpg" 
+        src="/nature.avif" 
         alt="Culture Background" 
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -41,26 +41,26 @@ const Hero = () => {
       </nav>
 
       {/* Main Hero Content */}
-      <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-20 sm:mt-24 md:mt-28 text-white max-w-4xl mx-auto">
+      <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-20 sm:mt-24 md:mt-28 text-black max-w-4xl mx-auto">
         
         {/* UPDATED: Glassmorphism Pill Badge */}
-        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-black/40 backdrop-blur-md text-white mb-6 shadow-lg">
-          <span className="bg-white text-black px-3 py-1 rounded-full text-md font-medium">New</span>
+        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-white/40 backdrop-blur-md text-black mb-6 shadow-lg">
+          <span className="bg-black text-white px-3 py-1 rounded-full text-md font-medium">New</span>
           <span className="text-sm font-medium tracking-wide">A new way to preserve culture</span>
         </div>
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-black">
           The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
         </h1>
         
         {/* Subheading */}
-        <p className="text-lg text-white/90 mb-4 max-w-sm font-medium leading-snug" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
+        <p className="text-lg text-black/90 mb-4 max-w-sm font-medium leading-snug">
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
         {/* UPDATED: Glassmorphism CTA Button */}
-        <button className="px-8 py-3.5 rounded-full bg-black/40 backdrop-blur-md text-white text-lg font-medium hover:bg-black/50 transition-all shadow-lg">
+        <button className="px-8 py-3.5 rounded-full bg-white/40 backdrop-blur-md text-black text-lg font-medium hover:bg-white/50 transition-all shadow-lg">
           Start preserving
         </button>
       </main>

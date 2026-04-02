@@ -3,11 +3,7 @@ import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen rounded-b-[2%] overflow-hidden font-clash text-black">
-
-      {/* Animated flowing background (nature-style movement) */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#dbeafe] via-[#bae6fd] to-[#e0f2fe] animate-hero-bg"></div>
-      <div className="absolute inset-0 -z-5 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.25),transparent_40%)] animate-hero-clouds"></div>
+    <div className="relative min-h-screen bg-gradient-to-br from-[#edf2f9] overflow-hidden font-clash via-white to-[#f4f6f9] rounded-b-[2%] overflow-hidden font-clash text-black">
 
       {/* 2. Light Frosted Glass Overlay (Crucial for readable black text!) */}
       <div className="absolute inset-0 bg-white/20 backdrop-blur-sm z-0"></div>

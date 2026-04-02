@@ -3,7 +3,7 @@ import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden font-clash rounded-b-[2%] text-black">
+    <div className="relative min-h-screen overflow-hidden font-clash  text-black">
 
       {/* Background Image */}
       <img 
@@ -27,15 +27,15 @@ const Hero = () => {
         </div>
       
         <div className="flex gap-2">
-          <button className="w-10 h-10 bg-gray-200 text-gray-700 rounded-2xl flex items-center justify-center hover:bg-gray-100 transition shadow-sm border border-gray-100">
+          <button className="w-10 h-10 bg-gray-200 text-black rounded-md flex items-center justify-center hover:bg-gray-100 transition">
             <FaAppStore className="text-lg" />
           </button>
-          <button className="w-10 h-10 bg-gray-200 text-gray-700 rounded-2xl flex items-center justify-center hover:bg-gray-100 transition shadow-sm border border-gray-100">
+          <button className="w-10 h-10 bg-gray-200 text-black rounded-md flex items-center justify-center hover:bg-gray-100 transition ">
             <FaGooglePlay className="text-lg font-bold" />
           </button>
-          <button className="w-10 h-10 bg-gray-200 rounded-2xl flex flex-col justify-center items-center gap-1 hover:bg-gray-100 transition shadow-sm border border-gray-100">
-            <div className="w-4 h-0.5 bg-gray-700"></div>
-            <div className="w-4 h-0.5 bg-gray-700"></div>
+          <button className="w-10 h-10 bg-gray-200 rounded-md flex flex-col justify-center items-center gap-1 hover:bg-gray-100 transition ">
+            <div className="w-4 h-0.5 bg-black"></div>
+            <div className="w-4 h-0.5 bg-black"></div>
           </button>
         </div>
       </nav>
@@ -44,7 +44,7 @@ const Hero = () => {
       <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-20 sm:mt-24 md:mt-28 text-black max-w-4xl mx-auto">
         
         {/* UPDATED: Glassmorphism Pill Badge */}
-        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-white/10 backdrop-blur-md text-white mb-6 shadow-lg">
+        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-white/10 backdrop-blur-md text-white mb-6 ">
           <span className="bg-black text-white px-3 py-1 rounded-full text-md font-medium">New</span>
           <span className="text-sm font-medium tracking-wide">A new way to preserve culture</span>
         </div>
@@ -185,7 +185,7 @@ const Hero = () => {
       </div>
       
       {/* Very light fade at the bottom to transition to the next section smoothly */}
-      <div className="absolute bottom-0 left-0 right-0 h-7 bg-linear-to-t from-white to-transparent z-40 pointer-events-none"></div>
+      <div className="absolute bottom- -3 left-0 right-0 h-7 bg-linear-to-t from-white to-transparent z-40 pointer-events-none"></div>
 
     </div>
   );

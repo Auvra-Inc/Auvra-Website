@@ -42,7 +42,7 @@ const LivingRecordsSection = () => {
           <img
             src="Screen.jpg"
             alt="Auvra Mobile App"
-            className="border-5 rounded-4xl w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-contain drop-shadow-2xl"
+            className="border-5 rounded-4xl bg-white w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-contain drop-shadow-2xl"
           />
           {/* iPhone Notch */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 sm:w-28 md:w-32 h-7 sm:h-7 bg-black rounded-b-xl z-10 shadow-lg"></div>

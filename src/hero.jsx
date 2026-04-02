@@ -27,15 +27,15 @@ const Hero = () => {
         </div>
       
         <div className="flex gap-2">
-          <button className="w-10 h-10 bg-gray-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
+          <button className="w-10 h-10 bg-gray-200 text-gray-700 rounded-2xl flex items-center justify-center hover:bg-gray-100 transition shadow-sm border border-gray-100">
             <FaAppStore className="text-lg" />
           </button>
-          <button className="w-10 h-10 bg-gray-400 text-gray-800 rounded-2xl flex items-center justify-center hover:bg-gray-50 transition shadow-sm border border-gray-100">
+          <button className="w-10 h-10 bg-gray-200 text-gray-700 rounded-2xl flex items-center justify-center hover:bg-gray-100 transition shadow-sm border border-gray-100">
             <FaGooglePlay className="text-lg font-bold" />
           </button>
-          <button className="w-10 h-10 bg-gray-400 rounded-2xl flex flex-col justify-center items-center gap-1 hover:bg-gray-50 transition shadow-sm border border-gray-100">
-            <div className="w-4 h-0.5 bg-black"></div>
-            <div className="w-4 h-0.5 bg-black"></div>
+          <button className="w-10 h-10 bg-gray-200 rounded-2xl flex flex-col justify-center items-center gap-1 hover:bg-gray-100 transition shadow-sm border border-gray-100">
+            <div className="w-4 h-0.5 bg-gray-700"></div>
+            <div className="w-4 h-0.5 bg-gray-700"></div>
           </button>
         </div>
       </nav>
@@ -44,7 +44,7 @@ const Hero = () => {
       <main className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 mt-20 sm:mt-24 md:mt-28 text-black max-w-4xl mx-auto">
         
         {/* UPDATED: Glassmorphism Pill Badge */}
-        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-white/40 backdrop-blur-md text-black mb-6 shadow-lg">
+        <div className="flex items-center gap-3 px-1 py-1 pr-4 rounded-full bg-white/10 backdrop-blur-md text-white mb-6 shadow-lg">
           <span className="bg-black text-white px-3 py-1 rounded-full text-md font-medium">New</span>
           <span className="text-sm font-medium tracking-wide">A new way to preserve culture</span>
         </div>
@@ -55,12 +55,12 @@ const Hero = () => {
         </h1>
         
         {/* Subheading */}
-        <p className="text-lg text-white/90 mb-4 max-w-sm font-medium leading-snug">
+        <p className="text-md text-white/90 mb-4 max-w-sm font-medium leading-snug">
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
         {/* UPDATED: Glassmorphism CTA Button */}
-        <button className="px-8 py-3.5 rounded-full bg-white/40 backdrop-blur-md text-black text-lg font-medium hover:bg-white/50 transition-all shadow-lg">
+        <button className="px-8  rounded-full bg-white/10 h-[40.1px] backdrop-blur-md text-white text-md font-medium hover:bg-white/20 transition-all ">
           Start preserving
         </button>
       </main>

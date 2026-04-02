@@ -27,13 +27,13 @@ const Hero = () => {
         </div>
       
         <div className="flex gap-2">
-          <button className="w-10 h-10 bg-gray-200 text-black rounded-md flex items-center justify-center hover:bg-gray-100 transition">
+          <button className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition">
             <FaAppStore className="text-lg" />
           </button>
-          <button className="w-10 h-10 bg-gray-200 text-black rounded-md flex items-center justify-center hover:bg-gray-100 transition ">
+          <button className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition ">
             <FaGooglePlay className="text-lg font-bold" />
           </button>
-          <button className="w-10 h-10 bg-gray-200 rounded-md flex flex-col justify-center items-center gap-1 hover:bg-gray-100 transition ">
+          <button className="w-10 h-10 bg-gray-200 rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-gray-100 transition ">
             <div className="w-4 h-0.5 bg-black"></div>
             <div className="w-4 h-0.5 bg-black"></div>
           </button>

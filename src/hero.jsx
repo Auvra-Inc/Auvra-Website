@@ -79,10 +79,10 @@ const Hero = () => {
            <p className="text-[10px] text-white text-center leading-tight">7-day preservation streak</p>
         </div>
 
-        <div className="w-64 md:w-80 h-[350px] md:h-[450px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] border-[#e0e0e0] shadow-md overflow-hidden">
+        <div className="w-64 md:w-80 h-[350px] md:h-[450px] bg-gradient-to-b bg-white/10 backdrop-blur-md  from-[#A3A3A3] to-[#444343] rounded-t-[2.5rem] p-4 flex flex-col relative z-10 translate-y-8 border-[5px] shadow-md overflow-hidden">
            
            {/* Dynamic Notch */}
-           <div className="w-16 h-1.5 bg-white rounded-full mx-auto mb-6"></div>
+           <div className="w-16 h-1.5 bg-[#444343] rounded-full mx-auto mb-6"></div>
            
            {/* Top Status Bar (Mon, 07:32, Network signal lines) */}
            <div className="flex justify-between items-center text-white text-[13px] mb-6 sm:mb-10 md:mb-14 px-2 font-semi-bold">

@@ -60,7 +60,7 @@ const Hero = () => {
         </p>
 
         {/* UPDATED: Glassmorphism CTA Button */}
-        <button className="px-8 py-3.5 rounded-full bg-white/10 h-[40.1px] backdrop-blur-md text-white text-md font-medium hover:bg-white/20 transition-all ">
+        <button className="px-8 pt-2 rounded-full bg-white/10 h-[40.1px] backdrop-blur-md text-white text-md font-medium hover:bg-white/20 transition-all ">
           Start preserving
         </button>
       </main>

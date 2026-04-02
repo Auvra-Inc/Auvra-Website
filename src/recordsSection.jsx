@@ -40,7 +40,7 @@ mb-8 text-gray-900">
 
         {/* Central Phone Mockup - Static */}
         <img
-          src="div.framer-13hbuxv.jpg"
+          src="div.framer-13hbuxv.png"
           alt="Auvra Mobile App"
           className="relative z-20 w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-contain drop-shadow-2xl"
         />

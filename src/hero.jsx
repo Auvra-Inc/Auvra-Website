@@ -50,12 +50,12 @@ const Hero = () => {
         </div>
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-black">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 max-w-lg text-white">
           The permanent home for <span className="text-[#FBBF24] font-damion font-normal italic text-[0.85em] tracking-wide drop-shadow-sm">human</span> culture
         </h1>
         
         {/* Subheading */}
-        <p className="text-lg text-black/90 mb-4 max-w-sm font-medium leading-snug">
+        <p className="text-lg text-white/90 mb-4 max-w-sm font-medium leading-snug">
           Preserve traditions, own your creations, and pass down what matters all in one place.
         </p>
 
@@ -66,7 +66,7 @@ const Hero = () => {
       </main>
 
       {/* Bottom Mockups */}
-      <div className="relative z-20 mt-4 sm:mt-16 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
+      <div className="relative z-20 mt-2 sm:mt-8 md:mt-12 w-full max-w-5xl mx-auto flex justify-center items-end h-[30rem] sm:h-[32rem] md:h-[35rem]"> 
         
         {/* Left Card */}
         <div className="absolute left-1 sm:left-2 md:left-8 bottom-16 sm:bottom-18 md:bottom-20 w-28 sm:w-32 md:w-40 lg:w-48 xl:w-56 bg-gradient-to-b from-[#A3A3A3] to-[#444343] rounded-2xl border border-gray-300 p-3 sm:p-4 flex flex-col items-center justify-center z-10 shadow-md">

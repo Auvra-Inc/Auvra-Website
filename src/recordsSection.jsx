@@ -6,8 +6,7 @@ const LivingRecordsSection = () => {
 
       {/* Header Section */}
       <div className="max-w-4xl mx-auto text-center mb-16">
-        <h2 className="text-xl md:text-5xl lg:text-6xl font-semibold leading-tight 
-mb-8 text-gray-900">
+        <h2 className="text-xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-8 text-gray-900">
           Build living
           <span className="inline-flex items-center justify-center w-20 h-10 bg-orange-200 rounded-full align-middle mx-3 overflow-hidden shadow-inner">        
              <img src="One.png" alt="Cyclist" className="w-full h-full object-cover opacity-80" />
@@ -42,7 +41,7 @@ mb-8 text-gray-900">
         <img
           src="div.framer-13hbuxv.png"
           alt="Auvra Mobile App"
-          className="relative z-20 w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-contain drop-shadow-2xl"
+          className="relative z-50 w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-contain drop-shadow-2xl"
         />
 
         {/* FLOATING CARDS - Notice the new animate-float classes added! */}    
@@ -58,7 +57,7 @@ mb-8 text-gray-900">
         </div>
 
         <div className="absolute left-[5%] sm:left-[8%] md:left-[8%] bottom-[15%] w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-40 rounded-3xl shadow-2xl overflow-hidden z-30 animate-float-fast">
-          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200&auto=format&fit=crop" alt="Elder" className="w-full h-full object-cover" />
+          <img src="IMG_2857.png" alt="Elder" className="w-full h-full object-cover" />
         </div>
 
         {/* Right Side Floating */}

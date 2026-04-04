@@ -38,7 +38,7 @@ const LivingRecordsSection = () => {
       <div className="relative max-w-5xl mx-auto h-[500px] sm:h-[600px] md:h-[700px] flex justify-center items-center mt-10">
 
         {/* Central Phone Mockup - Static */}
-        <div className="relative z-50">
+        <div className="relative z-0">
           <img
             src="Screen.jpg"
             alt="Auvra Mobile App"

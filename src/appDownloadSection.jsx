@@ -11,7 +11,7 @@ const AppDownloadSection = () => {
         <span className="text-gray-500 text-sm">(based on 125 reviews)</span>
       </div>
 
-      <p className="max-w-xl text-lg text-gray-600 font-sans mb-6">
+      <p className="max-w-2xl text-sm text-center text-gray-600 font-clash mb-4">
         Stay rooted in what matters with a platform that honors your stories. Simple tools, clear progress, and gentle guidance help you build a legacy that lasts.
       </p>
 

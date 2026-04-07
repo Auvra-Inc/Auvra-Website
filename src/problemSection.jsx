@@ -1,6 +1,6 @@
 const ProblemSection = () => {
   return (
-    <section className="py-20 px-6 max-w-4xl mx-auto bg-white font-clash">
+    <section className="py-10 px-6 max-w-4xl mx-auto bg-white font-clash">
       {/* Headlines */}
       <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-900 ">
         Culture is disappearing.

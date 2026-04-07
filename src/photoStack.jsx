@@ -5,7 +5,7 @@ const PhotoStack = () => {
   // Put all your image URLs here. You can add as many as you want!
   // It will perfectly cycle through them infinitely.
   const images = [
-    "/IMG_2857 4.png", "/IMG_2857 3.png", "/IMG_2857 2.png"
+    "/caro4.png", "/caro3.png", "/caro2.png"
   ];
 
   // This state tracks which image is currently sitting at the very front
@@ -17,7 +17,7 @@ const PhotoStack = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full py-16">
+    <div className="flex flex-col items-center justify-center w-full ">
       
       {/* 1. The Instruction Text */}
       <div 
@@ -39,7 +39,7 @@ const PhotoStack = () => {
           const position = (index - activeIndex + images.length) % images.length;
 
           // Base classes that every single image gets (the smooth transition is here!)
-          let baseClasses = "absolute top-0 left-0 w-full h-full object-contain rounded-3xl shadow-2xl transition-all duration-500 ease-in-out";
+          let baseClasses = "absolute top-0 left-0 w-full h-full object-contain rounded-3xl transition-all duration-500 ease-in-out";
           
           // We apply different transforms based on their position in the stack
           let transformClasses = "";

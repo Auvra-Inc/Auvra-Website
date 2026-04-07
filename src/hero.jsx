@@ -32,7 +32,7 @@ const Hero = () => {
 
       {/* Ultra-Modern Floating Island Navigation */}
       <nav 
-        className={`fixed z-50 flex justify-between items-center px-4 py-3 shadow-sm transition-all duration-300 ease-in-out left-0 right-0 mx-auto max-w-5xl w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] rounded-2xl
+        className={`fixed z-50 flex justify-between items-center px-4 py-2 shadow-sm transition-all duration-300 ease-in-out left-0 right-0 mx-auto max-w-5xl w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] rounded-2xl
           ${isScrolled 
             ? 'top-3 sm:top-4 bg-white/70 backdrop-blur-md border border-white/40 shadow-lg' 
             : 'top-5 sm:top-6 bg-white/90 border border-gray-100'

@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+
+
+@theme {
+  --font-clash: 'Clash Display', sans-serif;
+  --font-damion: 'Damion', cursive;
+}
+
+/* =========================================
+   KEYFRAMES (Animations)
+========================================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes float-mini {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes hero-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes hero-clouds {
+  0% { transform: translateX(-20%) translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateX(20%) translateY(-2%) scale(1.02); opacity: 0.5; }
+  100% { transform: translateX(-20%) translateY(0) scale(1); opacity: 0.4; }
+}
+
+/* =========================================
+   UTILITY CLASSES
+========================================= */
+.animate-float-fast { animation: float 4s ease-in-out infinite; }
+.animate-float-normal, .animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float 8s ease-in-out infinite; }
+.animate-float-mini { animation: float-mini 4s ease-in-out infinite; }
+.animate-marquee { animation: marquee-right 25s linear infinite; }
+.animate-hero-bg { animation: hero-gradient-shift 20s ease infinite; background-size: 200% 200%; }
+.animate-hero-clouds { animation: hero-clouds 18s ease-in-out infinite; }
+
+/* =========================================
+   GLOBAL FIXES
+========================================= */
+/* The Fix for the white gap on mobile */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* THE FIX: Added the space in 'Clash Display' */
+.font-clash {
+  font-family: 'Clash Display', sans-serif !important; 
+}

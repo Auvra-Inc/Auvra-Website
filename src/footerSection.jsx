@@ -20,7 +20,7 @@ export default function FooterSection() {
           <div className="absolute inset-0 bg-black/40"></div>
           
           {/* Glassmorphism Quote Box */}
-          <div className="relative z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg">
+          <div className="relative z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg font-clash">
             <p className="text-white text-sm md:text-base font-light leading-relaxed mb-4">
               "From the rhythms of Africa to the voices of the world, culture is more than memory. It is identity. It is ownership. It is legacy. It is you."
             </p>
@@ -133,11 +133,11 @@ export default function FooterSection() {
       {/* =========================================
           GIANT WATERMARK (Behind the copyright)
       ========================================= */}
-      <div className="absolute bottom-[-10px] left-0 w-full flex justify-center overflow-hidden pointer-events-none select-none z-0">
+      {/* <div className="absolute bottom-[-10px] left-0 w-full flex justify-center overflow-hidden pointer-events-none select-none z-0">
         <h1 className="font-clash text-[7rem] sm:text-[10rem] font-bold text-gray-50 tracking-widest">
           AUVRA
         </h1>
-      </div>
+      </div> */}
 
     </footer>
   );

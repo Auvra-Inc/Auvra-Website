@@ -1,25 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-// --- CUSTOM HOOK FOR COUNTING NUMBERS ---
-// This automatically counts from 0 to your target number in 2 seconds
-const AnimatedCounter = ({ target, duration = 2000 }) => {
+// --- CUSTOM HOOK FOR COUNTING NUMBERS (NOW WITH SCROLL SENSOR) ---
+const AnimatedCounter = ({ target, duration = 600 }) => {
   const [count, setCount] = useState(0);
+  const countRef = useRef(null); // The sensor
+  const [hasAnimated, setHasAnimated] = useState(false); // Locks it so it only animates once
 
   useEffect(() => {
-    let startTime = null;
-    const animateCount = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = timestamp - startTime;
-      const current = Math.min(Math.floor((progress / duration) * target), target);
-      setCount(current);
-      if (current < target) {
-        requestAnimationFrame(animateCount);
-      }
-    };
-    requestAnimationFrame(animateCount);
-  }, [target, duration]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        // Fire the animation only when visible and hasn't animated yet
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
 
-  return <>{count}</>;
+          let startTime = null;
+          const animateCount = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = timestamp - startTime;
+            const current = Math.min(Math.floor((progress / duration) * target), target);
+            setCount(current);
+            if (current < target) {
+              requestAnimationFrame(animateCount);
+            }
+          };
+          requestAnimationFrame(animateCount);
+        }
+      },
+      { threshold: 0.5 } // Triggers when 50% of the number is on screen
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => {
+      if (countRef.current) observer.unobserve(countRef.current);
+    };
+  }, [target, duration, hasAnimated]);
+
+  return <span ref={countRef}>{count}</span>;
 };
 
 export default function ImpactSection() {
@@ -46,10 +66,10 @@ export default function ImpactSection() {
           <span className="text-gray-500">(Trusted by 10.0k+ people)</span>
         </div>
 
-        {/* Carousel Card (Replace bg-gray-200 with your actual image) */}
+        {/* Carousel Card */}
         <div className="relative w-full aspect-[4/5] bg-gray-200 rounded-[2rem] overflow-hidden shadow-xl mb-8">
           <img 
-            src="/section.png" /* <-- DROP YOUR REAL IMAGE PATH HERE */
+            src="/section.png" 
             alt="People working out" 
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -90,7 +110,7 @@ export default function ImpactSection() {
         {/* The Earth Image */}
         <div className="w-full max-w-[350px] aspect-square my-7">
           <img 
-            src="/earth.png" /* <-- DROP YOUR 3D EARTH IMAGE PATH HERE */
+            src="/earth2.png" 
             alt="3D Earth" 
             className="w-full h-full object-contain drop-shadow-2xl"
           />

@@ -3,9 +3,9 @@ import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
 
 const Hero = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  // NEW: State to control the blurred menu overlay
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // 1. Existing effect for the floating nav bar
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -18,6 +18,22 @@ const Hero = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 2. NEW EFFECT: Lock the background scroll when menu is open!
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Freeze the background
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Unfreeze when closed
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function just in case
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   return (
     <div className="relative min-h-screen overflow-hidden font-clash text-black">
@@ -56,7 +72,6 @@ const Hero = () => {
           <button className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition ">
             <FaGooglePlay className="text-lg font-bold" />
           </button>
-          {/* UPDATED: Added onClick to open the menu */}
           <button 
             onClick={() => setIsMenuOpen(true)}
             className="w-10 h-10 bg-gray-200 rounded-xl flex flex-col justify-center items-center gap-1 hover:bg-gray-100 transition "
@@ -206,7 +221,7 @@ const Hero = () => {
             onClick={() => setIsMenuOpen(false)}
           ></div>
 
-          {/* 1. The Top Header Pill (Matches your floating nav style) */}
+          {/* 1. The Top Header Pill */}
           <div className="relative z-10 w-full max-w-5xl bg-white rounded-2xl flex items-center justify-between px-4 py-2 shadow-lg mb-4">
             
             {/* Logo */}

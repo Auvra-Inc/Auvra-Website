@@ -22,7 +22,7 @@ const AudienceSection = () => {
       </h2>
 
       {/* 3. ICON BUTTONS CLUSTER */}
-      <div className="flex flex-wrap justify-center gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 mb-20">
+      <div className="grid grid-cols-2 justify-center gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 mb-20">
         <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-900 text-gray-900 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
           <Briefcase className="w-5 h-5" /> Creators
         </button>

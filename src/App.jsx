@@ -7,6 +7,9 @@ import PhotoStack from './photoStack'
 import VaultSection from './vaultSection'
 import Design from './design'
 import AudienceSection from './audienceSection'
+import ImpactSection from './impactSection'
+import FaqAndCardsSection from './faqSection'
+import FooterSection from './footerSection'
 import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
       <VaultSection />
       <Design />
       <AudienceSection />
+      <ImpactSection />
+      <FaqAndCardsSection />
+      <FooterSection />
     </>
   )
 }

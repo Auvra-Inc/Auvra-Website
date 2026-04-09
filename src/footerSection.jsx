@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function FooterSection() {
   return (
@@ -87,21 +88,22 @@ export default function FooterSection() {
             <a href="#" className="text-sm text-gray-800 hover:text-black transition">Blog</a>
           </div>
 
-          {/* Column 2 */}
+          {/* Column 2 - ROUTED */}
           <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Legal</h4>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition">Terms of Service</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition">Privacy Policy</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition">AML / KYC Policy</a>
+            <Link to="/terms" className="text-sm text-gray-800 hover:text-black transition">Terms of Service</Link>
+            <Link to="/privacy" className="text-sm text-gray-800 hover:text-black transition">Privacy Policy</Link>
+            <Link to="/aml" className="text-sm text-gray-800 hover:text-black transition">AML / KYC Policy</Link>
+            <Link to="/collab" className="text-sm text-gray-800 hover:text-black transition">Collaboration Terms</Link>
           </div>
 
-          {/* Column 3 */}
+          {/* Column 3 - ROUTED */}
           <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Trust & Safety</h4>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition">Community Guidelines</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition">Content Governance</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition">Copyright Policy</a>
-            <a href="#" className="text-sm text-gray-800 hover:text-black transition">Advocacy</a>
+            <Link to="/community" className="text-sm text-gray-800 hover:text-black transition">Community Guidelines</Link>
+            <Link to="/copyright" className="text-sm text-gray-800 hover:text-black transition">Copyright Policy</Link>
+            <Link to="/ai-policy" className="text-sm text-gray-800 hover:text-black transition">AI Policy</Link>
+            <Link to="#" className="text-sm text-gray-800 hover:text-black transition">Content Governance</Link>
           </div>
 
           {/* Column 4 */}

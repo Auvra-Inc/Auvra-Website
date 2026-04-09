@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // --- YOUR COMPONENT IMPORTS ---
 import Hero from './hero'
@@ -23,9 +24,18 @@ import AIPolicy from './aiPolicy'
 import CommunityGuidelines from './community'
 import CollaborationHubTerms from './collaborationTerms'
 import CopyrightPolicy from './copyrightPolicy'
-import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 
-// 1. Group all your landing page sections together into a "Home" view
+// 1. SCROLL HELPER (Added directly here so you don't need a separate file!)
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+// 2. THE HOMEPAGE BUNDLE
+// This groups all your landing page sections together so they only show on the main page.
 const Home = () => (
   <>
     <Hero />
@@ -42,16 +52,17 @@ const Home = () => (
   </>
 );
 
+// 3. THE MASTER MAP
 function App() {
   return (
     <BrowserRouter>
-      {/* 2. The Routes map out exactly what component to show for each URL */}
+      <ScrollToTop /> {/* Instantly scrolls to top when you click a link */}
+
       <Routes>
-        
-        {/* The Main Landing Page */}
+        {/* If the URL is exactly "/", show the Home bundle */}
         <Route path="/" element={<Home />} />
 
-        {/* The Legal Pages (These MUST match the "to" links in your Footer) */}
+        {/* If the URL matches these, hide the Home bundle and show the legal page! */}
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/aml" element={<AMLPolicy />} />
@@ -59,10 +70,9 @@ function App() {
         <Route path="/ai-policy" element={<AIPolicy />} />
         <Route path="/community" element={<CommunityGuidelines />} />
         <Route path="/copyright" element={<CopyrightPolicy />} />
-        
       </Routes>
 
-      {/* 3. The Footer is placed OUTSIDE the Routes so it always appears at the bottom of every page! */}
+      {/* Footer stays outside the Routes so it always shows up at the bottom */}
       <FooterSection />
     </BrowserRouter>
   )

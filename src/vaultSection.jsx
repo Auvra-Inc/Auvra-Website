@@ -34,7 +34,7 @@ const VaultSection = () => {
         <img 
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 
-          className="w-full h-auto object-contain drop-shadow-2xl"
+          className="w-full h-auto object-contain"
         />
       </div>
 
@@ -43,7 +43,7 @@ const VaultSection = () => {
       {/* Top Left (Large dark image) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200&auto=format&fit=crop" 
-        className="top-[5%] left-[3%] md:left-[20%] w-24 h-24 md:w-32 md:h-32" 
+        className="top-[5%] left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
         delay="0s" 
       />
       

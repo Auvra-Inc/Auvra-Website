@@ -14,9 +14,12 @@ const LivingRecordsSection = () => {
           </span>
           records of <span className="font-medium">culture that connect stories</span> people, and
           {/* UPDATED: Diamond Image - Explicit smaller responsive heights */}
-          <img
-            alt="Diamond"
-            src="Vector.png"
+          <video
+            src="video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
             className="inline-block h-6 md:h-8 lg:h-10 w-auto align-middle mx-2 md:mx-3 drop-shadow-md -translate-y-1"
           />
           meaning across generations.

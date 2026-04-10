@@ -22,9 +22,9 @@ const LegalLayout = ({ children, currentPage }) => {
         <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#e5e7eb 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4 block">Trust & Safety</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4 block font-clash">Trust & Safety</span>
           <h1 className="text-4xl md:text-5xl font-clash font-medium text-gray-900 mb-4">Legal & Compliance</h1>
-          <p className="text-lg text-gray-500 max-w-2xl leading-relaxed">
+          <p className="text-md text-gray-500 max-w-2xl leading-relaxed font-clash">
             Everything you need to know about how Auvra protects your data, your rights, and your cultural legacy.
           </p>
         </div>

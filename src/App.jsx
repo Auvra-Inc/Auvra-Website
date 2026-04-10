@@ -78,23 +78,3 @@ function App() {
 }
 
 export default App
-import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
-
-  
-
-  return (
-    <>
-      <Hero />
-      <LivingRecordsSection />
-      <AppDownloadSection />
-      <ProblemSection />
-      <PhotoStack />
-      <FeaturesSection />
-      <VaultSection />
-      <Design />
-      <AudienceSection />
-    </>
-  )
-}
-
-export default App

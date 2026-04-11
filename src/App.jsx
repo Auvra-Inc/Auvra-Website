@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 
 // --- YOUR COMPONENT IMPORTS ---
 import Hero from './hero'
@@ -14,6 +13,7 @@ import Design from './design'
 import AudienceSection from './audienceSection'
 import ImpactSection from './impactSection'
 import FaqAndCardsSection from './faqSection'
+import FooterSection from './footerSection' // <-- THIS WAS MISSING!
 
 // --- YOUR LEGAL PAGE IMPORTS ---
 import PrivacyPolicy from './privacyPolicy'
@@ -24,7 +24,7 @@ import CommunityGuidelines from './community'
 import CollaborationHubTerms from './collaborationTerms'
 import CopyrightPolicy from './copyrightPolicy'
 
-// 1. SCROLL HELPER (Added directly here so you don't need a separate file!)
+// 1. SCROLL HELPER
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -34,7 +34,6 @@ function ScrollToTop() {
 }
 
 // 2. THE HOMEPAGE BUNDLE
-// This groups all your landing page sections together so they only show on the main page.
 const Home = () => (
   <>
     <Hero />
@@ -58,10 +57,7 @@ function App() {
       <ScrollToTop /> {/* Instantly scrolls to top when you click a link */}
 
       <Routes>
-        {/* If the URL is exactly "/", show the Home bundle */}
         <Route path="/" element={<Home />} />
-
-        {/* If the URL matches these, hide the Home bundle and show the legal page! */}
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/aml" element={<AMLPolicy />} />

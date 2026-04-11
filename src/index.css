@@ -54,13 +54,8 @@
 /* The Fix for the white gap on mobile */
 html,
 body {
-<<<<<<< HEAD
   max-width: 100%;
   overflow-x: hidden;
-=======
-  overflow-x: hidden;
-  max-width: 100%;
->>>>>>> 146323faee2a291db941ace0a0dff2dcb88d05fe
 }
 
 /* THE FIX: Added the space in 'Clash Display' */

@@ -1,7 +1,7 @@
 import React from 'react';
 // IMPORTED ALL THE CORRECT UNIQUE ICONS HERE
 import { Palette, Users, Archive, Home, User, Landmark } from 'lucide-react';
-import { Briefcase, Users, Monitor, User, Landmark } from 'lucide-react';
+
 
 const AudienceSection = () => {
   return (

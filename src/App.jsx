@@ -23,6 +23,7 @@ import AIPolicy from './aiPolicy'
 import CommunityGuidelines from './community'
 import CollaborationHubTerms from './collaborationTerms'
 import CopyrightPolicy from './copyrightPolicy'
+import ContentGovernance from './contentGovernance'
 
 // 1. SCROLL HELPER
 function ScrollToTop() {
@@ -65,6 +66,8 @@ function App() {
         <Route path="/ai-policy" element={<AIPolicy />} />
         <Route path="/community" element={<CommunityGuidelines />} />
         <Route path="/copyright" element={<CopyrightPolicy />} />
+        <Route path="/governance" element={<ContentGovernance />} />
+
       </Routes>
 
       {/* Footer stays outside the Routes so it always shows up at the bottom */}

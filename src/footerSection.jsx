@@ -93,7 +93,7 @@ export default function FooterSection() {
             <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Legal</h4>
             <Link to="/terms" className="text-sm text-gray-800 hover:text-black transition">Terms of Service</Link>
             <Link to="/privacy" className="text-sm text-gray-800 hover:text-black transition">Privacy Policy</Link>
-            <Link to="/aml" className="text-sm text-gray-800 hover:text-black transition">AML / KYC Policy</Link>
+            <Link to="/aml" className="text-sm text-gray-800 hover:text-black transition">AML / CFT Policy</Link>
             <Link to="/collab" className="text-sm text-gray-800 hover:text-black transition">Collaboration Terms</Link>
           </div>
 
@@ -101,9 +101,10 @@ export default function FooterSection() {
           <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Trust & Safety</h4>
             <Link to="/community" className="text-sm text-gray-800 hover:text-black transition">Community Guidelines</Link>
+             <Link to="/governance" className="text-sm text-gray-800 hover:text-black transition">Content Governance</Link>
             <Link to="/copyright" className="text-sm text-gray-800 hover:text-black transition">Copyright Policy</Link>
             <Link to="/ai-policy" className="text-sm text-gray-800 hover:text-black transition">AI Policy</Link>
-            <Link to="#" className="text-sm text-gray-800 hover:text-black transition">Content Governance</Link>
+           
           </div>
 
           {/* Column 4 */}

@@ -20,7 +20,6 @@ const FeaturesSection = () => {
       
       {/* Header */}
       <div className="mb-16 max-w-2xl">
-<<<<<<< HEAD
         <div className="inline-block px-4 py-1.5 rounded-full border border-gray-300 text-md font-medium tracking-widest uppercase mb-6 shadow-sm font-clash">
           Built for preservation
         </div>
@@ -29,15 +28,6 @@ const FeaturesSection = () => {
         </h2>
         <p className="bg-white/90 shadow-md w-full "></p>
         <p className="text-lg text-gray-600 font-clash leading-relaxed">
-=======
-        <div className="inline-block px-4 py-1.5 rounded-full border border-gray-300 text-xs font-bold tracking-widest uppercase mb-6 shadow-sm font-sans">
-          Built for preservation
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-          Everything you need to safeguard your heritage.
-        </h2>
-        <p className="text-lg text-gray-600 font-sans leading-relaxed">
->>>>>>> 146323faee2a291db941ace0a0dff2dcb88d05fe
           Auvra gives creators, communities, collectors, and families tools, not just storage. Every feature is designed to make cultural preservation sustainable and accessible.
         </p>
       </div>

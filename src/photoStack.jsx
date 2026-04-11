@@ -17,11 +17,7 @@ const PhotoStack = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="flex flex-col items-center justify-center w-full overflow-hidden ">
-=======
-    <div className="flex flex-col items-center justify-center w-full ">
->>>>>>> 146323faee2a291db941ace0a0dff2dcb88d05fe
       
       {/* 1. The Instruction Text */}
       <div 

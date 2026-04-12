@@ -4,7 +4,7 @@ import LegalLayout from './legalLayout';
 export default function TermsOfService() {
   return (
     <LegalLayout currentPage="terms">
-      <div className="prose prose-gray max-w-none">
+      <div className="prose prose-gray max-w-none font-clash">
         
         <h2 className="text-3xl font-clash font-medium text-gray-900 mb-2">Terms of Service {/* [cite: 336] */}</h2>
         <p className="text-gray-600 mb-2">Please read these terms carefully before using our platform {/* [cite: 337] */}</p>

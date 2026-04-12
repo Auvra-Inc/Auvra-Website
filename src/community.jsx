@@ -4,7 +4,7 @@ import LegalLayout from './legalLayout';
 export default function CommunityGuidelines() {
   return (
     <LegalLayout currentPage="community">
-      <div className="prose prose-gray max-w-none">
+      <div className="prose prose-gray max-w-none font-clash">
         
         <h2 className="text-3xl font-clash font-medium text-gray-900 mb-2">Community Guidelines {/* */}</h2>
         <p className="text-gray-600 mb-2">Building a respectful, authentic, and inclusive cultural home. {/* */}</p>

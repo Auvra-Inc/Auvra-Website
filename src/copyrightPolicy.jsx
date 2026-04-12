@@ -4,7 +4,7 @@ import LegalLayout from './legalLayout';
 export default function CopyrightPolicy() {
   return (
     <LegalLayout currentPage="copyright">
-      <div className="prose prose-gray max-w-none">
+      <div className="prose prose-gray max-w-none font-clash">
         
         <h2 className="text-3xl font-clash font-medium text-gray-900 mb-2">Copyright Policy {/* [cite: 667] */}</h2>
         <p className="text-gray-600 mb-2">Respecting intellectual property rights. {/* [cite: 668] */}</p>

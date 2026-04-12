@@ -4,7 +4,7 @@ import LegalLayout from './legalLayout';
 export default function AMLPolicy() {
   return (
     <LegalLayout currentPage="aml">
-      <div className="prose prose-gray max-w-none">
+      <div className="prose prose-gray max-w-none font-clash">
         
         {/* Document Title & Subtitle */}
         <h2 className="text-3xl font-clash font-medium text-gray-900 mb-2">Anti-Money Laundering (AML) / Counter Financing of Terrorism (CFT) Policy {/* [cite: 148] */}</h2>

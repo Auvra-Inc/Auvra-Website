@@ -4,7 +4,7 @@ import LegalLayout from './legalLayout';
 export default function CollaborationTerms() {
   return (
     <LegalLayout currentPage="collab">
-      <div className="prose prose-gray max-w-none">
+      <div className="prose prose-gray max-w-none font-clash">
         
         <h2 className="text-3xl font-clash font-medium text-gray-900 mb-2">Collaboration Hub Terms {/* [cite: 245] */}</h2>
         <p className="text-gray-600 mb-2">Clear rules for creating together wherever the work leads. {/* [cite: 246, 247] */}</p>

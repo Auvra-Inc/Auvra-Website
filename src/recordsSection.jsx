@@ -66,7 +66,7 @@ const LivingRecordsSection = () => {
           <img
             src="phone.png"
             alt="Auvra Mobile App"
-            className=" rounded-[2.5rem]  w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-cover drop-shadow-2xl"
+            className=" rounded-[2.5rem]  w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-cover "
           />
           
         </div>

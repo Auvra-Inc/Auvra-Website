@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
         {/* FUNCTIONAL TABLE OF CONTENTS */}
         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mb-10">
           <h3 className="font-clash font-medium text-lg text-gray-900 mb-4">Table of Contents {/* */}</h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-4 text-sm">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-4 text-sm font-clash">
             <li><a href="#section-1" className="text-blue-600 hover:underline">1. Introduction {/* */}</a></li>
             <li><a href="#section-2" className="text-blue-600 hover:underline">2. Information We Collect {/* */}</a></li>
             <li><a href="#section-3" className="text-blue-600 hover:underline">3. How We Use Your Information {/* */}</a></li>
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
         {/* Document Content */}
         <div className="space-y-10 text-gray-600 leading-relaxed text-[15px]">
           
-          <section id="section-1" className="scroll-mt-24">
+          <section id="section-1" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">1. Introduction {/* */}</h3>
             <p className="mb-4">
               At Auvra Tech Ltd, we are committed to protecting and respecting your privacy. {/* */} This Privacy Policy outlines the types of information we collect, use, disclose, and safeguard your personal information when you access or use our website, mobile applications, and services. {/* */} Including cultural preservation tools, badge systems (Collectible and Contribution Badges), collaboration features, AI services (Lens), private vaults (My Vault), and community systems (collectively, the "Platform"). {/* */}
@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section id="section-2" className="scroll-mt-24">
+          <section id="section-2" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">2. Information We Collect {/* */}</h3>
             <p className="mb-4">We collect information to provide, improve, and secure our services. {/* */}</p>
             
@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
               <li>Payment and billing information (for subscriptions or badge sales)</li>
             </ul>
 
-            <h4 className="font-medium text-gray-900 mt-6 mb-2">B. Cultural and Content Data {/* */}</h4>
+            <h4 className="font-medium text-gray-900 mt-6 mb-2 ">B. Cultural and Content Data {/* */}</h4>
             <ul className="list-disc pl-5 space-y-1 mb-6">
               <li>Content you upload (audio, video, text, images) for preservation as badges or in private vaults {/* */}</li>
               <li>Cultural metadata (language tags, traditions, categories, geographic origin)</li>
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section id="section-3" className="scroll-mt-24">
+          <section id="section-3" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">3. How We Use Your Information {/* */}</h3>
             <p className="mb-4">We use your information to: {/* */}</p>
             <ul className="list-disc pl-5 space-y-1 mb-6">
@@ -110,7 +110,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section id="section-4" className="scroll-mt-24">
+          <section id="section-4" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">4. Legal Basis for Processing (EEA/UK Users) {/* */}</h3>
             <p className="mb-4">
               If you are located in the European Economic Area (EEA) or the United Kingdom, we process your personal information only where we have a lawful basis to do so. {/* */} Our lawful bases are: {/* */}
@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section id="section-5" className="scroll-mt-24">
+          <section id="section-5" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">5. Sharing Your Information {/* */}</h3>
             <p className="mb-4">We do not sell your personal information. {/* */} We may share your information with the following categories of recipients for the purposes described: {/* */}</p>
             <ul className="list-disc pl-5 space-y-1 mb-6">
@@ -143,7 +143,7 @@ export default function PrivacyPolicy() {
             <p>In the event of a merger, acquisition, or asset sale, your information may be transferred as part of that transaction. {/* */} We will notify you before your information becomes subject to a different privacy policy. {/* */}</p>
           </section>
 
-          <section id="section-6" className="scroll-mt-24">
+          <section id="section-6" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">6. Data Security {/* */}</h3>
             <p className="mb-4">We implement appropriate technical and organisational measures to protect your information, including: {/* */}</p>
             <ul className="list-disc pl-5 space-y-1 mb-6">
@@ -157,7 +157,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section id="section-7" className="scroll-mt-24">
+          <section id="section-7" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">7. Your Rights {/* */}</h3>
             <p className="mb-4">Depending on your jurisdiction, you may have the right to: {/* */}</p>
             <ul className="list-disc pl-5 space-y-1 mb-6">
@@ -179,7 +179,7 @@ export default function PrivacyPolicy() {
             <p>If you are not satisfied with our response, you may escalate to your local supervisory authority (e.g., Nigeria Data Protection Commission, UK ICO, or your country's data protection authority). {/* */}</p>
           </section>
 
-          <section id="section-8" className="scroll-mt-24">
+          <section id="section-8" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">8. Data Retention {/* */}</h3>
             <p className="mb-4">We retain your personal information for different periods depending on the category: {/* */}</p>
             <ul className="list-disc pl-5 space-y-1 mb-6">
@@ -193,19 +193,19 @@ export default function PrivacyPolicy() {
             <p>After the applicable retention period, data is securely deleted or anonymised. {/* */}</p>
           </section>
 
-          <section id="section-9" className="scroll-mt-24">
+          <section id="section-9" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">9. International Data Transfers {/* */}</h3>
             <p className="mb-4">Auvra operates globally. Your information may be transferred to and processed in countries outside your country of residence, including the United States (cloud providers), the European Union (AI processing), and other jurisdictions where our service providers operate. {/* */}</p>
             <p>Where we transfer personal information from the European Economic Area (EEA) or the United Kingdom, we take steps to ensure an adequate level of protection, such as using provider agreements that include data protection commitments. {/* */} If you would like more information about these safeguards, please contact us at info@goauvra.com. {/* */}</p>
           </section>
 
-          <section id="section-10" className="scroll-mt-24">
+          <section id="section-10" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">10. Children's Privacy {/* */}</h3>
             <p className="mb-4">Auvra does not knowingly collect personal information from individuals under the age of 13 (or the applicable age of consent in your jurisdiction) without parental consent. {/* */}</p>
             <p>If we become aware that we have inadvertently collected information from a child without parental consent, we will delete that information as soon as possible. {/* */} If you believe a child has provided us with personal information, please contact us at info@goauvra.com. {/* */}</p>
           </section>
 
-          <section id="section-11" className="scroll-mt-24">
+          <section id="section-11" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">11. Blockchain & Permanence {/* */}</h3>
             <h4 className="font-medium text-gray-900 mt-6 mb-2">On-Chain Records {/* */}</h4>
             <p className="mb-4">Collectible and Contribution Badges are recorded on a public blockchain. {/* */} The following data becomes immutable and cannot be deleted or altered: badge ID, creator wallet address, timestamp, and metadata hash. {/* */} Full media content is stored off-chain using decentralised storage networks. {/* */}</p>
@@ -217,7 +217,7 @@ export default function PrivacyPolicy() {
             <p>As noted above, on-chain badge records cannot be deleted. We will disassociate them from your identity upon account deletion, but the records themselves will remain as part of the public cultural archive. {/* */}</p>
           </section>
 
-          <section id="section-12" className="scroll-mt-24">
+          <section id="section-12" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">12. AI Services (Lens) {/* */}</h3>
             <h4 className="font-medium text-gray-900 mt-6 mb-2">AI Processing {/* */}</h4>
             <p className="mb-4">Lens AI processes your content to generate transcriptions, translations, enhancements, tags, and Q&A responses. {/* */} These outputs are stored as part of your cultural record. {/* */}</p>
@@ -226,13 +226,13 @@ export default function PrivacyPolicy() {
             <p className="mb-4">By default, we do not use your personal content (including private vault content, badge media, or your prompts) to train or improve our AI models. {/* */} If we offer an optional program to improve Lens AI, participation will be opt-in only through a separate consent flow. {/* */} Private vault content will never be used for training unless you explicitly move it to a public badge or give separate, informed consent. {/* */} You may withdraw consent at any time, but content already incorporated into a trained model cannot be retroactively removed. {/* */}</p>
           </section>
 
-          <section id="section-13" className="scroll-mt-24">
+          <section id="section-13" className="scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">13. Changes to This Policy {/* */}</h3>
             <p className="mb-4">We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. {/* */} Updates will be posted on the Platform with a revised effective date. {/* */} For material changes, we will notify you via email or prominent notice on the Platform. {/* */} Your continued use of the Platform after such changes constitutes your acceptance of the updated Policy. {/* */}</p>
           </section>
 
           {/* Section 14 / Contact */}
-          <section id="section-14" className="pt-8 mt-8 border-t border-gray-100 scroll-mt-24">
+          <section id="section-14" className="pt-8 mt-8 border-t border-gray-100 scroll-mt-24 font-clash">
             <h3 className="text-xl font-clash font-medium text-gray-900 mb-4">14. Contact Us {/* */}</h3>
             <p className="mb-4">If you have any questions, requests, or concerns regarding this Privacy Policy, please contact: {/* */}</p>
             <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">

@@ -51,8 +51,8 @@ const featureCards = [
 ];
 
 export default function FaqAndCardsSection() {
-  // Start with the first two FAQs open to match your screenshot exactly
-  const [openIndexes, setOpenIndexes] = useState([0, 1]);
+  // THE FIX: Set this to an empty array so NO FAQs open on page load!
+  const [openIndexes, setOpenIndexes] = useState([]);
 
   const toggleFAQ = (index) => {
     if (openIndexes.includes(index)) {
@@ -143,17 +143,17 @@ export default function FaqAndCardsSection() {
               </div>
 
               {/* Buttons */}
-                    <div className="flex flex-col gap-4 w-full max-w-xs">
-                      <button className="flex items-center justify-center gap-3 w-full bg-[#111111] text-white py-4 rounded-full font-medium hover:bg-black transition shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-                        <FaApple className="text-2xl" /> 
-                        Download for iPhone
-                      </button>
-                      
-                      <button className="flex items-center justify-center gap-3 w-full bg-gray-100 text-gray-900 py-4 rounded-full font-medium hover:bg-gray-200 transition">
-                        <FaGooglePlay className="text-xl " /> 
-                        Get it on Android
-                      </button>
-                    </div>
+              <div className="flex flex-col gap-4 w-full max-w-xs">
+                <button className="flex items-center justify-center gap-3 w-full bg-[#111111] text-white py-4 rounded-full font-medium hover:bg-black transition shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                  <FaApple className="text-2xl" /> 
+                  Download for iPhone
+                </button>
+                
+                <button className="flex items-center justify-center gap-3 w-full bg-gray-100 text-gray-900 py-4 rounded-full font-medium hover:bg-gray-200 transition">
+                  <FaGooglePlay className="text-xl " /> 
+                  Get it on Android
+                </button>
+              </div>
             </div>
           ))}
         </div>

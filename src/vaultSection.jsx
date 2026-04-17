@@ -43,7 +43,7 @@ const VaultSection = () => {
       {/* Top Left (Large dark image) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200&auto=format&fit=crop" 
-        className="top-[5%] left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
+        className="top-[0%] left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
         delay="0s" 
       />
       

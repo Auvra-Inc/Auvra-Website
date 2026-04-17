@@ -284,8 +284,8 @@ const FeaturesSection = () => {
 				</div>
 
 				{/* =========================================
-            CARD 4: LENS AI (Spans both columns)
-        ========================================= */}
+    CARD 4: LENS AI (Spans both columns)
+========================================= */}
 				<div className='bg-[#0f1d14] rounded-[2.5rem] p-8 md:p-12 text-white shadow-xl md:col-span-2 relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition'>
 					{/* Background Image */}
 					<img
@@ -310,24 +310,30 @@ const FeaturesSection = () => {
 						</p>
 					</div>
 
-					{/* Right Chat UI Section (Exact Image Match) */}
-					<div className='relative z-10 w-full max-w-[420px] mx-auto md:ml-auto bg-white/10 backdrop-blur-4xl border border-white/20 rounded-[2rem] p-6 sm:p-8 shadow-2xl flex flex-col h-[520px]'>
+					{/* Right Chat UI Section (Perfected Fit) */}
+					<div className='relative z-10 w-full max-w-[420px] mx-auto md:ml-auto bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2rem] p-5 sm:p-6 shadow-2xl flex flex-col h-[520px]'>
 						{/* Aperture Header Icon */}
-						<div className='mb-6'>
-							<img src='/Vector .png' alt='Aperture Icon' className='w-8 h-8' />
+						<div className='mb-4'>
+							<img
+								src='/Vector .png'
+								alt='Aperture Icon'
+								className='w-8 h-8 object-contain'
+							/>
 						</div>
 
 						{/* Right User Chat Bubble */}
-						<div className='flex justify-end mb-6'>
-							<div className='bg-white/10 border border-white/10 px-5 py-4 rounded-3xl rounded-tr-sm text-[13px] font-clash text-white/90 shadow-lg max-w-[85%] leading-relaxed'>
+						<div className='flex justify-end mb-4'>
+							{/* Changed to px-4 py-3 and leading-normal to save vertical space */}
+							<div className='bg-white/10 border border-white/10 px-4 py-2 rounded-3xl rounded-tr-sm text-[13px] font-clash text-white/90 shadow-lg max-w-[85%] leading-normal'>
 								"Enhance this village elder recording and transcribe to
 								English."
 							</div>
 						</div>
 
 						{/* Left Lens AI Chat Bubble */}
-						<div className='flex justify-start mb-6'>
-							<div className='bg-white/10  border border-white/10 px-5 py-4 rounded-3xl rounded-tl-sm text-[13px] font-clash text-gray-300 shadow-lg max-w-[90%] leading-relaxed'>
+						<div className='flex justify-start mb-4'>
+							{/* Changed to px-4 py-3 and leading-normal */}
+							<div className='bg-white/10 border border-white/10 px-4 py-3 rounded-3xl rounded-tl-sm text-[13px] font-clash text-gray-300 shadow-lg max-w-[90%] leading-normal'>
 								Transcription complete. Detected language: Igbo (Nsukka
 								dialect). I've also found 3 related oral histories in the
 								archive you may want to connect.
@@ -335,7 +341,7 @@ const FeaturesSection = () => {
 						</div>
 
 						{/* Stacked Action Pills */}
-						<div className='flex flex-col gap-3 w-full mb-8'>
+						<div className='grid grid-cols-2 gap-2 w-full mb-4'>
 							{[
 								'View transcription',
 								'Connect related items',
@@ -343,18 +349,18 @@ const FeaturesSection = () => {
 							].map((text) => (
 								<button
 									key={text}
-									className='w-max px-4 py-2 bg-transparent border border-white/30 rounded-full text-[12px] font-sans text-gray-300 hover:bg-white/10 hover:text-white transition'
+									className='w-max px-2 py-2 bg-transparent border border-white/30 rounded-full text-[10px] font-clash text-gray-300 hover:bg-white/10 hover:text-white transition'
 								>
 									{text}
 								</button>
 							))}
 						</div>
 
-						{/* Bottom Input Bar */}
-						<div className='mt-auto flex items-center justify-between bg-transparent border border-white/30 rounded-2xl px-4 py-3.5 hover:border-white/50 transition cursor-text'>
+						{/* Bottom Input Bar - Stays perfectly at bottom due to mt-auto */}
+						<div className='mt-auto flex items-center justify-between bg-transparent border border-white/30 rounded-2xl px-4 py-3 hover:border-white/50 transition cursor-text'>
 							<div className='flex items-center gap-3'>
 								<Plus className='w-5 h-5 text-gray-400' />
-								<span className='text-gray-400 text-[13px] font-sans'>
+								<span className='text-gray-400 text-[13px] font-clash'>
 									Seek Cultural Insight...
 								</span>
 							</div>

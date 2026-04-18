@@ -66,7 +66,7 @@ export default function FooterSection() {
           <div className="flex items-center gap-2 mb-4">
             {/* Auvra Star Logo Icon */}
             <img 
-             src="/Vector.png" 
+             src="/Vector .png" 
              alt="Auvra Logo" 
              className="w-8 h-8 object-contain" 
              />

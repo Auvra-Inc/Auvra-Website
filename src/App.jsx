@@ -48,7 +48,6 @@ const Home = () => (
     <AudienceSection />
     <ImpactSection />
     <FaqAndCardsSection />
-    <FooterSection /> 
   </>
 );
 

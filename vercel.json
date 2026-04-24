@@ -11,6 +11,10 @@
       "destination": "/robots.txt"
     },
     {
+      "source": "/sitemap.txt",
+      "destination": "/sitemap.txt"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

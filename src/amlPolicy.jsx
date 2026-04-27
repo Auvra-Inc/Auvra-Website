@@ -1,6 +1,7 @@
 import React from 'react';
 import LegalLayout from './legalLayout';
 
+
 export default function AMLPolicy() {
   return (
     <LegalLayout currentPage="aml">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 // --- YOUR COMPONENT IMPORTS ---
+import FadeSection from './fadeSection'
 import Hero from './hero'
 import ProblemSection from './problemSection'
 import FeaturesSection from './featuresSection'
@@ -37,17 +38,19 @@ function ScrollToTop() {
 // 2. THE HOMEPAGE BUNDLE
 const Home = () => (
   <>
+    {/* We don't wrap Hero, because we want that to show instantly on page load! */}
     <Hero />
-    <LivingRecordsSection />
-    <AppDownloadSection />
-    <ProblemSection />
-    <PhotoStack />
-    <FeaturesSection />
-    <VaultSection />
-    <Design />
-    <AudienceSection />
-    <ImpactSection />
-    <FaqAndCardsSection />
+    
+    <FadeSection><LivingRecordsSection /></FadeSection>
+    <FadeSection><AppDownloadSection /></FadeSection>
+    <FadeSection><ProblemSection /></FadeSection>
+    <FadeSection><PhotoStack /></FadeSection>
+    <FadeSection><FeaturesSection /></FadeSection>
+    <FadeSection><VaultSection /></FadeSection>
+    <FadeSection><Design /></FadeSection>
+    <FadeSection><AudienceSection /></FadeSection>
+    <FadeSection><ImpactSection /></FadeSection>
+    <FadeSection><FaqAndCardsSection /></FadeSection>
   </>
 );
 

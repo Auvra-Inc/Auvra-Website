@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.goauvra.com/sitemap.txt

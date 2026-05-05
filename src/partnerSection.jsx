@@ -28,7 +28,7 @@ export default function PartnersSection() {
   );
 
   return (
-    <section className="w-full py-3 bg-white overflow-hidden border-t border-gray-100">
+    <section className="w-full pt-10 bg-white overflow-hidden border-t border-gray-100">
       
      
 

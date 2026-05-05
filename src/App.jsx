@@ -14,6 +14,7 @@ import Design from './design'
 import AudienceSection from './audienceSection'
 import ImpactSection from './impactSection'
 import FaqAndCardsSection from './faqSection'
+import PartnersSection from './partnerSection'
 import FooterSection from './footerSection' // <-- THIS WAS MISSING!
 
 // --- YOUR LEGAL PAGE IMPORTS ---
@@ -51,6 +52,7 @@ const Home = () => (
     <FadeSection><AudienceSection /></FadeSection>
     <FadeSection><ImpactSection /></FadeSection>
     <FadeSection><FaqAndCardsSection /></FadeSection>
+    <FadeSection><PartnersSection /></FadeSection>
   </>
 );
 

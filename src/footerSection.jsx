@@ -5,62 +5,7 @@ export default function FooterSection() {
   return (
     <footer className="w-full bg-gray-50 text-gray-900 pt-16 pb-4 px-6 relative overflow-hidden flex flex-col items-center">
       <div className="max-w-md w-full flex flex-col relative z-10">
-        
-        {/* =========================================
-            SECTION 1: THE QUOTE CARD
-        ========================================= */}
-        <div className="relative w-full rounded-[2rem] overflow-hidden shadow-2xl mb-16 aspect-[4/3] flex items-center justify-center p-6">
-          {/* Background Image (Replace with your actual wavy image) */}
-          <img 
-            src="/art3.png" 
-            alt="Auvra Culture" 
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/40"></div>
-          
-          {/* Glassmorphism Quote Box */}
-          <div className="relative z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg font-clash">
-            <p className="text-white text-sm md:text-base font-light leading-relaxed mb-4">
-              "From the rhythms of Africa to the voices of the world, culture is more than memory. It is identity. It is ownership. It is legacy. It is you."
-            </p>
-            <p className="text-white/80 text-xs font-medium text-right italic">
-              - Auvra
-            </p>
-          </div>
-        </div>
 
-
-        {/* =========================================
-            SECTION 2: NEWSLETTER
-        ========================================= */}
-        <div className="mb-16">
-          <h3 className="font-clash text-2xl font-medium mb-3">
-            Get updates from Auvra
-          </h3>
-          <p className="text-black font-clash text-sm mb-6 leading-relaxed">
-            By signing up, you agree to receive product updates and announcements from Auvra
-          </p>
-          
-          {/* Input Field */}
-          <div className="flex items-center bg-gray-100 rounded-xl p-1.5 border border-transparent focus-within:border-gray-300 transition-colors" id="contact">
-            <input 
-              type="email" 
-              placeholder="Email" 
-              className="flex-1 bg-transparent px-4 py-2 text-sm outline-none text-gray-800 placeholder-gray-500"
-            />
-            <button className="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-black hover:bg-gray-200 rounded-lg transition-colors">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-
-        {/* =========================================
-            SECTION 3: FOOTER BIO & LINKS
-        
         {/* Logo and Bio */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-4">

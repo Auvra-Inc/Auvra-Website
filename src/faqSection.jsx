@@ -63,102 +63,137 @@ export default function FaqAndCardsSection() {
   };
 
   return (
-    <section className="w-full bg-white text-gray-900 py-20 px-4 md:px-8 flex flex-col items-center" id="faq">
-      <div className="max-w-xl w-full flex flex-col gap-24">
-        
-        {/* =========================================
+		<section
+			className='w-full bg-white text-gray-900 py-20 px-4 md:px-8 flex flex-col items-center'
+			id='faq'
+		>
+			<div className='max-w-xl w-full flex flex-col gap-24'>
+				{/* =========================================
             SECTION 1: FAQ ACCORDION
         ========================================= */}
-        <div>
-          <h2 className="font-clash text-2xl font-medium mb-4 leading-tight">
-            Frequently asked <br /> questions
-          </h2>
-          
-          <div className="flex items-center justify-between mb-8 font-clash">
-            <span className="text-gray-500 text-sm">Can't find your answer?</span>
-            <button className="text-xs font-semibold uppercase tracking-wider border border-gray-300 rounded-full px-4 py-2 hover:bg-gray-50 transition">
-              Contact us
-            </button>
-          </div>
+				<div>
+					<h2 className='font-clash text-2xl font-medium mb-4 leading-tight'>
+						Frequently asked <br /> questions
+					</h2>
 
-          <div className="flex flex-col gap-4">
-            {faqs.map((faq, index) => {
-              const isOpen = openIndexes.includes(index);
-              return (
-                <div 
-                  key={index} 
-                  className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm bg-white"
-                >
-                  <button 
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors"
-                  >
-                    <span className="font-medium font-clash pr-4 text-[20px]">{faq.question}</span>
-                    <svg 
-                      className={`w-5 h-5 text-gray-400 transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} 
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  
-                  {isOpen && (
-                    <div className="px-6 pb-6 text-md text-black leading-relaxed border-t border-gray-100 pt-4 font-clash">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
+					<div className='flex items-center justify-between mb-8 font-clash'>
+						<span className='text-gray-500 text-sm'>
+							Can't find your answer?
+						</span>
+						<button className='text-xs font-semibold uppercase tracking-wider border border-gray-300 rounded-full px-4 py-2 hover:bg-gray-50 transition'>
+							Contact us
+						</button>
+					</div>
 
-        {/* =========================================
+					<div className='flex flex-col gap-4'>
+						{faqs.map((faq, index) => {
+							const isOpen = openIndexes.includes(index);
+							return (
+								<div
+									key={index}
+									className='border border-gray-200 rounded-2xl overflow-hidden shadow-sm bg-white'
+								>
+									<button
+										onClick={() => toggleFAQ(index)}
+										className='w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors'
+									>
+										<span className='font-medium font-clash pr-4 text-[20px]'>
+											{faq.question}
+										</span>
+										<svg
+											className={`w-5 h-5 text-gray-400 transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+											fill='none'
+											viewBox='0 0 24 24'
+											stroke='currentColor'
+										>
+											<path
+												strokeLinecap='round'
+												strokeLinejoin='round'
+												strokeWidth={2}
+												d='M19 9l-7 7-7-7'
+											/>
+										</svg>
+									</button>
+
+									{isOpen && (
+										<div className='px-6 pb-6 text-md text-black leading-relaxed border-t border-gray-100 pt-4 font-clash'>
+											{faq.answer}
+										</div>
+									)}
+								</div>
+							);
+						})}
+					</div>
+				</div>
+
+				{/* =========================================
             SECTION 2: VISUAL CARDS
         ========================================= */}
-        <div className="flex flex-col gap-8">
-          {featureCards.map((card, index) => (
-            <div 
-              key={index} 
-              className="relative w-full aspect-[4/5] sm:aspect-square bg-gray-900 rounded-[2rem] overflow-hidden shadow-xl"
-            >
-              {/* Background Image */}
-              <img 
-                src={card.image} 
-                alt={card.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              
-              {/* Gradient Overlay for Text Readability */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div> */}
-              
-              {/* Text Content */}
-              <div className="absolute w-full bottom-0 inset-x-0 p-8 md:p-10 text-center text-white flex flex-col items-center">
-                <h3 className="font-clash text-[26px] md:text-4xl mb-3 font-light tracking-wide text-white ">
-                  {card.title}
-                </h3>
-                <p className="text-md font-clash md:text-base text-white font-light max-w-[90%] leading-relaxed">
-                  {card.description}
-                </p>
-              </div>
+				<div className='flex flex-col gap-8'>
+					{featureCards.map((card, index) => (
+						<div
+							key={index}
+							className='relative w-full aspect-[4/5] sm:aspect-square bg-gray-900 rounded-[2rem] overflow-hidden shadow-xl'
+						>
+							{/* Background Image */}
+							<img
+								src={card.image}
+								alt={card.title}
+								className='absolute inset-0 w-full h-full object-cover'
+							/>
 
-              {/* Buttons */}
-              <div className="flex flex-col gap-4 w-full max-w-xs">
-                <button className="flex items-center justify-center gap-3 w-full bg-[#111111] text-white py-4 rounded-full font-medium hover:bg-black transition shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-                  <FaApple className="text-2xl" /> 
-                  Download for iPhone
-                </button>
-                
-                <button className="flex items-center justify-center gap-3 w-full bg-gray-100 text-gray-900 py-4 rounded-full font-medium hover:bg-gray-200 transition">
-                  <FaGooglePlay className="text-xl " /> 
-                  Get it on Android
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+							{/* Gradient Overlay for Text Readability */}
+							{/* <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div> */}
 
-      </div>
-    </section>
-  );
+							{/* Text Content */}
+							<div className='absolute w-full bottom-0 inset-x-0 p-8 md:p-10 text-center text-white flex flex-col items-center'>
+								<h3 className='font-clash text-[26px] md:text-4xl mb-3 font-light tracking-wide text-white '>
+									{card.title}
+								</h3>
+								<p className='text-md font-clash md:text-base text-white font-light max-w-[90%] leading-relaxed'>
+									{card.description}
+								</p>
+							</div>
+
+							<div className='relative w-full rounded-[2rem] overflow-hidden shadow-2xl mb-16 aspect-[4/3] flex items-center justify-center p-6'>
+								{/* Background Image (Replace with your actual wavy image) */}
+								<img
+									src='/art3.png'
+									alt='Auvra Culture'
+									className='absolute inset-0 w-full h-full object-cover'
+								/>
+								{/* Dark Overlay */}
+								<div className='absolute inset-0 bg-black/40'></div>
+
+								{/* Glassmorphism Quote Box */}
+								<div className='relative z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg font-clash'>
+									<p className='text-white text-sm md:text-base font-light leading-relaxed mb-4'>
+										"From the rhythms of Africa to the voices of the world,
+										culture is more than memory. It is identity. It is
+										ownership. It is legacy. It is you."
+									</p>
+									<p className='text-white/80 text-xs font-medium text-right italic'>
+										- Auvra
+									</p>
+								</div>
+							</div>
+
+							{/* Buttons */}
+							<div className='flex flex-col gap-4 w-full max-w-xs'>
+								<button className='flex items-center justify-center gap-3 w-full bg-[#111111] text-white py-4 rounded-full font-medium hover:bg-black transition shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
+									<FaApple className='text-2xl' />
+									Download for iPhone
+								</button>
+
+								<button className='flex items-center justify-center gap-3 w-full bg-gray-100 text-gray-900 py-4 rounded-full font-medium hover:bg-gray-200 transition'>
+									<FaGooglePlay className='text-xl ' />
+									Get it on Android
+								</button>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	);
 }

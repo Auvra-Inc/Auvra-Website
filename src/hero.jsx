@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaAppStore, FaGooglePlay, FaCog } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -235,8 +236,8 @@ const Hero = () => {
           <div className="relative z-10 w-full max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
             <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Ask Lens AI</a>
             <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
-            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</a>
-            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</a>
+            <Link to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
+            <Link to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Careers</a>
           </div>
         </div>

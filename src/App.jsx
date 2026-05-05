@@ -15,7 +15,8 @@ import AudienceSection from './audienceSection'
 import ImpactSection from './impactSection'
 import FaqAndCardsSection from './faqSection'
 import PartnersSection from './partnerSection'
-import FooterSection from './footerSection' // <-- THIS WAS MISSING!
+import Newsletter from './newsletter' 
+import FooterSection from './footerSection' 
 
 // --- YOUR LEGAL PAGE IMPORTS ---
 import PrivacyPolicy from './privacyPolicy'
@@ -26,6 +27,10 @@ import CommunityGuidelines from './community'
 import CollaborationHubTerms from './collaborationTerms'
 import CopyrightPolicy from './copyrightPolicy'
 import ContentGovernance from './contentGovernance'
+
+// --- PAGES IMPORT --- //
+import About from './about'
+import Blog from './blog'
 
 // 1. SCROLL HELPER
 function ScrollToTop() {
@@ -53,6 +58,7 @@ const Home = () => (
     <FadeSection><ImpactSection /></FadeSection>
     <FadeSection><FaqAndCardsSection /></FadeSection>
     <FadeSection><PartnersSection /></FadeSection>
+    <FadeSection><Newsletter /></FadeSection>
   </>
 );
 
@@ -72,7 +78,8 @@ function App() {
         <Route path="/community" element={<CommunityGuidelines />} />
         <Route path="/copyright" element={<CopyrightPolicy />} />
         <Route path="/governance" element={<ContentGovernance />} />
-
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
 
       {/* Footer stays outside the Routes so it always shows up at the bottom */}

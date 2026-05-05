@@ -40,9 +40,8 @@ const Home = () => (
   <>
     {/* We don't wrap Hero, because we want that to show instantly on page load! */}
     <Hero />
-    
-    <FadeSection><LivingRecordsSection /></FadeSection>
     <FadeSection><PartnersSection /></FadeSection>
+    <FadeSection><LivingRecordsSection /></FadeSection>
     <FadeSection><AppDownloadSection /></FadeSection>
     <FadeSection><ProblemSection /></FadeSection>
     <FadeSection><PhotoStack /></FadeSection>

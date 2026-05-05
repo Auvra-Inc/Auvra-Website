@@ -42,6 +42,7 @@ const Home = () => (
     <Hero />
     
     <FadeSection><LivingRecordsSection /></FadeSection>
+    <FadeSection><PartnersSection /></FadeSection>
     <FadeSection><AppDownloadSection /></FadeSection>
     <FadeSection><ProblemSection /></FadeSection>
     <FadeSection><PhotoStack /></FadeSection>

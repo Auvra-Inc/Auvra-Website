@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// We use an API to instantly pull the official logos straight from their websites!
+// We store the raw domains. The image tags will use these to fetch the real logos.
 const partners = [
-  { name: "ElevenLabs", url: "https://logo.clearbit.com/elevenlabs.io" },
-  { name: "Polygon", url: "https://logo.clearbit.com/polygon.technology" },
-  { name: "Dojah", url: "https://logo.clearbit.com/dojah.io" },
-  { name: "Paystack", url: "https://logo.clearbit.com/paystack.com" },
-  { name: "Quidax", url: "https://logo.clearbit.com/quidax.com" },
-  { name: "OpenAI", url: "https://logo.clearbit.com/openai.com" },
-  { name: "Crossmint", url: "https://logo.clearbit.com/crossmint.com" }
+  { name: "ElevenLabs", domain: "elevenlabs.io" },
+  { name: "Polygon", domain: "polygon.technology" },
+  { name: "Dojah", domain: "dojah.io" },
+  { name: "Paystack", domain: "paystack.com" },
+  { name: "Quidax", domain: "quidax.com" },
+  { name: "OpenAI", domain: "openai.com" },
+  { name: "Crossmint", domain: "crossmint.com" }
 ];
 
 export default function PartnersSection() {
@@ -19,14 +19,15 @@ export default function PartnersSection() {
       {partners.map((partner, index) => (
         <img 
           key={index} 
-          src={partner.url} 
+          // Attempt #1: Try to grab the high-res logo from Clearbit
+          src={`https://logo.clearbit.com/${partner.domain}`}
           alt={`${partner.name} Logo`} 
-          // h-8 keeps them all the exact same size. Grayscale makes them blend in until hovered!
           className="h-8 md:h-10 w-auto object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
-          // Fallback just in case a logo doesn't load
+          
+          // Attempt #2: If Clearbit fails or blocks Vercel, instantly swap to Icon.horse
           onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.nextSibling.style.display = 'block';
+            e.target.onerror = null; // Prevents infinite looping if both fail
+            e.target.src = `https://icon.horse/icon/${partner.domain}`;
           }}
         />
       ))}
@@ -36,26 +37,20 @@ export default function PartnersSection() {
   return (
     <section className="w-full py-16 bg-white overflow-hidden border-t border-gray-100">
       
-      <div className="text-center mb-10">
-        <p className="text-sm font-sans font-semibold text-gray-500 uppercase tracking-widest">
-          Powered by world-class technology
-        </p>
-      </div>
-
       {/* THE MARQUEE CONTAINER */}
       <div className="relative w-full flex overflow-hidden">
         
-        {/* Left & Right Gradients for the fade effect */}
+        {/* Left & Right Gradients so logos fade smoothly at the edges */}
         <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         {/* THE ANIMATING TRACK */}
         <motion.div
-          className="flex w-max"
+          className="flex w-max items-center"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ 
             ease: "linear", 
-            duration: 30, // Nice, smooth, slow scroll
+            duration: 30, // Smooth, continuous scroll
             repeat: Infinity 
           }}
         >

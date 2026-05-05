@@ -30,7 +30,9 @@ export default function PartnersSection() {
   return (
     <section className="w-full pt-10 bg-white overflow-hidden border-t border-gray-100">
       
-     
+      <div className="text-center">
+        <p className="mt-4  max-w-2xl mx-auto">Our partners in innovation</p>
+      </div>
 
       {/* THE MARQUEE CONTAINER */}
       <div className="relative w-full flex overflow-hidden">

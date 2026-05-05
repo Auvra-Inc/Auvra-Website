@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function FooterSection() {
   return (
-    <footer className="w-full bg-white text-gray-900 pt-16 pb-4 px-6 relative overflow-hidden flex flex-col items-center">
+    <footer className="w-full bg-gray-50 text-gray-900 pt-16 pb-4 px-6 relative overflow-hidden flex flex-col items-center">
       <div className="max-w-md w-full flex flex-col relative z-10">
         
         {/* =========================================

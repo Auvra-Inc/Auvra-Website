@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 // --- YOUR COMPONENT IMPORTS ---
 import FadeSection from './fadeSection'
-import Hero from './hero'
 import ProblemSection from './problemSection'
 import FeaturesSection from './featuresSection'
 import AppDownloadSection from './appDownloadSection'
@@ -32,6 +31,7 @@ import ContentGovernance from './contentGovernance'
 // --- PAGES IMPORT --- //
 import About from './pages/about'
 import Blog from './pages/blog'
+import Hero from './pages/hero'
 
 // 1. SCROLL HELPER
 function ScrollToTop() {

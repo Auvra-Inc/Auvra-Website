@@ -55,11 +55,11 @@ export default function About() {
 					transition={{ duration: 0.8, ease: 'easeOut' }}
 					className='max-w-5xl'
 				>
-					<h1 className='text-2xl text-center md:text-4xl font-clash font-medium text-black leading-tight tracking-tight mb-8'>
+					<h1 className='text-2xl text-center md:text-4xl font-clash font-medium text-black leading-tight tracking-tight mb-8 mt-8'>
 						The stories we keep today become the foundation for tomorrow.
 					</h1>
 					<PartnersSection />
-					<div className='text-xl md:text-2xl text-gray-500 font-sans leading-relaxed space-y-6 max-w-3xl'>
+					<div className='md:text-xl text-gray-500 font-sans leading-relaxed space-y-6 max-w-3xl'>
 						<p>
 							The voices we record now will speak to generations not yet born.
 							The culture we preserve is the only inheritance that truly
@@ -73,7 +73,7 @@ export default function About() {
 							creators, communities, and families to preserve what they love,
 							own what they make, and pass it down.
 						</p>
-						<p className='font-medium text-black'>
+						<p className='font-medium text-black font-clash'>
 							Not as a relic. Not as a file. But as something that lives.
 						</p>
 					</div>
@@ -104,7 +104,7 @@ export default function About() {
 							private to store what matters most. When a platform ends, the
 							culture ends with it.
 						</p>
-						<p className='font-semibold text-black text-2xl font-clash pt-4'>
+						<p className='font-semibold text-black text-lg font-clash pt-4'>
 							We refused to accept this.
 						</p>
 					</div>
@@ -118,7 +118,7 @@ export default function About() {
 						<h2 className='text-sm font-sans font-semibold uppercase tracking-widest text-gray-400 mb-6'>
 							Our Mission
 						</h2>
-						<p className='text-3xl md:text-4xl font-clash font-medium leading-snug'>
+						<p className='text-3xl md:text-4xl font-clash font-medium leading-relaxed'>
 							To preserve, structure, and empower culture by giving creators,
 							communities, and institutions the tools to own and pass down their
 							cultural assets.
@@ -129,7 +129,7 @@ export default function About() {
 						<h2 className='text-sm font-sans font-semibold uppercase tracking-widest text-gray-400 mb-6'>
 							Our Vision
 						</h2>
-						<p className='text-3xl md:text-4xl font-clash font-medium leading-snug text-gray-300'>
+						<p className='text-3xl md:text-4xl font-clash font-medium leading-relaxed text-gray-300'>
 							To become the global infrastructure where human culture is
 							permanently stored, intelligently understood, and generationally
 							transferred.
@@ -144,7 +144,7 @@ export default function About() {
 					<h2 className='text-4xl md:text-5xl font-clash font-bold text-black tracking-tight mb-6'>
 						What Guides Us
 					</h2>
-					<p className='text-xl text-gray-500 font-sans leading-relaxed'>
+					<p className='text-md text-gray-500 font-sans leading-relaxed'>
 						At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These
 						principles are the foundation of our product, our community, and our
 						vision for a digitally-preserved heritage.

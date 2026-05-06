@@ -17,12 +17,17 @@ export default function PartnersSection() {
   const LogoGroup = () => (
     <div className="flex items-center gap-16 md:gap-24 pr-16 md:pr-24 w-max">
       {partners.map((partner, index) => (
-        <img 
-          key={index} 
-          src={partner.imagePath} 
-          alt={`${partner.name} Logo`} 
-          className="w-32 md:w-44 h-10 md:h-12 object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
-        />
+        // 1. THIS is the invisible box enforcing the strict, uniform size for every logo
+        <div key={index} className="w-32 md:w-40 h-10 md:h-12 flex justify-center items-center">
+          
+          {/* 2. The image just fits comfortably inside the box without stretching */}
+          <img 
+            src={partner.imagePath} 
+            alt={`${partner.name} Logo`} 
+            className="max-w-full max-h-full object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
+          />
+          
+        </div>
       ))}
     </div>
   );
@@ -31,7 +36,7 @@ export default function PartnersSection() {
     <section className="w-full pt-6 bg-white overflow-hidden border-t border-gray-100">
       
       <div className="text-center">
-        <p className="mx-2  max-w-2xl mx-auto font-clash">Our partners in innovation</p>
+        <p className="mx-2 mb-3 max-w-2xl mx-auto font-clash">Our partners in innovation</p>
       </div>
 
       {/* THE MARQUEE CONTAINER */}

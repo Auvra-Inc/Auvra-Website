@@ -10,7 +10,7 @@ export default function Blog() {
       title: "Auvra is now Live",
       date: "Jan 07, 2026",
       // Using a premium Unsplash placeholder to match your red landscape image
-      imageUrl: "/fig1.png"
+      imageUrl: "/fig3.png"
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ export default function Blog() {
       title: "Jagged Intelligence: The BOOP Illusion",
       date: "Jan 02, 2026",
       // Using a landscape placeholder to match your third image
-      imageUrl: "fig3.png"
+      imageUrl: "fig1.png"
     }
   ];
 

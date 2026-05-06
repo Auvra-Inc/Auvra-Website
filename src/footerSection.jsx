@@ -80,7 +80,7 @@ export default function FooterSection() {
       ========================================= */}
       <div className="absolute bottom-0 left-0 w-full flex justify-center overflow-hidden pointer-events-none select-none z-0">
         {/* Added leading-none and pushed it down slightly so the bounding box doesn't break the layout */}
-        <h1 className="font-clash text-[7rem] sm:text-[10rem] font-bold text-gray-50 tracking-widest leading-none translate-y-4 sm:translate-y-6">
+        <h1 className="font-clash text-[7rem] sm:text-[10rem] font-bold text-gray-400 tracking-widest leading-none translate-y-4 sm:translate-y-6">
           AUVRA
         </h1>
       </div>

@@ -21,17 +21,17 @@ export default function PartnersSection() {
           key={index} 
           src={partner.imagePath} 
           alt={`${partner.name} Logo`} 
-          className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
+          className="w-32 md:w-44 h-10 md:h-12 object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
         />
       ))}
     </div>
   );
 
   return (
-    <section className="w-full pt-10 bg-white overflow-hidden border-t border-gray-100">
+    <section className="w-full pt-6 bg-white overflow-hidden border-t border-gray-100">
       
       <div className="text-center">
-        <p className="mt-4  max-w-2xl mx-auto">Our partners in innovation</p>
+        <p className="mx-2  max-w-2xl mx-auto font-clash">Our partners in innovation</p>
       </div>
 
       {/* THE MARQUEE CONTAINER */}

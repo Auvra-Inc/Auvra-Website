@@ -17,6 +17,7 @@ import FaqAndCardsSection from './faqSection'
 import PartnersSection from './partnerSection'
 import Newsletter from './newsletter' 
 import FooterSection from './footerSection' 
+import Navbar from './navbar'
 
 // --- YOUR LEGAL PAGE IMPORTS ---
 import PrivacyPolicy from './privacyPolicy'
@@ -29,8 +30,8 @@ import CopyrightPolicy from './copyrightPolicy'
 import ContentGovernance from './contentGovernance'
 
 // --- PAGES IMPORT --- //
-import About from './about'
-import Blog from './blog'
+import About from './pages/about'
+import Blog from './pages/blog'
 
 // 1. SCROLL HELPER
 function ScrollToTop() {

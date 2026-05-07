@@ -1,5 +1,5 @@
 import React from 'react';
-import LegalLayout from './legalLayout';
+import LegalLayout from './legals/legalLayout';
 
 export default function CollaborationTerms() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCog } from 'react-icons/fa';
 // 1. Import your brand new Navbar!
-import Navbar from '../navbar';
+import Navbar from '../reuseables/navbar';
 
 const Hero = () => {
   return (

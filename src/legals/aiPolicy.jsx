@@ -1,5 +1,5 @@
 import React from 'react';
-import LegalLayout from './legals/legalLayout';
+import LegalLayout from './legalLayout';
 
 export default function AIPolicy() {
   return (

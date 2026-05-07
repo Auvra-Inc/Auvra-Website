@@ -16,7 +16,7 @@ import FaqAndCardsSection from './faqSection'
 import PartnersSection from './partnerSection'
 import Newsletter from './newsletter' 
 import FooterSection from './reuseables/footerSection' 
-import Navbar from './reusables/navbar'
+import Navbar from './reuseables/navbar'
 
 // --- YOUR LEGAL PAGE IMPORTS ---
 import PrivacyPolicy from './legals/privacyPolicy'

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../navbar';
+import Navbar from '../reuseables/navbar';
 import PartnersSection from '../partnerSection';
 
 export default function About() {

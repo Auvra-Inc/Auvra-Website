@@ -58,7 +58,6 @@ const Home = () => (
     <FadeSection><AudienceSection /></FadeSection>
     <FadeSection><ImpactSection /></FadeSection>
     <FadeSection><FaqAndCardsSection /></FadeSection>
-    <FadeSection><PartnersSection /></FadeSection>
     <FadeSection><Newsletter /></FadeSection>
   </>
 );

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 // Pointing directly to your downloaded, official assets
 const partners = [
-  { name: "ElevenLabs", imagePath: "/logos/elevenlabs.svg" }, // Change to .svg if you downloaded an SVG!
+  { name: "ElevenLabs", imagePath: "/logos/elevenlabs.svg" }, 
   { name: "Polygon", imagePath: "/logos/polygon.svg" },
   { name: "Dojah", imagePath: "/logos/dojah.svg" },
   { name: "Paystack", imagePath: "/logos/paystack.png" },
@@ -17,14 +17,14 @@ export default function PartnersSection() {
   const LogoGroup = () => (
     <div className="flex items-center gap-16 md:gap-24 pr-16 md:pr-24 w-max">
       {partners.map((partner, index) => (
-        // 1. THIS is the invisible box enforcing the strict, uniform size for every logo
-        <div key={index} className="w-32 md:w-40 h-10 md:h-12 flex justify-center items-center">
+        // Added shrink-0 here! This stops the marquee flexbox from randomly squishing the boxes.
+        <div key={index} className="w-32 md:w-40 h-10 md:h-12 flex justify-center items-center shrink-0">
           
-          {/* 2. The image just fits comfortably inside the box without stretching */}
+          {/* Changed max-w/max-h to strictly w-full h-full. This forces SVGs to obey! */}
           <img 
             src={partner.imagePath} 
             alt={`${partner.name} Logo`} 
-            className="max-w-full max-h-full object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
+            className="w-full h-full object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
           />
           
         </div>

@@ -55,11 +55,11 @@ export default function About() {
 					transition={{ duration: 0.8, ease: 'easeOut' }}
 					className='max-w-5xl'
 				>
-					<h1 className='text-2xl text-center md:text-4xl font-clash font-medium text-black leading-tight tracking-tight mb-8 mt-8'>
+					<h1 className='text-2xl text-center md:text-4xl font-clash font-medium text-black leading-tight tracking-tight mb-12 mt-8'>
 						The stories we keep today become the foundation for tomorrow.
 					</h1>
 					<PartnersSection />
-					<div className='md:text-xl text-gray-500 font-sans leading-relaxed space-y-6 max-w-3xl'>
+					<div className='md:text-xl text-gray-500 font-clash leading-relaxed space-y-12 max-w-3xl'>
 						<p>
 							The voices we record now will speak to generations not yet born.
 							The culture we preserve is the only inheritance that truly
@@ -115,7 +115,7 @@ export default function About() {
 			<section className='w-full bg-black py-24 text-white'>
 				<div className='max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24'>
 					<div>
-						<h2 className='text-sm font-sans font-semibold uppercase tracking-widest text-gray-400 mb-6'>
+						<h2 className='text-sm font-clash font-semibold uppercase tracking-widest text-gray-400 mb-6'>
 							Our Mission
 						</h2>
 						<p className='text-3xl md:text-4xl font-clash font-medium leading-relaxed'>
@@ -126,7 +126,7 @@ export default function About() {
 					</div>
 
 					<div>
-						<h2 className='text-sm font-sans font-semibold uppercase tracking-widest text-gray-400 mb-6'>
+						<h2 className='text-sm font-clash font-semibold uppercase tracking-widest text-gray-400 mb-6'>
 							Our Vision
 						</h2>
 						<p className='text-3xl md:text-4xl font-clash font-medium leading-relaxed text-gray-300'>
@@ -164,7 +164,7 @@ export default function About() {
 							<h3 className='text-2xl font-clash font-semibold text-black mb-4'>
 								{value.title}
 							</h3>
-							<p className='text-gray-500 font-sans leading-relaxed'>
+							<p className='text-gray-500 font-clash leading-relaxed'>
 								{value.description}
 							</p>
 						</motion.div>

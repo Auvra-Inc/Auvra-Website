@@ -169,8 +169,15 @@ export default function PrivacyPolicy() {
               <li>Withdraw consent at any time (where processing is based on consent) {/* */}</li>
               <li>Data portability (receive a copy of your data in a structured, commonly used format) {/* */}</li>
             </ul>
+            
             <h4 className="font-medium text-gray-900 mt-6 mb-2">How to Exercise Your Rights {/* */}</h4>
             <p className="mb-4">To exercise your rights, contact us at info@goauvra.com. We will respond within 30 days (extendable by 60 days for complex requests, with notice). {/* */}</p>
+
+            {/* NEW ADDITION: How to Delete Your Account */}
+            <h4 className="font-medium text-gray-900 mt-6 mb-2">How to Delete Your Account</h4>
+            <p className="mb-4">
+              You may delete your account directly from the Auvra mobile app. Go to Settings, then Account, then select "Delete Account". You will be asked to confirm your choice. Deletion is permanent. Once you request deletion, we will send a confirmation email to your registered address. Your off-chain data will be permanently removed within 30 days. Your blockchain badge records will remain anonymous and unlinked to your identity.
+            </p>
             
             <h4 className="font-medium text-gray-900 mt-6 mb-2">Deletion & Blockchain Records {/* */}</h4>
             <p className="mb-4">Because blockchain records are immutable, on-chain badge data cannot be deleted. {/* */} If you request deletion, we will remove off-chain content and personal information where possible, but on-chain badge records will remain as part of the public cultural archive. {/* */} We will not associate them with your identity after deletion. {/* */} Private vault content can be deleted by you at any time. {/* */}</p>

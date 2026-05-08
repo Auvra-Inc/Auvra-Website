@@ -59,7 +59,7 @@ export default function About() {
 						The stories we keep today become the foundation for tomorrow.
 					</h1>
 					<PartnersSection />
-					<div className='md:text-xl text-gray-500 font-clash leading-relaxed space-y-12 max-w-3xl'>
+					<div className=' pt-7 md:text-xl text-gray-500 font-clash leading-relaxed space-y-12 max-w-3xl'>
 						<p>
 							The voices we record now will speak to generations not yet born.
 							The culture we preserve is the only inheritance that truly
@@ -89,7 +89,7 @@ export default function About() {
 						</h2>
 					</div>
 
-					<div className='w-full md:w-2/3 space-y-8 text-lg md:text-xl text-gray-600 font-sans leading-relaxed'>
+					<div className='w-full md:w-2/3 space-y-8 text-lg md:text-xl text-gray-600 font-clash leading-relaxed'>
 						<p>
 							Every forty days, a language falls silent. With it, songs,
 							rituals, techniques, and entire ways of seeing the world
@@ -118,7 +118,7 @@ export default function About() {
 						<h2 className='text-sm font-clash font-semibold uppercase tracking-widest text-gray-400 mb-6'>
 							Our Mission
 						</h2>
-						<p className='text-3xl md:text-4xl font-clash font-medium leading-relaxed'>
+						<p className='text-2xl md:text-4xl font-clash font-medium leading-relaxed'>
 							To preserve, structure, and empower culture by giving creators,
 							communities, and institutions the tools to own and pass down their
 							cultural assets.
@@ -129,7 +129,7 @@ export default function About() {
 						<h2 className='text-sm font-clash font-semibold uppercase tracking-widest text-gray-400 mb-6'>
 							Our Vision
 						</h2>
-						<p className='text-3xl md:text-4xl font-clash font-medium leading-relaxed text-gray-300'>
+						<p className='text-2xl md:text-4xl font-clash font-medium leading-relaxed text-gray-300'>
 							To become the global infrastructure where human culture is
 							permanently stored, intelligently understood, and generationally
 							transferred.
@@ -144,7 +144,7 @@ export default function About() {
 					<h2 className='text-4xl md:text-5xl font-clash font-bold text-black tracking-tight mb-6'>
 						What Guides Us
 					</h2>
-					<p className='text-md text-gray-500 font-sans leading-relaxed'>
+					<p className='text-md text-gray-500 font-clash leading-relaxed'>
 						At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These
 						principles are the foundation of our product, our community, and our
 						vision for a digitally-preserved heritage.

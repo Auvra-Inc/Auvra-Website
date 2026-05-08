@@ -55,7 +55,7 @@
 html,
 body {
   max-width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* THE FIX: Added the space in 'Clash Display' */

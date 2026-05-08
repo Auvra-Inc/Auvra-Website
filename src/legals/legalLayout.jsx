@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const LegalLayout = ({ children, currentPage }) => {
   const menuItems = [
-    { id: 'privacy', label: 'Privacy Policy', href: '/privacy' },
     { id: 'terms', label: 'Terms of Service', href: '/terms' },
+    { id: 'privacy', label: 'Privacy Policy', href: '/privacy' },
     { id: 'aml', label: 'AML / CFT Policy', href: '/aml' },
     { id: 'collab', label: 'Collaboration Hub Terms', href: '/collab' },
     { id: 'ai', label: 'AI Policy', href: '/ai-policy' },

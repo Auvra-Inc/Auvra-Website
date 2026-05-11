@@ -1,7 +1,7 @@
 const Design = () => {
     return (
         // 1. Added flexbox to handle the centering on md screens and above
-        <div className="font-clash text-[18px] py-16 px-10 flex flex-col md:items-center md:text-center">
+        <div className="font-clash text-[18px] pt-5 pb-16 px-10 flex flex-col md:items-center md:text-center">
             
             {/* 2. Swapped fixed width/height for max-w. Added mb-4 for spacing instead of padding on the paragraph */}
             <h2 className="font-medium max-w-[300px] md:max-w-none md:text-2xl mb-4 text-gray-900">

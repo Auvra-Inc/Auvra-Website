@@ -12,10 +12,10 @@ import {
 	AudioLines,
 	Plus,
 	MapPin,
-  BadgeCheck,
-  Volume2,
-  ClipboardList,
-  Wallet
+	BadgeCheck,
+	Volume2,
+	ClipboardList,
+	Wallet,
 } from 'lucide-react';
 
 const FeaturesSection = () => {
@@ -39,9 +39,9 @@ const FeaturesSection = () => {
 
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 				{/* =========================================
-            CARD 1: COLLECTIBLE BADGES
-        ========================================= */}
-				<div className='bg-white rounded-[2rem] p-8 border border-gray-200 shadow-sm flex flex-col h-full text-center md:text-left'>
+						CARD 1: COLLECTIBLE BADGES
+					========================================= */}
+				<div className='bg-white rounded-[2rem] px-6 py-8 border border-gray-200 shadow-sm flex flex-col h-full text-center md:text-left'>
 					<div className='flex items-center justify-center md:justify-start gap-2 mb-4'>
 						<Crown className='text-indigo-600 fill-indigo-600 w-6 h-6' />
 						<h3 className='text-xl font-semi-bold text-gray-900'>
@@ -77,7 +77,7 @@ const FeaturesSection = () => {
 				{/* =========================================
             CARD 2: CONTRIBUTION BADGES
         ========================================= */}
-				<div className='bg-black rounded-[2rem] p-8 text-white shadow-xl flex flex-col h-full border border-neutral-800 text-center md:text-left'>
+				<div className='bg-black rounded-[2rem] py-8 px-6 text-white shadow-xl flex flex-col h-full border border-neutral-800 text-center mt-4 md:text-left'>
 					<div className='flex items-center justify-center md:justify-start gap-3 mb-4'>
 						<Crown className='text-yellow-500 fill-yellow-500 w-6 h-6' />
 						<h3 className='text-xl font-semi-bold'>Contribution Badges</h3>
@@ -132,13 +132,13 @@ const FeaturesSection = () => {
 						</p>
 					</div>
 					<div className='flex flex-wrap gap-2 mt-3'>
-						<span className='px-3 py-1.5 bg-neutral-800/80 rounded-full text-md font-clash  bg-white/20 backdrop-blur-md text-white  font-medium hover:bg-white/20 transition-all border border-white/20 shadow-sm'>
+						<span className='p-2 bg-neutral-800/80 rounded-full text-md font-clash  bg-white/20 backdrop-blur-md text-white  font-medium text-[12px] hover:bg-white/20 transition-all border border-white/20 shadow-sm'>
 							Cultural Commons
 						</span>
-						<span className='px-3 py-1.5 bg-neutral-800/80 rounded-full text-md font-clash  bg-white/20 backdrop-blur-md text-white  font-medium hover:bg-white/20 transition-all border border-white/20 shadow-sm'>
+						<span className='p-2 bg-neutral-800/80 rounded-full text-md font-clash  bg-white/20 backdrop-blur-md text-white  font-medium text-[12px] hover:bg-white/20 transition-all border border-white/20 shadow-sm'>
 							Community-Verified
 						</span>
-						<span className='px-3 py-1.5 bg-neutral-800/80 rounded-full text-md font-clash  bg-white/20 backdrop-blur-md text-white  font-medium hover:bg-white/20 transition-all border border-white/20 shadow-sm'>
+						<span className='p-2 bg-neutral-800/80 rounded-full text-md font-clash  bg-white/20 backdrop-blur-md text-white  font-medium text-[12px] hover:bg-white/20 transition-all border border-white/20 shadow-sm'>
 							Living Archive
 						</span>
 					</div>
@@ -147,7 +147,7 @@ const FeaturesSection = () => {
 				{/* =========================================
             CARD 3:  COLLABORATION HUB
         ========================================= */}
-				<div className='w-full max-w-md bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'>
+				<div className='w-full mt-4 max-w-md bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'>
 					{/* HEADER SECTION */}
 					<div className='flex items-center gap-3 mb-4'>
 						<div className='w-8 h-8 flex items-center justify-center'>
@@ -240,7 +240,7 @@ const FeaturesSection = () => {
 								<div className='w-2.5 h-2.5 rounded-full bg-yellow-400'></div>
 								<div className='w-2.5 h-2.5 rounded-full bg-green-400'></div>
 							</div>
-							<span className='font-clash text-[10px] font-medium text-gray-500'>
+							<span className='font-clash text-[15px] font-medium text-gray-500'>
 								Collaboration Hub
 							</span>
 						</div>
@@ -286,7 +286,7 @@ const FeaturesSection = () => {
 				{/* =========================================
     CARD 4: LENS AI (Spans both columns)
 ========================================= */}
-				<div className='bg-[#0f1d14] rounded-[2.5rem] p-8 md:p-12 text-white shadow-xl md:col-span-2 relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition'>
+				<div className='bg-[#0f1d14] rounded-[2.5rem] mt-4 p-8 md:p-12 text-white shadow-xl md:col-span-2 relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition'>
 					{/* Background Image */}
 					<img
 						src='/3img.jpg'
@@ -298,12 +298,12 @@ const FeaturesSection = () => {
 					{/* Left Text Section */}
 					<div className='relative z-10 w-full md:w-[45%] flex flex-col justify-center text-left pt-4 md:pt-0'>
 						<div className='flex items-center gap-3 mb-5'>
-							<Sparkles className='w-7 h-7 text-[#FBBF24] fill-[#FBBF24]' />
-							<h3 className='text-3xl font-clash font-medium text-white tracking-wide'>
+							<Sparkles className='w-5 h-5 text-[#FBBF24] fill-[#FBBF24]' />
+							<h3 className='text-xl font-clash font-medium text-white tracking-wide'>
 								Lens AI
 							</h3>
 						</div>
-						<p className='text-gray-300 font-clash text-[15px] leading-relaxed max-w-sm'>
+						<p className='text-gray-300 font-clash text-[15px] leading-normal max-w-sm'>
 							Your cultural co-pilot. Lens enhances recordings, transcribes oral
 							histories, translates languages, and connects your work to
 							relevant communities. It handles the complexity.
@@ -377,7 +377,7 @@ const FeaturesSection = () => {
 				{/* =========================================
             CARD 5: COMMUNITY ARCHIVES
         ========================================= */}
-				<div className='w-full max-w-md bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'>
+				<div className='w-full mt-4 max-w-md bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'>
 					{/* HEADER SECTION */}
 					<div className='flex items-center gap-3 mb-4'>
 						{/* Lucide BadgeCheck with orange fill and white checkmark */}

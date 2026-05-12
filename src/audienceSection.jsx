@@ -19,34 +19,28 @@ const AudienceSection = () => {
       </div>
 
       {/* 2. MAIN HEADING */}
-      <h2 className="text-2xl md:text-3xl lg:text-6xl font-medium text-center text-gray-900 max-w-4xl mb-10 leading-[1.1] z-10">
+      <h2 className="text-2xl md:text-3xl lg:text-6xl font-medium text-center text-gray-900 max-w-4xl mb-14 leading-[1.1] z-10">
         Designed for the people who create, protect, and remember
       </h2>
 
       
-      <div className="flex justify-center gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 mb-2">
-        <button className="flex items-center gap-2.5 px-3 py-2 rounded-xl border border-gray-900 text-gray-900 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+      <div className="grid grid-cols-2 justify-center gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 mb-20">
+        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-900 text-gray-900 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
           <Palette className="w-5 h-5" /> Creators
         </button>
-        <button className="flex items-center gap-2.5 px-3 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
           <Users className="w-5 h-5" /> Communities
         </button>
-      </div>
-
-      <div className="flex  justify-center gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 mb-2">
-        <button className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-gray-50 text-gray-700 font-medium hover:bg-gray-100 transition border border-transparent">
+        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gray-50 text-gray-700 font-medium hover:bg-gray-100 transition border border-transparent">
           <Archive className="w-5 h-5" /> Collectors
         </button>
-        <button className="flex items-center gap-2.5 px-3 py-2 rounded-xl border border-gray-200 border-dashed text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 border-dashed text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
           <Home className="w-5 h-5" /> Families
         </button>
-        <button className="flex items-center gap-2.5 px-3 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
           <User className="w-5 h-5" /> Individuals
         </button>
-      </div>
-
-      <div className="flex justify-center gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 ">
-        <button className="flex items-center gap-2.5 px-3 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
           <Landmark className="w-5 h-5" /> Institutions
         </button>
       </div>

@@ -18,7 +18,7 @@ const LegalLayout = ({ children, currentPage }) => {
       {/* =========================================
           SIMPLE TOP LOGO NAV
       ========================================= */}
-      <Link to="/" className="pt-10 pb-4 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 z-20 relative">
+      <Link to="/" className="pt-15 pb-7 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 z-20 relative">
         <img 
           src="/Vector .png" 
           alt="Auvra Logo" 

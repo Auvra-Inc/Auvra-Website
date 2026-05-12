@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: Auvra-Inc/Auvra-Website # Make sure this matches your GitHub exactly!
+  branch: main 
+
+media_folder: "public/blog" 
+public_folder: "/blog" 
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }

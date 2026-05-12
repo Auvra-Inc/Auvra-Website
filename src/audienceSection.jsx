@@ -42,12 +42,13 @@ const AudienceSection = () => {
           <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 border-dashed text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
             <Home className="w-5 h-5" /> Families
           </button>
-          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
-            <User className="w-5 h-5" /> Individuals
-          </button>
+          
         </div>
         {/* Third row: Institutions */}
         <div className="flex justify-center gap-4">
+          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+            <User className="w-5 h-5" /> Individuals
+          </button>
           <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
             <Landmark className="w-5 h-5" /> Institutions
           </button>

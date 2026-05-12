@@ -47,7 +47,7 @@ export default function Blog() {
 
   return (
     <div className="w-full bg-white pb-20">
-      <Link to="/" className="pt-8 pb-4 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
+      <Link to="/" className="pt-8 pb-7 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
         <img 
           src="/Vector .png" 
           alt="Auvra Logo" 

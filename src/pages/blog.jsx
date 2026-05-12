@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // This tells Vite to find all articles Sveltia creates
-const markdownFiles = import.meta.glob('/src/content/blog/*.md', { eager: true });
+const markdownFiles = import.meta.glob('/src/content/blog/*.md', { query: '?raw', eager: true });
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);

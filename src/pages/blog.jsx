@@ -46,7 +46,7 @@ export default function Blog() {
   }, []);
 
   return (
-    <div className="w-full bg-white pt-32 pb-20">
+    <div className="w-full bg-white pb-20">
       <Link to="/" className="pt-8 pb-4 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
         <img 
           src="/Vector .png" 

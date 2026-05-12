@@ -24,25 +24,34 @@ const AudienceSection = () => {
       </h2>
 
       
-      <div className="grid grid-cols-2 justify-center gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 mb-20">
-        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-900 text-gray-900 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
-          <Palette className="w-5 h-5" /> Creators
-        </button>
-        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
-          <Users className="w-5 h-5" /> Communities
-        </button>
-        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gray-50 text-gray-700 font-medium hover:bg-gray-100 transition border border-transparent">
-          <Archive className="w-5 h-5" /> Collectors
-        </button>
-        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 border-dashed text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
-          <Home className="w-5 h-5" /> Families
-        </button>
-        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
-          <User className="w-5 h-5" /> Individuals
-        </button>
-        <button className="flex items-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
-          <Landmark className="w-5 h-5" /> Institutions
-        </button>
+      <div className="flex flex-col gap-4 max-w-2xl font-sans bg-white/50 backdrop-blur-sm p-4 rounded-3xl z-10 mb-20">
+        {/* First row: Creators and Communities */}
+        <div className="flex justify-center gap-4">
+          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-900 text-gray-900 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+            <Palette className="w-5 h-5" /> Creators
+          </button>
+          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+            <Users className="w-5 h-5" /> Communities
+          </button>
+        </div>
+        {/* Second row: Collectors, Families, Individuals */}
+        <div className="flex justify-center gap-4">
+          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-gray-50 text-gray-700 font-medium hover:bg-gray-100 transition border border-transparent">
+            <Archive className="w-5 h-5" /> Collectors
+          </button>
+          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 border-dashed text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+            <Home className="w-5 h-5" /> Families
+          </button>
+          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+            <User className="w-5 h-5" /> Individuals
+          </button>
+        </div>
+        {/* Third row: Institutions */}
+        <div className="flex justify-center gap-4">
+          <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
+            <Landmark className="w-5 h-5" /> Institutions
+          </button>
+        </div>
       </div>
 
       {/* 4. THE GLASSMORPHISM SHOWCASE */}
@@ -58,9 +67,9 @@ const AudienceSection = () => {
 
         {/* The Frosted Glass Card */}
         {/* THE FIX: Removed the md: positioning rules so it stretches perfectly across the bottom on ALL screens */}
-        <div className="absolute bottom-2  w-[220px] h-[200px] right-6 bg-black/20 backdrop-blur-xl border border-white/20 p-6 md: rounded-3xl shadow-2xl text-white">
+        <div className="absolute bottom-2  w-[220px] h-[200px] right-6 bg-black/20 backdrop-blur-xl border border-white/20 p-4 md: rounded-3xl shadow-2xl text-white">
           
-          <p className="font-medium text-md  leading-snug mb-6 ">
+          <p className="font-medium text-md  leading-snug mb-4 ">
             For creators turning culture into lasting work.
           </p>
           

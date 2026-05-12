@@ -29,7 +29,16 @@ export default function Blog() {
 
   return (
     <div className="w-full bg-white pt-32 pb-20">
-      
+
+      <Link to="/" className="pt-10 pb-4 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 z-20 relative">
+        <img 
+          src="/Vector .png" 
+          alt="Auvra Logo" 
+          className="w-6 h-6 object-contain" 
+        />
+        <span className="font-clash">Auvra</span>
+      </Link>
+
       {/* HEADER SECTION */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
         <motion.div 

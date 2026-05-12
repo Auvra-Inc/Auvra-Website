@@ -2,7 +2,7 @@ import React from 'react';
 
 const LivingRecordsSection = () => {
   return (
-    <section className="pb-15 pt-7 px-6 overflow-hidden bg-white font-clash relative">        
+    <section className="pb-15 pt-3 px-6 overflow-hidden bg-white font-clash relative">        
 
       {/* =========================================
           ADDED THE MISSING FLOATING ANIMATIONS

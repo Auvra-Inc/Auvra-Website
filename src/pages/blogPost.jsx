@@ -94,11 +94,11 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
-        {/* Logo - On top of image, WHITE without changing the logo itself */}
+        {/* Logo - Using Logo-png.PNG from public folder, made white */}
         <div className="relative z-20 pt-15 pb-7 flex justify-center">
           <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide">
             <img 
-              src="/Vector.png" 
+              src="/Logo-png.PNG" 
               alt="Auvra Logo" 
               className="w-6 h-6 object-contain" 
               style={{ filter: 'brightness(0) invert(1)' }}

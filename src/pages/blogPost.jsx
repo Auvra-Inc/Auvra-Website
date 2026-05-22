@@ -27,7 +27,7 @@ export default function BlogPost() {
         let mainContent = parts[2] || parts[1] || rawContent;
         mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
         
-        // Simple formatting with BLACK text
+        // Simple formatting with NORMAL font weight
         mainContent = mainContent
           .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-black">$1</strong>')
           .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
@@ -35,7 +35,7 @@ export default function BlogPost() {
           .replace(/_?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})_?/g, '<a href="mailto:$1" class="text-blue-600 underline">$1</a>')
           .split('\n\n').map(para => {
             if (para.trim()) {
-              return `<p class="text-black leading-relaxed mb-6 text-base md:text-lg" style="color: black; line-height: 1.75; margin-bottom: 1.75rem; font-size: 1.125rem;">${para.replace(/\n/g, ' ')}</p>`;
+              return `<p class="text-black font-normal leading-relaxed mb-6 text-base md:text-lg" style="color: black; font-weight: 400; line-height: 1.75; margin-bottom: 1.75rem; font-size: 1.125rem; max-width: 100%;">${para.replace(/\n/g, ' ')}</p>`;
             }
             return '';
           }).join('');
@@ -145,10 +145,12 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - BLACK TEXT, STRETCHED to full width */}
-      <article className="w-full px-6 md:px-12 lg:px-24 xl:px-32 py-16 md:py-20">
-        <div className="w-full max-w-none">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      {/* MAIN CONTENT - MAXIMUM STRETCHED - no padding, full width */}
+      <article className="w-full py-16 md:py-20">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <div className="w-full" style={{ maxWidth: '100%' }}>
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          </div>
         </div>
       </article>
     </div>

@@ -27,16 +27,48 @@ export default function BlogPost() {
         let mainContent = parts[2] || parts[1] || rawContent;
         mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
         
-        // Simple formatting to remove markdown symbols
+        // Improved formatting - handles emails, bold, italic, links properly
         mainContent = mainContent
-          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // **bold** -> <strong>
-          .replace(/\*(.*?)\*/g, '<em>$1</em>')              // *italic* -> <em>
-          .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" class="text-blue-600 underline">$1</a>')  // links
-          .replace(/\n\n/g, '</p><p class="text-gray-600 leading-relaxed mb-5 text-base">')  // paragraphs
-          .replace(/^\s*-\s(.*?)$/gm, '<li class="ml-5">• $1</li>');  // basic lists
+          // First protect email addresses from being treated as markdown
+          .replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-blue-600 underline break-all">$1</a>')
+          // Bold **text**
+          .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-black">$1</strong>')
+          // Italic *text* (but not email addresses)
+          .replace(/(?<!\w)\*(?!\s)(.*?)(?<!\s)\*(?!\w)/g, '<em class="italic">$1</em>')
+          // Links [text](url)
+          .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline break-all">$1</a>')
+          // Handle line breaks - convert double newlines to paragraph breaks
+          .split('\n\n').map(para => {
+            // Skip empty paragraphs
+            if (!para.trim()) return '';
+            // Check if it's already wrapped in HTML
+            if (para.trim().startsWith('<')) return para;
+            // Wrap in paragraph tag
+            return `<p class="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">${para.replace(/\n/g, '<br/>')}</p>`;
+          }).join('');
         
-        // Wrap in paragraphs
-        mainContent = `<p class="text-gray-600 leading-relaxed mb-5 text-base">${mainContent}</p>`;
+        // Handle single line breaks within paragraphs
+        mainContent = mainContent.replace(/<p>(.*?)<\/p>/g, (match, content) => {
+          const withBreaks = content.replace(/<br\/>/g, '\n').split('\n').map(line => {
+            if (line.trim().startsWith('<')) return line;
+            return line.trim();
+          }).join(' ');
+          return `<p class="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">${withBreaks}</p>`;
+        });
+        
+        // Handle unordered lists
+        mainContent = mainContent.replace(/<p>(?:•|\-|\*)\s+(.*?)<\/p>/g, (match, content) => {
+          return `<li class="text-gray-600 leading-relaxed mb-2 text-base md:text-lg ml-6">• ${content}</li>`;
+        });
+        
+        // Group list items together
+        mainContent = mainContent.replace(/(<li.*?<\/li>)/gs, (match) => {
+          return `<ul class="list-disc pl-6 mb-6 space-y-2">${match}</ul>`;
+        });
+        
+        // Fix duplicate ul wrapping
+        mainContent = mainContent.replace(/<ul>(<ul>)/g, '<ul>');
+        mainContent = mainContent.replace(/<\/ul>(<\/ul>)/g, '</ul>');
         
         const rawDate = clean(dateMatch);
         let formattedDate = "Recently Published";
@@ -115,7 +147,7 @@ export default function BlogPost() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="max-w-3xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
+              className="max-w-4xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
             >
               <div className="mb-6">
                 <span className="text-sm font-medium text-white/80 uppercase tracking-wider">
@@ -143,13 +175,13 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - Simple HTML rendering */}
-      <article className="max-w-3xl mx-auto px-6 md:px-12 py-16 md:py-20">
+      {/* MAIN CONTENT - Wider text container for better stretching */}
+      <article className="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-20">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="blog-content"
+          className="blog-content w-full"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>

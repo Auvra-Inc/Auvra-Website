@@ -1,4 +1,4 @@
-// src/pages/blogPost.jsx - NO NEW PACKAGES NEEDED
+// src/pages/blogPost.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -27,48 +27,22 @@ export default function BlogPost() {
         let mainContent = parts[2] || parts[1] || rawContent;
         mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
         
-        // Improved formatting - handles emails, bold, italic, links properly
-        mainContent = mainContent
-          // First protect email addresses from being treated as markdown
-          .replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-blue-600 underline break-all">$1</a>')
-          // Bold **text**
-          .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-black">$1</strong>')
-          // Italic *text* (but not email addresses)
-          .replace(/(?<!\w)\*(?!\s)(.*?)(?<!\s)\*(?!\w)/g, '<em class="italic">$1</em>')
-          // Links [text](url)
-          .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline break-all">$1</a>')
-          // Handle line breaks - convert double newlines to paragraph breaks
-          .split('\n\n').map(para => {
-            // Skip empty paragraphs
-            if (!para.trim()) return '';
-            // Check if it's already wrapped in HTML
-            if (para.trim().startsWith('<')) return para;
-            // Wrap in paragraph tag
-            return `<p class="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">${para.replace(/\n/g, '<br/>')}</p>`;
-          }).join('');
-        
-        // Handle single line breaks within paragraphs
-        mainContent = mainContent.replace(/<p>(.*?)<\/p>/g, (match, content) => {
-          const withBreaks = content.replace(/<br\/>/g, '\n').split('\n').map(line => {
-            if (line.trim().startsWith('<')) return line;
-            return line.trim();
-          }).join(' ');
-          return `<p class="text-gray-600 leading-relaxed mb-6 text-base md:text-lg">${withBreaks}</p>`;
-        });
-        
-        // Handle unordered lists
-        mainContent = mainContent.replace(/<p>(?:•|\-|\*)\s+(.*?)<\/p>/g, (match, content) => {
-          return `<li class="text-gray-600 leading-relaxed mb-2 text-base md:text-lg ml-6">• ${content}</li>`;
-        });
-        
-        // Group list items together
-        mainContent = mainContent.replace(/(<li.*?<\/li>)/gs, (match) => {
-          return `<ul class="list-disc pl-6 mb-6 space-y-2">${match}</ul>`;
-        });
-        
-        // Fix duplicate ul wrapping
-        mainContent = mainContent.replace(/<ul>(<ul>)/g, '<ul>');
-        mainContent = mainContent.replace(/<\/ul>(<\/ul>)/g, '</ul>');
+        // SIMPLE formatting - no complex regex that could break
+        // Bold
+        mainContent = mainContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Italic
+        mainContent = mainContent.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        // Links
+        mainContent = mainContent.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">$1</a>');
+        // Email addresses (removes underscores if present)
+        mainContent = mainContent.replace(/_?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})_?/g, '<a href="mailto:$1" style="color: #2563eb; text-decoration: underline;">$1</a>');
+        // Line breaks to paragraphs
+        mainContent = mainContent.split('\n\n').map(para => {
+          if (para.trim()) {
+            return `<p style="color: #4b5563; line-height: 1.625; margin-bottom: 1.5rem; font-size: 1rem;">${para.replace(/\n/g, ' ')}</p>`;
+          }
+          return '';
+        }).join('');
         
         const rawDate = clean(dateMatch);
         let formattedDate = "Recently Published";
@@ -175,15 +149,9 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - Wider text container for better stretching */}
+      {/* MAIN CONTENT */}
       <article className="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-20">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="blog-content w-full"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </article>
     </div>
   );

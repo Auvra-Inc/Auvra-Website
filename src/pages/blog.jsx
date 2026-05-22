@@ -87,16 +87,16 @@ export default function Blog() {
       </Link>
       
       {/* HEADER SECTION */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-7xl md:text-8xl lg:text-9xl font-clash font-bold text-black tracking-tighter mb-6 leading-[1.1]">
+          <h1 className="text-8xl md:text-9xl font-clash font-medium text-black tracking-tighter mb-6">
             Blog
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl font-clash font-medium text-black leading-tight max-w-md">
+          <p className="text-2xl md:text-3xl font-clash font-normal text-black leading-tight max-w-sm">
             From cultural discoveries to preserved legacies on Auvra
           </p>
         </motion.div>
@@ -110,7 +110,7 @@ export default function Blog() {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
               {currentPosts.map((post, index) => (
                 <motion.div 
                   key={post.id}
@@ -120,8 +120,8 @@ export default function Blog() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group cursor-pointer flex flex-col"
                 >
-                  {/* Fixed aspect ratio - not too tall, balanced 4:3 on mobile, 3:4 on desktop */}
-                  <div className="w-full aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
+                  {/* Slightly longer image aspect ratio - 4:5 on all screens */}
+                  <div className="w-full aspect-[4/5] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
                     <img 
                       src={post.imageUrl} 
                       alt={post.title} 
@@ -129,10 +129,10 @@ export default function Blog() {
                     />
                   </div>
                   
-                  <h2 className="text-xl md:text-2xl lg:text-3xl font-clash font-semibold text-black leading-tight mb-2 group-hover:text-gray-600 transition-colors duration-300 tracking-tight">
+                  <h2 className="text-2xl md:text-3xl font-clash font-normal text-black leading-tight mb-2 group-hover:text-gray-600 transition-colors duration-300">
                     {post.title}
                   </h2>
-                  <p className="text-xs md:text-sm font-clash font-medium text-gray-400 uppercase tracking-wider">
+                  <p className="text-sm font-clash font-normal text-gray-400 uppercase tracking-wider">
                     {post.date}
                   </p>
                 </motion.div>

@@ -93,10 +93,10 @@ export default function Blog() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-8xl md:text-9xl font-clash font-medium text-black tracking-tighter mb-6">
+          <h1 className="text-8xl md:text-9xl font-clash font-bold text-black tracking-tighter mb-8">
             Blog
           </h1>
-          <p className="text-2xl md:text-3xl font-clash font-normal text-black leading-tight max-w-sm">
+          <p className="text-2xl md:text-3xl font-clash font-medium text-black leading-tight max-w-sm">
             From cultural discoveries to preserved legacies on Auvra
           </p>
         </motion.div>
@@ -120,8 +120,8 @@ export default function Blog() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group cursor-pointer flex flex-col"
                 >
-                  {/* Slightly longer image aspect ratio - 4:5 on all screens */}
-                  <div className="w-full aspect-[4/5] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
+                  {/* Image aspect ratio - just slightly shorter than before (from 4:5 to 5:6) */}
+                  <div className="w-full aspect-[5/6] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
                     <img 
                       src={post.imageUrl} 
                       alt={post.title} 
@@ -129,10 +129,10 @@ export default function Blog() {
                     />
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-clash font-normal text-black leading-tight mb-2 group-hover:text-gray-600 transition-colors duration-300">
+                  <h2 className="text-xl md:text-2xl font-clash font-semibold text-black leading-tight mb-2 group-hover:text-gray-600 transition-colors duration-300">
                     {post.title}
                   </h2>
-                  <p className="text-sm font-clash font-normal text-gray-400 uppercase tracking-wider">
+                  <p className="text-sm font-clash font-medium text-gray-400 uppercase tracking-wider">
                     {post.date}
                   </p>
                 </motion.div>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react'; // Add calendar icon
+import { Calendar } from 'lucide-react';
 
 export default function BlogPost() {
   // Get the blog post slug from the URL
@@ -95,8 +95,8 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
-        {/* Logo - Positioned at top, ABOVE the image, with WHITE color */}
-        <div className="relative z-20 pt-8 md:pt-12 flex justify-center">
+        {/* Logo - Original style from blog page, but WHITE and on top of image */}
+        <div className="relative z-20 pt-15 pb-7 flex justify-center">
           <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide">
             <img 
               src="/Vector.png" 
@@ -108,7 +108,7 @@ export default function BlogPost() {
         </div>
         
         {/* Glassy Rectangle Overlay - Centered on image */}
-        <div className="relative z-10 flex-1 flex items-center justify-center">
+        <div className="relative z-10 flex-1 flex items-center justify-center -mt-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -127,7 +127,7 @@ export default function BlogPost() {
               </p>
             )}
             
-            {/* Author and Date with Calendar Icon - Removed "BLOG POST" text */}
+            {/* Author and Date with Calendar Icon */}
             <div className="flex items-center gap-2 text-white/80 text-sm md:text-base">
               <span className="font-medium">{post.author}</span>
               <span>•</span>

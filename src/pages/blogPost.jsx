@@ -80,11 +80,11 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO SECTION - Full width image that extends to the top */}
-      <div className="relative w-full min-h-screen flex flex-col overflow-hidden">
+      {/* HERO SECTION - Fixed to prevent zoom gaps */}
+      <div className="relative w-full h-screen max-h-[100vh] overflow-hidden">
         
-        {/* Background Image - Full coverage from top to bottom */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Image - Full coverage without gaps */}
+        <div className="absolute inset-0 w-full h-full">
           <img 
             src={post.imageUrl} 
             alt={post.title} 
@@ -94,50 +94,56 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
-        {/* Logo Header - ON TOP OF IMAGE, unchanged */}
-        <div className="relative z-20 pt-15 pb-7 flex justify-center">
-          <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
-            <img 
-              src="/Vector .png" 
-              alt="Auvra Logo" 
-              className="w-6 h-6 object-contain" 
-            />
-            <span className="font-clash">Auvra</span>
-          </Link>
-        </div>
-        
-        {/* Glassy Rectangle Overlay - Centered on image */}
-        <div className="relative z-10 flex-1 flex items-center justify-center -mt-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
-          >
-            {/* Date - Replacing "Blog Post" */}
-            <div className="mb-6">
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">
-                {post.formattedDate}
-              </span>
-            </div>
-            
-            {/* Title - Reduced font size */}
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-clash font-bold text-white leading-tight mb-4">
-              {post.title}
-            </h1>
-            
-            {/* Subtitle */}
-            {post.subtitle && (
-              <p className="text-base md:text-lg text-white/90 mb-6 leading-relaxed">
-                {post.subtitle}
-              </p>
-            )}
-            
-            {/* Author - Only author, no date */}
-            <div className="flex items-center gap-3 text-white/80 text-sm md:text-base">
-              <span className="font-medium">{post.author}</span>
-            </div>
-          </motion.div>
+        {/* Content wrapper with flex to push content down */}
+        <div className="relative z-10 flex flex-col justify-between h-full">
+          {/* Logo Header - ON TOP OF IMAGE, unchanged */}
+          <div className="pt-15 pb-7 flex justify-center">
+            <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
+              <img 
+                src="/Vector .png" 
+                alt="Auvra Logo" 
+                className="w-6 h-6 object-contain" 
+              />
+              <span className="font-clash">Auvra</span>
+            </Link>
+          </div>
+          
+          {/* Glassy Rectangle Overlay - Centered on image */}
+          <div className="flex-1 flex items-center justify-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="max-w-3xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
+            >
+              {/* Date - Replacing "Blog Post" */}
+              <div className="mb-6">
+                <span className="text-sm font-medium text-white/80 uppercase tracking-wider">
+                  {post.formattedDate}
+                </span>
+              </div>
+              
+              {/* Title - Reduced font size */}
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-clash font-bold text-white leading-tight mb-4">
+                {post.title}
+              </h1>
+              
+              {/* Subtitle */}
+              {post.subtitle && (
+                <p className="text-base md:text-lg text-white/90 mb-6 leading-relaxed">
+                  {post.subtitle}
+                </p>
+              )}
+              
+              {/* Author - Only author, no date */}
+              <div className="flex items-center gap-3 text-white/80 text-sm md:text-base">
+                <span className="font-medium">{post.author}</span>
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Invisible spacer for balance */}
+          <div className="h-10" />
         </div>
       </div>
       

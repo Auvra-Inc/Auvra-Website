@@ -31,6 +31,7 @@ import ContentGovernance from './legals/contentGovernance'
 // --- PAGES IMPORT --- //
 import About from './pages/about'
 import Blog from './pages/blog'
+import BlogPost from './pages/blogPost'
 import Hero from './pages/hero'
 
 // 1. SCROLL HELPER
@@ -80,6 +81,7 @@ function App() {
         <Route path="/governance" element={<ContentGovernance />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
 
       {/* Footer stays outside the Routes so it always shows up at the bottom */}

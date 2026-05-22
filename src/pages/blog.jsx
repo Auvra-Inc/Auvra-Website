@@ -77,7 +77,7 @@ export default function Blog() {
 
   return (
     <div className="w-full bg-white pb-20">
-      <Link to="/" className="pt-15 pb-7 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
+      <Link to="/" className="pt-20 pb-7 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
         <img 
           src="/Vector .png" 
           alt="Auvra Logo" 
@@ -93,9 +93,21 @@ export default function Blog() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-8xl md:text-9xl font-clash font-bold text-black tracking-tighter mb-8">
+          <motion.h1 
+            className="text-8xl md:text-9xl font-clash font-bold text-black tracking-wider mb-8 inline-block"
+            animate={{
+              letterSpacing: ["0.05em", "0.15em", "0.05em"]
+            }}
+            transition={{
+              duration: 2,
+              ease: "easeInOut",
+              times: [0, 0.5, 1],
+              repeat: Infinity,
+              repeatDelay: 3
+            }}
+          >
             Blog
-          </h1>
+          </motion.h1>
           <p className="text-2xl md:text-3xl font-clash font-medium text-black leading-tight max-w-sm">
             From cultural discoveries to preserved legacies on Auvra
           </p>
@@ -120,8 +132,8 @@ export default function Blog() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group cursor-pointer flex flex-col"
                 >
-                  {/* Image aspect ratio - just slightly shorter than before (from 4:5 to 5:6) */}
-                  <div className="w-full aspect-[5/6] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
+                  {/* Image aspect ratio - classic 3:4 portrait */}
+                  <div className="w-full aspect-[3/4] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
                     <img 
                       src={post.imageUrl} 
                       alt={post.title} 

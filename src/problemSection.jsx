@@ -24,9 +24,9 @@ const ProblemSection = () => {
           </span>
         </div>
         
-        {/* Right Side: The text - ONLY CHANGE IS HERE: Added UNESCO link with no underline */}
+        {/* Right Side: The text - UNESCO link matches text color, no underline */}
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-clash text-justify md:text-left md:w-1/2">
-          According to <a href="https://en.unesco.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 no-underline hover:no-underline">UNESCO</a>, at least one language dies every two weeks. When a language vanishes, it takes with it:
+          According to <a href="https://en.unesco.org" target="_blank" rel="noopener noreferrer" className="text-gray-700 no-underline hover:text-gray-900">UNESCO</a>, at least one language dies every two weeks. When a language vanishes, it takes with it:
         </p>
       </div>
 

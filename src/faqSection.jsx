@@ -97,9 +97,9 @@ export default function FaqAndCardsSection() {
                                         onClick={() => toggleFAQ(index)}
                                         className='w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors'
                                     >
-                                        <span className='font-medium font-clash pr-4 text-[20px]'>
+                                        <h3 className='font-medium font-clash pr-4 text-[20px] m-0'>
                                             {faq.question}
-                                        </span>
+                                        </h3>
                                         <svg
                                             className={`w-5 h-5 text-gray-400 transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
                                             fill='none'

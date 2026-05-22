@@ -1,7 +1,7 @@
 const ProblemSection = () => {
   return (
     // FIXED: Changed py-15 (not a standard tailwind class) to py-16, and added md:py-24 for desktop breathing room. Expanded max-w to 5xl.
-    <section className="py-16 md:py-24 px-6 max-w-5xl mx-auto bg-white font-clash">
+    <section className="py-16 pt-7 md:py-24 px-6 max-w-5xl mx-auto bg-white font-clash">
       
       {/* Headlines */}
       <h2 className="text-3xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-2">
@@ -41,14 +41,14 @@ const ProblemSection = () => {
       </div>
 
       {/* Bottom Antidote Card */}
-      {/* THE BIG FIX: Removed w-[350px] and replaced it with w-full md:max-w-2xl so it stretches beautifully on desktop */}
-      <div className="relative p-8 md:p-10 w-full md:max-w-2xl text-justify md:text-left rounded-3xl shadow-sm overflow-hidden bg-gray-50/50 backdrop-blur-xl border border-gray-100">
+      {/* THE BIG FIX: Removed w-[350px] and replaced it with w-full md:max-w-xl so it stays compact yet readable */}
+      <div className="relative p-6 md:p-8 w-full md:max-w-xl text-left rounded-3xl shadow-sm overflow-hidden bg-gray-50/50 backdrop-blur-xl border border-gray-100">
         
         {/* Subtle gradient blob in background */}
         <div className="absolute -bottom-10 right-10 w-40 h-40 bg-purple-200 blur-3xl rounded-full opacity-40 pointer-events-none"></div>
         
         {/* FIXED: Restructured the text and pills so they stack nicely on mobile but flow perfectly on desktop */}
-        <div className="relative z-10 text-md md:text-lg text-gray-800 leading-relaxed font-clash">
+        <div className="relative z-10 text-sm md:text-base text-gray-800 leading-snug font-clash">
           <span>
             <span className="font-semibold">Auvra</span> is the antidote: a permanent verifiable and fair ecosystem built to ensure what matters today is here for tomorrow.
           </span>

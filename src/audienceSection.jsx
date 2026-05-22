@@ -14,7 +14,7 @@ const AudienceSection = () => {
     >
       
       {/* 1. TOP PILL TAG */}
-      <div className="px-6 py-2 rounded-full border border-gray-200 text-sm text-gray-500 font-sans mb-10 bg-white/80 backdrop-blur-sm shadow-sm z-10">
+      <div className="px-6 py-5 rounded-full border border-gray-200 text-sm text-gray-500 font-sans mb-10 bg-white/80 backdrop-blur-sm shadow-sm z-10">
         Fits every way cultures lives
       </div>
 

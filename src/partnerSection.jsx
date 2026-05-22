@@ -18,11 +18,11 @@ export default function PartnersSection() {
     <div className="flex items-center gap-16 md:gap-24 pr-16 md:pr-24 w-max">
       {partners.map((partner, index) => (
         // Added shrink-0 here! This stops the marquee flexbox from randomly squishing the boxes.
-        <div key={index} className="w-28 md:w-36 h-28 md:h-36 flex justify-center items-center shrink-0 mx-8 md:mx-12">
+        <div key={index} className="w-28 md:w-36 h-24 md:h-28 flex justify-center items-center shrink-0 mx-8 md:mx-12">
           <img 
             src={partner.imagePath} 
             alt={`${partner.name} Logo`} 
-            style={{ maxHeight: '100%', maxWidth: '100%', width: 'auto', height: 'auto', objectFit: 'contain' }}
+            style={{ maxHeight: '85%', maxWidth: '85%', width: 'auto', height: 'auto', objectFit: 'contain' }}
             className="opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
           />
         </div>

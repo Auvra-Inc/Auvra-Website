@@ -13,10 +13,10 @@ const VaultSection = () => {
 
   return (
     // h-[800px] gives it enough height to let the center image sit perfectly at the bottom
-    <section className="relative w-full h-[800px] md:h-[900px] bg-white overflow-hidden font-clash flex flex-col items-center pt-32">
+    <section className="relative w-full h-[800px] md:h-[900px] bg-white overflow-hidden font-clash flex flex-col items-center pt-24 md:pt-28">
       
       {/* 1. TEXT CONTENT */}
-      <div className="relative bottom-30 z-30 text-center px-6 max-w-lg mx-auto">
+      <div className="relative z-30 mt-12 md:mt-16 text-center px-6 max-w-lg mx-auto">
         <p className="text-sm md:text-base text-black font-clash mb-4 tracking-wide">
           Personal Legacy
         </p>
@@ -43,7 +43,7 @@ const VaultSection = () => {
       {/* Top Left (Large dark image) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200&auto=format&fit=crop" 
-        className="top-[0%] left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
+        className="top-6 left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
         delay="0s" 
       />
       
@@ -57,7 +57,7 @@ const VaultSection = () => {
       {/* Top Right (Cut off image at the very top edge) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" 
-        className="top-[1%] right-[-5%] md:right-[15%] w-16 h-16 md:w-24 md:h-24" 
+        className="top-6 right-[-5%] md:right-[15%] w-16 h-16 md:w-24 md:h-24" 
         delay="0.5s" 
       />
       

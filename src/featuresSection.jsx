@@ -24,7 +24,7 @@ const FeaturesSection = () => {
 		<section className='py-20 px-6 max-w-[1200px] mx-auto font-clash'>
 			{/* Header */}
 			<div className='mb-16 max-w-2xl'>
-				<div className='inline-block px-4 py-1.5 rounded-full border border-gray-300 text-md font-medium tracking-widest uppercase mb-6 shadow-sm font-clash'>
+				<div className='inline-block px-4 py-1.5 rounded-full border border-gray-300 text-sm font-medium tracking-widest uppercase mb-6 shadow-sm font-clash'>
 					Built for preservation
 				</div>
 				<h2 className='text-3xl md:text-5xl font-medium text-gray-900 leading-tight mb-6'>

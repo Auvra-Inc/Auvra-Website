@@ -98,35 +98,35 @@ export default function FaqAndCardsSection() {
 						</button>
 					</div>
 
-					<div className='flex flex-col gap-4'>
-						{faqs.map((faq, index) => {
-							const isOpen = openIndexes.includes(index);
-							return (
-								<div
-									key={index}
-									className='border border-gray-200 rounded-2xl overflow-hidden shadow-sm bg-white'
-								>
-									<button
-										onClick={() => toggleFAQ(index)}
-										className='w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors'
-									>
-										<span className='font-medium font-clash pr-4 text-[15px]'>
-											{faq.question}
-										</span>
-										<svg
-											className={`w-5 h-5 text-gray-400 transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
-											fill='none'
-											viewBox='0 0 24 24'
-											stroke='currentColor'
-										>
-											<path
-												strokeLinecap='round'
-												strokeLinejoin='round'
-												strokeWidth={2}
-												d='M19 9l-7 7-7-7'
-											/>
-										</svg>
-									</button>
+                    <div className='flex flex-col gap-4'>
+                        {faqs.map((faq, index) => {
+                            const isOpen = openIndexes.includes(index);
+                            return (
+                                <div
+                                    key={index}
+                                    className='border border-gray-200 rounded-2xl overflow-hidden shadow-sm bg-white'
+                                >
+                                    <button
+                                        onClick={() => toggleFAQ(index)}
+                                        className='w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors'
+                                    >
+                                        <span className='font-medium font-clash pr-4 text-[20px]'>
+                                            {faq.question}
+                                        </span>
+                                        <svg
+                                            className={`w-5 h-5 text-gray-400 transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                                            fill='none'
+                                            viewBox='0 0 24 24'
+                                            stroke='currentColor'
+                                        >
+                                            <path
+                                                strokeLinecap='round'
+                                                strokeLinejoin='round'
+                                                strokeWidth={2}
+                                                d='M19 9l-7 7-7-7'
+                                            />
+                                        </svg>
+                                    </button>
 
 									{isOpen && (
 										<div className='px-6 pb-6 text-md text-black leading-relaxed border-t border-gray-100 pt-4 font-clash'>

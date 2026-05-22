@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaInstagram, FaTwitter, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { SiTiktok } from 'react-icons/si';
 
 export default function FooterSection() {
   return (
@@ -59,11 +61,21 @@ export default function FooterSection() {
             
             <h4 className="text-[10px] font-semibold tracking-widest text-gray-400 uppercase mt-4">Connect</h4>
             <div className="flex items-center gap-3">
-              <a href="#" className="text-gray-500 hover:text-[#E1306C] transition-colors font-bold">IG</a>
-              <a href="#" className="text-gray-500 hover:text-black transition-colors font-bold">𝕏</a>
-              <a href="#" className="text-gray-500 hover:text-[#0077B5] transition-colors font-bold">IN</a>
-              <a href="#" className="text-gray-500 hover:text-[#1877F2] transition-colors font-bold">FB</a>
-              <a href="#" className="text-gray-500 hover:text-black transition-colors font-bold">TK</a>
+              <a href="https://instagram.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-100 text-[#E1306C] flex items-center justify-center transition hover:bg-[#E1306C] hover:text-white">
+                <FaInstagram className="w-5 h-5" />
+              </a>
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-100 text-[#1DA1F2] flex items-center justify-center transition hover:bg-[#1DA1F2] hover:text-white">
+                <FaTwitter className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-100 text-[#0A66C2] flex items-center justify-center transition hover:bg-[#0A66C2] hover:text-white">
+                <FaLinkedinIn className="w-5 h-5" />
+              </a>
+              <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-100 text-[#1877F2] flex items-center justify-center transition hover:bg-[#1877F2] hover:text-white">
+                <FaFacebookF className="w-5 h-5" />
+              </a>
+              <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gray-100 text-black flex items-center justify-center transition hover:bg-black hover:text-white">
+                <SiTiktok className="w-5 h-5" />
+              </a>
             </div>
           </div>
 

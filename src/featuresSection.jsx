@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import {
 	Crown,
 	ShieldCheck,
@@ -41,7 +42,13 @@ const FeaturesSection = () => {
 				{/* =========================================
             CARD 1: COLLECTIBLE BADGES
         ========================================= */}
-				<div className='bg-white rounded-[2rem] p-8 border border-gray-200 shadow-sm flex flex-col h-full text-center md:text-left'>
+			<motion.div
+				initial={{ opacity: 0, y: 32 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.2 }}
+				transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
+				className='bg-white rounded-[2rem] p-8 border border-gray-200 shadow-sm flex flex-col h-full text-center md:text-left'
+			>
 					<div className='flex items-center justify-center md:justify-start gap-2 mb-4'>
 						<Crown className='text-indigo-600 fill-indigo-600 w-6 h-6' />
 						<h3 className='text-xl font-semi-bold text-gray-900'>
@@ -70,14 +77,18 @@ const FeaturesSection = () => {
                  <span>2h</span>
                  <MoreHorizontal className="w-5 h-5" />
                </div> */}
-						</div>
-					</div>
-				</div>
+						</div>				</div>				</motion.div>
 
 				{/* =========================================
             CARD 2: CONTRIBUTION BADGES
         ========================================= */}
-				<div className='bg-black rounded-[2rem] p-8 text-white shadow-xl flex flex-col h-full border border-neutral-800 text-center md:text-left'>
+			<motion.div
+				initial={{ opacity: 0, y: 32 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.2 }}
+				transition={{ duration: 0.6, ease: 'easeOut', delay: 0.12 }}
+				className='bg-black rounded-[2rem] p-8 text-white shadow-xl flex flex-col h-full border border-neutral-800 text-center md:text-left'
+			>
 					<div className='flex items-center justify-center md:justify-start gap-3 mb-4'>
 						<Crown className='text-yellow-500 fill-yellow-500 w-6 h-6' />
 						<h3 className='text-xl font-semi-bold'>Contribution Badges</h3>
@@ -142,12 +153,18 @@ const FeaturesSection = () => {
 							Living Archive
 						</span>
 					</div>
-				</div>
+				</motion.div>
 
-				{/* =========================================
+			{/* =========================================
             CARD 3:  COLLABORATION HUB
         ========================================= */}
-				<div className='w-full max-w-md bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'>
+<motion.div
+				initial={{ opacity: 0, y: 32 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.2 }}
+				transition={{ duration: 0.6, ease: 'easeOut', delay: 0.18 }}
+				className='w-full max-w-md bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'
+			>
 					{/* HEADER SECTION */}
 					<div className='flex items-center gap-3 mb-4'>
 						<div className='w-8 h-8 flex items-center justify-center'>
@@ -281,7 +298,7 @@ const FeaturesSection = () => {
 							</div>
 						</div>
 					</div>
-				</div>
+			</motion.div>
 
 				{/* =========================================
     CARD 4: LENS AI (Spans both columns)

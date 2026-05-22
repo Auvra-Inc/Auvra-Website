@@ -63,7 +63,7 @@ export default function Blog() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-7xl md:text-9xl font-clash font-bold text-black tracking-tighter mb-6">
+          <h1 className="text-8xl md:text-9xl font-clash font-bold text-black tracking-tighter mb-6">
             Blog
           </h1>
           <p className="text-2xl md:text-3xl font-clash font-medium text-black leading-tight max-w-sm">
@@ -89,7 +89,7 @@ export default function Blog() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group cursor-pointer flex flex-col"
               >
-                <div className="w-full aspect-[4/3] md:aspect-[4/4] overflow-hidden rounded-[2rem] mb-6 bg-gray-100 relative">
+                <div className="w-full aspect-[4/5] md:aspect-[3/4] min-h-[340px] overflow-hidden rounded-[2rem] mb-6 bg-gray-100 relative">
                   <img 
                     src={post.imageUrl} 
                     alt={post.title} 

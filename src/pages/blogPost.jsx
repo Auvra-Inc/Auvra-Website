@@ -1,10 +1,10 @@
-// BlogPost.jsx
+// src/pages/blogPost.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function BlogPost() {
-  // Get the blog post slug from the URL (e.g., "auvra-is-now-live")
+  // Get the blog post slug from the URL
   const { slug } = useParams();
   
   const [post, setPost] = useState(null);
@@ -30,9 +30,22 @@ export default function BlogPost() {
         const parts = rawContent.split(/---\s*\n/);
         const mainContent = parts[2] || parts[1] || rawContent;
         
+        // Format date nicely
+        const rawDate = clean(dateMatch);
+        let formattedDate = "Recently Published";
+        if (rawDate) {
+          const date = new Date(rawDate);
+          formattedDate = date.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          });
+        }
+        
         setPost({
           title: clean(titleMatch) || "Untitled",
-          date: clean(dateMatch) || "Recently Published",
+          date: rawDate,
+          formattedDate: formattedDate,
           imageUrl: clean(imageMatch) || "/art3.png",
           author: clean(authorMatch) || "Auvra Team",
           subtitle: clean(subtitleMatch) || "",
@@ -77,63 +90,60 @@ export default function BlogPost() {
         <span className="font-clash">Auvra</span>
       </Link>
       
-      {/* Blog Post Content - Centered like your screenshot */}
-      <article className="max-w-3xl mx-auto px-6 md:px-12 py-8">
-        {/* Title */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-clash font-bold text-black leading-tight mb-4"
-        >
-          {post.title}
-        </motion.h1>
+      {/* HERO SECTION - Full width image with glassy overlay */}
+      <div className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image - Full coverage */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={post.imageUrl} 
+            alt={post.title} 
+            className="w-full h-full object-cover"
+          />
+          {/* Dark overlay to make text readable */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
         
-        {/* Subtitle */}
-        {post.subtitle && (
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl md:text-2xl text-gray-600 mb-6"
-          >
-            {post.subtitle}
-          </motion.p>
-        )}
-        
-        {/* Author and Date */}
+        {/* Glassy Rectangle Overlay - Centered on image */}
         <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex items-center gap-3 text-gray-500 mb-12 pb-8 border-b border-gray-100"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-10 max-w-3xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-white/10 border border-white/20 shadow-2xl"
         >
-          <span className="font-medium">{post.author}</span>
-          <span>•</span>
-          <span>{post.date}</span>
+          {/* Category/Badge */}
+          <div className="mb-6">
+            <span className="text-sm font-medium text-white/80 uppercase tracking-wider">
+              Blog Post
+            </span>
+          </div>
+          
+          {/* Title */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-clash font-bold text-white leading-tight mb-4">
+            {post.title}
+          </h1>
+          
+          {/* Subtitle */}
+          {post.subtitle && (
+            <p className="text-lg md:text-xl text-white/90 mb-6 leading-relaxed">
+              {post.subtitle}
+            </p>
+          )}
+          
+          {/* Author and Date */}
+          <div className="flex items-center gap-3 text-white/80 text-sm md:text-base">
+            <span className="font-medium">{post.author}</span>
+            <span>•</span>
+            <span>{post.formattedDate}</span>
+          </div>
         </motion.div>
-        
-        {/* Featured Image */}
-        {post.imageUrl && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="aspect-[4/3] rounded-3xl overflow-hidden mb-12 bg-gray-100"
-          >
-            <img 
-              src={post.imageUrl} 
-              alt={post.title} 
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        )}
-        
-        {/* Main Content - Formatted as paragraphs */}
+      </div>
+      
+      {/* MAIN CONTENT - White background section */}
+      <article className="max-w-3xl mx-auto px-6 md:px-12 py-16 md:py-20">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="prose prose-lg max-w-none"
         >
           {post.content.split('\n\n').map((paragraph, idx) => (

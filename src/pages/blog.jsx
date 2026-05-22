@@ -77,7 +77,7 @@ export default function Blog() {
 
   return (
     <div className="w-full bg-white pb-20">
-      <Link to="/" className="pt-20 pb-7 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
+      <Link to="/" className="pt-20 pb-12 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
         <img 
           src="/Vector .png" 
           alt="Auvra Logo" 
@@ -132,8 +132,8 @@ export default function Blog() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group cursor-pointer flex flex-col"
                 >
-                  {/* Image aspect ratio - significantly shorter (4:3 - landscape orientation) */}
-                  <div className="w-full aspect-[4/3] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
+                  {/* Image aspect ratio - perfect square (1:1 ratio - 4x4) */}
+                  <div className="w-full aspect-square overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
                     <img 
                       src={post.imageUrl} 
                       alt={post.title} 

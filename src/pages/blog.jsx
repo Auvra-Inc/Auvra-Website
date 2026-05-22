@@ -75,6 +75,10 @@ export default function Blog() {
     }
   };
 
+  // Split the subtitle text into words for animation
+  const subtitleText = "From cultural discoveries to preserved legacies on Auvra";
+  const words = subtitleText.split(" ");
+
   return (
     <div className="w-full bg-white pb-20">
       <Link to="/" className="pt-20 pb-12 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
@@ -108,8 +112,29 @@ export default function Blog() {
           >
             Blog
           </motion.h1>
+          
+          {/* Word-by-Word Fade-in Animation for Subtitle */}
           <p className="text-2xl md:text-3xl font-clash font-medium text-black leading-tight max-w-sm">
-            From cultural discoveries to preserved legacies on Auvra
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: 0.3 + (i * 0.08),
+                  ease: "easeOut"
+                }}
+                className="inline-block mr-2"
+                whileHover={{ 
+                  scale: 1.05, 
+                  color: "#4b5563",
+                  transition: { duration: 0.2 }
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </p>
         </motion.div>
       </section>
@@ -144,7 +169,7 @@ export default function Blog() {
                   <h2 className="text-xl md:text-2xl font-clash font-semibold text-black leading-tight mb-2 group-hover:text-gray-600 transition-colors duration-300">
                     {post.title}
                   </h2>
-                  <p className="text-sm font-clash font-medium text-gray-400 uppercase tracking-wider">
+                  <p className="text-sm font-clash font-normal text-gray-500">
                     {post.date}
                   </p>
                 </motion.div>

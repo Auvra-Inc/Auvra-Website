@@ -94,11 +94,11 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
-        {/* Logo - Using Logo-png.PNG from public folder, made white */}
+        {/* Logo - ON TOP OF IMAGE, white without changing the original logo */}
         <div className="relative z-20 pt-15 pb-7 flex justify-center">
           <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide">
             <img 
-              src="/Logo-png.PNG" 
+              src="/Vector.png" 
               alt="Auvra Logo" 
               className="w-6 h-6 object-contain" 
               style={{ filter: 'brightness(0) invert(1)' }}
@@ -115,7 +115,7 @@ export default function BlogPost() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-3xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
           >
-            {/* Date - This is where "BLOG POST" used to be */}
+            {/* Date - Replacing "Blog Post" */}
             <div className="mb-6">
               <span className="text-sm font-medium text-white/80 uppercase tracking-wider">
                 {post.formattedDate}
@@ -134,7 +134,7 @@ export default function BlogPost() {
               </p>
             )}
             
-            {/* Author - No date here anymore, just author */}
+            {/* Author - Only author, no date */}
             <div className="flex items-center gap-3 text-white/80 text-sm md:text-base">
               <span className="font-medium">{post.author}</span>
             </div>

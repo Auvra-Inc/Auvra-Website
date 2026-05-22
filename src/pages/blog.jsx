@@ -132,8 +132,8 @@ export default function Blog() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group cursor-pointer flex flex-col"
                 >
-                  {/* Image aspect ratio - classic 3:4 portrait */}
-                  <div className="w-full aspect-[3/4] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
+                  {/* Image aspect ratio - significantly shorter (4:3 - landscape orientation) */}
+                  <div className="w-full aspect-[4/3] overflow-hidden rounded-3xl mb-6 bg-gray-100 relative">
                     <img 
                       src={post.imageUrl} 
                       alt={post.title} 

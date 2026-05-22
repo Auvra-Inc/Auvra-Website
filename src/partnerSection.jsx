@@ -34,7 +34,7 @@ export default function PartnersSection() {
     <section className="w-full pt-7 bg-white overflow-hidden border-t border-gray-100">
       
       <div className="text-center">
-        <p className="mx-2  max-w-2xl mx-auto font-clash">Our partners in innovation</p>
+        <p className="max-w-2xl mx-auto font-clash">Our partners in innovation</p>
       </div>
 
       {/* THE MARQUEE CONTAINER */}

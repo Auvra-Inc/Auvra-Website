@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';  // ← ADDED useNavigate
 
 // Keep the ?raw query here to prevent the build error
 const markdownFiles = import.meta.glob('/src/content/blog/*.md', { query: '?raw', eager: true });
 
 export default function Blog() {
+  const navigate = useNavigate();  // ← ADDED this line
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
@@ -31,8 +32,12 @@ export default function Blog() {
       const rawDate = clean(dateMatch);
       const image = clean(imageMatch);
 
+      // Extract filename/slug from the path
+      const slug = path.split('/').pop().replace('.md', '');  // ← ADDED this line
+
       loadedPosts.push({
         id: path,
+        slug: slug,  // ← ADDED this line
         title: title || "Untitled Post",
         // Only format the date if we actually found one
         date: rawDate 
@@ -73,6 +78,11 @@ export default function Blog() {
       setCurrentPage(currentPage - 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  };
+
+  // ← ADDED this function - handles clicking on a blog post
+  const handlePostClick = (slug) => {
+    navigate(`/blog/${slug}`);
   };
 
   // Split the subtitle text into words for animation
@@ -156,6 +166,7 @@ export default function Blog() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onClick={() => handlePostClick(post.slug)}  // ← ADDED this line
                   className="group cursor-pointer flex flex-col"
                 >
                   {/* Image aspect ratio - perfect square (1:1 ratio - 4x4) */}

@@ -1,10 +1,9 @@
-// src/pages/blogPost.jsx
+// src/pages/blogPost.jsx - NO NEW PACKAGES NEEDED
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function BlogPost() {
-  // Get the blog post slug from the URL
   const { slug } = useParams();
   
   const [post, setPost] = useState(null);
@@ -13,11 +12,9 @@ export default function BlogPost() {
   useEffect(() => {
     const loadPost = async () => {
       try {
-        // Load the markdown file that matches the slug
         const markdownModule = await import(`../content/blog/${slug}.md?raw`);
         const rawContent = markdownModule.default;
         
-        // Parse the blog post metadata
         const titleMatch = rawContent.match(/title:\s*(.*)/i);
         const dateMatch = rawContent.match(/date:\s*(.*)/i);
         const imageMatch = rawContent.match(/image:\s*(.*)/i);
@@ -26,11 +23,21 @@ export default function BlogPost() {
         
         const clean = (match) => match ? match[1].replace(/['"]/g, '').trim() : null;
         
-        // Extract the main content (everything after the ---)
         const parts = rawContent.split(/---\s*\n/);
-        const mainContent = parts[2] || parts[1] || rawContent;
+        let mainContent = parts[2] || parts[1] || rawContent;
+        mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
         
-        // Format date nicely
+        // Simple formatting to remove markdown symbols
+        mainContent = mainContent
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // **bold** -> <strong>
+          .replace(/\*(.*?)\*/g, '<em>$1</em>')              // *italic* -> <em>
+          .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" class="text-blue-600 underline">$1</a>')  // links
+          .replace(/\n\n/g, '</p><p class="text-gray-600 leading-relaxed mb-5 text-base">')  // paragraphs
+          .replace(/^\s*-\s(.*?)$/gm, '<li class="ml-5">• $1</li>');  // basic lists
+        
+        // Wrap in paragraphs
+        mainContent = `<p class="text-gray-600 leading-relaxed mb-5 text-base">${mainContent}</p>`;
+        
         const rawDate = clean(dateMatch);
         let formattedDate = "Recently Published";
         if (rawDate) {
@@ -44,7 +51,6 @@ export default function BlogPost() {
         
         setPost({
           title: clean(titleMatch) || "Untitled",
-          date: rawDate,
           formattedDate: formattedDate,
           imageUrl: clean(imageMatch) || "/art3.png",
           author: clean(authorMatch) || "Auvra Team",
@@ -80,23 +86,19 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HERO SECTION - Fixed to prevent zoom gaps */}
+      {/* HERO SECTION */}
       <div className="relative w-full h-screen max-h-[100vh] overflow-hidden">
         
-        {/* Background Image - Full coverage without gaps */}
         <div className="absolute inset-0 w-full h-full">
           <img 
             src={post.imageUrl} 
             alt={post.title} 
             className="w-full h-full object-cover"
           />
-          {/* Dark overlay to make text readable */}
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
-        {/* Content wrapper with flex to push content down */}
         <div className="relative z-10 flex flex-col justify-between h-full">
-          {/* Logo Header - ON TOP OF IMAGE, unchanged */}
           <div className="pt-15 pb-7 flex justify-center">
             <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
               <img 
@@ -108,7 +110,6 @@ export default function BlogPost() {
             </Link>
           </div>
           
-          {/* Glassy Rectangle Overlay - Centered on image */}
           <div className="flex-1 flex items-center justify-center">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -116,51 +117,41 @@ export default function BlogPost() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-3xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
             >
-              {/* Date - Replacing "Blog Post" */}
               <div className="mb-6">
                 <span className="text-sm font-medium text-white/80 uppercase tracking-wider">
                   {post.formattedDate}
                 </span>
               </div>
               
-              {/* Title - Reduced font size */}
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-clash font-bold text-white leading-tight mb-4">
                 {post.title}
               </h1>
               
-              {/* Subtitle */}
               {post.subtitle && (
                 <p className="text-base md:text-lg text-white/90 mb-6 leading-relaxed">
                   {post.subtitle}
                 </p>
               )}
               
-              {/* Author - Only author, no date */}
               <div className="flex items-center gap-3 text-white/80 text-sm md:text-base">
                 <span className="font-medium">{post.author}</span>
               </div>
             </motion.div>
           </div>
           
-          {/* Invisible spacer for balance */}
           <div className="h-10" />
         </div>
       </div>
       
-      {/* MAIN CONTENT - White background section */}
+      {/* MAIN CONTENT - Simple HTML rendering */}
       <article className="max-w-3xl mx-auto px-6 md:px-12 py-16 md:py-20">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="prose prose-lg max-w-none"
-        >
-          {post.content.split('\n\n').map((paragraph, idx) => (
-            <p key={idx} className="text-gray-700 leading-relaxed mb-6 text-lg">
-              {paragraph.trim()}
-            </p>
-          ))}
-        </motion.div>
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
       </article>
     </div>
   );

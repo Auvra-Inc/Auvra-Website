@@ -94,11 +94,11 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
-        {/* Logo - ON TOP OF IMAGE, using YOUR ACTUAL LOGO from the working code */}
+        {/* Logo Header - ON TOP OF IMAGE, unchanged */}
         <div className="relative z-20 pt-15 pb-7 flex justify-center">
           <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
             <img 
-              src="/Vector.png" 
+              src="/Vector .png" 
               alt="Auvra Logo" 
               className="w-6 h-6 object-contain" 
             />

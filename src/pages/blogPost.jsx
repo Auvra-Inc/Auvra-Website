@@ -112,8 +112,8 @@ export default function BlogPost() {
             </Link>
           </div>
           
-          {/* Glass card - MOVED DOWN MORE with mt-32 */}
-          <div className="flex-1 flex items-center justify-center mt-32 md:mt-40">
+          {/* Glass card - MOVED DOWN A LITTLE with mt-24 */}
+          <div className="flex-1 flex items-center justify-center mt-24 md:mt-28">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -146,10 +146,10 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - LESS WIDTH ON EDGES (smaller padding) */}
+      {/* MAIN CONTENT - GOOD EDGES (2rem padding like before) */}
       <div style={{ width: '100%', margin: 0, padding: 0 }}>
         <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '3rem 0' }}>
-          <div style={{ width: '100%', paddingLeft: '5rem', paddingRight: '5rem' }}>
+          <div style={{ width: '100%', paddingLeft: '2rem', paddingRight: '2rem' }}>
             <div 
               dangerouslySetInnerHTML={{ __html: post.content }} 
               style={{ 

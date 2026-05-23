@@ -22,7 +22,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- DYNAMIC META TAGS -->
+    <!-- Default META TAGS (for main page) -->
     <title id="dynamic-title">Auvra - The Permanent Home For Human Culture</title>
     <meta id="dynamic-description" name="description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
     <meta id="dynamic-og-title" property="og:title" content="Auvra - The Permanent Home For Human Culture" />
@@ -30,10 +30,6 @@
     <meta id="dynamic-og-url" property="og:url" content="https://www.goauvra.com/" />
     <meta id="dynamic-twitter-title" name="twitter:title" content="Auvra - The Permanent Home For Human Culture" />
     <meta id="dynamic-twitter-description" name="twitter:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
-    
-    <!-- International -->
-    <link rel="alternate" hreflang="en" href="https://www.goauvra.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.goauvra.com/" />
     
     <!-- Static meta tags -->
     <meta property="og:site_name" content="Auvra" />
@@ -47,6 +43,10 @@
     <meta name="robots" content="index, follow" />
     <meta http-equiv="Content-Language" content="en" />
     <link rel="canonical" href="https://www.goauvra.com/" />
+    
+    <!-- International -->
+    <link rel="alternate" hreflang="en" href="https://www.goauvra.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.goauvra.com/" />
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -119,66 +119,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
     
-    <!-- Critical script that updates meta tags -->
+    <!-- META TAGS UPDATER - Changes tags for blog posts only -->
     <script>
       (function() {
         const path = window.location.pathname;
         
-        const pageData = {
-          '/': {
-            title: 'Auvra - The Permanent Home For Human Culture',
-            description: 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.'
-          },
-          '/about': {
-            title: 'About Auvra | Preserving Human Culture',
-            description: 'Learn about Auvra\'s mission to preserve human culture, traditions, languages, and stories as verified permanent records.'
-          },
-          '/blog': {
-            title: 'Auvra Blog | Cultural Discoveries & Preserved Legacies',
-            description: 'Explore cultural discoveries, preserved legacies, and stories from communities worldwide on the Auvra Blog.'
-          },
-          '/privacy': {
-            title: 'Privacy Policy | Auvra',
-            description: 'Read Auvra\'s privacy policy to understand how we protect your data and respect your privacy.'
-          },
-          '/terms': {
-            title: 'Terms of Service | Auvra',
-            description: 'Review Auvra\'s terms of service and conditions for using our platform.'
-          },
-          '/faqs': {
-            title: 'FAQs | Auvra',
-            description: 'Frequently asked questions about Auvra, badges, and cultural preservation.'
-          },
-          '/contact': {
-            title: 'Contact Auvra | Get in Touch',
-            description: 'Contact the Auvra team for questions, partnerships, or support.'
-          }
-        };
+        // Check if this is a blog post (not the main /blog page)
+        const isBlogPost = path.startsWith('/blog/') && path !== '/blog/';
         
-        const data = pageData[path] || pageData['/'];
-        
-        document.title = data.title;
-        
-        const metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc) metaDesc.setAttribute('content', data.description);
-        
-        const ogTitle = document.querySelector('meta[property="og:title"]');
-        if (ogTitle) ogTitle.setAttribute('content', data.title);
-        
-        const ogDesc = document.querySelector('meta[property="og:description"]');
-        if (ogDesc) ogDesc.setAttribute('content', data.description);
-        
-        const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.setAttribute('content', 'https://www.goauvra.com' + path);
-        
-        const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-        if (twitterTitle) twitterTitle.setAttribute('content', data.title);
-        
-        const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-        if (twitterDesc) twitterDesc.setAttribute('content', data.description);
-        
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute('href', 'https://www.goauvra.com' + path);
+        if (isBlogPost) {
+          // Your blog post information - UPDATE THIS FOR EACH NEW BLOG POST
+          const blogTitle = 'Introducing Auvra: The Permanent Home for Human Culture';
+          const blogDescription = 'For centuries, human culture has been preserved on fragile mediums. Paper burns. Tape degrades. Auvra is building a permanent home for human culture.';
+          const blogImage = 'https://www.goauvra.com/9606F03E-F6CE-4CB4-B4BB-729F5B051477.png';
+          const blogUrl = 'https://www.goauvra.com' + path;
+          
+          // Update all meta tags
+          document.title = blogTitle;
+          
+          // Update description
+          let metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc) metaDesc.setAttribute('content', blogDescription);
+          
+          // Update Open Graph (Facebook, WhatsApp, LinkedIn)
+          let ogTitle = document.querySelector('meta[property="og:title"]');
+          if (ogTitle) ogTitle.setAttribute('content', blogTitle);
+          
+          let ogDesc = document.querySelector('meta[property="og:description"]');
+          if (ogDesc) ogDesc.setAttribute('content', blogDescription);
+          
+          let ogImage = document.querySelector('meta[property="og:image"]');
+          if (ogImage) ogImage.setAttribute('content', blogImage);
+          
+          let ogUrl = document.querySelector('meta[property="og:url"]');
+          if (ogUrl) ogUrl.setAttribute('content', blogUrl);
+          
+          // Update Twitter
+          let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+          if (twitterTitle) twitterTitle.setAttribute('content', blogTitle);
+          
+          let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+          if (twitterDesc) twitterDesc.setAttribute('content', blogDescription);
+          
+          let twitterImage = document.querySelector('meta[name="twitter:image"]');
+          if (twitterImage) twitterImage.setAttribute('content', blogImage);
+          
+          // Update canonical link
+          let canonical = document.querySelector('link[rel="canonical"]');
+          if (canonical) canonical.setAttribute('href', blogUrl);
+        }
       })();
     </script>
   </head>

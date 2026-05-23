@@ -27,15 +27,15 @@ export default function BlogPost() {
         let mainContent = parts[2] || parts[1] || rawContent;
         mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
         
-        // Simple formatting with NORMAL font weight
+        // Formatting with NORMAL font weight (not bold)
         mainContent = mainContent
-          .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-black">$1</strong>')
-          .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-          .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">$1</a>')
-          .replace(/_?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})_?/g, '<a href="mailto:$1" class="text-blue-600 underline">$1</a>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 600; color: black;">$1</strong>')
+          .replace(/\*(.*?)\*/g, '<em style="font-style: italic;">$1</em>')
+          .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">$1</a>')
+          .replace(/_?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})_?/g, '<a href="mailto:$1" style="color: #2563eb; text-decoration: underline;">$1</a>')
           .split('\n\n').map(para => {
             if (para.trim()) {
-              return `<p class="text-black font-normal leading-relaxed mb-6 text-base md:text-lg" style="color: black; font-weight: 400; line-height: 1.75; margin-bottom: 1.75rem; font-size: 1.125rem; max-width: 100%;">${para.replace(/\n/g, ' ')}</p>`;
+              return `<p style="color: black; font-weight: 400; line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.125rem; width: 100%; max-width: 100%;">${para.replace(/\n/g, ' ')}</p>`;
             }
             return '';
           }).join('');
@@ -87,9 +87,9 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={{ margin: 0, padding: 0 }}>
       {/* HERO SECTION */}
-      <div className="relative w-full h-screen max-h-[100vh] overflow-hidden">
+      <div className="relative w-full h-screen max-h-[100vh] overflow-hidden" style={{ margin: 0, padding: 0 }}>
         
         <div className="absolute inset-0 w-full h-full">
           <img 
@@ -145,14 +145,21 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - MAXIMUM STRETCHED - no padding, full width */}
-      <article className="w-full py-16 md:py-20">
-        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="w-full" style={{ maxWidth: '100%' }}>
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      {/* MAIN CONTENT - FULLY STRETCHED with NO padding on sides */}
+      <div style={{ width: '100%', margin: 0, padding: 0 }}>
+        <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '3rem 0' }}>
+          <div style={{ width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
+            <div 
+              dangerouslySetInnerHTML={{ __html: post.content }} 
+              style={{ 
+                width: '100%',
+                maxWidth: '100%',
+                margin: 0,
+              }}
+            />
           </div>
         </div>
-      </article>
+      </div>
     </div>
   );
 }

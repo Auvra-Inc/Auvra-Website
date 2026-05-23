@@ -111,70 +111,75 @@
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
     
-    <!-- DYNAMIC META TAGS FOR ALL PAGES -->
+    <!-- DYNAMIC META TAGS FOR ALL PAGES - ENHANCED VERSION -->
     <script>
       (function() {
-        // Page information for different routes
+        // Page information for all static pages with unique descriptions
         const pageInfo = {
-          '/about': {
-            title: 'About Auvra | Preserving Human Culture',
-            description: 'Learn about Auvra\'s mission to preserve human culture, traditions, languages, and stories as verified permanent records on the blockchain.'
+          '/': { 
+            title: 'Auvra - The Permanent Home For Human Culture', 
+            description: 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, and communities.' 
           },
-          '/privacy': {
-            title: 'Privacy Policy | Auvra',
-            description: 'Read Auvra\'s privacy policy to understand how we protect your data and respect your privacy.'
+          '/about': { 
+            title: 'About Auvra | Preserving Human Culture', 
+            description: 'Learn about Auvra\'s mission to preserve human culture, traditions, languages, and stories as verified permanent records. Meet the team behind the Permanent Home for Human Culture.' 
           },
-          '/terms': {
-            title: 'Terms of Service | Auvra',
-            description: 'Review Auvra\'s terms of service and conditions for using our platform.'
+          '/privacy': { 
+            title: 'Privacy Policy | Auvra', 
+            description: 'Read Auvra\'s privacy policy to understand how we protect your data, respect your privacy, and handle your cultural records with care.' 
           },
-          '/aml': {
-            title: 'AML Policy | Auvra',
-            description: 'Auvra\'s Anti-Money Laundering policy and compliance information.'
+          '/terms-of-service': { 
+            title: 'Terms of Service | Auvra', 
+            description: 'Review Auvra\'s terms of service and conditions for using our platform to preserve and share cultural heritage.' 
           },
-          '/collab': {
-            title: 'Collaboration Hub Terms | Auvra',
-            description: 'Terms and conditions for using Auvra\'s Collaboration Hub.'
+          '/aml-cft-policy': { 
+            title: 'AML & CFT Policy | Auvra', 
+            description: 'Auvra\'s Anti-Money Laundering and Counter Financing of Terrorism policy and compliance information.' 
           },
-          '/ai-policy': {
-            title: 'AI Policy | Auvra',
-            description: 'Auvra\'s policy on artificial intelligence usage and ethical guidelines.'
+          '/collaboration-terms': { 
+            title: 'Collaboration Hub Terms | Auvra', 
+            description: 'Terms and conditions for using Auvra\'s Collaboration Hub to work with other creators and communities.' 
           },
-          '/community': {
-            title: 'Community Guidelines | Auvra',
-            description: 'Guidelines for participating in the Auvra community respectfully and constructively.'
+          '/ai-policy': { 
+            title: 'AI Policy | Auvra', 
+            description: 'Auvra\'s policy on artificial intelligence usage, ethical guidelines, and how Lens AI handles your cultural data.' 
           },
-          '/copyright': {
-            title: 'Copyright Policy | Auvra',
-            description: 'Auvra\'s copyright policy and intellectual property protection information.'
+          '/community-guidelines': { 
+            title: 'Community Guidelines | Auvra', 
+            description: 'Guidelines for participating in the Auvra community respectfully, constructively, and with cultural sensitivity.' 
           },
-          '/governance': {
-            title: 'Content Governance | Auvra',
-            description: 'How Auvra governs and maintains content quality and authenticity.'
+          '/copyright-policy': { 
+            title: 'Copyright Policy | Auvra', 
+            description: 'Auvra\'s copyright policy and intellectual property protection information for creators and communities.' 
           },
-          '/faqs': {
-            title: 'FAQs | Auvra',
-            description: 'Frequently asked questions about Auvra, badges, and cultural preservation.'
+          '/content-governance': { 
+            title: 'Content Governance | Auvra', 
+            description: 'How Auvra governs and maintains content quality, authenticity, and community verification standards.' 
           },
-          '/contact': {
-            title: 'Contact Auvra | Get in Touch',
-            description: 'Contact the Auvra team for questions, partnerships, or support.'
+          '/faqs': { 
+            title: 'FAQs | Auvra', 
+            description: 'Frequently asked questions about Auvra, badges, cultural preservation, blockchain technology, and how to get started.' 
           },
-          '/blog': {
-            title: 'Auvra Blog | Cultural Discoveries & Preserved Legacies',
-            description: 'Explore cultural discoveries, preserved legacies, and stories from communities worldwide on Auvra Blog.'
+          '/contact': { 
+            title: 'Contact Auvra | Get in Touch', 
+            description: 'Contact the Auvra team for questions, partnerships, media inquiries, or support with your cultural preservation journey.' 
+          },
+          '/blog': { 
+            title: 'Auvra Blog | Cultural Discoveries & Preserved Legacies', 
+            description: 'Explore cultural discoveries, preserved legacies, and stories from communities worldwide on the Auvra Blog.' 
           }
         };
         
-        const path = window.location.pathname;
-        
-        // Function to update meta tags
-        function updateMetaTags(title, description, imageUrl) {
+        // Function to update all meta tags
+        function updateMetaTags(title, description, imageUrl, url) {
+          // Update title
           document.title = title;
           
+          // Update meta description
           let metaDesc = document.querySelector('meta[name="description"]');
           if (metaDesc) metaDesc.setAttribute('content', description);
           
+          // Update Open Graph tags
           let ogTitle = document.querySelector('meta[property="og:title"]');
           if (ogTitle) ogTitle.setAttribute('content', title);
           
@@ -182,16 +187,14 @@
           if (ogDesc) ogDesc.setAttribute('content', description);
           
           let ogUrl = document.querySelector('meta[property="og:url"]');
-          if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+          if (ogUrl) ogUrl.setAttribute('content', url || window.location.href);
           
           if (imageUrl) {
             let ogImage = document.querySelector('meta[property="og:image"]');
             if (ogImage) ogImage.setAttribute('content', imageUrl);
-            
-            let twitterImage = document.querySelector('meta[name="twitter:image"]');
-            if (twitterImage) twitterImage.setAttribute('content', imageUrl);
           }
           
+          // Update Twitter tags
           let twitterTitle = document.querySelector('meta[name="twitter:title"]');
           if (twitterTitle) twitterTitle.setAttribute('content', title);
           
@@ -199,82 +202,40 @@
           if (twitterDesc) twitterDesc.setAttribute('content', description);
           
           let twitterUrl = document.querySelector('meta[name="twitter:url"]');
-          if (twitterUrl) twitterUrl.setAttribute('content', window.location.href);
-          
-          let canonical = document.querySelector('link[rel="canonical"]');
-          if (canonical) canonical.setAttribute('href', window.location.href);
+          if (twitterUrl) twitterUrl.setAttribute('content', url || window.location.href);
         }
         
-        // Function to update blog post meta tags
-        function updateBlogPostMetaTags() {
-          const blogTitleElement = document.querySelector('h1');
-          if (!blogTitleElement) return false;
-          
-          const blogTitle = blogTitleElement.innerText;
-          if (blogTitle === 'Blog') return false;
-          
-          let description = '';
-          const paragraphs = document.querySelectorAll('p');
-          for (let i = 0; i < paragraphs.length; i++) {
-            const text = paragraphs[i].innerText;
-            if (text && text.length > 50 && text !== blogTitle && !text.includes('Loading')) {
-              description = text.substring(0, 160);
-              break;
-            }
-          }
-          
-          const imageElement = document.querySelector('img');
-          let imageUrl = 'https://www.goauvra.com/og-image.png';
-          if (imageElement && imageElement.src && !imageElement.src.includes('Vector')) {
-            imageUrl = imageElement.src;
-          }
-          
-          updateMetaTags(`${blogTitle} | Auvra Blog`, description, imageUrl);
-          return true;
-        }
+        // Get the current path
+        const path = window.location.pathname;
         
-        // Handle different page types
-        if (path.startsWith('/blog/') && path !== '/blog/') {
-          // Blog post page - wait for React content
-          let attempts = 0;
-          const maxAttempts = 20;
-          
-          const checkAndUpdate = setInterval(function() {
-            attempts++;
-            const success = updateBlogPostMetaTags();
-            
-            if (success || attempts >= maxAttempts) {
-              clearInterval(checkAndUpdate);
+        // Check if we have predefined info for this exact path
+        if (pageInfo[path]) {
+          updateMetaTags(pageInfo[path].title, pageInfo[path].description, 'https://www.goauvra.com/og-image.png', window.location.href);
+        }
+        // For blog post pages
+        else if (path.startsWith('/blog/') && path !== '/blog/') {
+          // Wait for React to render the blog content
+          const observer = new MutationObserver(function() {
+            const h1 = document.querySelector('article h1, .blog-post h1, h1');
+            if (h1 && h1.innerText && h1.innerText !== 'Blog') {
+              const blogTitle = h1.innerText;
+              let description = 'Read this blog post from Auvra about cultural preservation, traditions, and heritage.';
+              const firstParagraph = document.querySelector('article p, .blog-post p, p');
+              if (firstParagraph && firstParagraph.innerText && firstParagraph.innerText.length > 50) {
+                description = firstParagraph.innerText.substring(0, 160);
+              }
+              updateMetaTags(`${blogTitle} | Auvra Blog`, description, 'https://www.goauvra.com/og-image.png', window.location.href);
+              observer.disconnect();
             }
-          }, 500);
-        } 
-        else if (pageInfo[path]) {
-          // Known page (About, Privacy, Terms, Blog listing, etc.)
-          const info = pageInfo[path];
-          updateMetaTags(info.title, info.description, 'https://www.goauvra.com/og-image.png');
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
         }
-        else if (path === '/' || path === '') {
-          // Homepage - keep original
-          updateMetaTags(
-            'Auvra - The Permanent Home For Human Culture',
-            'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, and communities.',
-            'https://www.goauvra.com/og-image.png'
-          );
-        }
+        // For any other page, try to get title from h1
         else {
-          // Any other page - try to get title from h1
-          let attempts = 0;
-          const maxAttempts = 15;
-          
-          const checkAndUpdate = setInterval(function() {
-            attempts++;
-            const h1Element = document.querySelector('h1');
-            if (h1Element && h1Element.innerText && h1Element.innerText !== 'Auvra') {
-              const pageTitle = `${h1Element.innerText} | Auvra`;
-              updateMetaTags(pageTitle, 'Auvra is preserving human culture, traditions, languages, and stories for future generations.', 'https://www.goauvra.com/og-image.png');
-              clearInterval(checkAndUpdate);
-            } else if (attempts >= maxAttempts) {
-              clearInterval(checkAndUpdate);
+          setTimeout(() => {
+            const h1 = document.querySelector('h1');
+            if (h1 && h1.innerText && h1.innerText !== 'Auvra' && h1.innerText !== 'Welcome') {
+              updateMetaTags(`${h1.innerText} | Auvra`, 'Auvra is preserving human culture for future generations.', 'https://www.goauvra.com/og-image.png', window.location.href);
             }
           }, 500);
         }

@@ -119,7 +119,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
     
-    <!-- DYNAMIC META TAG UPDATER - Automatically reads blog post from markdown -->
+    <!-- DYNAMIC META TAG UPDATER - Uses hardcoded blog data (works in production) -->
     <script>
       (function() {
         const path = window.location.pathname;
@@ -128,72 +128,51 @@
         const isBlogPost = path.startsWith('/blog/') && path !== '/blog/';
         
         if (isBlogPost) {
-          // Extract slug from path (remove /blog/ and decode URL)
-          let slug = path.replace('/blog/', '');
-          slug = decodeURIComponent(slug);
+          // Hardcoded blog data - ADD NEW BLOG POSTS HERE
+          const blogData = {
+            'Introducing Auvra': {
+              title: 'Introducing Auvra: The Permanent Home for Human Culture',
+              description: 'For centuries, human culture has been preserved on fragile mediums. Paper burns. Tape degrades. Auvra is building a permanent home for human culture.',
+              image: 'https://www.goauvra.com/9606F03E-F6CE-4CB4-B4BB-729F5B051477.png'
+            }
+          };
           
-          // Fetch the markdown file to extract metadata
-          fetch(`/src/content/blog/${slug}.md`)
-            .then(response => response.text())
-            .then(content => {
-              // Extract title
-              const titleMatch = content.match(/title:\s*(.*)/i);
-              const subtitleMatch = content.match(/subtitle:\s*(.*)/i);
-              const imageMatch = content.match(/image:\s*(.*)/i);
-              
-              const clean = (match) => match ? match[1].replace(/['"]/g, '').trim() : null;
-              
-              const blogTitle = clean(titleMatch) || 'Auvra Blog';
-              const blogDescription = clean(subtitleMatch) || 'Read our latest blog post from Auvra, the Permanent Home for Human Culture.';
-              let blogImage = clean(imageMatch) || 'https://www.goauvra.com/og-image.png';
-              
-              // Fix image path if it's relative
-              if (blogImage && !blogImage.startsWith('http')) {
-                blogImage = 'https://www.goauvra.com' + blogImage;
-              }
-              
-              const blogUrl = 'https://www.goauvra.com' + path;
-              
-              // Update all meta tags
-              document.title = blogTitle;
-              
-              // Update description
-              let metaDesc = document.querySelector('meta[name="description"]');
-              if (metaDesc) metaDesc.setAttribute('content', blogDescription);
-              
-              // Update Open Graph
-              let ogTitle = document.querySelector('meta[property="og:title"]');
-              if (ogTitle) ogTitle.setAttribute('content', blogTitle);
-              
-              let ogDesc = document.querySelector('meta[property="og:description"]');
-              if (ogDesc) ogDesc.setAttribute('content', blogDescription);
-              
-              let ogImage = document.querySelector('meta[property="og:image"]');
-              if (ogImage) ogImage.setAttribute('content', blogImage);
-              
-              let ogUrl = document.querySelector('meta[property="og:url"]');
-              if (ogUrl) ogUrl.setAttribute('content', blogUrl);
-              
-              let ogType = document.querySelector('meta[property="og:type"]');
-              if (ogType) ogType.setAttribute('content', 'article');
-              
-              // Update Twitter
-              let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-              if (twitterTitle) twitterTitle.setAttribute('content', blogTitle);
-              
-              let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-              if (twitterDesc) twitterDesc.setAttribute('content', blogDescription);
-              
-              let twitterImage = document.querySelector('meta[name="twitter:image"]');
-              if (twitterImage) twitterImage.setAttribute('content', blogImage);
-              
-              // Update canonical
-              let canonical = document.querySelector('link[rel="canonical"]');
-              if (canonical) canonical.setAttribute('href', blogUrl);
-            })
-            .catch(error => {
-              console.error('Could not load blog post:', error);
-            });
+          // Find matching blog data
+          let blogInfo = null;
+          for (const key in blogData) {
+            if (path.includes(key) || key.includes(path)) {
+              blogInfo = blogData[key];
+              break;
+            }
+          }
+          
+          if (blogInfo) {
+            document.title = blogInfo.title;
+            
+            let metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', blogInfo.description);
+            
+            let ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.setAttribute('content', blogInfo.title);
+            
+            let ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.setAttribute('content', blogInfo.description);
+            
+            let ogImage = document.querySelector('meta[property="og:image"]');
+            if (ogImage) ogImage.setAttribute('content', blogInfo.image);
+            
+            let ogUrl = document.querySelector('meta[property="og:url"]');
+            if (ogUrl) ogUrl.setAttribute('content', 'https://www.goauvra.com' + path);
+            
+            let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+            if (twitterTitle) twitterTitle.setAttribute('content', blogInfo.title);
+            
+            let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+            if (twitterDesc) twitterDesc.setAttribute('content', blogInfo.description);
+            
+            let twitterImage = document.querySelector('meta[name="twitter:image"]');
+            if (twitterImage) twitterImage.setAttribute('content', blogInfo.image);
+          }
         }
       })();
     </script>

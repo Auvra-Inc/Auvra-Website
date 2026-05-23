@@ -27,15 +27,15 @@ export default function BlogPost() {
         let mainContent = parts[2] || parts[1] || rawContent;
         mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
         
-        // Formatting with SMALLER font and NORMAL weight
+        // Formatting with LIGHTER font weight and JUSTIFIED text
         mainContent = mainContent
-          .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 600; color: black;">$1</strong>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 500; color: black;">$1</strong>')
           .replace(/\*(.*?)\*/g, '<em style="font-style: italic;">$1</em>')
           .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">$1</a>')
           .replace(/_?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})_?/g, '<a href="mailto:$1" style="color: #2563eb; text-decoration: underline;">$1</a>')
           .split('\n\n').map(para => {
             if (para.trim()) {
-              return `<p style="color: black; font-weight: 400; line-height: 1.7; margin-bottom: 1.2rem; font-size: 1rem; width: 100%; max-width: 100%;">${para.replace(/\n/g, ' ')}</p>`;
+              return `<p style="color: black; font-weight: 300; line-height: 1.6; margin-bottom: 1.2rem; font-size: 1rem; width: 100%; max-width: 100%; text-align: justify; letter-spacing: 0.01em;">${para.replace(/\n/g, ' ')}</p>`;
             }
             return '';
           }).join('');
@@ -112,7 +112,7 @@ export default function BlogPost() {
             </Link>
           </div>
           
-          {/* Glass card - MOVED DOWN with mt-20 */}
+          {/* Glass card - MOVED DOWN */}
           <div className="flex-1 flex items-center justify-center mt-20 md:mt-24">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -146,10 +146,10 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - FULLY STRETCHED with SMALLER font */}
+      {/* MAIN CONTENT - JUSTIFIED TEXT with LIGHTER font */}
       <div style={{ width: '100%', margin: 0, padding: 0 }}>
         <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '3rem 0' }}>
-          <div style={{ width: '100%', paddingLeft: '1rem', paddingRight: '1rem' }}>
+          <div style={{ width: '100%', paddingLeft: '2rem', paddingRight: '2rem' }}>
             <div 
               dangerouslySetInnerHTML={{ __html: post.content }} 
               style={{ 

@@ -16,4 +16,314 @@
     <title>Auvra - The Permanent Home For Human Culture</title>
     
     <!-- SEO -->
-    <meta name="description" content="Auvra is the permanent home for human culture. Preserve traditions
+    <meta name="description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, and communities." />
+    <meta name="keywords" content="Auvra, GoAuvra, cultural preservation, African creators, oral history, heritage, diaspora, blockchain culture, Lens AI" />
+    <meta name="author" content="Auvra" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Language" content="en" />
+    <link rel="canonical" href="https://www.goauvra.com/" />
+    
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.goauvra.com/" />
+    <meta property="og:site_name" content="Auvra" />
+    <meta property="og:title" content="Auvra - The Permanent Home For Human Culture" />
+    <meta property="og:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, and communities." />
+    <meta property="og:image" content="https://www.goauvra.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.goauvra.com/" />
+    <meta name="twitter:title" content="Auvra - The Permanent Home For Human Culture" />
+    <meta name="twitter:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, and communities." />
+    <meta name="twitter:image" content="https://www.goauvra.com/og-image.png" />
+    
+    <!-- Dynamic Meta Tags for ALL Pages (Blog, About, Privacy, Terms, etc.) -->
+    <script>
+      (function() {
+        // Page title and description mappings for different routes
+        const pageInfo = {
+          '/about': {
+            title: 'About Auvra | Preserving Human Culture',
+            description: 'Learn about Auvra\'s mission to preserve human culture, traditions, languages, and stories as verified permanent records on the blockchain.'
+          },
+          '/privacy': {
+            title: 'Privacy Policy | Auvra',
+            description: 'Read Auvra\'s privacy policy to understand how we protect your data and respect your privacy.'
+          },
+          '/terms': {
+            title: 'Terms of Service | Auvra',
+            description: 'Review Auvra\'s terms of service and conditions for using our platform.'
+          },
+          '/aml': {
+            title: 'AML Policy | Auvra',
+            description: 'Auvra\'s Anti-Money Laundering policy and compliance information.'
+          },
+          '/collab': {
+            title: 'Collaboration Hub Terms | Auvra',
+            description: 'Terms and conditions for using Auvra\'s Collaboration Hub.'
+          },
+          '/ai-policy': {
+            title: 'AI Policy | Auvra',
+            description: 'Auvra\'s policy on artificial intelligence usage and ethical guidelines.'
+          },
+          '/community': {
+            title: 'Community Guidelines | Auvra',
+            description: 'Guidelines for participating in the Auvra community respectfully and constructively.'
+          },
+          '/copyright': {
+            title: 'Copyright Policy | Auvra',
+            description: 'Auvra\'s copyright policy and intellectual property protection information.'
+          },
+          '/governance': {
+            title: 'Content Governance | Auvra',
+            description: 'How Auvra governs and maintains content quality and authenticity.'
+          },
+          '/faqs': {
+            title: 'FAQs | Auvra',
+            description: 'Frequently asked questions about Auvra, badges, and cultural preservation.'
+          },
+          '/contact': {
+            title: 'Contact Auvra | Get in Touch',
+            description: 'Contact the Auvra team for questions, partnerships, or support.'
+          }
+        };
+        
+        // Get current path
+        const path = window.location.pathname;
+        
+        // Function to update meta tags dynamically
+        function updateMetaTags() {
+          let pageTitle = '';
+          let pageDescription = '';
+          let pageImage = 'https://www.goauvra.com/og-image.png';
+          
+          // Check if it's a blog post
+          if (path.startsWith('/blog/') && path !== '/blog/') {
+            // Get blog post title from the page
+            const blogTitle = document.querySelector('h1')?.innerText;
+            
+            // Get first paragraph for description
+            let description = '';
+            const paragraphs = document.querySelectorAll('p');
+            for (let p of paragraphs) {
+              const text = p.innerText;
+              if (text && text.length > 80 && !text.includes('Loading') && !text.includes('Auvra')) {
+                description = text.substring(0, 160);
+                break;
+              }
+            }
+            
+            // Get blog image
+            const blogImage = document.querySelector('img')?.src;
+            
+            if (blogTitle && blogTitle !== 'Blog') {
+              pageTitle = `${blogTitle} | Auvra Blog`;
+              pageDescription = description || `Read "${blogTitle}" on Auvra Blog.`;
+              if (blogImage) pageImage = blogImage;
+            } else {
+              pageTitle = 'Auvra Blog | Cultural Discoveries & Preserved Legacies';
+              pageDescription = 'Explore cultural discoveries, preserved legacies, and stories from around the world on Auvra Blog.';
+            }
+          }
+          // Check if it's the blog listing page
+          else if (path === '/blog') {
+            pageTitle = 'Auvra Blog | Cultural Discoveries & Preserved Legacies';
+            pageDescription = 'Explore cultural discoveries, preserved legacies, and stories from communities worldwide on Auvra Blog.';
+          }
+          // Check if it's the homepage
+          else if (path === '/' || path === '') {
+            pageTitle = 'Auvra - The Permanent Home For Human Culture';
+            pageDescription = 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, and communities.';
+          }
+          // Check if it's a known page from our mapping
+          else if (pageInfo[path]) {
+            pageTitle = pageInfo[path].title;
+            pageDescription = pageInfo[path].description;
+          }
+          // Try to get title from the page itself
+          else {
+            const h1Element = document.querySelector('h1');
+            if (h1Element && h1Element.innerText) {
+              pageTitle = `${h1Element.innerText} | Auvra`;
+            } else {
+              pageTitle = 'Auvra | The Permanent Home For Human Culture';
+            }
+            pageDescription = 'Auvra is preserving human culture, traditions, languages, and stories for future generations.';
+          }
+          
+          // Update document title
+          if (pageTitle) {
+            document.title = pageTitle;
+          }
+          
+          // Update meta description
+          let metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc && pageDescription) {
+            metaDesc.setAttribute('content', pageDescription);
+          }
+          
+          // Update Open Graph title
+          let ogTitle = document.querySelector('meta[property="og:title"]');
+          if (ogTitle && pageTitle) {
+            ogTitle.setAttribute('content', pageTitle);
+          }
+          
+          // Update Open Graph description
+          let ogDesc = document.querySelector('meta[property="og:description"]');
+          if (ogDesc && pageDescription) {
+            ogDesc.setAttribute('content', pageDescription);
+          }
+          
+          // Update Open Graph URL
+          let ogUrl = document.querySelector('meta[property="og:url"]');
+          if (ogUrl) {
+            ogUrl.setAttribute('content', window.location.href);
+          }
+          
+          // Update Open Graph image
+          let ogImage = document.querySelector('meta[property="og:image"]');
+          if (ogImage && pageImage) {
+            ogImage.setAttribute('content', pageImage);
+          }
+          
+          // Update Twitter title
+          let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+          if (twitterTitle && pageTitle) {
+            twitterTitle.setAttribute('content', pageTitle);
+          }
+          
+          // Update Twitter description
+          let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+          if (twitterDesc && pageDescription) {
+            twitterDesc.setAttribute('content', pageDescription);
+          }
+          
+          // Update Twitter URL
+          let twitterUrl = document.querySelector('meta[name="twitter:url"]');
+          if (twitterUrl) {
+            twitterUrl.setAttribute('content', window.location.href);
+          }
+          
+          // Update Twitter image
+          let twitterImage = document.querySelector('meta[name="twitter:image"]');
+          if (twitterImage && pageImage) {
+            twitterImage.setAttribute('content', pageImage);
+          }
+          
+          // Update canonical link
+          let canonical = document.querySelector('link[rel="canonical"]');
+          if (canonical) {
+            canonical.setAttribute('href', window.location.href);
+          }
+        }
+        
+        // Wait for page to load completely
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(updateMetaTags, 300);
+            setTimeout(updateMetaTags, 800);
+            setTimeout(updateMetaTags, 1500);
+          });
+        } else {
+          setTimeout(updateMetaTags, 300);
+          setTimeout(updateMetaTags, 800);
+          setTimeout(updateMetaTags, 1500);
+        }
+      })();
+    </script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Auvra",
+      "alternateName": "GoAuvra",
+      "url": "https://www.goauvra.com",
+      "logo": "https://www.goauvra.com/og-image.png",
+      "description": "Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records.",
+      "email": "Info@goauvra.com",
+      "sameAs": [
+        "https://www.instagram.com/goauvra/",
+        "https://x.com/goauvra"
+      ]
+    }
+    </script>
+    
+    <!-- FAQ Schema for AI engines (AEO optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a badge on Auvra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A badge is a permanently verifiable cultural record. It can be a piece of art, a family story, a traditional recipe, a language lesson, or a craft technique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between a Collectible Badge and a Contribution Badge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Collectible Badge is meant to be owned and collected. A Contribution Badge is for records that belong to everyone, like languages and oral history, verified by the community."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Auvra ensure cultural authenticity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Auvra relies on a decentralized network of community elders and verified cultural custodians to review and authenticate records."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to understand blockchain to use Auvra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not at all. Auvra handles all the complex technology in the background. You can use it just like any other app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can institutions and communities use Auvra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, institutions, museums, and community organizations can create verified accounts to preserve their cultural archives."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Quick SEO fix for Google - Brand mentions and internal links -->
+    <div style="display: none; visibility: hidden; position: absolute;">
+      <h1>Auvra</h1>
+      <p><a href="https://www.goauvra.com/">Auvra</a> is the permanent home for human culture.</p>
+      <p><a href="https://www.goauvra.com/about">About Auvra</a> — learn how Auvra preserves traditions, languages, and stories.</p>
+      <p><a href="https://www.goauvra.com/blog">Auvra Blog</a> — latest news and updates from Auvra.</p>
+      <p><a href="https://www.goauvra.com/contact">Contact Auvra</a> — get in touch with the Auvra team.</p>
+      <p><a href="https://www.goauvra.com/faqs">Auvra FAQs</a> — frequently asked questions about Auvra.</p>
+      <p>GoAuvra is the call to action to join <a href="https://www.goauvra.com/">Auvra</a>.</p>
+      <p><a href="https://www.goauvra.com/">Auvra</a> is built for creators, families, and communities worldwide.</p>
+    </div>
+    
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Ask Lens AI Widget -->
+    <script src="/ask-lens-widget.js"></script>
+  </body>
+</html>

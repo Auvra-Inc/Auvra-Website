@@ -12,7 +12,7 @@ According to [UNESCO](https://www.unesco.org/en/articles/multilingual-education-
 
 We believe this loss is not inevitable.
 
-Auvra is coming.
+[Auvra](https://www.goauvra.com) is coming.
 
 **A Different Question**
 
@@ -90,7 +90,7 @@ We are not building a product. We are building a promise that the stories, tradi
 
 That is the work. That is the responsibility. And we do not carry it lightly.
 
-Auvra is coming. Not because we are rushing, but because too much has already been lost.
+[Auvra](https://www.goauvra.com) is coming. Not because we are rushing, but because too much has already been lost.
 
 We build for the grandmother who wants her stories to outlive her. For the community that refuses to be forgotten. For the child who will one day search for where they came from.
 

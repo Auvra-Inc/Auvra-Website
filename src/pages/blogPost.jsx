@@ -113,7 +113,7 @@ export default function BlogPost() {
           </div>
           
           {/* Glass card - MOVED DOWN MUCH MORE */}
-          <div className="flex-1 flex items-center justify-center mt-56 md:mt-64">
+          <div className="flex-1 flex items-center justify-center mt-72 md:mt-80">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -146,9 +146,9 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - COMFORTABLE SIDE PADDING */}
+      {/* MAIN CONTENT - MOVED CLOSER to hero image (reduced top padding) */}
       <div style={{ width: '100%', margin: 0, padding: 0 }}>
-        <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '3rem 0' }}>
+        <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '1.5rem 0' }}>
           <div style={{ width: '100%', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
             <div 
               dangerouslySetInnerHTML={{ __html: post.content }} 

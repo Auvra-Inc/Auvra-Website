@@ -1,7 +1,7 @@
 ---
 title: 'Introducing Auvra: The Permanent Home for Human Culture'
 date: 2026-05-22T11:28:00
-image: /blog/890CC587-4B12-40CE-BDEA-A3B6AAED6625.png
+image: /blog/5D7C5EBE-4C19-4E07-B85B-06D3C60FC276.png
 ---
 
 For centuries, human culture has been preserved on fragile mediums. Paper that burns. Tape that degrades. Hard drives that fail. Servers that get decommissioned.

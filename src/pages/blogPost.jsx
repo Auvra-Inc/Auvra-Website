@@ -127,7 +127,8 @@ export default function BlogPost() {
                 </span>
               </div>
               
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-clash font-bold text-white leading-tight mb-4">
+              {/* UPDATED: Added blog-title class for SEO meta tags */}
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-clash font-bold text-white leading-tight mb-4 blog-title">
                 {post.title}
               </h1>
               

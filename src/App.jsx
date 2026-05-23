@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
+// --- SEO MANAGER (ADD THIS IMPORT) ---
+import SeoManager from './SeoManager';
+
 // --- YOUR COMPONENT IMPORTS ---
 import FadeSection from './fadeSection'
 import ProblemSection from './problemSection'
@@ -67,6 +70,9 @@ const Home = () => (
 function App() {
   return (
     <BrowserRouter>
+      {/* ADD THIS LINE - SEO MANAGER */}
+      <SeoManager />
+      
       <ScrollToTop /> {/* Instantly scrolls to top when you click a link */}
 
       <Routes>

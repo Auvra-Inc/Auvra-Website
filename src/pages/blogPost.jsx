@@ -112,7 +112,7 @@ export default function BlogPost() {
             </Link>
           </div>
           
-          {/* Glass card - MOVED DOWN MUCH MORE */}
+          {/* Glass card container - moved down */}
           <div className="flex-1 flex items-center justify-center mt-72 md:mt-80">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -120,8 +120,9 @@ export default function BlogPost() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-5xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
             >
+              {/* Date at the TOP of the glass card */}
               <div className="mb-6">
-                <span className="text-sm font-medium text-white/80 uppercase tracking-wider">
+                <span className="text-base font-medium text-white/90">
                   {post.formattedDate}
                 </span>
               </div>
@@ -146,7 +147,7 @@ export default function BlogPost() {
         </div>
       </div>
       
-      {/* MAIN CONTENT - MOVED CLOSER to hero image (reduced top padding) */}
+      {/* MAIN CONTENT */}
       <div style={{ width: '100%', margin: 0, padding: 0 }}>
         <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '1.5rem 0' }}>
           <div style={{ width: '100%', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>

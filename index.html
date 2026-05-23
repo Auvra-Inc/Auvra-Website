@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https:; connect-src 'self' https:;" />
+    
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com">
+    
     <!-- Favicon package -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -14,7 +22,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- DYNAMIC META TAGS - These are set by JavaScript based on the URL -->
+    <!-- DYNAMIC META TAGS -->
     <title id="dynamic-title">Auvra - The Permanent Home For Human Culture</title>
     <meta id="dynamic-description" name="description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
     <meta id="dynamic-og-title" property="og:title" content="Auvra - The Permanent Home For Human Culture" />
@@ -23,7 +31,11 @@
     <meta id="dynamic-twitter-title" name="twitter:title" content="Auvra - The Permanent Home For Human Culture" />
     <meta id="dynamic-twitter-description" name="twitter:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
     
-    <!-- Static meta tags that never change -->
+    <!-- International -->
+    <link rel="alternate" hreflang="en" href="https://www.goauvra.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.goauvra.com/" />
+    
+    <!-- Static meta tags -->
     <meta property="og:site_name" content="Auvra" />
     <meta property="og:image" content="https://www.goauvra.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -107,13 +119,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
     
-    <!-- Critical script that updates meta tags BEFORE anything else loads -->
+    <!-- Critical script that updates meta tags -->
     <script>
       (function() {
-        // Get current path
         const path = window.location.pathname;
         
-        // Define page specific information
         const pageData = {
           '/': {
             title: 'Auvra - The Permanent Home For Human Culture',
@@ -121,7 +131,7 @@
           },
           '/about': {
             title: 'About Auvra | Preserving Human Culture',
-            description: 'Learn about Auvra\'s mission to preserve human culture, traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.'
+            description: 'Learn about Auvra\'s mission to preserve human culture, traditions, languages, and stories as verified permanent records.'
           },
           '/blog': {
             title: 'Auvra Blog | Cultural Discoveries & Preserved Legacies',
@@ -133,22 +143,20 @@
           },
           '/terms': {
             title: 'Terms of Service | Auvra',
-            description: 'Review Auvra\'s terms of service and conditions for using our platform to preserve and share cultural heritage.'
+            description: 'Review Auvra\'s terms of service and conditions for using our platform.'
           },
           '/faqs': {
             title: 'FAQs | Auvra',
-            description: 'Frequently asked questions about Auvra, badges, cultural preservation, and how to get started.'
+            description: 'Frequently asked questions about Auvra, badges, and cultural preservation.'
           },
           '/contact': {
             title: 'Contact Auvra | Get in Touch',
-            description: 'Contact the Auvra team for questions, partnerships, media inquiries, or support.'
+            description: 'Contact the Auvra team for questions, partnerships, or support.'
           }
         };
         
-        // Get data for current page or fallback to homepage
         const data = pageData[path] || pageData['/'];
         
-        // Update all meta tags
         document.title = data.title;
         
         const metaDesc = document.querySelector('meta[name="description"]');
@@ -169,7 +177,6 @@
         const twitterDesc = document.querySelector('meta[name="twitter:description"]');
         if (twitterDesc) twitterDesc.setAttribute('content', data.description);
         
-        // Also update the canonical link
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute('href', 'https://www.goauvra.com' + path);
       })();
@@ -178,7 +185,6 @@
   <body>
     <div id="root"></div>
     
-    <!-- Quick SEO fix for Google - Brand mentions and internal links -->
     <div style="display: none; visibility: hidden; position: absolute;">
       <h1>Auvra</h1>
       <p><a href="https://www.goauvra.com/">Auvra</a> is the permanent home for human culture.</p>
@@ -191,8 +197,6 @@
     </div>
     
     <script type="module" src="/src/main.jsx"></script>
-    
-    <!-- Ask Lens AI Widget -->
     <script src="/ask-lens-widget.js"></script>
-  </head>
+  </body>
 </html>

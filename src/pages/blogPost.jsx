@@ -51,14 +51,47 @@ export default function BlogPost() {
           });
         }
         
+        const blogTitle = clean(titleMatch) || "Untitled";
+        const blogDescription = clean(subtitleMatch) || "Read our latest blog post from Auvra, the Permanent Home for Human Culture.";
+        const blogImage = clean(imageMatch) || "https://www.goauvra.com/og-image.png";
+        
         setPost({
-          title: clean(titleMatch) || "Untitled",
+          title: blogTitle,
           formattedDate: formattedDate,
-          imageUrl: clean(imageMatch) || "/art3.png",
+          imageUrl: blogImage,
           author: clean(authorMatch) || "Auvra Team",
           subtitle: clean(subtitleMatch) || "",
           content: mainContent
         });
+        
+        // Update meta tags for social media sharing (WhatsApp, Facebook, Twitter)
+        setTimeout(() => {
+          document.title = blogTitle;
+          
+          // Update Open Graph tags
+          let ogTitle = document.querySelector('meta[property="og:title"]');
+          if (ogTitle) ogTitle.setAttribute('content', blogTitle);
+          
+          let ogDesc = document.querySelector('meta[property="og:description"]');
+          if (ogDesc) ogDesc.setAttribute('content', blogDescription);
+          
+          let ogImage = document.querySelector('meta[property="og:image"]');
+          if (ogImage) ogImage.setAttribute('content', blogImage);
+          
+          let ogUrl = document.querySelector('meta[property="og:url"]');
+          if (ogUrl) ogUrl.setAttribute('content', `https://www.goauvra.com/blog/${slug}`);
+          
+          // Update Twitter tags
+          let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+          if (twitterTitle) twitterTitle.setAttribute('content', blogTitle);
+          
+          let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+          if (twitterDesc) twitterDesc.setAttribute('content', blogDescription);
+          
+          let twitterImage = document.querySelector('meta[name="twitter:image"]');
+          if (twitterImage) twitterImage.setAttribute('content', blogImage);
+        }, 100);
+        
         setLoading(false);
       } catch (error) {
         console.error("Post not found:", error);

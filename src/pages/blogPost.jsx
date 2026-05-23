@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -53,7 +54,7 @@ export default function BlogPost() {
         
         const blogTitle = clean(titleMatch) || "Untitled";
         const blogDescription = clean(subtitleMatch) || "Read our latest blog post from Auvra, the Permanent Home for Human Culture.";
-        const blogImage = clean(imageMatch) || "https://www.goauvra.com/og-image.png";
+        const blogImage = clean(imageMatch) || "https://www.goauvra.com/9606F03E-F6CE-4CB4-B4BB-729F5B051477.png";
         
         setPost({
           title: blogTitle,
@@ -63,34 +64,6 @@ export default function BlogPost() {
           subtitle: clean(subtitleMatch) || "",
           content: mainContent
         });
-        
-        // Update meta tags for social media sharing (WhatsApp, Facebook, Twitter)
-        setTimeout(() => {
-          document.title = blogTitle;
-          
-          // Update Open Graph tags
-          let ogTitle = document.querySelector('meta[property="og:title"]');
-          if (ogTitle) ogTitle.setAttribute('content', blogTitle);
-          
-          let ogDesc = document.querySelector('meta[property="og:description"]');
-          if (ogDesc) ogDesc.setAttribute('content', blogDescription);
-          
-          let ogImage = document.querySelector('meta[property="og:image"]');
-          if (ogImage) ogImage.setAttribute('content', blogImage);
-          
-          let ogUrl = document.querySelector('meta[property="og:url"]');
-          if (ogUrl) ogUrl.setAttribute('content', `https://www.goauvra.com/blog/${slug}`);
-          
-          // Update Twitter tags
-          let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-          if (twitterTitle) twitterTitle.setAttribute('content', blogTitle);
-          
-          let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-          if (twitterDesc) twitterDesc.setAttribute('content', blogDescription);
-          
-          let twitterImage = document.querySelector('meta[name="twitter:image"]');
-          if (twitterImage) twitterImage.setAttribute('content', blogImage);
-        }, 100);
         
         setLoading(false);
       } catch (error) {
@@ -120,82 +93,98 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="min-h-screen bg-white" style={{ margin: 0, padding: 0 }}>
-      {/* HERO SECTION */}
-      <div className="relative w-full h-screen max-h-[100vh] overflow-hidden" style={{ margin: 0, padding: 0 }}>
-        
-        <div className="absolute inset-0 w-full h-full">
-          <img 
-            src={post.imageUrl} 
-            alt={post.title} 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-        
-        <div className="relative z-10 flex flex-col justify-between h-full">
-          <div className="pt-15 pb-7 flex justify-center">
-            <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
-              <img 
-                src="/Vector .png" 
-                alt="Auvra Logo" 
-                className="w-6 h-6 object-contain" 
-              />
-              <span className="font-clash">Auvra</span>
-            </Link>
-          </div>
-          
-          {/* Glass card container - moved down */}
-          <div className="flex-1 flex items-center justify-center mt-72 md:mt-80">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="max-w-5xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
-            >
-              {/* Date at the TOP of the glass card */}
-              <div className="mb-6">
-                <span className="text-base font-medium text-white/90">
-                  {post.formattedDate}
-                </span>
-              </div>
-              
-              {/* UPDATED: Added blog-title class for SEO meta tags */}
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-clash font-bold text-white leading-tight mb-4 blog-title">
-                {post.title}
-              </h1>
-              
-              {post.subtitle && (
-                <p className="text-base md:text-lg text-white/90 mb-6 leading-relaxed">
-                  {post.subtitle}
-                </p>
-              )}
-              
-              <div className="flex items-center gap-3 text-white/80 text-sm md:text-base">
-                <span className="font-medium">{post.author}</span>
-              </div>
-            </motion.div>
-          </div>
-          
-          <div className="h-10" />
-        </div>
-      </div>
+    <>
+      <Helmet>
+        <title>{post.title} | Auvra Blog</title>
+        <meta name="description" content={post.subtitle || "Read our latest blog post from Auvra"} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.subtitle || "Read our latest blog post from Auvra"} />
+        <meta property="og:image" content={post.imageUrl} />
+        <meta property="og:url" content={`https://www.goauvra.com/blog/${slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Auvra" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.subtitle || "Read our latest blog post from Auvra"} />
+        <meta name="twitter:image" content={post.imageUrl} />
+      </Helmet>
       
-      {/* MAIN CONTENT */}
-      <div style={{ width: '100%', margin: 0, padding: 0 }}>
-        <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '1.5rem 0' }}>
-          <div style={{ width: '100%', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
-            <div 
-              dangerouslySetInnerHTML={{ __html: post.content }} 
-              style={{ 
-                width: '100%',
-                maxWidth: '100%',
-                margin: 0,
-              }}
+      <div className="min-h-screen bg-white" style={{ margin: 0, padding: 0 }}>
+        {/* HERO SECTION */}
+        <div className="relative w-full h-screen max-h-[100vh] overflow-hidden" style={{ margin: 0, padding: 0 }}>
+          
+          <div className="absolute inset-0 w-full h-full">
+            <img 
+              src={post.imageUrl} 
+              alt={post.title} 
+              className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-black/50" />
+          </div>
+          
+          <div className="relative z-10 flex flex-col justify-between h-full">
+            <div className="pt-15 pb-7 flex justify-center">
+              <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
+                <img 
+                  src="/Vector .png" 
+                  alt="Auvra Logo" 
+                  className="w-6 h-6 object-contain" 
+                />
+                <span className="font-clash">Auvra</span>
+              </Link>
+            </div>
+            
+            {/* Glass card container - moved down */}
+            <div className="flex-1 flex items-center justify-center mt-72 md:mt-80">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="max-w-5xl mx-6 md:mx-12 p-8 md:p-12 rounded-3xl backdrop-blur-md bg-black/30 border border-white/20 shadow-2xl"
+              >
+                {/* Date at the TOP of the glass card */}
+                <div className="mb-6">
+                  <span className="text-base font-medium text-white/90">
+                    {post.formattedDate}
+                  </span>
+                </div>
+                
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-clash font-bold text-white leading-tight mb-4 blog-title">
+                  {post.title}
+                </h1>
+                
+                {post.subtitle && (
+                  <p className="text-base md:text-lg text-white/90 mb-6 leading-relaxed">
+                    {post.subtitle}
+                  </p>
+                )}
+                
+                <div className="flex items-center gap-3 text-white/80 text-sm md:text-base">
+                  <span className="font-medium">{post.author}</span>
+                </div>
+              </motion.div>
+            </div>
+            
+            <div className="h-10" />
+          </div>
+        </div>
+        
+        {/* MAIN CONTENT */}
+        <div style={{ width: '100%', margin: 0, padding: 0 }}>
+          <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '1.5rem 0' }}>
+            <div style={{ width: '100%', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
+              <div 
+                dangerouslySetInnerHTML={{ __html: post.content }} 
+                style={{ 
+                  width: '100%',
+                  maxWidth: '100%',
+                  margin: 0,
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

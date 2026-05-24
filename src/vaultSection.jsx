@@ -12,15 +12,14 @@ const VaultSection = () => {
   );
 
   return (
-    // h-[800px] gives it enough height to let the center image sit perfectly at the bottom
-    <section className="relative w-full h-[800px] md:h-[900px] bg-white overflow-hidden font-clash flex flex-col items-center pt-24 md:pt-28">
+    <section className="relative w-full min-h-[800px] md:min-h-[900px] bg-white overflow-hidden font-clash flex flex-col items-center pt-24 md:pt-28">
       
-      {/* 1. TEXT CONTENT */}
-      <div className="relative z-30 mt-12 md:mt-16 text-center px-6 max-w-lg mx-auto">
-        <p className="text-sm md:text-base text-black font-clash mb-4 tracking-wide">
+      {/* 1. TEXT CONTENT - at the top with tight spacing */}
+      <div className="relative z-30 text-center px-6 max-w-lg mx-auto">
+        <p className="text-sm md:text-base text-black font-clash mb-1 tracking-wide">
           Personal Legacy
         </p>
-        <h2 className="text-6xl md:text-7xl font-bold text-black tracking-tight mb-6">
+        <h2 className="text-6xl md:text-7xl font-bold text-black tracking-tight mb-2">
           My Vault
         </h2>
         <p className="text-lg md:text-xl text-black font-clash leading-relaxed">
@@ -28,9 +27,8 @@ const VaultSection = () => {
         </p>
       </div>
 
-      {/* 2. MAIN CENTER IMAGE */}
-      {/* left-1/2 and -translate-x-1/2 perfectly centers an absolute element */}
-      <div className="absolute top-40 left-1/2 -translate-x-1/2 w-full max-w-[500px] md:max-w-[550px] z-20">
+      {/* 2. MAIN CENTER IMAGE - anchored to the bottom */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[500px] md:max-w-[550px] z-20">
         <img 
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 

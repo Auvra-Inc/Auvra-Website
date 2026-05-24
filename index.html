@@ -3,9 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     
-    <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https:; connect-src 'self' https:;" />
-    
     <!-- Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,29 +19,34 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Default META TAGS (fallback) -->
+    <!-- Primary META TAGS -->
     <title>Auvra - The Permanent Home For Human Culture</title>
     <meta name="description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
-    <meta property="og:title" content="Auvra - The Permanent Home For Human Culture" />
-    <meta property="og:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
-    <meta property="og:url" content="https://www.goauvra.com/" />
-    <meta property="og:image" content="https://www.goauvra.com/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Auvra - The Permanent Home For Human Culture" />
-    <meta name="twitter:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
-    <meta name="twitter:image" content="https://www.goauvra.com/og-image.png" />
-    
-    <!-- Static meta tags -->
-    <meta property="og:site_name" content="Auvra" />
     <meta name="keywords" content="Auvra, GoAuvra, cultural preservation, African creators, oral history, heritage, diaspora, blockchain culture, Lens AI" />
     <meta name="author" content="Auvra" />
     <meta name="robots" content="index, follow" />
-    <meta http-equiv="Content-Language" content="en" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.goauvra.com/" />
+    <meta property="og:title" content="Auvra - The Permanent Home For Human Culture" />
+    <meta property="og:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions." />
+    <meta property="og:image" content="https://www.goauvra.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Auvra" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Auvra - The Permanent Home For Human Culture" />
+    <meta name="twitter:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records." />
+    <meta name="twitter:image" content="https://www.goauvra.com/og-image.png" />
+    
+    <!-- Canonical -->
     <link rel="canonical" href="https://www.goauvra.com/" />
     
-    <!-- International -->
+    <!-- Language -->
+    <meta http-equiv="Content-Language" content="en" />
     <link rel="alternate" hreflang="en" href="https://www.goauvra.com/" />
     <link rel="alternate" hreflang="x-default" href="https://www.goauvra.com/" />
     
@@ -58,7 +60,7 @@
       "url": "https://www.goauvra.com",
       "logo": "https://www.goauvra.com/og-image.png",
       "description": "Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records.",
-      "email": "Info@goauvra.com",
+      "email": "info@goauvra.com",
       "sameAs": [
         "https://www.instagram.com/goauvra/",
         "https://x.com/goauvra"
@@ -118,64 +120,6 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
-    
-    <!-- DYNAMIC META TAG UPDATER - Uses hardcoded blog data (works in production) -->
-    <script>
-      (function() {
-        const path = window.location.pathname;
-        
-        // Check if this is a blog post
-        const isBlogPost = path.startsWith('/blog/') && path !== '/blog/';
-        
-        if (isBlogPost) {
-          // Hardcoded blog data - ADD NEW BLOG POSTS HERE
-          const blogData = {
-            'Introducing Auvra': {
-              title: 'Introducing Auvra: The Permanent Home for Human Culture',
-              description: 'For centuries, human culture has been preserved on fragile mediums. Paper burns. Tape degrades. Auvra is building a permanent home for human culture.',
-              image: 'https://www.goauvra.com/9606F03E-F6CE-4CB4-B4BB-729F5B051477.png'
-            }
-          };
-          
-          // Find matching blog data
-          let blogInfo = null;
-          for (const key in blogData) {
-            if (path.includes(key) || key.includes(path)) {
-              blogInfo = blogData[key];
-              break;
-            }
-          }
-          
-          if (blogInfo) {
-            document.title = blogInfo.title;
-            
-            let metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) metaDesc.setAttribute('content', blogInfo.description);
-            
-            let ogTitle = document.querySelector('meta[property="og:title"]');
-            if (ogTitle) ogTitle.setAttribute('content', blogInfo.title);
-            
-            let ogDesc = document.querySelector('meta[property="og:description"]');
-            if (ogDesc) ogDesc.setAttribute('content', blogInfo.description);
-            
-            let ogImage = document.querySelector('meta[property="og:image"]');
-            if (ogImage) ogImage.setAttribute('content', blogInfo.image);
-            
-            let ogUrl = document.querySelector('meta[property="og:url"]');
-            if (ogUrl) ogUrl.setAttribute('content', 'https://www.goauvra.com' + path);
-            
-            let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-            if (twitterTitle) twitterTitle.setAttribute('content', blogInfo.title);
-            
-            let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-            if (twitterDesc) twitterDesc.setAttribute('content', blogInfo.description);
-            
-            let twitterImage = document.querySelector('meta[name="twitter:image"]');
-            if (twitterImage) twitterImage.setAttribute('content', blogInfo.image);
-          }
-        }
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>

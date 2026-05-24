@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
-// --- SEO MANAGER (ADD THIS IMPORT) ---
-import SeoManager from './SeoManager';
+// --- SEO MANAGER - REMOVED (DELETE THIS LINE) ---
+// import SeoManager from './SeoManager';
 
 // --- YOUR COMPONENT IMPORTS ---
 import FadeSection from './fadeSection'
@@ -70,8 +70,8 @@ const Home = () => (
 function App() {
   return (
     <BrowserRouter>
-      {/* ADD THIS LINE - SEO MANAGER */}
-      <SeoManager />
+      {/* SEO MANAGER REMOVED - DELETE THIS LINE BELOW */}
+      {/* <SeoManager /> */}
       
       <ScrollToTop /> {/* Instantly scrolls to top when you click a link */}
 

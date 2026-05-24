@@ -120,6 +120,43 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FORCE CORRECT DESCRIPTION - OVERRIDES ANY DYNAMIC CONTENT -->
+    <script>
+      (function() {
+        // Force correct description on homepage
+        if (window.location.pathname === '/') {
+          // Update meta description
+          let metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc) {
+            metaDesc.setAttribute('content', 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.');
+          }
+          
+          // Update Open Graph description
+          let ogDesc = document.querySelector('meta[property="og:description"]');
+          if (ogDesc) {
+            ogDesc.setAttribute('content', 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.');
+          }
+          
+          // Update Twitter description
+          let twitterDesc = document.querySelector('meta[name="twitter:description"]');
+          if (twitterDesc) {
+            twitterDesc.setAttribute('content', 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records.');
+          }
+          
+          // Also update title to be safe
+          let ogTitle = document.querySelector('meta[property="og:title"]');
+          if (ogTitle) {
+            ogTitle.setAttribute('content', 'Auvra - The Permanent Home For Human Culture');
+          }
+          
+          let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+          if (twitterTitle) {
+            twitterTitle.setAttribute('content', 'Auvra - The Permanent Home For Human Culture');
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

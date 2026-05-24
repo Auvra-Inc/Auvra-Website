@@ -70,12 +70,12 @@ export default function FooterSection() {
               <a href="https://www.linkedin.com/company/auvra/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-[#0A66C2] flex items-center justify-center transition hover:bg-[#0A66C2] hover:text-white">
                 <FaLinkedinIn className="w-5 h-5" />
               </a>
-              {/* <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-[#1877F2] flex items-center justify-center transition hover:bg-[#1877F2] hover:text-white">
+              <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-[#1877F2] flex items-center justify-center transition hover:bg-[#1877F2] hover:text-white">
                 <FaFacebookF className="w-5 h-5" />
               </a>
               <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-black flex items-center justify-center transition hover:bg-black hover:text-white">
                 <SiTiktok className="w-5 h-5" />
-              </a> */}
+              </a>
             </div>
           </div>
 

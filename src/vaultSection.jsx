@@ -12,11 +12,11 @@ const VaultSection = () => {
   );
 
   return (
-    // h-[1000px] gives enough space for text, center image, and floating avatars below
-    <section className="relative w-full h-[1000px] md:h-[1100px] bg-white overflow-hidden font-clash flex flex-col items-center pt-16 md:pt-20">
+    // h-[800px] gives it enough height to let the center image sit perfectly at the bottom
+    <section className="relative w-full h-[800px] md:h-[900px] bg-white overflow-hidden font-clash flex flex-col items-center pt-24 md:pt-28">
       
-      {/* 1. TEXT CONTENT - positioned lower so images float beneath */}
-      <div className="relative z-30 mt-24 md:mt-32 text-center px-6 max-w-lg mx-auto">
+      {/* 1. TEXT CONTENT */}
+      <div className="relative z-30 mt-12 md:mt-16 text-center px-6 max-w-lg mx-auto">
         <p className="text-sm md:text-base text-black font-clash mb-4 tracking-wide">
           Personal Legacy
         </p>
@@ -29,8 +29,8 @@ const VaultSection = () => {
       </div>
 
       {/* 2. MAIN CENTER IMAGE */}
-      {/* Positioned lower so it appears beneath the text */}
-      <div className="absolute top-56 md:top-64 left-1/2 -translate-x-1/2 w-full max-w-[500px] md:max-w-[550px] z-20">
+      {/* left-1/2 and -translate-x-1/2 perfectly centers an absolute element */}
+      <div className="absolute top-40 left-1/2 -translate-x-1/2 w-full max-w-[500px] md:max-w-[550px] z-20">
         <img 
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 
@@ -43,35 +43,35 @@ const VaultSection = () => {
       {/* Top Left (Large dark image) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200&auto=format&fit=crop" 
-        className="top-1/2 left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
+        className="top-6 left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
         delay="0s" 
       />
       
       {/* Middle Left (Blue background image) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" 
-        className="top-2/3 left-[-5%] md:left-[12%] w-20 h-20 md:w-28 md:h-28" 
+        className="top-[35%] left-[-5%] md:left-[12%] w-20 h-20 md:w-28 md:h-28" 
         delay="1.2s" 
       />
       
       {/* Top Right (Cut off image at the very top edge) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" 
-        className="top-1/2 right-[-5%] md:right-[15%] w-16 h-16 md:w-24 md:h-24" 
+        className="top-6 right-[-5%] md:right-[15%] w-16 h-16 md:w-24 md:h-24" 
         delay="0.5s" 
       />
       
       {/* Upper Middle Right (Woman smiling) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" 
-        className="top-2/3 right-[8%] md:right-[22%] w-20 h-20 md:w-28 md:h-28" 
+        className="top-[20%] right-[8%] md:right-[22%] w-20 h-20 md:w-28 md:h-28" 
         delay="2.1s" 
       />
       
       {/* Lower Middle Right (Red texture image) */}
       <FloatingAvatar 
         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" 
-        className="top-3/4 right-[12%] md:right-[28%] w-14 h-14 md:w-20 md:h-20" 
+        className="top-[45%] right-[12%] md:right-[28%] w-14 h-14 md:w-20 md:h-20" 
         delay="1.8s" 
       />
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 import PartnersSection from '../partnerSection';
 
@@ -44,6 +45,24 @@ export default function About() {
 
 	return (
 		<div className='w-full bg-white  pb-20'>
+			<Helmet>
+                <title>About Us | Auvra</title>
+                <meta name="description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
+                
+                {/* Open Graph / Social Media Platforms */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="About Us | Auvra" />
+                <meta property="og:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
+                <meta property="og:image" content="https://goauvra.com/about-preview.png" />
+                <meta property="og:url" content="https://goauvra.com/about" />
+
+                {/* Twitter / LinkedIn Cards */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="About Us | Auvra" />
+                <meta name="twitter:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
+                <meta name="twitter:image" content="https://goauvra.com/about-preview.png" />
+            </Helmet>
+
 			{/* NAVBAR */}
 			<Navbar />
 

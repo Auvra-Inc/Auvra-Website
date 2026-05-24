@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async'; // ← ADDED Helmet Import
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -60,33 +61,11 @@ export default function BlogPost() {
           imageUrl: blogImage,
           author: clean(authorMatch) || "Auvra Team",
           subtitle: clean(subtitleMatch) || "",
-          content: mainContent
+          content: mainContent,
+          seoDescription: blogDescription // Stored for Helmet
         });
         
-        setTimeout(() => {
-          document.title = blogTitle;
-          
-          let ogTitle = document.querySelector('meta[property="og:title"]');
-          if (ogTitle) ogTitle.setAttribute('content', blogTitle);
-          
-          let ogDesc = document.querySelector('meta[property="og:description"]');
-          if (ogDesc) ogDesc.setAttribute('content', blogDescription);
-          
-          let ogImage = document.querySelector('meta[property="og:image"]');
-          if (ogImage) ogImage.setAttribute('content', blogImage);
-          
-          let ogUrl = document.querySelector('meta[property="og:url"]');
-          if (ogUrl) ogUrl.setAttribute('content', `https://www.goauvra.com/blog/${slug}`);
-          
-          let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-          if (twitterTitle) twitterTitle.setAttribute('content', blogTitle);
-          
-          let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-          if (twitterDesc) twitterDesc.setAttribute('content', blogDescription);
-          
-          let twitterImage = document.querySelector('meta[name="twitter:image"]');
-          if (twitterImage) twitterImage.setAttribute('content', blogImage);
-        }, 100);
+        // DELETED the setTimeout block here! Helmet handles it instantly now.
         
         setLoading(false);
       } catch (error) {
@@ -101,6 +80,10 @@ export default function BlogPost() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
+        {/* Basic Helmet for loading state */}
+        <Helmet>
+          <title>Loading Article | Auvra</title>
+        </Helmet>
         <div className="text-xl">Loading article...</div>
       </div>
     );
@@ -109,6 +92,9 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
+        <Helmet>
+          <title>Article Not Found | Auvra</title>
+        </Helmet>
         <h1 className="text-2xl mb-4">Article not found</h1>
         <Link to="/blog" className="text-black underline">Back to Blog</Link>
       </div>
@@ -117,6 +103,25 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white" style={{ margin: 0, padding: 0 }}>
+      
+      {/* ← ADDED HELMET BLOCK FOR DYNAMIC ARTICLE SEO */}
+      <Helmet>
+        <title>{`${post.title} | Auvra Blog`}</title>
+        <meta name="description" content={post.seoDescription} />
+        
+        {/* Notice we use "article" instead of "website" here! */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.seoDescription} />
+        <meta property="og:image" content={post.imageUrl} />
+        <meta property="og:url" content={`https://www.goauvra.com/blog/${slug}`} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.seoDescription} />
+        <meta name="twitter:image" content={post.imageUrl} />
+      </Helmet>
+
       <div className="relative w-full h-screen max-h-[100vh] overflow-hidden" style={{ margin: 0, padding: 0 }}>
         
         <div className="absolute inset-0 w-full h-full">

@@ -110,7 +110,7 @@ export default function FaqAndCardsSection() {
                                         onClick={() => toggleFAQ(index)}
                                         className='w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors'
                                     >
-                                        <span className='font-medium font-clash pr-4 text-[18px]'>
+                                        <span className='font-medium font-clash pr-4 text-[14px]'>
                                             {faq.question}
                                         </span>
                                         <svg

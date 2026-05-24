@@ -303,7 +303,12 @@ const FeaturesSection = () => {
 				{/* =========================================
     CARD 4: LENS AI (Spans both columns)
 ========================================= */}
-				<div className='bg-[#0f1d14] rounded-[2.5rem] p-8 md:p-12 text-white shadow-xl lg:col-span-2 relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition'>
+					<motion.div
+						initial={{ opacity: 0, y: 32 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.2 }}
+						transition={{ duration: 0.6, ease: 'easeOut', delay: 0.22 }}
+						className='bg-[#0f1d14] rounded-[2.5rem] p-8 md:p-12 text-white shadow-xl lg:col-span-2 relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition'>
 					{/* Background Image */}
 					<img
 						src='/3img.jpg'
@@ -389,12 +394,17 @@ const FeaturesSection = () => {
 							</div>
 						</div>
 					</div>
-				</div>
+					</motion.div>
 
 				{/* =========================================
             CARD 5: COMMUNITY ARCHIVES
         ========================================= */}
-				<div className='w-full max-w-md bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'>
+					<motion.div
+						initial={{ opacity: 0, y: 32 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.2 }}
+						transition={{ duration: 0.6, ease: 'easeOut', delay: 0.28 }}
+						className='w-full max-w-md bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'>
 					{/* HEADER SECTION */}
 					<div className='flex items-center gap-3 mb-4'>
 						{/* Lucide BadgeCheck with orange fill and white checkmark */}
@@ -485,7 +495,7 @@ const FeaturesSection = () => {
 							</div>
 						</div>
 					</div>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

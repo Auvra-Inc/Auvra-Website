@@ -44,20 +44,46 @@ const AnimatedCounter = ({ target, duration = 600 }) => {
 export default function ImpactSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const carouselVideos = [
-    "/fitness.mp4",
-    "/digital.mp4",     
-    "/software.mp4",
-    "/nG8aNSXF9bVc3wia1eVPP35Z5c8.mp4"  
+  const carouselItems = [
+    {
+      src: "/fitness.mp4",
+      label: "Preserving Motion",
+      title: "Dance rituals preserved in every frame",
+      description:
+        "Auvra captures movement, rhythm, and ancestry so traditional performances stay alive for future generations.",
+    },
+    {
+      src: "/digital.mp4",
+      label: "Shared Knowledge",
+      title: "Digital stories, shared across cultures",
+      description:
+        "Each clip becomes a living record of community heritage, language, and craftsmanship curated in one place.",
+    },
+    {
+      src: "/software.mp4",
+      label: "Creative Play",
+      title: "Tools to document, remix, and protect culture",
+      description:
+        "From software to sound, Auvra gives creators a secure place to build, verify, and share cultural innovation.",
+    },
+    {
+      src: "/nG8aNSXF9bVc3wia1eVPP35Z5c8.mp4",
+      label: "Audio Legacy",
+      title: "Voices and ceremonies archived beautifully",
+      description:
+        "Auvra turns oral histories into permanent cultural anchors with captions, context, and trusted attribution.",
+    },
   ];
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === carouselVideos.length - 1 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === carouselItems.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? carouselVideos.length - 1 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? carouselItems.length - 1 : prev - 1));
   };
+
+  const currentVideo = carouselItems[currentSlide];
 
   return (
 		<section className='w-full bg-white text-gray-900 py-20 px-6 flex flex-col items-center overflow-hidden'>
@@ -111,21 +137,32 @@ export default function ImpactSection() {
 				</div>
 
 				<div className='relative w-full aspect-[4/5] bg-gray-200 rounded-[2rem] overflow-hidden shadow-xl mb-8'>
-					{carouselVideos.map((videoSrc, index) => (
+					<div className='absolute inset-x-0 top-4 z-20 px-6'>
+						<span className='inline-flex items-center rounded-full bg-black/60 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white font-semibold'>
+							{currentVideo.label}
+						</span>
+					</div>
+					{carouselItems.map((item, index) => (
 						<video
 							key={index}
-							src={videoSrc}
+							src={item.src}
 							autoPlay
 							muted
 							loop
 							playsInline
 							className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
-								index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-							}`}
+							index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+						}`}
 						/>
 					))}
-				</div>
-
+					<div className='absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/70 to-transparent px-6 py-6'>
+						<h3 className='text-xl font-clash font-semibold text-white mb-2'>
+							{currentVideo.title}
+						</h3>
+						<p className='text-sm text-gray-200 leading-relaxed'>
+							{currentVideo.description}
+						</p>
+					</div>				</div>
 				<div className='flex gap-4'>
 					<button
 						onClick={prevSlide}

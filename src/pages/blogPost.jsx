@@ -136,13 +136,13 @@ export default function BlogPost() {
           </div>
           
           <div className="relative z-10 flex flex-col justify-between h-full">
-            {/* LOGO - MOVED UP to exact position where text was (reduced top padding) */}
-            <div className="pt-2 pb-4 flex justify-center items-center">
+            {/* LOGO - MOVED FURTHER UP with negative margin, reduced to 200px */}
+            <div className="flex justify-center items-center -mt-8">
               <Link to="/" className="flex justify-center">
                 <img 
                   src="/Logo-png.PNG" 
                   alt="Auvra Logo" 
-                  className="w-[250px] h-[250px] object-contain" 
+                  className="w-[200px] h-[200px] object-contain" 
                 />
               </Link>
             </div>

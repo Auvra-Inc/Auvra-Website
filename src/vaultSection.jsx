@@ -11,7 +11,7 @@ const VaultSection = () => {
 
   return (
     // We removed the fixed height! Let the content dictate the size.
-    <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-20 md:pt-32">
+    <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-10 md:pt-32">
       
       {/* =========================================
           BOX A: TEXT & FLOATING AVATARS 
@@ -75,7 +75,7 @@ const VaultSection = () => {
           BOX B: MAIN CENTER IMAGE
           Because it comes AFTER the div above, it will naturally push down and NEVER overlap the text.
       ========================================= */}
-      <div className="relative w-full max-w-[450px] md:max-w-[550px] mt-8 md:mt-12 z-20 px-4">
+      <div className="relative w-full max-w-[450px] md:max-w-[550px] mt-4 md:mt-8 z-20 ">
         <img 
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 

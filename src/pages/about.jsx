@@ -194,10 +194,51 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* 3. MISSION & VISION SECTION */}
-			<section className='w-full bg-black py-24 text-white'>
-				<div className='max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24'>
-					<div>
+			{/* 3. MISSION & VISION SECTION - WITH SUBTLE WORLD MAP BACKGROUND */}
+			<section className='w-full bg-black py-24 text-white relative overflow-hidden'>
+				{/* Subtle World Map Background - very faint white/gray */}
+				<div className="absolute inset-0 opacity-5 pointer-events-none">
+					<svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+						<path d="M200,300 L220,280 L250,290 L270,270 L300,280 L320,260 L350,270 L370,250 L400,260" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M150,350 L170,340 L190,355 L210,330 L240,345 L260,325 L290,340" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M400,200 L420,185 L450,195 L470,175 L500,190 L520,170 L550,185" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M600,400 L620,385 L650,395 L670,375 L700,390 L720,370 L750,385" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M800,250 L820,235 L850,245 L870,225 L900,240 L920,220 L950,235" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M500,500 L520,485 L550,495 L570,475 L600,490 L620,470 L650,485" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M900,450 L920,435 L950,445 L970,425 L1000,440" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M100,450 L130,435 L160,445 L180,425 L210,440" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M300,550 L320,540 L340,555 L360,535 L390,550" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M700,550 L720,535 L750,545 L770,525 L800,540" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M350,150 L370,140 L390,155 L410,135 L440,150" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						<path d="M850,150 L870,135 L900,145 L920,125 L950,140" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+						{/* Continents shapes - stylized */}
+						<path d="M180,300 C200,280 230,285 250,270 C270,255 290,270 280,290 C270,310 240,315 220,310 C200,305 190,310 180,300Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
+						<path d="M450,180 C470,160 500,165 520,150 C540,135 560,150 550,170 C540,190 510,195 490,190 C470,185 460,190 450,180Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
+						<path d="M650,380 C670,360 700,365 720,350 C740,335 760,350 750,370 C740,390 710,395 690,390 C670,385 660,390 650,380Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
+						<path d="M520,480 C540,460 570,465 590,450 C610,435 630,450 620,470 C610,490 580,495 560,490 C540,485 530,490 520,480Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
+						<path d="M820,230 C840,210 870,215 890,200 C910,185 930,200 920,220 C910,240 880,245 860,240 C840,235 830,240 820,230Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
+					</svg>
+				</div>
+				
+				{/* Subtle grid pattern overlay */}
+				<div className="absolute inset-0 opacity-10 pointer-events-none">
+					<svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+								<path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5"/>
+							</pattern>
+						</defs>
+						<rect width="100%" height="100%" fill="url(#grid)" />
+					</svg>
+				</div>
+				
+				<div className='max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 relative z-10'>
+					<motion.div
+						initial={{ opacity: 0, x: -30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true, margin: "-100px" }}
+						transition={{ duration: 0.6, ease: "easeOut" }}
+					>
 						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>
 							Our Mission
 						</h2>
@@ -206,9 +247,14 @@ export default function About() {
 							communities, and institutions the tools to own and pass down their
 							cultural assets.
 						</p>
-					</div>
+					</motion.div>
 
-					<div>
+					<motion.div
+						initial={{ opacity: 0, x: 30 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						viewport={{ once: true, margin: "-100px" }}
+						transition={{ duration: 0.6, ease: "easeOut" }}
+					>
 						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>
 							Our Vision
 						</h2>
@@ -217,7 +263,7 @@ export default function About() {
 							permanently stored, intelligently understood, and generationally
 							transferred.
 						</p>
-					</div>
+					</motion.div>
 				</div>
 			</section>
 

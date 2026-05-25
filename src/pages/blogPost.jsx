@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async'; // ← ADDED Helmet Import
+import { Helmet } from 'react-helmet-async';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -28,14 +28,23 @@ export default function BlogPost() {
         let mainContent = parts[2] || parts[1] || rawContent;
         mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
         
+        // Better formatting with proper spacing and centered content
         mainContent = mainContent
-          .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 500; color: black;">$1</strong>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 600; color: #1a1a1a;">$1</strong>')
           .replace(/\*(.*?)\*/g, '<em style="font-style: italic;">$1</em>')
           .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">$1</a>')
           .replace(/_?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})_?/g, '<a href="mailto:$1" style="color: #2563eb; text-decoration: underline;">$1</a>')
           .split('\n\n').map(para => {
             if (para.trim()) {
-              return `<p style="color: black; font-weight: 300; line-height: 1.8; margin-bottom: 0.75rem; font-size: 1rem; text-align: left; letter-spacing: 0.01em; font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">${para.replace(/\n/g, ' ')}</p>`;
+              // Handle headings
+              if (para.startsWith('# ')) {
+                return `<h2 style="font-size: 2rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #1a1a1a; font-family: 'Clash Display', sans-serif; text-align: center;">${para.replace('# ', '')}</h2>`;
+              }
+              if (para.startsWith('## ')) {
+                return `<h3 style="font-size: 1.5rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #1a1a1a; font-family: 'Clash Display', sans-serif;">${para.replace('## ', '')}</h3>`;
+              }
+              // Regular paragraph - centered and well spaced
+              return `<p style="color: #4a4a4a; font-weight: 400; line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.125rem; text-align: left; letter-spacing: 0.01em; font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 100%;">${para.replace(/\n/g, ' ')}</p>`;
             }
             return '';
           }).join('');
@@ -62,10 +71,8 @@ export default function BlogPost() {
           author: clean(authorMatch) || "Auvra Team",
           subtitle: clean(subtitleMatch) || "",
           content: mainContent,
-          seoDescription: blogDescription // Stored for Helmet
+          seoDescription: blogDescription
         });
-        
-        // DELETED the setTimeout block here! Helmet handles it instantly now.
         
         setLoading(false);
       } catch (error) {
@@ -80,7 +87,6 @@ export default function BlogPost() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        {/* Basic Helmet for loading state */}
         <Helmet>
           <title>Loading Article | Auvra</title>
         </Helmet>
@@ -104,24 +110,21 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen bg-white" style={{ margin: 0, padding: 0 }}>
       
-      {/* ← ADDED HELMET BLOCK FOR DYNAMIC ARTICLE SEO */}
       <Helmet>
         <title>{`${post.title} | Auvra Blog`}</title>
         <meta name="description" content={post.seoDescription} />
-        
-        {/* Notice we use "article" instead of "website" here! */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.seoDescription} />
         <meta property="og:image" content={post.imageUrl} />
         <meta property="og:url" content={`https://www.goauvra.com/blog/${slug}`} />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.seoDescription} />
         <meta name="twitter:image" content={post.imageUrl} />
       </Helmet>
 
+      {/* Hero Section */}
       <div className="relative w-full h-screen max-h-[100vh] overflow-hidden" style={{ margin: 0, padding: 0 }}>
         
         <div className="absolute inset-0 w-full h-full">
@@ -178,14 +181,12 @@ export default function BlogPost() {
         </div>
       </div>
       
-      <div style={{ width: '100%', margin: 0, padding: 0, backgroundColor: '#ffffff' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '3rem 2rem' }}>
-          <div 
-            dangerouslySetInnerHTML={{ __html: post.content }} 
-            style={{ 
-              width: '100%',
-            }}
-          />
+      {/* MAIN CONTENT - FIXED CENTERING */}
+      <div className="w-full bg-white py-12">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <article className="prose prose-lg max-w-none">
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          </article>
         </div>
       </div>
     </div>

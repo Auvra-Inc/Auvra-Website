@@ -11,7 +11,6 @@ export default function FooterSection() {
         {/* Logo, Bio, and Social Icons */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-4">
-            {/* Auvra Star Logo Icon */}
             <img 
              src="/Vector .png" 
              alt="Auvra Logo" 
@@ -24,7 +23,7 @@ export default function FooterSection() {
             Where stories are kept, traditions endure, and creation becomes legacy.
           </p>
           
-          {/* Social Icons - Only Instagram, X, LinkedIn */}
+          {/* Social Icons */}
           <div className="flex items-center gap-5 mt-6">
             <a href="https://www.instagram.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
               <FaInstagram className="w-5 h-5" />
@@ -40,11 +39,11 @@ export default function FooterSection() {
           </div>
         </div>
 
-        {/* Links Grid - Adjusted alignment for LEGAL and CONTACT to move right */}
-        <div className="grid grid-cols-2 gap-y-8 gap-x-4 mb-16 relative z-20">
+        {/* Links Grid - Added gap between columns */}
+        <div className="grid grid-cols-2 gap-y-8 gap-x-8 mb-16 relative z-20">
           
-          {/* Column 1 - TRUST & SAFETY */}
-          <div className="flex flex-col gap-3 font-clash justify-self-start">
+          {/* Column 1 - Trust & Safety */}
+          <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Trust & Safety</h4>
             <Link to="/community" className="text-xs text-gray-700 hover:text-black transition">Community Guidelines</Link>
             <Link to="/governance" className="text-xs text-gray-700 hover:text-black transition">Content Governance</Link>
@@ -52,8 +51,8 @@ export default function FooterSection() {
             <Link to="/ai-policy" className="text-xs text-gray-700 hover:text-black transition">AI Policy</Link>
           </div>
 
-          {/* Column 2 - LEGAL (moved right by using justify-self-end) */}
-          <div className="flex flex-col gap-3 font-clash justify-self-end text-right">
+          {/* Column 2 - Legal */}
+          <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Legal</h4>
             <Link to="/terms" className="text-xs text-gray-700 hover:text-black transition">Terms of Service</Link>
             <Link to="/privacy" className="text-xs text-gray-700 hover:text-black transition">Privacy Policy</Link>
@@ -61,15 +60,15 @@ export default function FooterSection() {
             <Link to="/collab" className="text-xs text-gray-700 hover:text-black transition">Collaboration Terms</Link>
           </div>
 
-          {/* Column 3 - COMPANY */}
-          <div className="flex flex-col gap-3 font-clash justify-self-start">
+          {/* Column 3 - Company */}
+          <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Company</h4>
             <Link to="/about" className="text-xs text-gray-700 hover:text-black transition">About</Link>
             <Link to="/blog" className="text-xs text-gray-700 hover:text-black transition">Blog</Link>
           </div>
 
-          {/* Column 4 - CONTACT (moved right by using justify-self-end) */}
-          <div className="flex flex-col gap-3 font-clash justify-self-end text-right">
+          {/* Column 4 - Contact */}
+          <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Contact</h4>
             <Link to="/contact" className="text-xs text-gray-700 hover:text-black transition">Contact us</Link>
             <Link to="/faqs" className="text-xs text-gray-700 hover:text-black transition">FAQs</Link>

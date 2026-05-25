@@ -24,7 +24,7 @@ export default function About() {
 		{
 			title: 'Trust Through Transparency.',
 			description:
-				'We operate with honesty and clarity. From our onboarding flows to our blockchain transactions, we build trust by being open about our processes and holding ourselves to the highest ethical standards.',
+				'We treat cultural heritage with the utmost respect and reverence. We prioritize authentic storytelling, verifiable provenance, and ethical representation in everything we do.',
 		},
 		{
 			title: 'User Empowerment.',
@@ -74,17 +74,18 @@ export default function About() {
 					transition={{ duration: 0.8, ease: 'easeOut' }}
 					className='max-w-5xl'
 				>
+					{/* RESTORED to original - font-medium (500) as you wanted */}
 					<h1 className='text-2xl text-center md:text-4xl font-clash font-medium text-black leading-tight tracking-tight mb-12 mt-8'>
 						The stories we keep today become the foundation for tomorrow.
 					</h1>
 					<PartnersSection />
-					<div className=' pt-7 md:text-xl text-gray-500 font-clash leading-relaxed space-y-12 max-w-3xl'>
+					<div className=' pt-7 md:text-xl text-black font-clash leading-relaxed space-y-12 max-w-3xl'>
 						<p>
 							The voices we record now will speak to generations not yet born.
 							The culture we preserve is the only inheritance that truly
 							matters.
 						</p>
-						<p className='font-semibold text-black pt-4'>
+						<p className='font-medium text-black pt-4'>
 							This is why Auvra exists.
 						</p>
 						<p>
@@ -92,7 +93,7 @@ export default function About() {
 							creators, communities, and families to preserve what they love,
 							own what they make, and pass it down.
 						</p>
-						<p className='font-medium text-black font-clash'>
+						<p className='font-normal text-black font-clash'>
 							Not as a relic. Not as a file. But as something that lives.
 						</p>
 					</div>
@@ -103,12 +104,12 @@ export default function About() {
 			<section className='w-full bg-gray-50 py-15'>
 				<div className='max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 md:gap-24'>
 					<div className='w-full md:w-1/3'>
-						<h2 className='text-3xl md:text-4xl font-clash font-semibold text-black leading-snug'>
+						<h2 className='text-3xl md:text-4xl font-clash font-medium text-black leading-snug'>
 							The Problem We Could Not Ignore
 						</h2>
 					</div>
 
-					<div className='w-full md:w-2/3 space-y-8 text-lg md:text-xl text-gray-600 font-clash leading-relaxed'>
+					<div className='w-full md:w-2/3 space-y-8 text-lg md:text-xl text-black font-clash leading-relaxed'>
 						<p>
 							Every forty days, a language falls silent. With it, songs,
 							rituals, techniques, and entire ways of seeing the world
@@ -123,7 +124,7 @@ export default function About() {
 							private to store what matters most. When a platform ends, the
 							culture ends with it.
 						</p>
-						<p className='font-semibold text-black text-lg font-clash pt-4'>
+						<p className='font-medium text-black text-lg font-clash pt-4'>
 							We refused to accept this.
 						</p>
 					</div>
@@ -134,10 +135,10 @@ export default function About() {
 			<section className='w-full bg-black py-24 text-white'>
 				<div className='max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24'>
 					<div>
-						<h2 className='text-sm font-clash font-semibold uppercase tracking-widest text-gray-400 mb-6'>
+						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>
 							Our Mission
 						</h2>
-						<p className='text-2xl md:text-4xl font-clash font-medium leading-relaxed'>
+						<p className='text-2xl md:text-4xl font-clash font-normal leading-relaxed'>
 							To preserve, structure, and empower culture by giving creators,
 							communities, and institutions the tools to own and pass down their
 							cultural assets.
@@ -145,10 +146,10 @@ export default function About() {
 					</div>
 
 					<div>
-						<h2 className='text-sm font-clash font-semibold uppercase tracking-widest text-gray-400 mb-6'>
+						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>
 							Our Vision
 						</h2>
-						<p className='text-2xl md:text-4xl font-clash font-medium leading-relaxed text-gray-300'>
+						<p className='text-2xl md:text-4xl font-clash font-normal leading-relaxed text-gray-300'>
 							To become the global infrastructure where human culture is
 							permanently stored, intelligently understood, and generationally
 							transferred.
@@ -160,10 +161,12 @@ export default function About() {
 			{/* 4. C.U.L.T.U.R.E. VALUES GRID */}
 			<section className='max-w-7xl mx-auto px-6 md:px-12 py-24'>
 				<div className='mb-16 max-w-3xl'>
-					<h2 className='text-4xl md:text-5xl font-clash font-bold text-black tracking-tight mb-6'>
+					{/* "What Guides Us" - size reduced from text-4xl md:text-5xl to text-3xl md:text-4xl */}
+					<h2 className='text-3xl md:text-4xl font-clash font-semibold text-black tracking-tight mb-6'>
 						What Guides Us
 					</h2>
-					<p className='text-md text-gray-500 font-clash leading-relaxed'>
+					{/* Subhead - size reduced from text-md to text-sm */}
+					<p className='text-sm text-black font-clash leading-relaxed'>
 						At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These
 						principles are the foundation of our product, our community, and our
 						vision for a digitally-preserved heritage.
@@ -180,10 +183,10 @@ export default function About() {
 							transition={{ duration: 0.6, delay: index * 0.1 }}
 							className='flex flex-col border-t border-gray-200 pt-8'
 						>
-							<h3 className='text-2xl font-clash font-semibold text-black mb-4'>
+							<h3 className='text-2xl font-clash font-medium text-black mb-4'>
 								{value.title}
 							</h3>
-							<p className='text-gray-500 font-clash leading-relaxed'>
+							<p className='text-black font-clash leading-relaxed'>
 								{value.description}
 							</p>
 						</motion.div>

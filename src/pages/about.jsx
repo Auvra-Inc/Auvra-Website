@@ -222,15 +222,15 @@ export default function About() {
 			</section>
 
 			{/* 4. C.U.L.T.U.R.E. VALUES GRID */}
-			<section className='max-w-7xl mx-auto px-6 md:px-12 py-24'>
+			<section className='max-w-7xl mx-auto px-6 md:px-12 py-16'>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-100px" }}
 					transition={{ duration: 0.6, ease: "easeOut" }}
-					className='mb-12 max-w-3xl'
+					className='mb-8 max-w-3xl'
 				>
-					<h2 className='text-4xl md:text-5xl font-clash font-semibold text-black tracking-tight mb-4'>
+					<h2 className='text-4xl md:text-5xl font-clash font-semibold text-black tracking-tight mb-3'>
 						What Guides Us
 					</h2>
 					<p className='text-md text-black font-clash leading-relaxed'>
@@ -259,7 +259,6 @@ export default function About() {
 								{value.title}
 							</h3>
 							
-							{/* Description text color changed from text-gray-500 to text-gray-700 (closer to black) */}
 							<p className='text-gray-700 font-clash leading-relaxed text-sm'>
 								{value.description}
 							</p>

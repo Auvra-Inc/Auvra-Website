@@ -4,6 +4,45 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 import PartnersSection from '../partnerSection';
 
+// Icon components for each value
+const Icons = {
+  'Cultural Integrity.': (
+    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.636 3.636a9 9 0 1 1 12.728 12.728M9 13h.01M15 13h.01M12 17h.01M12 2v1M2 12h1M21 12h1M5.636 5.636l-.707-.707M18.364 18.364l-.707-.707" />
+    </svg>
+  ),
+  'Universal Access.': (
+    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  ),
+  'Lasting Stewardship.': (
+    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0Z" />
+    </svg>
+  ),
+  'Trust Through Transparency.': (
+    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+  ),
+  'User Empowerment.': (
+    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    </svg>
+  ),
+  'Respectful Collaboration.': (
+    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+    </svg>
+  ),
+  'Excellence in Craft.': (
+    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+    </svg>
+  ),
+};
+
 export default function About() {
 	const values = [
 		{
@@ -74,7 +113,6 @@ export default function About() {
 					transition={{ duration: 0.8, ease: 'easeOut' }}
 					className='max-w-5xl'
 				>
-					{/* RESTORED to original - font-medium (500) as you wanted */}
 					<h1 className='text-2xl text-center md:text-4xl font-clash font-medium text-black leading-tight tracking-tight mb-12 mt-8'>
 						The stories we keep today become the foundation for tomorrow.
 					</h1>
@@ -161,12 +199,11 @@ export default function About() {
 			{/* 4. C.U.L.T.U.R.E. VALUES GRID */}
 			<section className='max-w-7xl mx-auto px-6 md:px-12 py-24'>
 				<div className='mb-16 max-w-3xl'>
-					{/* "What Guides Us" - size reduced from text-4xl md:text-5xl to text-3xl md:text-4xl */}
-					<h2 className='text-3xl md:text-4xl font-clash font-semibold text-black tracking-tight mb-6'>
+					<h2 className='text-4xl md:text-5xl font-clash font-semibold text-black tracking-tight mb-6'>
 						What Guides Us
 					</h2>
-					{/* Subhead - size reduced from text-md to text-sm */}
-					<p className='text-sm text-black font-clash leading-relaxed'>
+					{/* Subhead - KEPT AT ORIGINAL SIZE (not reduced) */}
+					<p className='text-md text-black font-clash leading-relaxed'>
 						At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These
 						principles are the foundation of our product, our community, and our
 						vision for a digitally-preserved heritage.
@@ -183,7 +220,12 @@ export default function About() {
 							transition={{ duration: 0.6, delay: index * 0.1 }}
 							className='flex flex-col border-t border-gray-200 pt-8'
 						>
-							<h3 className='text-2xl font-clash font-medium text-black mb-4'>
+							{/* Icon added above the title */}
+							<div className="mb-2">
+								{Icons[value.title]}
+							</div>
+							{/* Value title - font size reduced */}
+							<h3 className='text-xl md:text-2xl font-clash font-medium text-black mb-4'>
 								{value.title}
 							</h3>
 							<p className='text-black font-clash leading-relaxed'>

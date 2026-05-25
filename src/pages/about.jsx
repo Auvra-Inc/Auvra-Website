@@ -4,83 +4,83 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 import PartnersSection from '../partnerSection';
 
-// Icon components for C.U.L.T.U.R.E. values
+// Icon components for C.U.L.T.U.R.E. values (kept as before)
 const Icons = {
   'Cultural Integrity.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.636 3.636a9 9 0 1 1 12.728 12.728M9 13h.01M15 13h.01M12 17h.01M12 2v1M2 12h1M21 12h1M5.636 5.636l-.707-.707M18.364 18.364l-.707-.707" />
       </svg>
     </div>
   ),
   'Universal Access.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     </div>
   ),
   'Lasting Stewardship.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0Z" />
       </svg>
     </div>
   ),
   'Trust Through Transparency.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
       </svg>
     </div>
   ),
   'User Empowerment.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
       </svg>
     </div>
   ),
   'Respectful Collaboration.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
       </svg>
     </div>
   ),
   'Excellence in Craft.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
-      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
       </svg>
     </div>
   ),
 };
 
-// New Icons for How We Achieve This section
+// Icons for How We Achieve This section (matching Talksign's clean style)
 const HowWeAchieveIcons = {
   blockchain: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
     </svg>
   ),
   community: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
     </svg>
   ),
   storage: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375 7.444 2.25 12 2.25s8.25 1.847 8.25 4.125Zm0 0v5.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-5.25m16.5 7.875c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
     </svg>
   ),
   economics: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m15-1.5v.75c0 .414.336.75.75.75h.75M3.75 9h15m-15 3h15m-15 3h15M12 3v15" />
     </svg>
   ),
   ai: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
     </svg>
   ),
@@ -89,17 +89,17 @@ const HowWeAchieveIcons = {
 // Icons for Our Approach section
 const ApproachIcons = {
   cocreated: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
     </svg>
   ),
   realworld: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
     </svg>
   ),
   permanence: (
-    <svg className="w-6 h-6 md:w-7 md:h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+    <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
     </svg>
   ),
@@ -144,7 +144,6 @@ export default function About() {
 		},
 	];
 
-	// How We Achieve This data
 	const howWeAchieveData = [
 		{
 			title: 'Blockchain for immutable provenance',
@@ -173,7 +172,6 @@ export default function About() {
 		},
 	];
 
-	// Our Approach data
 	const approachData = [
 		{
 			title: 'Co-created with communities.',
@@ -218,18 +216,18 @@ export default function About() {
 	return (
 		<div className='w-full bg-white pb-20'>
 			<Helmet>
-                <title>About Us | Auvra</title>
-                <meta name="description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="About Us | Auvra" />
-                <meta property="og:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
-                <meta property="og:image" content="https://goauvra.com/about-preview.png" />
-                <meta property="og:url" content="https://goauvra.com/about" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="About Us | Auvra" />
-                <meta name="twitter:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
-                <meta name="twitter:image" content="https://goauvra.com/about-preview.png" />
-            </Helmet>
+				<title>About Us | Auvra</title>
+				<meta name="description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content="About Us | Auvra" />
+				<meta property="og:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
+				<meta property="og:image" content="https://goauvra.com/about-preview.png" />
+				<meta property="og:url" content="https://goauvra.com/about" />
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="About Us | Auvra" />
+				<meta name="twitter:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
+				<meta name="twitter:image" content="https://goauvra.com/about-preview.png" />
+			</Helmet>
 
 			<Navbar />
 
@@ -245,23 +243,11 @@ export default function About() {
 						The stories we keep today become the foundation for tomorrow.
 					</h1>
 					<PartnersSection />
-					<div className=' pt-7 md:text-xl text-black font-clash leading-relaxed space-y-12 max-w-3xl'>
-						<p>
-							The voices we record now will speak to generations not yet born.
-							The culture we preserve is the only inheritance that truly
-							matters.
-						</p>
-						<p className='font-medium text-black pt-4'>
-							This is why Auvra exists.
-						</p>
-						<p>
-							We are the permanent home for human culture. Infrastructure for
-							creators, communities, and families to preserve what they love,
-							own what they make, and pass it down.
-						</p>
-						<p className='font-normal text-black font-clash'>
-							Not as a relic. Not as a file. But as something that lives.
-						</p>
+					<div className='pt-7 md:text-xl text-black font-clash leading-relaxed space-y-12 max-w-3xl'>
+						<p>The voices we record now will speak to generations not yet born. The culture we preserve is the only inheritance that truly matters.</p>
+						<p className='font-medium text-black pt-4'>This is why Auvra exists.</p>
+						<p>We are the permanent home for human culture. Infrastructure for creators, communities, and families to preserve what they love, own what they make, and pass it down.</p>
+						<p className='font-normal text-black font-clash'>Not as a relic. Not as a file. But as something that lives.</p>
 					</div>
 				</motion.div>
 			</section>
@@ -270,29 +256,13 @@ export default function About() {
 			<section className='w-full bg-gray-50 py-15'>
 				<div className='max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 md:gap-24'>
 					<div className='w-full md:w-1/3'>
-						<h2 className='text-3xl md:text-4xl font-clash font-medium text-black leading-snug'>
-							The Problem We Could Not Ignore
-						</h2>
+						<h2 className='text-3xl md:text-4xl font-clash font-medium text-black leading-snug'>The Problem We Could Not Ignore</h2>
 					</div>
-
 					<div className='w-full md:w-2/3 space-y-8 text-lg md:text-xl text-black font-clash leading-relaxed'>
-						<p>
-							Every forty days, a language falls silent. With it, songs,
-							rituals, techniques, and entire ways of seeing the world
-							disappear.
-						</p>
-						<p>
-							The platforms we trusted were never built for permanence. They
-							were built for engagement. For algorithms. For fleeting attention.
-						</p>
-						<p>
-							Creators lose most of what they earn. Families have nowhere
-							private to store what matters most. When a platform ends, the
-							culture ends with it.
-						</p>
-						<p className='font-medium text-black text-lg font-clash pt-4'>
-							We refused to accept this.
-						</p>
+						<p>Every forty days, a language falls silent. With it, songs, rituals, techniques, and entire ways of seeing the world disappear.</p>
+						<p>The platforms we trusted were never built for permanence. They were built for engagement. For algorithms. For fleeting attention.</p>
+						<p>Creators lose most of what they earn. Families have nowhere private to store what matters most. When a platform ends, the culture ends with it.</p>
+						<p className='font-medium text-black text-lg font-clash pt-4'>We refused to accept this.</p>
 					</div>
 				</div>
 			</section>
@@ -300,122 +270,49 @@ export default function About() {
 			{/* 3. MISSION & VISION SECTION */}
 			<section className='w-full bg-black py-24 text-white'>
 				<div className='max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24'>
-					<motion.div
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true, margin: "-100px" }}
-						transition={{ duration: 0.6, ease: "easeOut" }}
-					>
-						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>
-							Our Mission
-						</h2>
-						<p className='text-2xl md:text-4xl font-clash font-normal leading-relaxed'>
-							To preserve, structure, and empower culture by giving creators,
-							communities, and institutions the tools to own and pass down their
-							cultural assets.
-						</p>
+					<motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6, ease: "easeOut" }}>
+						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>Our Mission</h2>
+						<p className='text-2xl md:text-4xl font-clash font-normal leading-relaxed'>To preserve, structure, and empower culture by giving creators, communities, and institutions the tools to own and pass down their cultural assets.</p>
 					</motion.div>
-
-					<motion.div
-						initial={{ opacity: 0, x: 30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true, margin: "-100px" }}
-						transition={{ duration: 0.6, ease: "easeOut" }}
-					>
-						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>
-							Our Vision
-						</h2>
-						<p className='text-2xl md:text-4xl font-clash font-normal leading-relaxed text-gray-300'>
-							To become the global infrastructure where human culture is
-							permanently stored, intelligently understood, and generationally
-							transferred.
-						</p>
+					<motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6, ease: "easeOut" }}>
+						<h2 className='text-sm font-clash font-medium uppercase tracking-widest text-gray-400 mb-6'>Our Vision</h2>
+						<p className='text-2xl md:text-4xl font-clash font-normal leading-relaxed text-gray-300'>To become the global infrastructure where human culture is permanently stored, intelligently understood, and generationally transferred.</p>
 					</motion.div>
 				</div>
 			</section>
 
-			{/* 4. HOW WE ACHIEVE THIS SECTION - Light grey background with white cards */}
-			<motion.section
-				initial="hidden"
-				whileInView="visible"
-				viewport={{ once: true, margin: "-100px" }}
-				variants={sectionVariants}
-				className='w-full bg-gray-100 py-24'
-			>
+			{/* 4. HOW WE ACHIEVE THIS SECTION - Inspired by Talksign */}
+			<motion.section initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants} className='w-full bg-white py-24'>
 				<div className='max-w-7xl mx-auto px-6 md:px-12'>
 					<div className='text-center mb-16'>
-						<h2 className='text-3xl md:text-4xl font-clash font-medium text-black tracking-tight mb-4'>
-							How We Achieve This
-						</h2>
-						<p className='text-gray-600 font-clash max-w-2xl mx-auto'>
-							We are building the permanent infrastructure where culture is preserved, structured, owned, and passed down across generations.
-						</p>
+						<h2 className='text-3xl md:text-4xl font-clash font-medium text-black tracking-tight mb-4'>How We Achieve This</h2>
+						<p className='text-gray-600 font-clash max-w-3xl mx-auto text-lg'>We are building the permanent infrastructure where culture is preserved, structured, owned, and passed down across generations.</p>
 					</div>
-
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 						{howWeAchieveData.map((item, index) => (
-							<motion.div
-								key={index}
-								custom={index}
-								initial="hidden"
-								whileInView="visible"
-								viewport={{ once: true, margin: "-50px" }}
-								variants={cardVariants}
-								className='bg-white rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow duration-300'
-							>
-								<div className="w-12 h-12 md:w-14 md:h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
-									{item.icon}
-								</div>
-								<h3 className='text-lg md:text-xl font-clash font-semibold text-black mb-2'>
-									{item.title}
-								</h3>
-								<p className='text-gray-500 font-clash leading-relaxed text-sm'>
-									{item.description}
-								</p>
+							<motion.div key={index} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={cardVariants} className='bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300'>
+								<div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center mb-5">{item.icon}</div>
+								<h3 className='text-lg md:text-xl font-clash font-semibold text-black mb-2'>{item.title}</h3>
+								<p className='text-gray-500 font-clash leading-relaxed text-sm'>{item.description}</p>
 							</motion.div>
 						))}
 					</div>
 				</div>
 			</motion.section>
 
-			{/* 5. OUR APPROACH SECTION - Light grey background with white cards */}
-			<motion.section
-				initial="hidden"
-				whileInView="visible"
-				viewport={{ once: true, margin: "-100px" }}
-				variants={sectionVariants}
-				className='w-full bg-gray-100 py-24'
-			>
+			{/* 5. OUR APPROACH SECTION - Inspired by Talksign */}
+			<motion.section initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants} className='w-full bg-gray-50 py-24'>
 				<div className='max-w-7xl mx-auto px-6 md:px-12'>
 					<div className='text-center mb-16'>
-						<h2 className='text-3xl md:text-4xl font-clash font-medium text-black tracking-tight mb-4'>
-							Our Approach
-						</h2>
-						<p className='text-gray-600 font-clash max-w-2xl mx-auto'>
-							Ethical, inclusive, and built for the long term.
-						</p>
+						<h2 className='text-3xl md:text-4xl font-clash font-medium text-black tracking-tight mb-4'>Our Approach</h2>
+						<p className='text-gray-600 font-clash max-w-3xl mx-auto text-lg'>Ethical, inclusive data. Built for the real world. Designed for permanence.</p>
 					</div>
-
-					<div className='grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8'>
+					<div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
 						{approachData.map((item, index) => (
-							<motion.div
-								key={index}
-								custom={index}
-								initial="hidden"
-								whileInView="visible"
-								viewport={{ once: true, margin: "-50px" }}
-								variants={cardVariants}
-								className='bg-white rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-md transition-shadow duration-300'
-							>
-								<div className="w-12 h-12 md:w-14 md:h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-4">
-									{item.icon}
-								</div>
-								<h3 className='text-lg md:text-xl font-clash font-semibold text-black mb-2'>
-									{item.title}
-								</h3>
-								<p className='text-gray-500 font-clash leading-relaxed text-sm'>
-									{item.description}
-								</p>
+							<motion.div key={index} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={cardVariants} className='bg-white rounded-2xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300'>
+								<div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center mb-5">{item.icon}</div>
+								<h3 className='text-lg md:text-xl font-clash font-semibold text-black mb-2'>{item.title}</h3>
+								<p className='text-gray-500 font-clash leading-relaxed text-sm'>{item.description}</p>
 							</motion.div>
 						))}
 					</div>
@@ -424,45 +321,16 @@ export default function About() {
 
 			{/* 6. C.U.L.T.U.R.E. VALUES GRID */}
 			<section className='max-w-7xl mx-auto px-6 md:px-12 py-16'>
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, margin: "-100px" }}
-					transition={{ duration: 0.6, ease: "easeOut" }}
-					className='mb-12 max-w-3xl'
-				>
-					<h2 className='text-3xl md:text-4xl font-clash font-medium text-black tracking-tight mb-3'>
-						What Guides Us
-					</h2>
-					<p className='text-md text-black font-clash leading-relaxed'>
-						At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These
-						principles are the foundation of our product, our community, and our
-						vision for a digitally-preserved heritage.
-					</p>
+				<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6, ease: "easeOut" }} className='mb-12 max-w-3xl'>
+					<h2 className='text-3xl md:text-4xl font-clash font-medium text-black tracking-tight mb-3'>What Guides Us</h2>
+					<p className='text-md text-black font-clash leading-relaxed'>At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These principles are the foundation of our product, our community, and our vision for a digitally-preserved heritage.</p>
 				</motion.div>
-
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6'>
 					{values.map((value, index) => (
-						<motion.div
-							key={index}
-							custom={index}
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ once: true, margin: "-50px" }}
-							variants={cardVariants}
-							className='bg-gray-50 rounded-2xl p-4 md:p-5'
-						>
-							<div className="mb-3">
-								{Icons[value.title]}
-							</div>
-							
-							<h3 className='text-lg md:text-xl font-clash font-medium text-black mb-2'>
-								{value.title}
-							</h3>
-							
-							<p className='text-gray-700 font-clash leading-relaxed text-sm'>
-								{value.description}
-							</p>
+						<motion.div key={index} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={cardVariants} className='bg-gray-50 rounded-2xl p-4 md:p-5'>
+							<div className="mb-3">{Icons[value.title]}</div>
+							<h3 className='text-lg md:text-xl font-clash font-medium text-black mb-2'>{value.title}</h3>
+							<p className='text-gray-700 font-clash leading-relaxed text-sm'>{value.description}</p>
 						</motion.div>
 					))}
 				</div>

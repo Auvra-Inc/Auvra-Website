@@ -1,79 +1,87 @@
 const VaultSection = () => {
-  
-  // A quick helper to keep the code clean! This builds the small floating images 
-  // and automatically applies your CSS animations with different delays.
+  // Floating Avatar Helper
   const FloatingAvatar = ({ src, className, delay }) => (
     <img 
       src={src} 
       alt="Vault User" 
-      className={`absolute rounded-full object-cover shadow-[0_15px_30px_-5px_rgba(0,0,0,0.3)] animate-float-mini z-10 ${className}`}
+      className={`absolute rounded-full object-cover shadow-lg animate-float-mini z-10 ${className}`}
       style={{ animationDelay: delay }}
     />
   );
 
   return (
-    <section className="relative w-full min-h-[800px] md:min-h-[900px] bg-white overflow-hidden font-clash flex flex-col items-center pt-24 md:pt-28">
+    // We removed the fixed height! Let the content dictate the size.
+    <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-20 md:pt-32">
       
-      {/* 1. TEXT CONTENT - at the top with tight spacing */}
-      <div className="relative z-30 text-center px-6 max-w-lg mx-auto">
-        <p className="text-sm md:text-base text-black font-clash mb-1 tracking-wide">
-          Personal Legacy
-        </p>
-        <h2 className="text-6xl md:text-7xl font-bold text-black tracking-tight mb-2">
-          My Vault
-        </h2>
-        <p className="text-lg md:text-xl text-black font-clash leading-relaxed">
-          We built a private vault with<br className="hidden md:block" /> bank-grade security.
-        </p>
+      {/* =========================================
+          BOX A: TEXT & FLOATING AVATARS 
+          This acts as a "container" so avatars float around the text, not the whole page.
+      ========================================= */}
+      <div className="relative w-full max-w-4xl min-h-[350px] md:min-h-[400px] flex flex-col justify-center items-center px-6">
+        
+        {/* EXACTLY 5 AVATARS POSITIONED LIKE YOUR SCREENSHOT */}
+        
+        {/* 1. Top Left (Dark/Red background) */}
+        <FloatingAvatar 
+          src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200&auto=format&fit=crop" 
+          className="top-[5%] left-[8%] md:left-[15%] w-16 h-16 md:w-20 md:h-20" 
+          delay="0s" 
+        />
+        
+        {/* 2. Mid Left (Blue/Yellow background) */}
+        <FloatingAvatar 
+          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" 
+          className="top-[55%] left-[5%] md:left-[10%] w-14 h-14 md:w-16 md:h-16" 
+          delay="1.2s" 
+        />
+        
+        {/* 3. Top Right (Cut off at the edge) */}
+        <FloatingAvatar 
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" 
+          className="top-[0%] right-[-5%] md:right-[5%] w-12 h-12 md:w-14 md:h-14" 
+          delay="0.5s" 
+        />
+        
+        {/* 4. Mid Right (Smiling Woman) */}
+        <FloatingAvatar 
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" 
+          className="top-[25%] right-[10%] md:right-[15%] w-16 h-16 md:w-20 md:h-20" 
+          delay="2.1s" 
+        />
+        
+        {/* 5. Lower Right (Red texture) */}
+        <FloatingAvatar 
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" 
+          className="bottom-[10%] right-[15%] md:right-[22%] w-12 h-12 md:w-14 md:h-14" 
+          delay="1.8s" 
+        />
+
+        {/* PERFECTLY SPACED TEXT */}
+        <div className="relative z-30 text-center">
+          <p className="text-[13px] md:text-sm text-black font-medium mb-2 tracking-wide">
+            Personal Legacy
+          </p>
+          <h2 className="text-5xl md:text-7xl font-bold text-black tracking-tight mb-3">
+            My Vault
+          </h2>
+          <p className="text-[15px] md:text-lg text-black leading-tight font-medium">
+            We built a private vault with<br className="block" /> bank-grade security.
+          </p>
+        </div>
+
       </div>
 
-      {/* 2. MAIN CENTER IMAGE - anchored to the bottom */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[500px] md:max-w-[550px] z-20">
+      {/* =========================================
+          BOX B: MAIN CENTER IMAGE
+          Because it comes AFTER the div above, it will naturally push down and NEVER overlap the text.
+      ========================================= */}
+      <div className="relative w-full max-w-[450px] md:max-w-[550px] mt-8 md:mt-12 z-20 px-4">
         <img 
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 
           className="w-full h-auto object-contain"
         />
       </div>
-
-      {/* 3. FLOATING AVATARS AROUND THE SCREEN */}
-      
-      {/* Top Left (Large dark image) */}
-      <FloatingAvatar 
-        src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200&auto=format&fit=crop" 
-        className="top-6 left-[3%] md:left-[20%] w-16 h-16 md:w-24 md:h-24" 
-        delay="0s" 
-      />
-      
-      {/* Middle Left (Blue background image) */}
-      <FloatingAvatar 
-        src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" 
-        className="top-[35%] left-[-5%] md:left-[12%] w-20 h-20 md:w-28 md:h-28" 
-        delay="1.2s" 
-      />
-      
-      {/* Top Right (Cut off image at the very top edge) */}
-      <FloatingAvatar 
-        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" 
-        className="top-6 right-[-5%] md:right-[15%] w-16 h-16 md:w-24 md:h-24" 
-        delay="0.5s" 
-      />
-      
-      {/* Upper Middle Right (Woman smiling) */}
-      <FloatingAvatar 
-        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" 
-        className="top-[20%] right-[8%] md:right-[22%] w-20 h-20 md:w-28 md:h-28" 
-        delay="2.1s" 
-      />
-      
-      {/* Lower Middle Right (Red texture image) */}
-      <FloatingAvatar 
-        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" 
-        className="top-[45%] right-[12%] md:right-[28%] w-14 h-14 md:w-20 md:h-20" 
-        delay="1.8s" 
-      />
-
-      
 
     </section>
   );

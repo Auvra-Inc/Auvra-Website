@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaTwitter, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { SiTiktok } from 'react-icons/si';
 
 export default function FooterSection() {
@@ -8,7 +8,7 @@ export default function FooterSection() {
     <footer className="w-full bg-gray-50 text-gray-900 pt-16 pb-0 px-6 relative overflow-hidden flex flex-col items-center">
       <div className="max-w-md w-full flex flex-col relative z-10">
 
-        {/* Logo and Bio */}
+        {/* Logo, Bio, and Social Icons */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-4">
             {/* Auvra Star Logo Icon */}
@@ -23,6 +23,36 @@ export default function FooterSection() {
             A permanent home for human culture.
             Where stories are kept, traditions endure, and creation becomes legacy.
           </p>
+          
+          {/* Minimalist Gray Social Icons - ALL 5 INCLUDED */}
+          <div className="flex items-center gap-5 mt-6">
+            {/* Instagram */}
+            <a href="https://www.instagram.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <FaInstagram className="w-5 h-5" />
+            </a>
+            
+            {/* Modern X Logo */}
+            <a href="https://x.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            
+            {/* LinkedIn */}
+            <a href="https://www.linkedin.com/company/auvra/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <FaLinkedinIn className="w-5 h-5" />
+            </a>
+
+            {/* Facebook */}
+            <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <FaFacebookF className="w-[18px] h-[18px]" />
+            </a>
+
+            {/* TikTok */}
+            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <SiTiktok className="w-[18px] h-[18px]" />
+            </a>
+          </div>
         </div>
 
         {/* Links Grid */}
@@ -35,7 +65,7 @@ export default function FooterSection() {
             <a href="/#blog" className="text-sm text-gray-800 hover:text-black transition">Blog</a>
           </div>
 
-          {/* Column 2 - ROUTED */}
+          {/* Column 2 */}
           <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Legal</h4>
             <Link to="/terms" className="text-sm text-gray-800 hover:text-black transition">Terms of Service</Link>
@@ -44,7 +74,7 @@ export default function FooterSection() {
             <Link to="/collab" className="text-sm text-gray-800 hover:text-black transition">Collaboration Terms</Link>
           </div>
 
-          {/* Column 3 - ROUTED */}
+          {/* Column 3 */}
           <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Trust & Safety</h4>
             <Link to="/community" className="text-sm text-gray-800 hover:text-black transition">Community Guidelines</Link>
@@ -53,45 +83,23 @@ export default function FooterSection() {
             <Link to="/ai-policy" className="text-sm text-gray-800 hover:text-black transition">AI Policy</Link>
           </div>
 
-          {/* Column 4 - FAQ & CONTACT ANCHORS ADDED */}
+          {/* Column 4 */}
           <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Contact</h4>
             <a href="/#contact" className="text-sm text-gray-800 hover:text-black transition">Contact us</a>
             <a href="/#faq" className="text-sm text-gray-800 hover:text-black transition">FAQs</a>
-            
-            <h4 className="text-[10px] font-semibold tracking-widest text-gray-400 uppercase mt-4">Connect</h4>
-            <div className="flex items-center gap-3">
-              <a href="https://www.instagram.com/goauvra" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-[#E1306C] flex items-center justify-center transition hover:bg-[#E1306C] hover:text-white">
-                <FaInstagram className="w-5 h-5" />
-              </a>
-              <a href="https://x.com/goauvra" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-[#1DA1F2] flex items-center justify-center transition hover:bg-[#1DA1F2] hover:text-white">
-                <FaTwitter className="w-5 h-5" />
-              </a>
-              <a href="https://www.linkedin.com/company/auvra/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-[#0A66C2] flex items-center justify-center transition hover:bg-[#0A66C2] hover:text-white">
-                <FaLinkedinIn className="w-5 h-5" />
-              </a>
-              <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-[#1877F2] flex items-center justify-center transition hover:bg-[#1877F2] hover:text-white">
-                <FaFacebookF className="w-5 h-5" />
-              </a>
-              <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full  text-black flex items-center justify-center transition hover:bg-black hover:text-white">
-                <SiTiktok className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
         </div>
 
-        {/* Copyright - Bumped z-index so it sits cleanly over the watermark */}
+        {/* Copyright */}
         <div className="text-center text-[10px] text-gray-500 relative z-20 pb-4">
           © 2026 Auvra Tech Ltd. All Rights Reserved.
         </div>
       </div>
 
-      {/* =========================================
-          GIANT WATERMARK (Now perfectly flush with the bottom)
-      ========================================= */}
+      {/* GIANT WATERMARK */}
       <div className="absolute bottom-0 left-0 w-full flex justify-center overflow-hidden pointer-events-none select-none z-0">
-        {/* Added leading-none and pushed it down slightly so the bounding box doesn't break the layout */}
         <h1 className="font-clash text-[7rem] sm:text-[10rem] font-bold text-gray-400 tracking-widest leading-none translate-y-4 sm:translate-y-6">
           AUVRA
         </h1>

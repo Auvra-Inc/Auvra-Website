@@ -39,8 +39,8 @@ export default function FooterSection() {
           </div>
         </div>
 
-        {/* Links Grid - Added gap between columns */}
-        <div className="grid grid-cols-2 gap-y-8 gap-x-8 mb-16 relative z-20">
+        {/* Links Grid - Increased gap between columns from gap-x-8 to gap-x-10 */}
+        <div className="grid grid-cols-2 gap-y-8 gap-x-10 mb-16 relative z-20">
           
           {/* Column 1 - Trust & Safety */}
           <div className="flex flex-col gap-3 font-clash">

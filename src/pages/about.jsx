@@ -302,7 +302,7 @@ export default function About() {
           </h1>
           <PartnersSection />
           
-          {/* GIF IMAGE ADDED RIGHT AFTER PARTNERS SECTION */}
+          {/* GIF IMAGE - MADE MORE ROUNDED */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -312,7 +312,7 @@ export default function About() {
             <img 
               src="/git-image.gif" 
               alt="Auvra animated illustration" 
-              className="w-full max-w-3xl h-auto rounded-2xl shadow-lg"
+              className="w-full max-w-3xl h-auto rounded-3xl shadow-lg"
             />
           </motion.div>
           

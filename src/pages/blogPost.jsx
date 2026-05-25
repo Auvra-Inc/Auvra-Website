@@ -101,12 +101,9 @@ export default function BlogPost() {
     <>
       {/* DYNAMIC SEO META TAGS for each blog post */}
       <Helmet>
-        {/* Basic Meta Tags */}
         <title>{post.seoTitle}</title>
         <meta name="description" content={post.seoDescription} />
         <link rel="canonical" href={fullUrl} />
-        
-        {/* Open Graph / Facebook / WhatsApp / LinkedIn */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={fullUrl} />
         <meta property="og:title" content={post.seoTitle} />
@@ -115,15 +112,11 @@ export default function BlogPost() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Auvra" />
-        
-        {/* Twitter / X Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={fullUrl} />
         <meta name="twitter:title" content={post.seoTitle} />
         <meta name="twitter:description" content={post.seoDescription} />
         <meta name="twitter:image" content={post.seoImage} />
-        
-        {/* Article Meta Tags */}
         <meta property="article:published_time" content={post.rawDate} />
         <meta property="article:author" content={post.author} />
         <meta property="article:section" content="Blog" />
@@ -143,15 +136,15 @@ export default function BlogPost() {
           </div>
           
           <div className="relative z-10 flex flex-col justify-between h-full">
+            {/* LOGO - FIXED: Larger and centered */}
             <div className="pt-15 pb-7 flex justify-center">
-              <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
-                {/* FIXED: Using the same logo as your main page */}
+              <Link to="/" className="flex flex-col items-center gap-1">
                 <img 
                   src="/Logo-png.PNG" 
                   alt="Auvra Logo" 
-                  className="w-6 h-6 object-contain" 
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain" 
                 />
-                <span className="font-clash">Auvra</span>
+                <span className="font-clash text-white text-sm md:text-base tracking-wide">Auvra</span>
               </Link>
             </div>
             

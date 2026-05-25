@@ -60,9 +60,11 @@ export default function FooterSection() {
           
           {/* Column 1 */}
           <div className="flex flex-col gap-4 font-clash">
-            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Company</h4>
-            <a href="/#about" className="text-sm text-gray-800 hover:text-black transition">About</a>
-            <a href="/#blog" className="text-sm text-gray-800 hover:text-black transition">Blog</a>
+            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Trust & Safety</h4>
+            <Link to="/community" className="text-sm text-gray-800 hover:text-black transition">Community Guidelines</Link>
+            <Link to="/governance" className="text-sm text-gray-800 hover:text-black transition">Content Governance</Link>
+            <Link to="/copyright" className="text-sm text-gray-800 hover:text-black transition">Copyright Policy</Link>
+            <Link to="/ai-policy" className="text-sm text-gray-800 hover:text-black transition">AI Policy</Link>
           </div>
 
           {/* Column 2 */}
@@ -76,11 +78,9 @@ export default function FooterSection() {
 
           {/* Column 3 */}
           <div className="flex flex-col gap-4 font-clash">
-            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Trust & Safety</h4>
-            <Link to="/community" className="text-sm text-gray-800 hover:text-black transition">Community Guidelines</Link>
-            <Link to="/governance" className="text-sm text-gray-800 hover:text-black transition">Content Governance</Link>
-            <Link to="/copyright" className="text-sm text-gray-800 hover:text-black transition">Copyright Policy</Link>
-            <Link to="/ai-policy" className="text-sm text-gray-800 hover:text-black transition">AI Policy</Link>
+            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Company</h4>
+            <a href="/#about" className="text-sm text-gray-800 hover:text-black transition">About</a>
+            <a href="/#blog" className="text-sm text-gray-800 hover:text-black transition">Blog</a>
           </div>
 
           {/* Column 4 */}

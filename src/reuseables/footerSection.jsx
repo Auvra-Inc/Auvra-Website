@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
-import { SiTiktok } from 'react-icons/si';
+import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 export default function FooterSection() {
   return (
@@ -24,7 +23,7 @@ export default function FooterSection() {
             Where stories are kept, traditions endure, and creation becomes legacy.
           </p>
           
-          {/* Minimalist Gray Social Icons */}
+          {/* Social Icons - Only Instagram, X, LinkedIn */}
           <div className="flex items-center gap-5 mt-6">
             {/* Instagram */}
             <a href="https://www.instagram.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
@@ -42,52 +41,42 @@ export default function FooterSection() {
             <a href="https://www.linkedin.com/company/auvra/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
               <FaLinkedinIn className="w-5 h-5" />
             </a>
-
-            {/* Facebook */}
-            <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
-              <FaFacebookF className="w-[18px] h-[18px]" />
-            </a>
-
-            {/* TikTok */}
-            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
-              <SiTiktok className="w-[18px] h-[18px]" />
-            </a>
           </div>
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-2 gap-y-10 gap-x-4 mb-16 relative z-20">
+        <div className="grid grid-cols-2 gap-y-8 gap-x-4 mb-16 relative z-20">
           
           {/* Column 1 */}
-          <div className="flex flex-col gap-4 font-clash">
-            <h4 className="text-[15px] font-medium tracking-widest text-gray-500 uppercase">Trust & Safety</h4>
-            <Link to="/community" className="text-sm text-gray-700 hover:text-black transition">Community Guidelines</Link>
-            <Link to="/governance" className="text-sm text-gray-700 hover:text-black transition">Content Governance</Link>
-            <Link to="/copyright" className="text-sm text-gray-700 hover:text-black transition">Copyright Policy</Link>
-            <Link to="/ai-policy" className="text-sm text-gray-700 hover:text-black transition">AI Policy</Link>
+          <div className="flex flex-col gap-3 font-clash">
+            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Trust & Safety</h4>
+            <Link to="/community" className="text-xs text-gray-700 hover:text-black transition">Community Guidelines</Link>
+            <Link to="/governance" className="text-xs text-gray-700 hover:text-black transition">Content Governance</Link>
+            <Link to="/copyright" className="text-xs text-gray-700 hover:text-black transition">Copyright Policy</Link>
+            <Link to="/ai-policy" className="text-xs text-gray-700 hover:text-black transition">AI Policy</Link>
           </div>
 
           {/* Column 2 */}
-          <div className="flex flex-col gap-4 font-clash">
-            <h4 className="text-[15px] font-medium tracking-widest text-gray-500 uppercase">Legal</h4>
-            <Link to="/terms" className="text-sm text-gray-700 hover:text-black transition">Terms of Service</Link>
-            <Link to="/privacy" className="text-sm text-gray-700 hover:text-black transition">Privacy Policy</Link>
-            <Link to="/aml" className="text-sm text-gray-700 hover:text-black transition">AML / CFT Policy</Link>
-            <Link to="/collab" className="text-sm text-gray-700 hover:text-black transition">Collaboration Terms</Link>
+          <div className="flex flex-col gap-3 font-clash">
+            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Legal</h4>
+            <Link to="/terms" className="text-xs text-gray-700 hover:text-black transition">Terms of Service</Link>
+            <Link to="/privacy" className="text-xs text-gray-700 hover:text-black transition">Privacy Policy</Link>
+            <Link to="/aml" className="text-xs text-gray-700 hover:text-black transition">AML / CFT Policy</Link>
+            <Link to="/collab" className="text-xs text-gray-700 hover:text-black transition">Collaboration Terms</Link>
           </div>
 
           {/* Column 3 */}
-          <div className="flex flex-col gap-4 font-clash">
-            <h4 className="text-[15px] font-medium tracking-widest text-gray-500 uppercase">Company</h4>
-            <a href="/#about" className="text-sm text-gray-700 hover:text-black transition">About</a>
-            <a href="/#blog" className="text-sm text-gray-700 hover:text-black transition">Blog</a>
+          <div className="flex flex-col gap-3 font-clash">
+            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Company</h4>
+            <Link to="/about" className="text-xs text-gray-700 hover:text-black transition">About</Link>
+            <Link to="/blog" className="text-xs text-gray-700 hover:text-black transition">Blog</Link>
           </div>
 
           {/* Column 4 */}
-          <div className="flex flex-col gap-4 font-clash">
-            <h4 className="text-[15px] font-medium tracking-widest text-gray-500 uppercase">Contact</h4>
-            <a href="/#contact" className="text-sm text-gray-700 hover:text-black transition">Contact us</a>
-            <a href="/#faq" className="text-sm text-gray-700 hover:text-black transition">FAQs</a>
+          <div className="flex flex-col gap-3 font-clash">
+            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Contact</h4>
+            <Link to="/contact" className="text-xs text-gray-700 hover:text-black transition">Contact us</Link>
+            <Link to="/faqs" className="text-xs text-gray-700 hover:text-black transition">FAQs</Link>
           </div>
 
         </div>

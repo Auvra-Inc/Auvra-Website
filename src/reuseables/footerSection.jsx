@@ -39,39 +39,39 @@ export default function FooterSection() {
           </div>
         </div>
 
-        {/* Links Grid - Added gap between columns */}
-        <div className="grid grid-cols-2 gap-y-8 gap-x-8 mb-16 relative z-20">
+        {/* Links Grid - More space between columns */}
+        <div className="grid grid-cols-2 gap-y-8 gap-x-12 mb-16 relative z-20">
           
           {/* Column 1 - Trust & Safety */}
           <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Trust & Safety</h4>
-            <Link to="/community" className="text-xs text-gray-700 hover:text-black transition">Community Guidelines</Link>
-            <Link to="/governance" className="text-xs text-gray-700 hover:text-black transition">Content Governance</Link>
-            <Link to="/copyright" className="text-xs text-gray-700 hover:text-black transition">Copyright Policy</Link>
-            <Link to="/ai-policy" className="text-xs text-gray-700 hover:text-black transition">AI Policy</Link>
+            <Link to="/community" className="text-xs text-gray-700 hover:text-black transition font-medium">Community Guidelines</Link>
+            <Link to="/governance" className="text-xs text-gray-700 hover:text-black transition font-medium">Content Governance</Link>
+            <Link to="/copyright" className="text-xs text-gray-700 hover:text-black transition font-medium">Copyright Policy</Link>
+            <Link to="/ai-policy" className="text-xs text-gray-700 hover:text-black transition font-medium">AI Policy</Link>
           </div>
 
           {/* Column 2 - Legal */}
           <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Legal</h4>
-            <Link to="/terms" className="text-xs text-gray-700 hover:text-black transition">Terms of Service</Link>
-            <Link to="/privacy" className="text-xs text-gray-700 hover:text-black transition">Privacy Policy</Link>
-            <Link to="/aml" className="text-xs text-gray-700 hover:text-black transition">AML / CFT Policy</Link>
-            <Link to="/collab" className="text-xs text-gray-700 hover:text-black transition">Collaboration Terms</Link>
+            <Link to="/terms" className="text-xs text-gray-700 hover:text-black transition font-medium">Terms of Service</Link>
+            <Link to="/privacy" className="text-xs text-gray-700 hover:text-black transition font-medium">Privacy Policy</Link>
+            <Link to="/aml" className="text-xs text-gray-700 hover:text-black transition font-medium">AML / CFT Policy</Link>
+            <Link to="/collab" className="text-xs text-gray-700 hover:text-black transition font-medium">Collaboration Terms</Link>
           </div>
 
           {/* Column 3 - Company */}
           <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Company</h4>
-            <Link to="/about" className="text-xs text-gray-700 hover:text-black transition">About</Link>
-            <Link to="/blog" className="text-xs text-gray-700 hover:text-black transition">Blog</Link>
+            <Link to="/about" className="text-xs text-gray-700 hover:text-black transition font-medium">About</Link>
+            <Link to="/blog" className="text-xs text-gray-700 hover:text-black transition font-medium">Blog</Link>
           </div>
 
           {/* Column 4 - Contact */}
           <div className="flex flex-col gap-3 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Contact</h4>
-            <Link to="/contact" className="text-xs text-gray-700 hover:text-black transition">Contact us</Link>
-            <Link to="/faqs" className="text-xs text-gray-700 hover:text-black transition">FAQs</Link>
+            <Link to="/contact" className="text-xs text-gray-700 hover:text-black transition font-medium">Contact us</Link>
+            <Link to="/faqs" className="text-xs text-gray-700 hover:text-black transition font-medium">FAQs</Link>
           </div>
 
         </div>

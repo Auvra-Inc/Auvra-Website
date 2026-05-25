@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 import PartnersSection from '../partnerSection';
@@ -127,7 +127,122 @@ const ApproachIcons = {
   ),
 };
 
+// Animated Card Component for How We Achieve
+const AnimatedHowWeAchieveCard = ({ item, index, colorIndex, isTapped, onTap }) => {
+  const colors = ['#ffffff', '#1e3a5f', '#0a0a0a', '#e8a735', '#ffffff'];
+  const currentColor = colors[colorIndex % colors.length];
+  
+  // Different flash colors on tap
+  const tapColors = ['#3b82f6', '#f59e0b', '#fbbf24'];
+  
+  return (
+    <motion.div
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, margin: "-50px" }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { delay: index * 0.08, duration: 0.5, ease: "easeOut" } }
+      }}
+      animate={{
+        backgroundColor: isTapped ? tapColors[Math.floor(Math.random() * tapColors.length)] : currentColor,
+      }}
+      transition={{
+        backgroundColor: { duration: isTapped ? 0.2 : 0.8, ease: "easeInOut" }
+      }}
+      onClick={onTap}
+      whileTap={{ scale: 0.98 }}
+      className='bg-white rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-300'
+      style={{ backgroundColor: currentColor }}
+    >
+      <div className="mb-3">{item.icon}</div>
+      <h3 className='text-lg md:text-xl font-clash font-medium text-black mb-2' style={{ color: currentColor === '#ffffff' ? '#000' : '#fff' }}>
+        {item.title}
+      </h3>
+      <p className='text-gray-700 font-clash leading-relaxed text-sm' style={{ color: currentColor === '#ffffff' ? '#374151' : '#e5e7eb' }}>
+        {item.description}
+      </p>
+    </motion.div>
+  );
+};
+
+// Animated Card Component for Our Approach with full description reveal
+const AnimatedApproachCard = ({ item, index, colorIndex, isTapped, onTap, activeCardIndex, setActiveCardIndex }) => {
+  const isActive = activeCardIndex === index;
+  const colors = ['#ffffff', '#1e3a5f', '#0a0a0a', '#e8a735', '#ffffff'];
+  const currentColor = colors[colorIndex % colors.length];
+  const tapColors = ['#3b82f6', '#f59e0b', '#fbbf24'];
+  
+  return (
+    <motion.div
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, margin: "-50px" }}
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { delay: index * 0.15, duration: 0.6, ease: "easeOut" } }
+      }}
+      animate={{
+        backgroundColor: isTapped ? tapColors[Math.floor(Math.random() * tapColors.length)] : currentColor,
+      }}
+      transition={{
+        backgroundColor: { duration: isTapped ? 0.2 : 0.8, ease: "easeInOut" }
+      }}
+      onClick={() => {
+        onTap();
+        setActiveCardIndex(isActive ? null : index);
+      }}
+      whileTap={{ scale: 0.98 }}
+      className='bg-white rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-300'
+      style={{ backgroundColor: currentColor }}
+    >
+      <div className="mb-3">{item.icon}</div>
+      <h3 className='text-lg md:text-xl font-clash font-medium mb-2' style={{ color: currentColor === '#ffffff' ? '#000' : '#fff' }}>
+        {item.title}
+      </h3>
+      <AnimatePresence mode="wait">
+        {isActive ? (
+          <motion.p
+            key="full"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className='font-clash leading-relaxed text-sm'
+            style={{ color: currentColor === '#ffffff' ? '#374151' : '#e5e7eb' }}
+          >
+            {item.fullDescription}
+          </motion.p>
+        ) : (
+          <motion.p
+            key="short"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className='font-clash leading-relaxed text-sm'
+            style={{ color: currentColor === '#ffffff' ? '#374151' : '#e5e7eb' }}
+          >
+            {item.description}
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 export default function About() {
+  const [howWeAchieveColors, setHowWeAchieveColors] = useState([0, 0, 0, 0]);
+  const [approachColors, setApproachColors] = useState([0, 0, 0]);
+  const [howWeAchieveTaps, setHowWeAchieveTaps] = useState([false, false, false, false]);
+  const [approachTaps, setApproachTaps] = useState([false, false, false]);
+  const [activeApproachCard, setActiveApproachCard] = useState(null);
+  
+  const colorIntervalRef = useRef(null);
+  const tapResetTimeouts = useRef([]);
+
   const values = [
     {
       title: 'Cultural Integrity.',
@@ -192,20 +307,70 @@ export default function About() {
   const approachData = [
     {
       title: 'Co-created with communities.',
-      description: 'We work alongside cultural custodians, elders, and diaspora groups. Transparent, respectful, and accountable by design.',
+      description: 'Co-created with communities.',
+      fullDescription: 'We work alongside cultural custodians, elders, and diaspora groups. Transparent, respectful, and accountable by design.',
       icon: ApproachIcons.cocreated,
     },
     {
       title: 'Built for the real world.',
-      description: 'Our infrastructure works offline and in low-connectivity environments. Mobile-first. Private by default. No crypto complexity.',
+      description: 'Built for the real world.',
+      fullDescription: 'Our infrastructure works offline and in low-connectivity environments. Mobile-first. Private by default. No crypto complexity.',
       icon: ApproachIcons.realworld,
     },
     {
       title: 'Designed for permanence.',
-      description: 'Not engagement. Not algorithms. Not speculation. Blockchain and decentralized storage ensure what you preserve today outlasts us all.',
+      description: 'Designed for permanence.',
+      fullDescription: 'Not engagement. Not algorithms. Not speculation. Blockchain and decentralized storage ensure what you preserve today outlasts us all.',
       icon: ApproachIcons.permanence,
     },
   ];
+
+  // Color cycling effect - runs continuously
+  useEffect(() => {
+    colorIntervalRef.current = setInterval(() => {
+      setHowWeAchieveColors(prev => prev.map(v => v + 1));
+      setApproachColors(prev => prev.map(v => v + 1));
+    }, 4000);
+    
+    return () => {
+      if (colorIntervalRef.current) clearInterval(colorIntervalRef.current);
+      tapResetTimeouts.current.forEach(timeout => clearTimeout(timeout));
+    };
+  }, []);
+
+  const handleHowWeAchieveTap = (index) => {
+    setHowWeAchieveTaps(prev => {
+      const newTaps = [...prev];
+      newTaps[index] = true;
+      return newTaps;
+    });
+    
+    const timeout = setTimeout(() => {
+      setHowWeAchieveTaps(prev => {
+        const newTaps = [...prev];
+        newTaps[index] = false;
+        return newTaps;
+      });
+    }, 300);
+    tapResetTimeouts.current.push(timeout);
+  };
+
+  const handleApproachTap = (index) => {
+    setApproachTaps(prev => {
+      const newTaps = [...prev];
+      newTaps[index] = true;
+      return newTaps;
+    });
+    
+    const timeout = setTimeout(() => {
+      setApproachTaps(prev => {
+        const newTaps = [...prev];
+        newTaps[index] = false;
+        return newTaps;
+      });
+    }, 300);
+    tapResetTimeouts.current.push(timeout);
+  };
 
   // Animation variants
   const fadeInUpVariants = {
@@ -241,33 +406,6 @@ export default function About() {
       opacity: 1,
       scale: 1,
       transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" }
-    })
-  };
-
-  const colorCycleVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" }
-    }),
-    whileInView: {
-      backgroundColor: ["#ffffff", "#1e3a5f", "#ffffff", "#0a0a0a", "#ffffff"],
-      transition: {
-        duration: 10,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: (i) => i * 1.2,
-      }
-    }
-  };
-
-  const approachCardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" }
     })
   };
 
@@ -386,19 +524,14 @@ export default function About() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6'>
             {howWeAchieveData.map((item, index) => (
-              <motion.div
+              <AnimatedHowWeAchieveCard
                 key={index}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, margin: "-50px" }}
-                variants={colorCycleVariants}
-                className='bg-white rounded-2xl p-4 md:p-5'
-              >
-                <div className="mb-3">{item.icon}</div>
-                <h3 className='text-lg md:text-xl font-clash font-medium text-black mb-2'>{item.title}</h3>
-                <p className='text-gray-700 font-clash leading-relaxed text-sm'>{item.description}</p>
-              </motion.div>
+                item={item}
+                index={index}
+                colorIndex={howWeAchieveColors[index]}
+                isTapped={howWeAchieveTaps[index]}
+                onTap={() => handleHowWeAchieveTap(index)}
+              />
             ))}
           </div>
         </div>
@@ -420,19 +553,16 @@ export default function About() {
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6'>
             {approachData.map((item, index) => (
-              <motion.div
+              <AnimatedApproachCard
                 key={index}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, margin: "-50px" }}
-                variants={approachCardVariants}
-                className='bg-white rounded-2xl p-4 md:p-5'
-              >
-                <div className="mb-3">{item.icon}</div>
-                <h3 className='text-lg md:text-xl font-clash font-medium text-black mb-2'>{item.title}</h3>
-                <p className='text-gray-700 font-clash leading-relaxed text-sm'>{item.description}</p>
-              </motion.div>
+                item={item}
+                index={index}
+                colorIndex={approachColors[index]}
+                isTapped={approachTaps[index]}
+                onTap={() => handleApproachTap(index)}
+                activeCardIndex={activeApproachCard}
+                setActiveCardIndex={setActiveApproachCard}
+              />
             ))}
           </div>
         </div>

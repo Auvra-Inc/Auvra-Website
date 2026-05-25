@@ -75,7 +75,7 @@ const VaultSection = () => {
           BOX B: MAIN CENTER IMAGE
           Because it comes AFTER the div above, it will naturally push down and NEVER overlap the text.
       ========================================= */}
-      <div className="relative w-full max-w-[450px] md:max-w-[550px] mt-4 md:mt-8 z-20 ">
+      <div className="relative w-full max-w-[450px] md:max-w-[550px] mt-3 md:mt-8 z-20 ">
         <img 
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 

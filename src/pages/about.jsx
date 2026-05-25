@@ -96,7 +96,7 @@ export default function About() {
 		},
 	];
 
-	// Animation variants with return animation (when scrolling back up)
+	// Animation variants - SMOOTH, no harsh return
 	const cardVariants = {
 		hidden: { opacity: 0, y: 30 },
 		visible: (i) => ({
@@ -221,12 +221,12 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* 4. C.U.L.T.U.R.E. VALUES GRID - WITH RETURN ANIMATION */}
+			{/* 4. C.U.L.T.U.R.E. VALUES GRID - SMOOTH ANIMATION ONLY ONCE */}
 			<section className='max-w-7xl mx-auto px-6 md:px-12 py-16'>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: false, margin: "-100px" }}
+					viewport={{ once: true, margin: "-100px" }}
 					transition={{ duration: 0.6, ease: "easeOut" }}
 					className='mb-8 max-w-3xl'
 				>
@@ -247,7 +247,7 @@ export default function About() {
 							custom={index}
 							initial="hidden"
 							whileInView="visible"
-							viewport={{ once: false, margin: "-50px" }}
+							viewport={{ once: true, margin: "-50px" }}
 							variants={cardVariants}
 							className='bg-gray-50 rounded-2xl p-4 md:p-5'
 						>

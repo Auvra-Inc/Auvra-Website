@@ -136,13 +136,13 @@ export default function BlogPost() {
           </div>
           
           <div className="relative z-10 flex flex-col justify-between h-full">
-            {/* LOGO - Centered, positioned where the text was, using original padding from blog page */}
-            <div className="pt-15 pb-7 flex justify-center items-center">
+            {/* LOGO - MOVED UP, INCREASED TO 250px, CENTERED */}
+            <div className="pt-8 pb-4 flex justify-center items-center">
               <Link to="/" className="flex justify-center">
                 <img 
                   src="/Logo-png.PNG" 
                   alt="Auvra Logo" 
-                  className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-contain" 
+                  className="w-[250px] h-[250px] object-contain" 
                 />
               </Link>
             </div>

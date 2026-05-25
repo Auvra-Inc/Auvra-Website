@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 import PartnersSection from '../partnerSection';
 
-// Icon components for each value - RECTANGLE with rounded edges, white background, NO SHADOW
+// Icon components for each value
 const Icons = {
   'Cultural Integrity.': (
     <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-lg flex items-center justify-center">
@@ -57,139 +57,184 @@ const Icons = {
   ),
 };
 
-// Animated World Map Component
+// Continuous Animated World Map Component
 const AnimatedWorldMap = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <svg className="w-full h-full opacity-15" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="white" stopOpacity="0.3"/>
-            <stop offset="100%" stopColor="white" stopOpacity="0.05"/>
-          </linearGradient>
-          <filter id="softGlow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        
-        {/* North America - Slowly drifting */}
-        <motion.g
-          animate={{
-            x: [0, 8, 0, -8, 0],
-            y: [0, -5, 0, 5, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <path d="M180,180 L210,165 L240,170 L260,155 L290,160 L310,145 L340,155 L350,140 L370,150 L360,170 L340,180 L310,185 L290,200 L270,195 L250,205 L230,200 L210,210 L190,200 Z" 
-            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
-          <path d="M180,180 L210,165 L240,170 L260,155 L290,160 L310,145 L340,155 L350,140 L370,150 L360,170 L340,180 L310,185 L290,200 L270,195 L250,205 L230,200 L210,210 L190,200 Z" 
-            fill="white" fillOpacity="0.03" stroke="none"/>
-        </motion.g>
-        
-        {/* South America */}
-        <motion.g
-          animate={{
-            x: [0, -6, 0, 6, 0],
-            y: [0, 4, 0, -4, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <path d="M270,270 L285,290 L280,310 L295,330 L290,350 L305,370 L300,390 L315,410 L310,430 L295,440 L280,430 L270,410 L260,390 L265,370 L255,350 L260,330 L250,310 L255,290 L265,275 Z" 
-            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
-          <path d="M270,270 L285,290 L280,310 L295,330 L290,350 L305,370 L300,390 L315,410 L310,430 L295,440 L280,430 L270,410 L260,390 L265,370 L255,350 L260,330 L250,310 L255,290 L265,275 Z" 
-            fill="white" fillOpacity="0.03" stroke="none"/>
-        </motion.g>
-        
-        {/* Europe */}
-        <motion.g
-          animate={{
-            x: [0, 5, 0, -5, 0],
-            y: [0, -3, 0, 3, 0],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <path d="M450,150 L470,140 L490,145 L510,135 L530,140 L540,155 L530,165 L510,170 L490,175 L470,170 L460,160 Z" 
-            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
-          <path d="M450,150 L470,140 L490,145 L510,135 L530,140 L540,155 L530,165 L510,170 L490,175 L470,170 L460,160 Z" 
-            fill="white" fillOpacity="0.03" stroke="none"/>
-        </motion.g>
-        
-        {/* Africa */}
-        <motion.g
-          animate={{
-            x: [0, -4, 0, 4, 0],
-            y: [0, 6, 0, -6, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <path d="M480,220 L500,210 L520,220 L530,240 L525,260 L540,280 L535,300 L550,320 L545,340 L530,350 L515,340 L505,320 L495,300 L485,280 L475,260 L470,240 Z" 
-            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
-          <path d="M480,220 L500,210 L520,220 L530,240 L525,260 L540,280 L535,300 L550,320 L545,340 L530,350 L515,340 L505,320 L495,300 L485,280 L475,260 L470,240 Z" 
-            fill="white" fillOpacity="0.03" stroke="none"/>
-        </motion.g>
-        
-        {/* Asia */}
-        <motion.g
-          animate={{
-            x: [0, 7, 0, -7, 0],
-            y: [0, -4, 0, 4, 0],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <path d="M600,130 L630,120 L660,125 L690,115 L720,120 L750,110 L780,115 L800,125 L790,140 L770,150 L750,155 L730,165 L710,160 L690,165 L670,155 L650,160 L630,150 L610,155 L600,145 Z" 
-            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
-          <path d="M600,130 L630,120 L660,125 L690,115 L720,120 L750,110 L780,115 L800,125 L790,140 L770,150 L750,155 L730,165 L710,160 L690,165 L670,155 L650,160 L630,150 L610,155 L600,145 Z" 
-            fill="white" fillOpacity="0.03" stroke="none"/>
+      <motion.div
+        className="w-full h-full"
+        animate={{
+          scale: [1, 1.02, 1],
+          rotate: [0, 1, 0, -1, 0],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <svg className="w-full h-full opacity-15" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="white" stopOpacity="0.1"/>
+              <stop offset="100%" stopColor="white" stopOpacity="0.02"/>
+            </linearGradient>
+          </defs>
           
-          {/* Australia */}
-          <path d="M850,340 L870,330 L890,335 L900,350 L890,365 L870,370 L855,360 L850,350 Z" 
-            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
-          <path d="M850,340 L870,330 L890,335 L900,350 L890,365 L870,370 L855,360 L850,350 Z" 
-            fill="white" fillOpacity="0.03" stroke="none"/>
-        </motion.g>
-        
-        {/* Connecting lines - longitude/latitude style */}
-        <motion.g
-          animate={{
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <line x1="100" y1="300" x2="1100" y2="300" stroke="white" strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3"/>
-          <line x1="600" y1="50" x2="600" y2="550" stroke="white" strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3"/>
-          <circle cx="600" cy="300" r="200" stroke="white" strokeWidth="0.3" fill="none" opacity="0.2"/>
-          <circle cx="600" cy="300" r="150" stroke="white" strokeWidth="0.3" fill="none" opacity="0.15"/>
-          <circle cx="600" cy="300" r="100" stroke="white" strokeWidth="0.3" fill="none" opacity="0.1"/>
-        </motion.g>
-      </svg>
+          {/* Ocean background */}
+          <rect width="1200" height="600" fill="url(#oceanGrad)" rx="10"/>
+          
+          {/* North America */}
+          <motion.g
+            animate={{
+              x: [0, 3, 0, -3, 0],
+              y: [0, -2, 0, 2, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <path d="M180,180 L210,170 L240,175 L260,160 L290,165 L310,150 L340,160 L350,145 L370,155 L360,175 L340,185 L310,190 L290,205 L270,200 L250,210 L230,205 L210,215 L190,205 L180,195 L185,185 Z" 
+              fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)"/>
+            <path d="M200,195 L220,190 L240,195 L255,185 L275,190 L290,180 L310,185 L320,175 L335,180 L330,195 L315,200 L295,205 L280,215 L265,210 L250,218 L230,212 L215,220 L200,210 Z" 
+              fill="white" fillOpacity="0.05" stroke="none"/>
+          </motion.g>
+          
+          {/* South America */}
+          <motion.g
+            animate={{
+              x: [0, -2, 0, 2, 0],
+              y: [0, 2, 0, -2, 0],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <path d="M280,280 L295,300 L290,320 L305,340 L300,360 L315,380 L310,400 L325,420 L320,440 L305,450 L290,440 L280,420 L270,400 L275,380 L265,360 L270,340 L260,320 L265,300 L275,285 Z" 
+              fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)"/>
+            <path d="M285,300 L295,315 L290,335 L300,350 L295,370 L305,385 L300,405 L310,420 L305,435 L295,430 L285,415 L278,395 L282,375 L275,355 L280,335 L275,315 L282,305 Z" 
+              fill="white" fillOpacity="0.05" stroke="none"/>
+          </motion.g>
+          
+          {/* Europe */}
+          <motion.g
+            animate={{
+              x: [0, 2, 0, -2, 0],
+              y: [0, -1, 0, 1, 0],
+            }}
+            transition={{
+              duration: 22,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <path d="M460,160 L480,150 L500,155 L520,145 L540,150 L550,165 L540,175 L520,180 L500,185 L480,180 L470,170 Z" 
+              fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)"/>
+            <path d="M470,170 L485,162 L505,168 L520,160 L535,165 L540,175 L530,182 L515,185 L500,188 L485,185 L478,178 Z" 
+              fill="white" fillOpacity="0.05" stroke="none"/>
+          </motion.g>
+          
+          {/* Africa */}
+          <motion.g
+            animate={{
+              x: [0, -1.5, 0, 1.5, 0],
+              y: [0, 1.5, 0, -1.5, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <path d="M490,230 L510,220 L530,230 L540,250 L535,270 L550,290 L545,310 L560,330 L555,350 L540,360 L525,350 L515,330 L505,310 L495,290 L485,270 L480,250 Z" 
+              fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)"/>
+            <path d="M495,240 L510,232 L525,242 L532,258 L528,278 L540,295 L536,315 L548,332 L543,348 L532,352 L520,342 L512,325 L502,305 L495,285 L488,265 L485,248 Z" 
+              fill="white" fillOpacity="0.05" stroke="none"/>
+          </motion.g>
+          
+          {/* Asia */}
+          <motion.g
+            animate={{
+              x: [0, 2.5, 0, -2.5, 0],
+              y: [0, -1.5, 0, 1.5, 0],
+            }}
+            transition={{
+              duration: 28,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <path d="M610,140 L640,130 L670,135 L700,125 L730,130 L760,120 L790,125 L810,135 L800,150 L780,160 L760,165 L740,175 L720,170 L700,175 L680,165 L660,170 L640,160 L620,165 L610,155 Z" 
+              fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)"/>
+            <path d="M620,150 L645,140 L675,145 L705,135 L735,140 L765,130 L790,135 L802,145 L795,155 L775,162 L755,168 L735,175 L715,172 L695,178 L675,168 L655,172 L635,162 L625,168 L618,158 Z" 
+              fill="white" fillOpacity="0.05" stroke="none"/>
+            
+            {/* Australia */}
+            <path d="M860,350 L880,340 L900,345 L910,360 L900,375 L880,380 L865,370 L860,360 Z" 
+              fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)"/>
+            <path d="M868,358 L882,350 L898,355 L905,365 L898,374 L882,376 L870,368 L868,362 Z" 
+              fill="white" fillOpacity="0.05" stroke="none"/>
+          </motion.g>
+          
+          {/* Antarctica hint at bottom */}
+          <path d="M300,550 L400,540 L500,545 L600,535 L700,540 L800,535 L900,540" 
+            fill="none" stroke="white" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)" opacity="0.5"/>
+          
+          {/* Grid lines - longitude */}
+          <motion.g
+            animate={{
+              opacity: [0.15, 0.3, 0.15],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <line x1="200" y1="100" x2="200" y2="500" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+            <line x1="400" y1="100" x2="400" y2="500" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+            <line x1="600" y1="100" x2="600" y2="500" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+            <line x1="800" y1="100" x2="800" y2="500" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+            <line x1="1000" y1="100" x2="1000" y2="500" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+            
+            {/* Latitude lines */}
+            <line x1="100" y1="200" x2="1100" y2="200" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+            <line x1="100" y1="300" x2="1100" y2="300" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+            <line x1="100" y1="400" x2="1100" y2="400" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" opacity="0.3"/>
+          </motion.g>
+          
+          {/* Pulsing dots on major cities/cultural centers */}
+          <motion.circle cx="250" cy="190" r="2" fill="white" opacity="0.6"
+            animate={{ opacity: [0.2, 0.8, 0.2], r: [1, 3, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}/>
+          <motion.circle cx="310" cy="300" r="2" fill="white" opacity="0.6"
+            animate={{ opacity: [0.2, 0.8, 0.2], r: [1, 3, 1] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}/>
+          <motion.circle cx="510" cy="240" r="2" fill="white" opacity="0.6"
+            animate={{ opacity: [0.2, 0.8, 0.2], r: [1, 3, 1] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}/>
+          <motion.circle cx="680" cy="150" r="2" fill="white" opacity="0.6"
+            animate={{ opacity: [0.2, 0.8, 0.2], r: [1, 3, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}/>
+          <motion.circle cx="885" cy="360" r="2" fill="white" opacity="0.6"
+            animate={{ opacity: [0.2, 0.8, 0.2], r: [1, 3, 1] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}/>
+          <motion.circle cx="525" cy="340" r="2" fill="white" opacity="0.6"
+            animate={{ opacity: [0.2, 0.8, 0.2], r: [1, 3, 1] }}
+            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}/>
+        </svg>
+      </motion.div>
     </div>
   );
 };
@@ -331,9 +376,9 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* 3. MISSION & VISION SECTION - WITH ANIMATED WORLD MAP */}
+			{/* 3. MISSION & VISION SECTION - WITH CONTINUOUS ANIMATED WORLD MAP */}
 			<section className='w-full bg-black py-24 text-white relative overflow-hidden'>
-				{/* Animated World Map Background */}
+				{/* Continuous Animated World Map - runs like a video */}
 				<AnimatedWorldMap />
 				
 				<div className='max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 relative z-10'>

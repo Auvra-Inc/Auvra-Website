@@ -39,11 +39,11 @@ export default function FooterSection() {
           </div>
         </div>
 
-        {/* Links Grid - Increased gap between columns from gap-x-8 to gap-x-10 */}
+        {/* Links Grid */}
         <div className="grid grid-cols-2 gap-y-8 gap-x-10 mb-16 relative z-20">
           
           {/* Column 1 - Trust & Safety */}
-          <div className="flex flex-col gap-3 font-clash">
+          <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Trust & Safety</h4>
             <Link to="/community" className="text-xs text-gray-700 hover:text-black transition">Community Guidelines</Link>
             <Link to="/governance" className="text-xs text-gray-700 hover:text-black transition">Content Governance</Link>
@@ -52,7 +52,7 @@ export default function FooterSection() {
           </div>
 
           {/* Column 2 - Legal */}
-          <div className="flex flex-col gap-3 font-clash">
+          <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Legal</h4>
             <Link to="/terms" className="text-xs text-gray-700 hover:text-black transition">Terms of Service</Link>
             <Link to="/privacy" className="text-xs text-gray-700 hover:text-black transition">Privacy Policy</Link>
@@ -61,14 +61,14 @@ export default function FooterSection() {
           </div>
 
           {/* Column 3 - Company */}
-          <div className="flex flex-col gap-3 font-clash">
+          <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Company</h4>
             <Link to="/about" className="text-xs text-gray-700 hover:text-black transition">About</Link>
             <Link to="/blog" className="text-xs text-gray-700 hover:text-black transition">Blog</Link>
           </div>
 
           {/* Column 4 - Contact */}
-          <div className="flex flex-col gap-3 font-clash">
+          <div className="flex flex-col gap-4 font-clash">
             <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Contact</h4>
             <Link to="/contact" className="text-xs text-gray-700 hover:text-black transition">Contact us</Link>
             <Link to="/faqs" className="text-xs text-gray-700 hover:text-black transition">FAQs</Link>

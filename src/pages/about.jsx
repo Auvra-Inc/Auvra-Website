@@ -57,6 +57,143 @@ const Icons = {
   ),
 };
 
+// Animated World Map Component
+const AnimatedWorldMap = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <svg className="w-full h-full opacity-15" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="white" stopOpacity="0.3"/>
+            <stop offset="100%" stopColor="white" stopOpacity="0.05"/>
+          </linearGradient>
+          <filter id="softGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        {/* North America - Slowly drifting */}
+        <motion.g
+          animate={{
+            x: [0, 8, 0, -8, 0],
+            y: [0, -5, 0, 5, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <path d="M180,180 L210,165 L240,170 L260,155 L290,160 L310,145 L340,155 L350,140 L370,150 L360,170 L340,180 L310,185 L290,200 L270,195 L250,205 L230,200 L210,210 L190,200 Z" 
+            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
+          <path d="M180,180 L210,165 L240,170 L260,155 L290,160 L310,145 L340,155 L350,140 L370,150 L360,170 L340,180 L310,185 L290,200 L270,195 L250,205 L230,200 L210,210 L190,200 Z" 
+            fill="white" fillOpacity="0.03" stroke="none"/>
+        </motion.g>
+        
+        {/* South America */}
+        <motion.g
+          animate={{
+            x: [0, -6, 0, 6, 0],
+            y: [0, 4, 0, -4, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <path d="M270,270 L285,290 L280,310 L295,330 L290,350 L305,370 L300,390 L315,410 L310,430 L295,440 L280,430 L270,410 L260,390 L265,370 L255,350 L260,330 L250,310 L255,290 L265,275 Z" 
+            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
+          <path d="M270,270 L285,290 L280,310 L295,330 L290,350 L305,370 L300,390 L315,410 L310,430 L295,440 L280,430 L270,410 L260,390 L265,370 L255,350 L260,330 L250,310 L255,290 L265,275 Z" 
+            fill="white" fillOpacity="0.03" stroke="none"/>
+        </motion.g>
+        
+        {/* Europe */}
+        <motion.g
+          animate={{
+            x: [0, 5, 0, -5, 0],
+            y: [0, -3, 0, 3, 0],
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <path d="M450,150 L470,140 L490,145 L510,135 L530,140 L540,155 L530,165 L510,170 L490,175 L470,170 L460,160 Z" 
+            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
+          <path d="M450,150 L470,140 L490,145 L510,135 L530,140 L540,155 L530,165 L510,170 L490,175 L470,170 L460,160 Z" 
+            fill="white" fillOpacity="0.03" stroke="none"/>
+        </motion.g>
+        
+        {/* Africa */}
+        <motion.g
+          animate={{
+            x: [0, -4, 0, 4, 0],
+            y: [0, 6, 0, -6, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <path d="M480,220 L500,210 L520,220 L530,240 L525,260 L540,280 L535,300 L550,320 L545,340 L530,350 L515,340 L505,320 L495,300 L485,280 L475,260 L470,240 Z" 
+            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
+          <path d="M480,220 L500,210 L520,220 L530,240 L525,260 L540,280 L535,300 L550,320 L545,340 L530,350 L515,340 L505,320 L495,300 L485,280 L475,260 L470,240 Z" 
+            fill="white" fillOpacity="0.03" stroke="none"/>
+        </motion.g>
+        
+        {/* Asia */}
+        <motion.g
+          animate={{
+            x: [0, 7, 0, -7, 0],
+            y: [0, -4, 0, 4, 0],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <path d="M600,130 L630,120 L660,125 L690,115 L720,120 L750,110 L780,115 L800,125 L790,140 L770,150 L750,155 L730,165 L710,160 L690,165 L670,155 L650,160 L630,150 L610,155 L600,145 Z" 
+            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
+          <path d="M600,130 L630,120 L660,125 L690,115 L720,120 L750,110 L780,115 L800,125 L790,140 L770,150 L750,155 L730,165 L710,160 L690,165 L670,155 L650,160 L630,150 L610,155 L600,145 Z" 
+            fill="white" fillOpacity="0.03" stroke="none"/>
+          
+          {/* Australia */}
+          <path d="M850,340 L870,330 L890,335 L900,350 L890,365 L870,370 L855,360 L850,350 Z" 
+            fill="none" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" filter="url(#softGlow)"/>
+          <path d="M850,340 L870,330 L890,335 L900,350 L890,365 L870,370 L855,360 L850,350 Z" 
+            fill="white" fillOpacity="0.03" stroke="none"/>
+        </motion.g>
+        
+        {/* Connecting lines - longitude/latitude style */}
+        <motion.g
+          animate={{
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <line x1="100" y1="300" x2="1100" y2="300" stroke="white" strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3"/>
+          <line x1="600" y1="50" x2="600" y2="550" stroke="white" strokeWidth="0.5" strokeDasharray="4 8" opacity="0.3"/>
+          <circle cx="600" cy="300" r="200" stroke="white" strokeWidth="0.3" fill="none" opacity="0.2"/>
+          <circle cx="600" cy="300" r="150" stroke="white" strokeWidth="0.3" fill="none" opacity="0.15"/>
+          <circle cx="600" cy="300" r="100" stroke="white" strokeWidth="0.3" fill="none" opacity="0.1"/>
+        </motion.g>
+      </svg>
+    </div>
+  );
+};
+
 export default function About() {
 	const values = [
 		{
@@ -194,43 +331,10 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* 3. MISSION & VISION SECTION - WITH SUBTLE WORLD MAP BACKGROUND */}
+			{/* 3. MISSION & VISION SECTION - WITH ANIMATED WORLD MAP */}
 			<section className='w-full bg-black py-24 text-white relative overflow-hidden'>
-				{/* Subtle World Map Background - very faint white/gray */}
-				<div className="absolute inset-0 opacity-5 pointer-events-none">
-					<svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-						<path d="M200,300 L220,280 L250,290 L270,270 L300,280 L320,260 L350,270 L370,250 L400,260" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M150,350 L170,340 L190,355 L210,330 L240,345 L260,325 L290,340" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M400,200 L420,185 L450,195 L470,175 L500,190 L520,170 L550,185" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M600,400 L620,385 L650,395 L670,375 L700,390 L720,370 L750,385" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M800,250 L820,235 L850,245 L870,225 L900,240 L920,220 L950,235" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M500,500 L520,485 L550,495 L570,475 L600,490 L620,470 L650,485" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M900,450 L920,435 L950,445 L970,425 L1000,440" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M100,450 L130,435 L160,445 L180,425 L210,440" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M300,550 L320,540 L340,555 L360,535 L390,550" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M700,550 L720,535 L750,545 L770,525 L800,540" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M350,150 L370,140 L390,155 L410,135 L440,150" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						<path d="M850,150 L870,135 L900,145 L920,125 L950,140" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-						{/* Continents shapes - stylized */}
-						<path d="M180,300 C200,280 230,285 250,270 C270,255 290,270 280,290 C270,310 240,315 220,310 C200,305 190,310 180,300Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
-						<path d="M450,180 C470,160 500,165 520,150 C540,135 560,150 550,170 C540,190 510,195 490,190 C470,185 460,190 450,180Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
-						<path d="M650,380 C670,360 700,365 720,350 C740,335 760,350 750,370 C740,390 710,395 690,390 C670,385 660,390 650,380Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
-						<path d="M520,480 C540,460 570,465 590,450 C610,435 630,450 620,470 C610,490 580,495 560,490 C540,485 530,490 520,480Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
-						<path d="M820,230 C840,210 870,215 890,200 C910,185 930,200 920,220 C910,240 880,245 860,240 C840,235 830,240 820,230Z" stroke="white" strokeWidth="1" fill="none" opacity="0.5"/>
-					</svg>
-				</div>
-				
-				{/* Subtle grid pattern overlay */}
-				<div className="absolute inset-0 opacity-10 pointer-events-none">
-					<svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-						<defs>
-							<pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-								<path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5"/>
-							</pattern>
-						</defs>
-						<rect width="100%" height="100%" fill="url(#grid)" />
-					</svg>
-				</div>
+				{/* Animated World Map Background */}
+				<AnimatedWorldMap />
 				
 				<div className='max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 relative z-10'>
 					<motion.div

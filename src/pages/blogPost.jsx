@@ -145,8 +145,9 @@ export default function BlogPost() {
           <div className="relative z-10 flex flex-col justify-between h-full">
             <div className="pt-15 pb-7 flex justify-center">
               <Link to="/" className="flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-white">
+                {/* FIXED: Using the same logo as your main page */}
                 <img 
-                  src="/Vector.png" 
+                  src="/Logo-png.PNG" 
                   alt="Auvra Logo" 
                   className="w-6 h-6 object-contain" 
                 />

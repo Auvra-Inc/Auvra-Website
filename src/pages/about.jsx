@@ -74,7 +74,8 @@ export default function About() {
 					transition={{ duration: 0.8, ease: 'easeOut' }}
 					className='max-w-5xl'
 				>
-					<h1 className='text-2xl text-center md:text-4xl font-clash font-normal text-black leading-tight tracking-tight mb-12 mt-8'>
+					{/* RESTORED to original - font-medium (500) as you wanted */}
+					<h1 className='text-2xl text-center md:text-4xl font-clash font-medium text-black leading-tight tracking-tight mb-12 mt-8'>
 						The stories we keep today become the foundation for tomorrow.
 					</h1>
 					<PartnersSection />
@@ -160,10 +161,12 @@ export default function About() {
 			{/* 4. C.U.L.T.U.R.E. VALUES GRID */}
 			<section className='max-w-7xl mx-auto px-6 md:px-12 py-24'>
 				<div className='mb-16 max-w-3xl'>
-					<h2 className='text-4xl md:text-5xl font-clash font-semibold text-black tracking-tight mb-6'>
+					{/* "What Guides Us" - size reduced from text-4xl md:text-5xl to text-3xl md:text-4xl */}
+					<h2 className='text-3xl md:text-4xl font-clash font-semibold text-black tracking-tight mb-6'>
 						What Guides Us
 					</h2>
-					<p className='text-md text-black font-clash leading-relaxed'>
+					{/* Subhead - size reduced from text-md to text-sm */}
+					<p className='text-sm text-black font-clash leading-relaxed'>
 						At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These
 						principles are the foundation of our product, our community, and our
 						vision for a digitally-preserved heritage.

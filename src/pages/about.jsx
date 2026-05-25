@@ -96,7 +96,7 @@ export default function About() {
 		},
 	];
 
-	// Animation variants - SMOOTH, no harsh return
+	// Animation variants
 	const cardVariants = {
 		hidden: { opacity: 0, y: 30 },
 		visible: (i) => ({
@@ -221,14 +221,14 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* 4. C.U.L.T.U.R.E. VALUES GRID - SMOOTH ANIMATION ONLY ONCE */}
+			{/* 4. C.U.L.T.U.R.E. VALUES GRID */}
 			<section className='max-w-7xl mx-auto px-6 md:px-12 py-16'>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true, margin: "-100px" }}
 					transition={{ duration: 0.6, ease: "easeOut" }}
-					className='mb-8 max-w-3xl'
+					className='mb-12 max-w-3xl'
 				>
 					<h2 className='text-4xl md:text-5xl font-clash font-semibold text-black tracking-tight mb-3'>
 						What Guides Us

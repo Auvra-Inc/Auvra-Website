@@ -136,15 +136,14 @@ export default function BlogPost() {
           </div>
           
           <div className="relative z-10 flex flex-col justify-between h-full">
-            {/* LOGO - FIXED: Larger and centered */}
+            {/* LOGO - FIXED: Removed text, only logo, larger size */}
             <div className="pt-15 pb-7 flex justify-center">
-              <Link to="/" className="flex flex-col items-center gap-1">
+              <Link to="/">
                 <img 
                   src="/Logo-png.PNG" 
                   alt="Auvra Logo" 
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain" 
+                  className="w-12 h-12 md:w-16 md:h-16 object-contain" 
                 />
-                <span className="font-clash text-white text-sm md:text-base tracking-wide">Auvra</span>
               </Link>
             </div>
             

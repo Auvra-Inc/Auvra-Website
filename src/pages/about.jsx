@@ -301,6 +301,21 @@ export default function About() {
             The stories we keep today become the foundation for tomorrow.
           </h1>
           <PartnersSection />
+          
+          {/* GIF IMAGE ADDED RIGHT AFTER PARTNERS SECTION */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className='flex justify-center items-center my-12'
+          >
+            <img 
+              src="/git-image.gif" 
+              alt="Auvra animated illustration" 
+              className="w-full max-w-3xl h-auto rounded-2xl shadow-lg"
+            />
+          </motion.div>
+          
           <div className='pt-7 md:text-xl text-black font-clash leading-relaxed space-y-12 max-w-3xl'>
             <p>The voices we record now will speak to generations not yet born. The culture we preserve is the only inheritance that truly matters.</p>
             <p className='font-medium text-black pt-4'>This is why Auvra exists.</p>

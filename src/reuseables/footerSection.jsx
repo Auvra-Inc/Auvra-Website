@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { SiTiktok } from 'react-icons/si';
 
 export default function FooterSection() {
   return (
@@ -11,6 +11,7 @@ export default function FooterSection() {
         {/* Logo, Bio, and Social Icons */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-4">
+            {/* Auvra Star Logo Icon */}
             <img 
              src="/Vector .png" 
              alt="Auvra Logo" 
@@ -18,60 +19,77 @@ export default function FooterSection() {
              />
             <span className="font-clash text-xl font-medium tracking-wide">Auvra</span>
           </div>
-          <p className="text-gray-800 text-md leading-relaxed font-light font-clash">
+          <p className="text-black text-md leading-relaxed font-light font-clash">
             A permanent home for human culture.
             Where stories are kept, traditions endure, and creation becomes legacy.
           </p>
           
-          {/* Social Icons */}
+          {/* Minimalist Gray Social Icons - ALL 5 INCLUDED */}
           <div className="flex items-center gap-5 mt-6">
-            <a href="https://www.instagram.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+            {/* Instagram */}
+            <a href="https://www.instagram.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
               <FaInstagram className="w-5 h-5" />
             </a>
-            <a href="https://x.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+            
+            {/* Modern X Logo */}
+            <a href="https://x.com/goauvra" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
               <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
-            <a href="https://www.linkedin.com/company/auvra/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+            
+            {/* LinkedIn */}
+            <a href="https://www.linkedin.com/company/auvra/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
               <FaLinkedinIn className="w-5 h-5" />
+            </a>
+
+            {/* Facebook */}
+            <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <FaFacebookF className="w-[18px] h-[18px]" />
+            </a>
+
+            {/* TikTok */}
+            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <SiTiktok className="w-[18px] h-[18px]" />
             </a>
           </div>
         </div>
 
-        {/* Links Grid - More space between columns */}
-        <div className="grid grid-cols-2 gap-y-8 gap-x-12 mb-16 relative z-20">
+        {/* Links Grid - Added gap-x-8 for more space between columns */}
+        <div className="grid grid-cols-2 gap-y-10 gap-x-8 mb-16 relative z-20">
           
-          {/* Column 1 - Trust & Safety */}
-          <div className="flex flex-col gap-3 font-clash">
-            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Trust & Safety</h4>
-            <Link to="/community" className="text-xs text-gray-700 hover:text-black transition font-medium">Community Guidelines</Link>
-            <Link to="/governance" className="text-xs text-gray-700 hover:text-black transition font-medium">Content Governance</Link>
-            <Link to="/copyright" className="text-xs text-gray-700 hover:text-black transition font-medium">Copyright Policy</Link>
-            <Link to="/ai-policy" className="text-xs text-gray-700 hover:text-black transition font-medium">AI Policy</Link>
+          {/* Column 1 */}
+          <div className="flex flex-col gap-4 font-clash">
+            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Trust & Safety</h4>
+            <Link to="/community" className="text-sm text-gray-800 hover:text-black transition">Community Guidelines</Link>
+            <Link to="/governance" className="text-sm text-gray-800 hover:text-black transition">Content Governance</Link>
+            <Link to="/copyright" className="text-sm text-gray-800 hover:text-black transition">Copyright Policy</Link>
+            <Link to="/ai-policy" className="text-sm text-gray-800 hover:text-black transition">AI Policy</Link>
           </div>
 
-          {/* Column 2 - Legal */}
-          <div className="flex flex-col gap-3 font-clash">
-            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Legal</h4>
-            <Link to="/terms" className="text-xs text-gray-700 hover:text-black transition font-medium">Terms of Service</Link>
-            <Link to="/privacy" className="text-xs text-gray-700 hover:text-black transition font-medium">Privacy Policy</Link>
-            <Link to="/aml" className="text-xs text-gray-700 hover:text-black transition font-medium">AML / CFT Policy</Link>
-            <Link to="/collab" className="text-xs text-gray-700 hover:text-black transition font-medium">Collaboration Terms</Link>
+          {/* Column 2 */}
+          <div className="flex flex-col gap-4 font-clash">
+            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Legal</h4>
+            <Link to="/terms" className="text-sm text-gray-800 hover:text-black transition">Terms of Service</Link>
+            <Link to="/privacy" className="text-sm text-gray-800 hover:text-black transition">Privacy Policy</Link>
+            <Link to="/aml" className="text-sm text-gray-800 hover:text-black transition">AML / CFT Policy</Link>
+            <Link to="/collab" className="text-sm text-gray-800 hover:text-black transition">Collaboration Terms</Link>
           </div>
 
-          {/* Column 3 - Company */}
-          <div className="flex flex-col gap-3 font-clash">
-            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Company</h4>
-            <Link to="/about" className="text-xs text-gray-700 hover:text-black transition font-medium">About</Link>
-            <Link to="/blog" className="text-xs text-gray-700 hover:text-black transition font-medium">Blog</Link>
+          {/* Column 3 */}
+          <div className="flex flex-col gap-4 font-clash">
+            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Company</h4>
+            {/* FIXED: About goes to /about page */}
+            <Link to="/about" className="text-sm text-gray-800 hover:text-black transition">About</Link>
+            {/* FIXED: Blog goes to /blog page */}
+            <Link to="/blog" className="text-sm text-gray-800 hover:text-black transition">Blog</Link>
           </div>
 
-          {/* Column 4 - Contact */}
-          <div className="flex flex-col gap-3 font-clash">
-            <h4 className="text-[13px] font-medium tracking-widest text-gray-600 uppercase">Contact</h4>
-            <Link to="/contact" className="text-xs text-gray-700 hover:text-black transition font-medium">Contact us</Link>
-            <Link to="/faqs" className="text-xs text-gray-700 hover:text-black transition font-medium">FAQs</Link>
+          {/* Column 4 */}
+          <div className="flex flex-col gap-4 font-clash">
+            <h4 className="text-[15px] font-medium tracking-widest text-gray-400 uppercase">Contact</h4>
+            <Link to="/contact" className="text-sm text-gray-800 hover:text-black transition">Contact us</Link>
+            <Link to="/faqs" className="text-sm text-gray-800 hover:text-black transition">FAQs</Link>
           </div>
 
         </div>
@@ -82,28 +100,12 @@ export default function FooterSection() {
         </div>
       </div>
 
-      {/* GIANT WATERMARK - Animated */}
-      <motion.div 
-        className="absolute bottom-0 left-0 w-full flex justify-center overflow-hidden pointer-events-none select-none z-0"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      >
-        <motion.h1 
-          className="font-clash text-[7rem] sm:text-[10rem] font-bold text-gray-300 tracking-widest leading-none translate-y-4 sm:translate-y-6 opacity-15"
-          animate={{
-            opacity: [0.1, 0.2, 0.1],
-            scale: [0.98, 1.02, 0.98],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
+      {/* GIANT WATERMARK */}
+      <div className="absolute bottom-0 left-0 w-full flex justify-center overflow-hidden pointer-events-none select-none z-0">
+        <h1 className="font-clash text-[7rem] sm:text-[10rem] font-bold text-gray-400 tracking-widest leading-none translate-y-4 sm:translate-y-6">
           AUVRA
-        </motion.h1>
-      </motion.div>
+        </h1>
+      </div>
 
     </footer>
   );

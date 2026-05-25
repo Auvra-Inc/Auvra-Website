@@ -4,41 +4,41 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 import PartnersSection from '../partnerSection';
 
-// Icon components for each value
+// Icon components for each value - SMALLER and THINNER
 const Icons = {
   'Cultural Integrity.': (
-    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.636 3.636a9 9 0 1 1 12.728 12.728M9 13h.01M15 13h.01M12 17h.01M12 2v1M2 12h1M21 12h1M5.636 5.636l-.707-.707M18.364 18.364l-.707-.707" />
+    <svg className="w-6 h-6 md:w-7 md:h-7 text-black mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.636 3.636a9 9 0 1 1 12.728 12.728M9 13h.01M15 13h.01M12 17h.01M12 2v1M2 12h1M21 12h1M5.636 5.636l-.707-.707M18.364 18.364l-.707-.707" />
     </svg>
   ),
   'Universal Access.': (
-    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    <svg className="w-6 h-6 md:w-7 md:h-7 text-black mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
     </svg>
   ),
   'Lasting Stewardship.': (
-    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0Z" />
+    <svg className="w-6 h-6 md:w-7 md:h-7 text-black mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0Z" />
     </svg>
   ),
   'Trust Through Transparency.': (
-    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    <svg className="w-6 h-6 md:w-7 md:h-7 text-black mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
     </svg>
   ),
   'User Empowerment.': (
-    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    <svg className="w-6 h-6 md:w-7 md:h-7 text-black mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
     </svg>
   ),
   'Respectful Collaboration.': (
-    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+    <svg className="w-6 h-6 md:w-7 md:h-7 text-black mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
     </svg>
   ),
   'Excellence in Craft.': (
-    <svg className="w-8 h-8 md:w-10 md:h-10 text-black mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+    <svg className="w-6 h-6 md:w-7 md:h-7 text-black mb-3" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
     </svg>
   ),
 };
@@ -83,26 +83,23 @@ export default function About() {
 	];
 
 	return (
-		<div className='w-full bg-white  pb-20'>
+		<div className='w-full bg-white pb-20'>
 			<Helmet>
                 <title>About Us | Auvra</title>
                 <meta name="description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
                 
-                {/* Open Graph / Social Media Platforms */}
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="About Us | Auvra" />
                 <meta property="og:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
                 <meta property="og:image" content="https://goauvra.com/about-preview.png" />
                 <meta property="og:url" content="https://goauvra.com/about" />
 
-                {/* Twitter / LinkedIn Cards */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="About Us | Auvra" />
                 <meta name="twitter:description" content="Learn about Auvra's mission to build the permanent infrastructure for human culture, language preservation, and digital heritage stewardship." />
                 <meta name="twitter:image" content="https://goauvra.com/about-preview.png" />
             </Helmet>
 
-			{/* NAVBAR */}
 			<Navbar />
 
 			{/* 1. HERO SECTION */}
@@ -196,39 +193,48 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* 4. C.U.L.T.U.R.E. VALUES GRID */}
+			{/* 4. C.U.L.T.U.R.E. VALUES GRID - PROFESSIONAL CARDS */}
 			<section className='max-w-7xl mx-auto px-6 md:px-12 py-24'>
-				<div className='mb-16 max-w-3xl'>
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+					className='mb-16 max-w-3xl'
+				>
 					<h2 className='text-4xl md:text-5xl font-clash font-semibold text-black tracking-tight mb-6'>
 						What Guides Us
 					</h2>
-					{/* Subhead - KEPT AT ORIGINAL SIZE (not reduced) */}
 					<p className='text-md text-black font-clash leading-relaxed'>
 						At Auvra, our mission is powered by our C.U.L.T.U.R.E. values. These
 						principles are the foundation of our product, our community, and our
 						vision for a digitally-preserved heritage.
 					</p>
-				</div>
+				</motion.div>
 
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16'>
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
 					{values.map((value, index) => (
 						<motion.div
 							key={index}
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, margin: '-50px' }}
-							transition={{ duration: 0.6, delay: index * 0.1 }}
-							className='flex flex-col border-t border-gray-200 pt-8'
+							transition={{ duration: 0.5, delay: index * 0.08 }}
+							// PROFESSIONAL CARD STYLES
+							className='group bg-white rounded-2xl p-6 md:p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200'
 						>
-							{/* Icon added above the title */}
-							<div className="mb-2">
+							{/* Icon - Smaller and thinner */}
+							<div className="mb-4">
 								{Icons[value.title]}
 							</div>
-							{/* Value title - font size reduced */}
-							<h3 className='text-xl md:text-2xl font-clash font-medium text-black mb-4'>
+							
+							{/* Title - Reduced size */}
+							<h3 className='text-xl md:text-2xl font-clash font-medium text-black mb-3 group-hover:text-gray-700 transition-colors duration-300'>
 								{value.title}
 							</h3>
-							<p className='text-black font-clash leading-relaxed'>
+							
+							{/* Description */}
+							<p className='text-gray-500 font-clash leading-relaxed text-sm md:text-base group-hover:text-gray-600 transition-colors duration-300'>
 								{value.description}
 							</p>
 						</motion.div>

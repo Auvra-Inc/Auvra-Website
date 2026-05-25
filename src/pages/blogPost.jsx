@@ -136,13 +136,13 @@ export default function BlogPost() {
           </div>
           
           <div className="relative z-10 flex flex-col justify-between h-full">
-            {/* LOGO - FIXED: Removed text, only logo, larger size */}
+            {/* LOGO - LARGE SIZE (200px) */}
             <div className="pt-15 pb-7 flex justify-center">
               <Link to="/">
                 <img 
                   src="/Logo-png.PNG" 
                   alt="Auvra Logo" 
-                  className="w-12 h-12 md:w-16 md:h-16 object-contain" 
+                  className="w-[200px] h-[200px] md:w-[200px] md:h-[200px] object-contain" 
                 />
               </Link>
             </div>

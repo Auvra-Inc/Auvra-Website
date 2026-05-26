@@ -15,6 +15,30 @@
       "destination": "/sitemap.txt"
     },
     {
+      "source": "/contact",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/faqs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

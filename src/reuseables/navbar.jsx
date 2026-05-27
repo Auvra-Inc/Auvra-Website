@@ -46,7 +46,7 @@ export default function Navbar() {
       >
         <Link to="/" className="flex items-center gap-3 font-medium text-lg sm:text-xl tracking-wide">
           <img 
-             src="/Vector .png" 
+             src="/Vector.png" 
              alt="Auvra Logo" 
              className="w-8 h-8 object-contain" 
           />
@@ -91,28 +91,22 @@ export default function Navbar() {
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* INSTITUTIONAL ACCESS WITH CARD - Special Styled */}
-            <div className="relative group">
-              <Link 
-                onClick={() => setIsMenuOpen(false)} 
-                to="/institutional-access" 
-                className="block w-full"
-              >
-                <div className="flex items-center justify-between bg-gradient-to-r from-gray-50 to-white rounded-2xl p-4 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-md">
-                  <div className="flex flex-col">
-                    <span className="text-base font-semibold text-gray-900">Institutional Access</span>
-                    <span className="text-xs text-gray-500 mt-1">For Institutions & Government Bodies</span>
-                  </div>
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
-                    <img 
-                      src="/IMG_inst.JPG" 
-                      alt="Institutional Access" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </Link>
-            </div>
+            {/* INSTITUTIONAL ACCESS WITH SMALL IMAGE */}
+            <Link 
+              onClick={() => setIsMenuOpen(false)} 
+              to="/institutional-access" 
+              className="flex items-center justify-between bg-gray-50 rounded-xl p-3 border border-gray-100 hover:border-gray-200 transition-all duration-300"
+            >
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-gray-900">Institutional Access</span>
+                <span className="text-xs text-gray-500 mt-0.5">For Institutions & Government Bodies</span>
+              </div>
+              <img 
+                src="/IMG_inst.JPG" 
+                alt="Institutional Access" 
+                className="w-8 h-8 rounded-full object-cover"
+              />
+            </Link>
           </div>
         </div>
       )}

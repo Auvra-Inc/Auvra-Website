@@ -90,7 +90,7 @@ export default function Navbar() {
             <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
-            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Careers</a>
+            <Link onClick={() => setIsMenuOpen(false)} to="/institutional-access" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Institutional Access</Link>
           </div>
         </div>
       )}

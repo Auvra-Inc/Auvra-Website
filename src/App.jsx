@@ -36,6 +36,7 @@ import About from './pages/about'
 import Blog from './pages/blog'
 import BlogPost from './pages/blogPost'
 import Hero from './pages/hero'
+import InstitutionalAccess from './pages/institutionalAccess'
 
 // 1. SCROLL HELPER
 function ScrollToTop() {
@@ -87,6 +88,7 @@ function App() {
         <Route path="/governance" element={<ContentGovernance />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/institutional-access" element={<InstitutionalAccess />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
 

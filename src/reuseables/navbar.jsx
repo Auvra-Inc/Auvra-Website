@@ -95,33 +95,26 @@ export default function Navbar() {
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* Extra space before Institutional card */}
-            <div className="mt-2"></div>
+            {/* INSTITUTIONAL ACCESS - Just a tiny space (0.5rem) */}
+            <div className="pt-0.5"></div>
             
-            {/* INSTITUTIONAL ACCESS - Card moved down */}
             <Link 
               onClick={() => setIsMenuOpen(false)} 
               to="/institutional-access" 
               className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md"
             >
-              {/* Background Image */}
               <img 
                 src="/IMG_inst.JPG" 
                 alt="Institutional Access" 
                 className="w-full h-full object-cover absolute inset-0"
                 loading="eager"
               />
-              
-              {/* Dark Overlay for text readability */}
               <div className="absolute inset-0 bg-black/40"></div>
-              
-              {/* Text Content */}
               <div className="relative z-10 flex items-center justify-between p-3">
                 <div className="flex flex-col">
                   <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
                   <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
                 </div>
-                {/* Small arrow indicator */}
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

@@ -11,13 +11,13 @@ const VaultSection = () => {
 
   return (
     // We removed the fixed height! Let the content dictate the size.
-    <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-10 md:pt-32">
+    <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-10 md:pt-24">
       
       {/* =========================================
           BOX A: TEXT & FLOATING AVATARS 
           This acts as a "container" so avatars float around the text, not the whole page.
       ========================================= */}
-      <div className="relative w-full max-w-4xl min-h-[350px] md:min-h-[400px] flex flex-col justify-center items-center px-6">
+      <div className="relative w-full max-w-4xl min-h-[260px] md:min-h-[320px] flex flex-col justify-center items-center px-6">
         
         {/* EXACTLY 5 AVATARS POSITIONED LIKE YOUR SCREENSHOT */}
         
@@ -75,7 +75,7 @@ const VaultSection = () => {
           BOX B: MAIN CENTER IMAGE
           Because it comes AFTER the div above, it will naturally push down and NEVER overlap the text.
       ========================================= */}
-      <div className="relative w-full max-w-[450px] md:max-w-[550px]  z-20 ">
+      <div className="relative w-full max-w-[450px] md:max-w-[550px] z-20 -mt-8 md:-mt-12">
         <img 
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 

@@ -87,7 +87,7 @@ export default function Navbar() {
           {/* The Dropdown Menu Box */}
           <div className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
             <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Ask Lens AI</a>
-            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
+            <a href="/#features" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/institutional-access" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Institutional Access</Link>

@@ -21,7 +21,7 @@ import {
 
 const FeaturesSection = () => {
 	return (
-		<section className='py-20 px-6 max-w-[1200px] mx-auto font-clash'>
+		<section id='features' className='py-20 px-6 max-w-[1200px] mx-auto font-clash'>
 			{/* Header */}
 			<div className='mb-16 max-w-2xl'>
 				<div className='inline-block px-4 py-1.5 rounded-full border border-gray-300 text-sm font-medium tracking-widest uppercase mb-6 shadow-sm font-clash'>

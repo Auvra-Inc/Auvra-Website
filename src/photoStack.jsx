@@ -30,7 +30,7 @@ const PhotoStack = () => {
 
       {/* 2. The Interactive Image Stack */}
       <div 
-        className="relative w-[300px] h-[400px] md:w-[350px] md:h-[450px] cursor-pointer overflow-hidden" 
+        className="relative w-[300px] h-[400px] md:w-[350px] md:h-[450px] cursor-pointer px-8" 
         onClick={handleNextPhoto}
       >
         {images.map((src, index) => {

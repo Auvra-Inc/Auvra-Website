@@ -16,7 +16,7 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    iframe.style.cssText = 'width: 100%; height: 650px; border: none; border-radius: 16px;';
+    iframe.style.cssText = 'width: 100%; height: 700px; border: none; border-radius: 16px;';
     iframe.title = 'Auvra Institutional Access';
     container.appendChild(iframe);
 
@@ -28,6 +28,21 @@ export default function InstitutionalAccess() {
           `<style>
             footer, .foorm-footer, [class*="powered"], [class*="footer"]:has(a) {
               display: none !important;
+            }
+            body {
+              margin: 0;
+              padding: 0;
+            }
+            .container, .form-container {
+              max-width: 100% !important;
+              width: 100% !important;
+            }
+            form {
+              width: 100% !important;
+              max-width: 100% !important;
+            }
+            input, select, textarea {
+              width: 100% !important;
             }
           </style></head>`
         );
@@ -47,7 +62,7 @@ export default function InstitutionalAccess() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50">
       <Helmet>
         <title>Institutional Access | Auvra</title>
         <meta name="description" content="Apply for institutional and government access to Auvra's cultural preservation infrastructure." />
@@ -55,27 +70,26 @@ export default function InstitutionalAccess() {
 
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-24 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto">
+      <main className="pt-32 pb-24 px-4 md:px-8">
+        <div className="w-full max-w-7xl mx-auto">
+          {/* Header - Only title, no subtitle */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center mb-10"
+            className="text-center mb-8"
           >
             <h1 className="text-3xl md:text-5xl font-clash font-bold text-black mb-4 tracking-tight">
               Institutional Access
             </h1>
-            <p className="text-lg text-gray-600 font-clash max-w-xl mx-auto leading-relaxed">
-              For museums, universities, and government bodies looking to preserve cultural heritage at scale.
-            </p>
           </motion.div>
 
+          {/* Form Container - Full width */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="bg-white rounded-[2rem] p-4 md:p-6 shadow-sm border border-gray-100"
+            className="w-full bg-white rounded-[2rem] p-4 md:p-8 shadow-sm border border-gray-100"
           >
             <div ref={containerRef} className="w-full"></div>
           </motion.div>

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import InstitutionalAccessModal from './institutionAccessModal'; // ← Updated to match your file name
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Handle background blur on scroll
   useEffect(() => {
@@ -34,20 +32,8 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
-  // Preload image for faster loading
-  useEffect(() => {
-    const img = new Image();
-    img.src = '/IMG_inst.JPG';
-  }, []);
-
   return (
     <>
-      {/* MODAL POPUP */}
-      <InstitutionalAccessModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
-
       {/* =========================================
           ULTRA-MODERN FLOATING NAV
       ========================================= */}
@@ -80,14 +66,16 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="w-10 h-10 bg-gray-200 rounded-xl flex flex-col justify-center items-center hover:bg-gray-100 transition relative"
           >
+            {/* Top Line */}
             <div className={`w-6 h-0.5 bg-black transition-all duration-300 absolute ${isMenuOpen ? 'rotate-45' : '-translate-y-1'}`}></div>
+            {/* Bottom Line */}
             <div className={`w-6 h-0.5 bg-black transition-all duration-300 absolute ${isMenuOpen ? '-rotate-45' : 'translate-y-1'}`}></div>
           </button>
         </div>
       </nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY WITH CARD
+          REFINED BLURRED MENU OVERLAY
       ========================================= */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
@@ -102,34 +90,7 @@ export default function Navbar() {
             <a href="/#features" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
-            
-            <div className="pt-0.5"></div>
-            
-            {/* INSTITUTIONAL ACCESS - Opens Modal */}
-            <button
-              onClick={() => {
-                setIsMenuOpen(false);
-                setIsModalOpen(true);
-              }}
-              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md w-full text-left"
-            >
-              <img 
-                src="/IMG_inst.JPG" 
-                alt="Institutional Access" 
-                className="w-full h-full object-cover absolute inset-0"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-black/40"></div>
-              <div className="relative z-10 flex items-center justify-between p-3">
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
-                  <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
-                </div>
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </button>
+            <Link onClick={() => setIsMenuOpen(false)} to="/institutional-access" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Institutional Access</Link>
           </div>
         </div>
       )}

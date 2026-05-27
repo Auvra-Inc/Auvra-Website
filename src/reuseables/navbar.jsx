@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import InstitutionalAccessModal from './InstitutionalAccessModal';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Handle background blur on scroll
   useEffect(() => {
@@ -40,6 +42,12 @@ export default function Navbar() {
 
   return (
     <>
+      {/* MODAL POPUP */}
+      <InstitutionalAccessModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+
       {/* =========================================
           ULTRA-MODERN FLOATING NAV
       ========================================= */}
@@ -95,13 +103,16 @@ export default function Navbar() {
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* INSTITUTIONAL ACCESS - Just a tiny space (0.5rem) */}
+            {/* Just a tiny space */}
             <div className="pt-0.5"></div>
             
-            <Link 
-              onClick={() => setIsMenuOpen(false)} 
-              to="/institutional-access" 
-              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md"
+            {/* INSTITUTIONAL ACCESS - Opens Modal instead of page */}
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsModalOpen(true);
+              }}
+              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md w-full text-left"
             >
               <img 
                 src="/IMG_inst.JPG" 
@@ -119,7 +130,7 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
-            </Link>
+            </button>
           </div>
         </div>
       )}

@@ -16,7 +16,7 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    iframe.style.cssText = 'width: 100%; height: 700px; border: none; border-radius: 16px;';
+    iframe.style.cssText = 'width: 100%; height: 750px; border: none; border-radius: 24px;';
     iframe.title = 'Auvra Institutional Access';
     container.appendChild(iframe);
 
@@ -26,12 +26,15 @@ export default function InstitutionalAccess() {
         const styledHtml = html.replace(
           '</head>',
           `<style>
-            footer, .foorm-footer, [class*="powered"], [class*="footer"]:has(a) {
+            /* Hide the iframe's own footer */
+            footer, .foorm-footer, [class*="powered"], [class*="footer"]:has(a), 
+            div:has(> a[href*="foorm.xyz"]), .footer, .form-footer {
               display: none !important;
             }
             body {
               margin: 0;
               padding: 0;
+              background: transparent !important;
             }
             .container, .form-container {
               max-width: 100% !important;
@@ -40,6 +43,7 @@ export default function InstitutionalAccess() {
             form {
               width: 100% !important;
               max-width: 100% !important;
+              padding: 0 !important;
             }
             input, select, textarea {
               width: 100% !important;
@@ -70,28 +74,18 @@ export default function InstitutionalAccess() {
 
       <Navbar />
 
-      <main className="pt-32 pb-24 px-4 md:px-8">
-        <div className="w-full max-w-7xl mx-auto">
-          {/* Header - Only title, no subtitle */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center mb-8"
-          >
-            <h1 className="text-3xl md:text-5xl font-clash font-bold text-black mb-4 tracking-tight">
-              Institutional Access
-            </h1>
-          </motion.div>
-
-          {/* Form Container - Full width */}
+      <main className="pt-28 pb-16 px-4 md:px-8">
+        <div className="w-full max-w-5xl mx-auto">
+          {/* No title - removed completely */}
+          
+          {/* Form Container - No card background, just rounded iframe */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="w-full bg-white rounded-[2rem] p-4 md:p-8 shadow-sm border border-gray-100"
+            className="w-full"
           >
-            <div ref={containerRef} className="w-full"></div>
+            <div ref={containerRef} className="w-full rounded-2xl overflow-hidden"></div>
           </motion.div>
         </div>
       </main>

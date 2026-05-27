@@ -75,7 +75,7 @@ export default function Navbar() {
       </nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY WITH CARD
+          REFINED BLURRED MENU OVERLAY WITH IMAGE CARD
       ========================================= */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
@@ -91,20 +91,16 @@ export default function Navbar() {
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* INSTITUTIONAL ACCESS WITH SMALL IMAGE */}
+            {/* INSTITUTIONAL ACCESS - THE IMAGE ITSELF IS THE CARD */}
             <Link 
               onClick={() => setIsMenuOpen(false)} 
               to="/institutional-access" 
-              className="flex items-center justify-between bg-gray-50 rounded-xl p-3 border border-gray-100 hover:border-gray-200 transition-all duration-300"
+              className="block rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
             >
-              <div className="flex flex-col">
-                <span className="text-sm font-medium text-gray-900">Institutional Access</span>
-                <span className="text-xs text-gray-500 mt-0.5">For Institutions & Government Bodies</span>
-              </div>
               <img 
                 src="/IMG_inst.JPG" 
                 alt="Institutional Access" 
-                className="w-8 h-8 rounded-full object-cover"
+                className="w-full h-auto object-cover"
               />
             </Link>
           </div>

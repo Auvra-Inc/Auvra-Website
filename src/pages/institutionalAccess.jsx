@@ -15,13 +15,18 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    iframe.style.cssText = 'width: 100%; height: 650px; border: none; border-radius: 16px; background: white; display: block;';
+    // IMPORTANT: Remove fixed height to let iframe expand naturally
+    iframe.style.cssText = 'width: 100%; border: none; border-radius: 16px; background: white; display: block;';
     iframe.title = 'Auvra Institutional Access';
+    
+    // Set initial height, will auto-adjust to content
+    iframe.style.height = 'auto';
     container.appendChild(iframe);
 
     fetch('https://pxodpeirilfuzqtlbhqf.supabase.co/functions/v1/embed-form?slug=auvra-institutional-access')
       .then(function(r) { return r.text(); })
       .then(function(html) { 
+        // Modify the iframe content to communicate its height
         const styledHtml = html.replace(
           '</head>',
           `<style>
@@ -37,6 +42,7 @@ export default function InstitutionalAccess() {
               color: #1a1a1a !important;
               padding: 12px !important;
               margin: 0 !important;
+              overflow-y: auto !important;
             }
             
             /* Hide all footers */
@@ -46,7 +52,6 @@ export default function InstitutionalAccess() {
               display: none !important;
             }
             
-            /* Main container */
             .container, .form-container, main, .main {
               max-width: 100% !important;
               width: 100% !important;
@@ -69,7 +74,6 @@ export default function InstitutionalAccess() {
               margin-bottom: 6px !important;
               display: block !important;
               font-size: 14px !important;
-              letter-spacing: -0.2px !important;
             }
             
             /* SUB-BODY TEXT - Normal weight */
@@ -84,7 +88,6 @@ export default function InstitutionalAccess() {
               line-height: 1.4 !important;
             }
             
-            /* Input fields */
             input, select, textarea, .input, .form-control {
               width: 100% !important;
               padding: 10px 12px !important;
@@ -108,7 +111,6 @@ export default function InstitutionalAccess() {
               font-weight: 400 !important;
             }
             
-            /* Submit button */
             button[type="submit"], .submit-btn, .btn-primary {
               background: #000000 !important;
               color: #ffffff !important;
@@ -126,7 +128,6 @@ export default function InstitutionalAccess() {
               background: #333333 !important;
             }
             
-            /* Headings */
             h1, h2, h3, h4, .heading {
               color: #111827 !important;
               font-size: 18px !important;
@@ -134,14 +135,12 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
-            /* Regular paragraph text */
             p, span, .text, .regular-text {
               color: #4b5563 !important;
               font-weight: 400 !important;
               font-size: 13px !important;
             }
             
-            /* Cards */
             .card, [class*="card"] {
               padding: 12px !important;
               margin-bottom: 12px !important;
@@ -149,7 +148,6 @@ export default function InstitutionalAccess() {
               border-radius: 12px !important;
             }
             
-            /* Radio and checkbox labels (keep bold) */
             .radio-group label, .checkbox-group label {
               font-weight: 500 !important;
               font-size: 13px !important;
@@ -173,9 +171,32 @@ export default function InstitutionalAccess() {
             .row, .grid {
               gap: 12px !important;
             }
-          </style></head>`
+          </style>`
         );
-        iframe.srcdoc = styledHtml;
+        
+        // Add script to auto-resize iframe height based on content
+        const finalHtml = styledHtml.replace(
+          '</body>',
+          `<script>
+            function sendHeight() {
+              const height = document.body.scrollHeight;
+              window.parent.postMessage({ type: 'resize', height: height }, '*');
+            }
+            window.addEventListener('load', sendHeight);
+            window.addEventListener('resize', sendHeight);
+            setTimeout(sendHeight, 100);
+            new MutationObserver(sendHeight).observe(document.body, { childList: true, subtree: true, attributes: true });
+          <\/script></body>`
+        );
+        
+        iframe.srcdoc = finalHtml;
+        
+        // Listen for height messages from iframe
+        window.addEventListener('message', function(event) {
+          if (event.data && event.data.type === 'resize') {
+            iframe.style.height = event.data.height + 'px';
+          }
+        });
       })
       .catch(function(error) {
         console.error('Error loading form:', error);
@@ -221,7 +242,6 @@ export default function InstitutionalAccess() {
             <div 
               ref={containerRef} 
               className="w-full overflow-visible rounded-xl bg-white"
-              style={{ minHeight: '550px' }}
             ></div>
           </motion.div>
         </div>

@@ -11,9 +11,9 @@ const VaultSection = () => {
 
   return (
     // We removed the fixed height! Let the content dictate the size.
-    <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-10 md:pt-24">
+    <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-8 md:pt-20">
       
-      {/* =========================================
+      {/*=========================================
           BOX A: TEXT & FLOATING AVATARS 
           This acts as a "container" so avatars float around the text, not the whole page.
       ========================================= */}
@@ -45,7 +45,7 @@ const VaultSection = () => {
         {/* 4. Mid Right (Smiling Woman) */}
         <FloatingAvatar 
           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" 
-          className="top-[25%] right-[10%] md:right-[15%] w-16 h-16 md:w-20 md:h-20" 
+          className="top-[25%] right-[8%] md:right-[15%] w-16 h-16 md:w-20 md:h-20" 
           delay="2.1s" 
         />
         

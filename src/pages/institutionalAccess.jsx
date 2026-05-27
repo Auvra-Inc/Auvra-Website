@@ -15,14 +15,13 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    iframe.style.cssText = 'width: 100%; height: 100%; min-height: 700px; border: none; border-radius: 24px; background: white; display: block;';
+    iframe.style.cssText = 'width: 100%; height: 650px; border: none; border-radius: 16px; background: white; display: block;';
     iframe.title = 'Auvra Institutional Access';
     container.appendChild(iframe);
 
     fetch('https://pxodpeirilfuzqtlbhqf.supabase.co/functions/v1/embed-form?slug=auvra-institutional-access')
       .then(function(r) { return r.text(); })
       .then(function(html) { 
-        // Complete CSS overhaul to ensure all text is visible
         const styledHtml = html.replace(
           '</head>',
           `<style>
@@ -36,7 +35,7 @@ export default function InstitutionalAccess() {
               background: #ffffff !important;
               font-family: system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif !important;
               color: #1a1a1a !important;
-              padding: 24px !important;
+              padding: 12px !important;
               margin: 0 !important;
             }
             
@@ -47,65 +46,66 @@ export default function InstitutionalAccess() {
               display: none !important;
             }
             
-            /* Main container */
+            /* Main container - full width */
             .container, .form-container, main, .main {
               max-width: 100% !important;
               width: 100% !important;
               background: transparent !important;
+              padding: 0 !important;
+              margin: 0 !important;
             }
             
-            /* Form elements */
+            /* Form - full width */
             form {
               width: 100% !important;
               max-width: 100% !important;
+              margin: 0 !important;
+              padding: 0 !important;
             }
             
-            /* Labels - Dark and visible */
+            /* Labels */
             label, .label, .form-label {
-              color: #1f2937 !important;
+              color: #374151 !important;
               font-weight: 500 !important;
-              margin-bottom: 8px !important;
+              margin-bottom: 4px !important;
               display: block !important;
-              font-size: 14px !important;
+              font-size: 13px !important;
             }
             
             /* Input fields */
             input, select, textarea, .input, .form-control {
               width: 100% !important;
-              padding: 12px 16px !important;
-              border: 1px solid #d1d5db !important;
-              border-radius: 12px !important;
-              font-size: 16px !important;
+              padding: 10px 12px !important;
+              border: 1px solid #e5e7eb !important;
+              border-radius: 10px !important;
+              font-size: 14px !important;
               background: #ffffff !important;
               color: #111827 !important;
-              margin-bottom: 16px !important;
-              transition: all 0.2s ease !important;
+              margin-bottom: 12px !important;
             }
             
             input:focus, select:focus, textarea:focus {
               outline: none !important;
               border-color: #000000 !important;
-              box-shadow: 0 0 0 3px rgba(0,0,0,0.1) !important;
             }
             
-            /* Placeholder text */
-            ::placeholder, .placeholder {
+            ::placeholder {
               color: #9ca3af !important;
+              font-size: 13px !important;
             }
             
             /* Submit button */
             button[type="submit"], .submit-btn, .btn-primary {
               background: #000000 !important;
               color: #ffffff !important;
-              padding: 14px 24px !important;
+              padding: 12px 16px !important;
               border: none !important;
-              border-radius: 14px !important;
-              font-weight: 600 !important;
-              font-size: 16px !important;
+              border-radius: 12px !important;
+              font-weight: 500 !important;
+              font-size: 14px !important;
               cursor: pointer !important;
               width: 100% !important;
-              margin-top: 8px !important;
-              transition: background 0.2s ease !important;
+              margin-top: 4px !important;
             }
             
             button[type="submit"]:hover {
@@ -115,28 +115,42 @@ export default function InstitutionalAccess() {
             /* Headings */
             h1, h2, h3, h4, .heading {
               color: #111827 !important;
+              font-size: 18px !important;
+              margin-bottom: 12px !important;
             }
             
-            /* Paragraphs and text */
+            /* Paragraphs */
             p, span, div:not([class*="icon"]):not([class*="button"]) {
-              color: #374151 !important;
+              color: #4b5563 !important;
+              font-size: 13px !important;
             }
             
-            /* Radio and checkbox groups */
+            /* Cards */
+            .card, [class*="card"] {
+              padding: 12px !important;
+              margin-bottom: 12px !important;
+              background: #f9fafb !important;
+              border-radius: 12px !important;
+            }
+            
+            /* Radio and checkbox */
             .radio-group, .checkbox-group {
-              color: #374151 !important;
+              margin-bottom: 8px !important;
+              font-size: 13px !important;
             }
             
             input[type="radio"], input[type="checkbox"] {
-              width: auto !important;
+              width: 16px !important;
+              height: 16px !important;
               margin-right: 8px !important;
             }
             
-            /* Error messages */
-            .error, .error-message {
-              color: #dc2626 !important;
-              font-size: 13px !important;
-              margin-top: 4px !important;
+            .form-group, .field-group {
+              margin-bottom: 12px !important;
+            }
+            
+            .row, .grid {
+              gap: 12px !important;
             }
           </style></head>`
         );
@@ -145,12 +159,12 @@ export default function InstitutionalAccess() {
       .catch(function(error) {
         console.error('Error loading form:', error);
         container.innerHTML = `
-          <div class="text-center py-16 bg-white rounded-2xl" style="background: white; border-radius: 24px; padding: 64px 24px;">
-            <p style="color: #4b5563; margin-bottom: 20px;">Unable to load form. Please try again later.</p>
+          <div class="text-center py-12 bg-white rounded-2xl" style="background: white; border-radius: 16px; padding: 40px 20px;">
+            <p style="color: #4b5563; margin-bottom: 16px; font-size: 14px;">Unable to load form. Please try again later.</p>
             <a href="https://link.foorm.xyz/f/auvra-institutional-access" 
                target="_blank" 
                rel="noopener noreferrer" 
-               style="display: inline-block; background: #000000; color: white; padding: 12px 24px; border-radius: 14px; text-decoration: none; font-weight: 500;">
+               style="display: inline-block; background: #000000; color: white; padding: 10px 20px; border-radius: 12px; text-decoration: none; font-size: 14px;">
               Open Form in New Tab
             </a>
           </div>
@@ -175,18 +189,18 @@ export default function InstitutionalAccess() {
 
       <Navbar />
 
-      <main className="min-h-screen bg-white pt-24 pb-16 px-4 md:px-6">
-        <div className="w-full max-w-3xl mx-auto">
+      <main className="min-h-screen bg-white pt-20 pb-12 px-2 md:px-3">
+        <div className="w-full max-w-full mx-auto">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="w-full"
           >
             <div 
               ref={containerRef} 
-              className="w-full overflow-visible rounded-2xl bg-white"
-              style={{ minHeight: '600px' }}
+              className="w-full overflow-visible rounded-xl bg-white"
+              style={{ minHeight: '550px' }}
             ></div>
           </motion.div>
         </div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Building2, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar'; // Adjust path if needed
-import FooterSection from '../footerSection'; // Adjust path if needed
+import FooterSection from '../reuseables/footerSection'; // Adjust path if needed
 
 export default function InstitutionalAccess() {
   const [isSubmitting, setIsSubmitting] = useState(false);

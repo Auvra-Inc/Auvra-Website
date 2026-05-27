@@ -66,16 +66,14 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="w-10 h-10 bg-gray-200 rounded-xl flex flex-col justify-center items-center hover:bg-gray-100 transition relative"
           >
-            {/* Top Line */}
             <div className={`w-6 h-0.5 bg-black transition-all duration-300 absolute ${isMenuOpen ? 'rotate-45' : '-translate-y-1'}`}></div>
-            {/* Bottom Line */}
             <div className={`w-6 h-0.5 bg-black transition-all duration-300 absolute ${isMenuOpen ? '-rotate-45' : 'translate-y-1'}`}></div>
           </button>
         </div>
       </nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY WITH IMAGE CARD
+          REFINED BLURRED MENU OVERLAY WITH CARD
       ========================================= */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
@@ -91,17 +89,33 @@ export default function Navbar() {
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* INSTITUTIONAL ACCESS - THE IMAGE ITSELF IS THE CARD */}
+            {/* INSTITUTIONAL ACCESS - Card with image cropped to same size, with text overlay */}
             <Link 
               onClick={() => setIsMenuOpen(false)} 
               to="/institutional-access" 
-              className="block rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md"
             >
+              {/* Background Image - Cropped to card size */}
               <img 
                 src="/IMG_inst.JPG" 
                 alt="Institutional Access" 
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover absolute inset-0"
               />
+              
+              {/* Dark Overlay for text readability */}
+              <div className="absolute inset-0 bg-black/40"></div>
+              
+              {/* Text Content - Same as before */}
+              <div className="relative z-10 flex items-center justify-between p-3">
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium text-white">Institutional Access</span>
+                  <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
+                </div>
+                {/* Small arrow indicator */}
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </Link>
           </div>
         </div>

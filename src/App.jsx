@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
-// --- SEO MANAGER - REMOVED (DELETE THIS LINE) ---
-// import SeoManager from './SeoManager';
-
 // --- YOUR COMPONENT IMPORTS ---
 import FadeSection from './fadeSection'
 import ProblemSection from './problemSection'
@@ -36,7 +33,7 @@ import About from './pages/about'
 import Blog from './pages/blog'
 import BlogPost from './pages/blogPost'
 import Hero from './pages/hero'
-// REMOVED: import InstitutionalAccess from './pages/institutionalAccess'
+import InstitutionalAccess from './pages/institutionalAccess'
 
 // 1. SCROLL HELPER
 function ScrollToTop() {
@@ -50,7 +47,6 @@ function ScrollToTop() {
 // 2. THE HOMEPAGE BUNDLE
 const Home = () => (
   <>
-    {/* We don't wrap Hero, because we want that to show instantly on page load! */}
     <Hero />
     <FadeSection><PartnersSection /></FadeSection>
     <FadeSection><LivingRecordsSection /></FadeSection>
@@ -71,10 +67,7 @@ const Home = () => (
 function App() {
   return (
     <BrowserRouter>
-      {/* SEO MANAGER REMOVED - DELETE THIS LINE BELOW */}
-      {/* <SeoManager /> */}
-      
-      <ScrollToTop /> {/* Instantly scrolls to top when you click a link */}
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -88,11 +81,10 @@ function App() {
         <Route path="/governance" element={<ContentGovernance />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        {/* REMOVED: <Route path="/institutional-access" element={<InstitutionalAccess />} /> */}
+        <Route path="/institutional-access" element={<InstitutionalAccess />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
 
-      {/* Footer stays outside the Routes so it always shows up at the bottom */}
       <FooterSection />
     </BrowserRouter>
   )

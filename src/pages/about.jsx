@@ -147,7 +147,7 @@ export default function About() {
     {
       title: 'Trust Through Transparency.',
       description:
-        'We treat cultural heritage with the utmost respect and reverence. We prioritize authentic storytelling, verifiable provenance, and ethical representation in everything we do.',
+        'We operate with honesty and clarity. From onboarding to blockchain transactions, we build trust by being open about our processes and holding ourselves to the highest ethical standards.',
     },
     {
       title: 'User Empowerment.',

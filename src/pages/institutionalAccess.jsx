@@ -46,7 +46,7 @@ export default function InstitutionalAccess() {
               display: none !important;
             }
             
-            /* Main container - full width */
+            /* Main container */
             .container, .form-container, main, .main {
               max-width: 100% !important;
               width: 100% !important;
@@ -55,7 +55,6 @@ export default function InstitutionalAccess() {
               margin: 0 !important;
             }
             
-            /* Form - full width */
             form {
               width: 100% !important;
               max-width: 100% !important;
@@ -63,13 +62,26 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* Labels */
-            label, .label, .form-label {
-              color: #374151 !important;
-              font-weight: 500 !important;
-              margin-bottom: 4px !important;
+            /* LABELS / QUESTIONS - BOLD */
+            label, .label, .form-label, .question, [class*="question"] {
+              color: #111827 !important;
+              font-weight: 600 !important;
+              margin-bottom: 6px !important;
               display: block !important;
-              font-size: 13px !important;
+              font-size: 14px !important;
+              letter-spacing: -0.2px !important;
+            }
+            
+            /* SUB-BODY TEXT - Normal weight */
+            .description, .help-text, .hint, .subtext, 
+            .form-text, .small-text, [class*="description"],
+            .field-description, .field-help {
+              color: #6b7280 !important;
+              font-weight: 400 !important;
+              font-size: 12px !important;
+              margin-top: 2px !important;
+              margin-bottom: 6px !important;
+              line-height: 1.4 !important;
             }
             
             /* Input fields */
@@ -82,6 +94,7 @@ export default function InstitutionalAccess() {
               background: #ffffff !important;
               color: #111827 !important;
               margin-bottom: 12px !important;
+              font-weight: 400 !important;
             }
             
             input:focus, select:focus, textarea:focus {
@@ -92,6 +105,7 @@ export default function InstitutionalAccess() {
             ::placeholder {
               color: #9ca3af !important;
               font-size: 13px !important;
+              font-weight: 400 !important;
             }
             
             /* Submit button */
@@ -105,7 +119,7 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
               cursor: pointer !important;
               width: 100% !important;
-              margin-top: 4px !important;
+              margin-top: 8px !important;
             }
             
             button[type="submit"]:hover {
@@ -116,12 +130,14 @@ export default function InstitutionalAccess() {
             h1, h2, h3, h4, .heading {
               color: #111827 !important;
               font-size: 18px !important;
+              font-weight: 600 !important;
               margin-bottom: 12px !important;
             }
             
-            /* Paragraphs */
-            p, span, div:not([class*="icon"]):not([class*="button"]) {
+            /* Regular paragraph text */
+            p, span, .text, .regular-text {
               color: #4b5563 !important;
+              font-weight: 400 !important;
               font-size: 13px !important;
             }
             
@@ -133,10 +149,15 @@ export default function InstitutionalAccess() {
               border-radius: 12px !important;
             }
             
-            /* Radio and checkbox */
+            /* Radio and checkbox labels (keep bold) */
+            .radio-group label, .checkbox-group label {
+              font-weight: 500 !important;
+              font-size: 13px !important;
+              color: #374151 !important;
+            }
+            
             .radio-group, .checkbox-group {
               margin-bottom: 8px !important;
-              font-size: 13px !important;
             }
             
             input[type="radio"], input[type="checkbox"] {
@@ -146,7 +167,7 @@ export default function InstitutionalAccess() {
             }
             
             .form-group, .field-group {
-              margin-bottom: 12px !important;
+              margin-bottom: 14px !important;
             }
             
             .row, .grid {
@@ -189,7 +210,7 @@ export default function InstitutionalAccess() {
 
       <Navbar />
 
-      <main className="min-h-screen bg-white pt-20 pb-12 px-2 md:px-3">
+      <main className="min-h-screen bg-white pt-32 pb-12 px-2 md:px-3">
         <div className="w-full max-w-full mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 15 }}

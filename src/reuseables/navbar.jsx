@@ -46,7 +46,7 @@ export default function Navbar() {
       >
         <Link to="/" className="flex items-center gap-3 font-medium text-lg sm:text-xl tracking-wide">
           <img 
-             src="/Vector.png" 
+             src="/Vector .png" 
              alt="Auvra Logo" 
              className="w-8 h-8 object-contain" 
           />

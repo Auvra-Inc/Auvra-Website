@@ -75,7 +75,7 @@ export default function Navbar() {
       </nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY
+          REFINED BLURRED MENU OVERLAY WITH CARD
       ========================================= */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
@@ -90,7 +90,29 @@ export default function Navbar() {
             <a href="/#features" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
-            <Link onClick={() => setIsMenuOpen(false)} to="/institutional-access" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Institutional Access</Link>
+            
+            {/* INSTITUTIONAL ACCESS WITH CARD - Special Styled */}
+            <div className="relative group">
+              <Link 
+                onClick={() => setIsMenuOpen(false)} 
+                to="/institutional-access" 
+                className="block w-full"
+              >
+                <div className="flex items-center justify-between bg-gradient-to-r from-gray-50 to-white rounded-2xl p-4 border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-md">
+                  <div className="flex flex-col">
+                    <span className="text-base font-semibold text-gray-900">Institutional Access</span>
+                    <span className="text-xs text-gray-500 mt-1">For Institutions & Government Bodies</span>
+                  </div>
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
+                    <img 
+                      src="/IMG_inst.JPG" 
+                      alt="Institutional Access" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       )}

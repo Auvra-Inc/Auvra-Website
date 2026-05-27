@@ -174,7 +174,7 @@ export default function BlogPost() {
           <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto', padding: '1.5rem 0' }}>
             <div style={{ width: '100%', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
               <div
-                className='font-clash text-gray-900'
+                className='text-gray-900'
                 dangerouslySetInnerHTML={{ __html: post.content }}
                 style={{ width: '100%', maxWidth: '100%', margin: 0 }}
               />

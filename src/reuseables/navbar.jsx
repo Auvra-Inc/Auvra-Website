@@ -32,13 +32,19 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
+  // Preload image for faster loading
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/IMG_inst.JPG';
+  }, []);
+
   return (
     <>
       {/* =========================================
           ULTRA-MODERN FLOATING NAV
       ========================================= */}
       <nav 
-        className={`fixed z-[110] font-clash flex justify-between items-center px-4 py-2 shadow-sm transition-all duration-300 ease-in-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-5xl rounded-2xl
+        className={`fixed z-[110] font-clash flex justify-between items-center px-5 py-2.5 shadow-sm transition-all duration-300 ease-in-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-6xl rounded-xl
           ${isScrolled || isMenuOpen
             ? 'top-5 sm:top-6 bg-white/80 backdrop-blur-md border border-white/40 shadow-lg' 
             : 'top-5 sm:top-6 bg-white/90 border border-gray-100'
@@ -83,32 +89,33 @@ export default function Navbar() {
           ></div>
 
           {/* The Dropdown Menu Box */}
-          <div className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
+          <div className="relative z-10 w-full font-clash max-w-6xl bg-white rounded-2xl p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
             <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Ask Lens AI</a>
             <a href="/#features" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* INSTITUTIONAL ACCESS - Card with image cropped to same size, with text overlay */}
+            {/* INSTITUTIONAL ACCESS - Card with image */}
             <Link 
               onClick={() => setIsMenuOpen(false)} 
               to="/institutional-access" 
-              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md"
+              className="relative block overflow-hidden rounded-lg bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md"
             >
-              {/* Background Image - Cropped to card size */}
+              {/* Background Image - Preloaded for fast loading */}
               <img 
                 src="/IMG_inst.JPG" 
                 alt="Institutional Access" 
                 className="w-full h-full object-cover absolute inset-0"
+                loading="eager"
               />
               
               {/* Dark Overlay for text readability */}
               <div className="absolute inset-0 bg-black/40"></div>
               
-              {/* Text Content - Same as before */}
+              {/* Text Content */}
               <div className="relative z-10 flex items-center justify-between p-3">
                 <div className="flex flex-col">
-                  <span className="text-sm font-medium text-white">Institutional Access</span>
+                  <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
                   <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
                 </div>
                 {/* Small arrow indicator */}

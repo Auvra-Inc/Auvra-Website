@@ -87,7 +87,7 @@ const FeaturesSection = () => {
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true, amount: 0.2 }}
 				transition={{ duration: 0.6, ease: 'easeOut', delay: 0.12 }}
-				className='bg-black rounded-[2rem] p-8 pt-4 text-white shadow-xl flex flex-col h-full border border-neutral-800 text-center md:text-left mb-4'
+				className='bg-black rounded-[2rem] p-8 text-white shadow-xl flex flex-col h-full border border-neutral-800 text-center md:text-left mb-8'
 			>
 					<div className='flex items-center justify-center md:justify-start gap-3 mb-4'>
 						<Crown className='text-yellow-500 fill-yellow-500 w-6 h-6' />
@@ -163,7 +163,7 @@ const FeaturesSection = () => {
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true, amount: 0.2 }}
 				transition={{ duration: 0.6, ease: 'easeOut', delay: 0.18 }}
-				className='w-full max-w-md bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8  pt-4 md:p-10 border border-gray-200 shadow-sm flex flex-col mb-4'
+				className='w-full max-w-md bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col mb-8'
 			>
 					{/* HEADER SECTION */}
 					<div className='flex items-center gap-3 mb-4'>
@@ -308,7 +308,7 @@ const FeaturesSection = () => {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, amount: 0.2 }}
 						transition={{ duration: 0.6, ease: 'easeOut', delay: 0.22 }}
-						className='bg-[#0f1d14] rounded-[2.5rem] p-8 pt-4 md:p-12 text-white shadow-xl lg:col-span-2 relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition mb-4'>
+						className='bg-[#0f1d14] rounded-[2.5rem] p-8 pt-4 md:p-12 text-white shadow-xl lg:col-span-2 relative overflow-hidden flex flex-col md:flex-row gap-10 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition mb-8'>
 					{/* Background Image */}
 					<img
 						src='/3img.jpg'
@@ -404,7 +404,7 @@ const FeaturesSection = () => {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true, amount: 0.2 }}
 						transition={{ duration: 0.6, ease: 'easeOut', delay: 0.28 }}
-						className='w-full max-w-md bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 pt-4 md:p-10 border border-gray-200 shadow-sm flex flex-col mb-4'>
+						className='w-full max-w-md bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col mb-8'>
 					{/* HEADER SECTION */}
 					<div className='flex items-center gap-3 mb-4'>
 						{/* Lucide BadgeCheck with orange fill and white checkmark */}

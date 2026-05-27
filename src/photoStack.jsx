@@ -17,7 +17,7 @@ const PhotoStack = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full overflow-hidden ">
+    <div className="flex flex-col items-center justify-center w-full py-10">
       
       {/* 1. The Instruction Text */}
       <div 

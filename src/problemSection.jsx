@@ -7,7 +7,7 @@ const ProblemSection = () => {
       <h2 className="text-3xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-2">
         Culture is disappearing.
       </h2>
-      <h3 className="text-3xl md:text-6xl font-semibold tracking-tight text-red-500 mb-12 md:mb-20">
+      <h3 className="text-3xl md:text-6xl font-semibold tracking-tight text-red-500 mb-8 md:mb-16">
         Stories are being lost.
       </h3>
 

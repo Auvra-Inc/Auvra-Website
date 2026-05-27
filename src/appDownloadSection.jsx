@@ -2,7 +2,7 @@ import { FaApple, FaGooglePlay,  } from 'react-icons/fa';
 
 const AppDownloadSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center text-center px-6 font-clash">
+    <section className="flex flex-col items-center justify-center text-center px-6 font-clash mb-10">
       
       {/* Rating Pill */}
       <div className=" font-clash flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200 shadow-sm bg-white mb-8">

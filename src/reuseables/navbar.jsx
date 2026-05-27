@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import InstitutionalAccessModal from './InstitutionalAccessModal';
+import InstitutionalAccessModal from './institutionAccessModal'; // ← Updated to match your file name
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,10 +103,9 @@ export default function Navbar() {
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* Just a tiny space */}
             <div className="pt-0.5"></div>
             
-            {/* INSTITUTIONAL ACCESS - Opens Modal instead of page */}
+            {/* INSTITUTIONAL ACCESS - Opens Modal */}
             <button
               onClick={() => {
                 setIsMenuOpen(false);

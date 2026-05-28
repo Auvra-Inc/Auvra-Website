@@ -39,8 +39,11 @@ export default function InstitutionalAccess() {
               padding: 16px !important;
               margin: 0 !important;
               overflow-y: auto !important;
+              -webkit-text-size-adjust: 100% !important;
+              touch-action: pan-y pinch-zoom !important;
             }
             
+            /* Hide all footers */
             footer, .foorm-footer, [class*="powered"], [class*="footer"], 
             div:has(> a[href*="foorm.xyz"]), .footer, .form-footer,
             .credit, .credits, [class*="credit"] {
@@ -62,6 +65,7 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
+            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
             p:first-of-type, .description-text, .intro-text, 
             form > p:first-child, .form-description {
               margin-bottom: 32px !important;
@@ -70,14 +74,17 @@ export default function InstitutionalAccess() {
               border-bottom: 1px solid #f0f0f0 !important;
             }
             
+            /* Any paragraph that contains the intro text */
             p {
               margin-bottom: 28px !important;
             }
             
+            /* First child of form gets extra spacing */
             form > *:first-child {
               margin-bottom: 32px !important;
             }
             
+            /* LABELS / QUESTIONS - BOLD */
             label, .label, .form-label, .question, [class*="question"] {
               color: #111827 !important;
               font-weight: 600 !important;
@@ -87,6 +94,7 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
+            /* Required field indicator - italic, thin, with brackets */
             .required, .required-star, [class*="required"] {
               font-weight: 300 !important;
               font-style: italic !important;
@@ -94,6 +102,7 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
             }
             
+            /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
             .field-description, .field-help {
@@ -152,12 +161,14 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
+            /* Regular text */
             span:not([class*="required"]), .text, .regular-text {
               color: #4b5563 !important;
               font-weight: 400 !important;
               font-size: 13px !important;
             }
             
+            /* Card styling */
             .card, [class*="card"] {
               padding: 12px !important;
               margin-bottom: 12px !important;
@@ -165,6 +176,7 @@ export default function InstitutionalAccess() {
               border-radius: 12px !important;
             }
             
+            /* Radio and checkbox groups */
             .radio-group, .checkbox-group {
               margin-bottom: 16px !important;
             }
@@ -181,6 +193,13 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
+            /* "Other" option styling */
+            .other-option, [class*="other"] {
+              margin-left: 0 !important;
+              margin-top: 8px !important;
+              margin-bottom: 12px !important;
+            }
+            
             .form-group, .field-group {
               margin-bottom: 16px !important;
             }
@@ -189,8 +208,14 @@ export default function InstitutionalAccess() {
               gap: 12px !important;
             }
             
+            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
+            }
+            
+            /* Prevent zoom on inputs (iOS) */
+            input, select, textarea {
+              font-size: 16px !important;
             }
           </style>`
         );
@@ -231,7 +256,7 @@ export default function InstitutionalAccess() {
                   textInput.style.padding = '8px 12px';
                   textInput.style.border = '1px solid #e5e7eb';
                   textInput.style.borderRadius = '8px';
-                  textInput.style.fontSize = '13px';
+                  textInput.style.fontSize = '16px';
                   textInput.style.display = 'none';
                   parentDiv.appendChild(textInput);
                   
@@ -247,14 +272,12 @@ export default function InstitutionalAccess() {
               });
             }
             
-            // Add "Other" text input for dropdowns (Country and Institution Type)
             function addOtherInputsForSelects() {
               var selects = document.querySelectorAll('select');
               selects.forEach(function(select) {
                 var hasOther = false;
                 var selectLabel = '';
                 
-                // Find the label text for this select
                 var labelElement = select.closest('.form-group')?.querySelector('label');
                 if (labelElement) {
                   selectLabel = labelElement.innerText.toLowerCase();
@@ -272,7 +295,6 @@ export default function InstitutionalAccess() {
                   var textInput = document.createElement('input');
                   textInput.type = 'text';
                   
-                  // Set different placeholder text based on which select it is
                   if (selectLabel.includes('institution') || selectLabel.includes('organization')) {
                     textInput.placeholder = 'Please specify your institution type...';
                   } else if (selectLabel.includes('country') || selectLabel.includes('region')) {
@@ -288,7 +310,7 @@ export default function InstitutionalAccess() {
                   textInput.style.padding = '10px 12px';
                   textInput.style.border = '1px solid #e5e7eb';
                   textInput.style.borderRadius = '10px';
-                  textInput.style.fontSize = '14px';
+                  textInput.style.fontSize = '16px';
                   textInput.style.display = 'none';
                   select.parentElement.appendChild(textInput);
                   
@@ -365,7 +387,7 @@ export default function InstitutionalAccess() {
       <Helmet>
         <title>Institutional Access | Auvra</title>
         <meta name="description" content="Apply for institutional and government access to Auvra's cultural preservation infrastructure." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Helmet>
 
       <Navbar />

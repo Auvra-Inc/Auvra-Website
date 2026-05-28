@@ -15,14 +15,14 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    iframe.style.cssText = 'width: 100%; min-height: 500px; border: none; border-radius: 16px; background: white; display: block;';
+    iframe.style.cssText = 'width: 100%; border: none; border-radius: 16px; background: white; display: block;';
     iframe.title = 'Auvra Institutional Access';
+    iframe.style.height = 'auto';
     container.appendChild(iframe);
 
     fetch('https://pxodpeirilfuzqtlbhqf.supabase.co/functions/v1/embed-form?slug=auvra-institutional-access')
       .then(function(r) { return r.text(); })
       .then(function(html) { 
-        // FIX: Added CSS to fix Thank You page - black text and no extra scrolling
         const styledHtml = html.replace(
           '</head>',
           `<style>
@@ -39,31 +39,8 @@ export default function InstitutionalAccess() {
               padding: 16px !important;
               margin: 0 !important;
               overflow-y: auto !important;
-            }
-            
-            /* FIX: Thank You page - force black text */
-            .thank-you, [class*="thank"], [class*="success"], 
-            .submission-message, .form-success-message,
-            div[class*="success"], div[class*="thank"] {
-              color: #111827 !important;
-              background: #ffffff !important;
-            }
-            
-            .thank-you p, [class*="thank"] p, [class*="success"] p,
-            .submission-message p, .form-success-message p {
-              color: #374151 !important;
-            }
-            
-            .thank-you h1, .thank-you h2, .thank-you h3,
-            [class*="thank"] h1, [class*="success"] h1 {
-              color: #111827 !important;
-            }
-            
-            /* FIX: Remove extra spacing from thank you page */
-            .thank-you, [class*="thank"], [class*="success"] {
-              margin: 0 !important;
-              padding: 20px !important;
-              min-height: auto !important;
+              -webkit-text-size-adjust: 100% !important;
+              touch-action: pan-y pinch-zoom !important;
             }
             
             /* Hide all footers */
@@ -88,6 +65,7 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
+            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
             p:first-of-type, .description-text, .intro-text, 
             form > p:first-child, .form-description {
               margin-bottom: 32px !important;
@@ -96,14 +74,17 @@ export default function InstitutionalAccess() {
               border-bottom: 1px solid #f0f0f0 !important;
             }
             
+            /* Any paragraph that contains the intro text */
             p {
               margin-bottom: 28px !important;
             }
             
+            /* First child of form gets extra spacing */
             form > *:first-child {
               margin-bottom: 32px !important;
             }
             
+            /* LABELS / QUESTIONS - BOLD */
             label, .label, .form-label, .question, [class*="question"] {
               color: #111827 !important;
               font-weight: 600 !important;
@@ -113,6 +94,7 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
+            /* Required field indicator - italic, thin, with brackets */
             .required, .required-star, [class*="required"] {
               font-weight: 300 !important;
               font-style: italic !important;
@@ -120,6 +102,7 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
             }
             
+            /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
             .field-description, .field-help {
@@ -136,7 +119,7 @@ export default function InstitutionalAccess() {
               padding: 10px 12px !important;
               border: 1px solid #e5e7eb !important;
               border-radius: 10px !important;
-              font-size: 16px !important;
+              font-size: 14px !important;
               background: #ffffff !important;
               color: #111827 !important;
               margin-bottom: 20px !important;
@@ -178,6 +161,22 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
+            /* Regular text */
+            span:not([class*="required"]), .text, .regular-text {
+              color: #4b5563 !important;
+              font-weight: 400 !important;
+              font-size: 13px !important;
+            }
+            
+            /* Card styling */
+            .card, [class*="card"] {
+              padding: 12px !important;
+              margin-bottom: 12px !important;
+              background: #f9fafb !important;
+              border-radius: 12px !important;
+            }
+            
+            /* Radio and checkbox groups */
             .radio-group, .checkbox-group {
               margin-bottom: 16px !important;
             }
@@ -194,6 +193,7 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
+            /* "Other" option styling */
             .other-option, [class*="other"] {
               margin-left: 0 !important;
               margin-top: 8px !important;
@@ -208,10 +208,12 @@ export default function InstitutionalAccess() {
               gap: 12px !important;
             }
             
+            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
             }
             
+            /* Prevent zoom on inputs (iOS) */
             input, select, textarea {
               font-size: 16px !important;
             }
@@ -233,6 +235,7 @@ export default function InstitutionalAccess() {
               firstParagraph.style.paddingBottom = '8px';
             }
             
+            // Find and add input field for "Other" options
             function addOtherInputs() {
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
               
@@ -352,7 +355,7 @@ export default function InstitutionalAccess() {
         
         window.addEventListener('message', function(event) {
           if (event.data && event.data.type === 'resize') {
-            iframe.style.height = event.data.height + 10 + 'px';
+            iframe.style.height = event.data.height + 'px';
           }
         });
       })

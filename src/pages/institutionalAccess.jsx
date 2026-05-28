@@ -36,7 +36,7 @@ export default function InstitutionalAccess() {
               background: #ffffff !important;
               font-family: system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif !important;
               color: #1a1a1a !important;
-              padding: 16px !important;
+              padding: 12px !important;
               margin: 0 !important;
               overflow-y: auto !important;
             }
@@ -63,64 +63,49 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
-            p:first-of-type, .description-text, .intro-text, 
-            form > p:first-child, .form-description {
-              margin-bottom: 32px !important;
-              display: block !important;
-              padding-bottom: 8px !important;
-              border-bottom: 1px solid #f0f0f0 !important;
-            }
-            
-            /* Any paragraph that contains the intro text */
-            p {
+            /* INTRODUCTION TEXT */
+            p:first-of-type, .description-text, .intro-text {
               margin-bottom: 28px !important;
+              display: block !important;
+              color: #4b5563 !important;
+              font-size: 14px !important;
+              line-height: 1.5 !important;
             }
             
-            /* First child of form gets extra spacing */
-            form > *:first-child {
-              margin-bottom: 32px !important;
+            /* No underline/border on the intro text */
+            form > p:first-child {
+              border-bottom: none !important;
+              padding-bottom: 0 !important;
             }
             
             /* LABELS / QUESTIONS - BOLD */
             label, .label, .form-label, .question, [class*="question"] {
               color: #111827 !important;
               font-weight: 600 !important;
-              margin-top: 8px !important;
-              margin-bottom: 8px !important;
+              margin-bottom: 6px !important;
+              margin-top: 0 !important;
               display: block !important;
               font-size: 14px !important;
             }
             
-            /* Required field indicator - italic, thin, with brackets */
+            /* Required field indicator */
             .required, .required-star, [class*="required"] {
               font-weight: 300 !important;
               font-style: italic !important;
-              font-size: 12px !important;
+              font-size: 11px !important;
               color: #6b7280 !important;
             }
             
-            /* SUB-BODY TEXT - Normal weight */
-            .description, .help-text, .hint, .subtext, 
-            .form-text, .small-text, [class*="description"],
-            .field-description, .field-help {
-              color: #6b7280 !important;
-              font-weight: 400 !important;
-              font-size: 12px !important;
-              margin-top: 4px !important;
-              margin-bottom: 8px !important;
-              line-height: 1.4 !important;
-            }
-            
+            /* Input fields - more compact */
             input, select, textarea, .input, .form-control {
               width: 100% !important;
-              padding: 10px 12px !important;
+              padding: 8px 12px !important;
               border: 1px solid #e5e7eb !important;
               border-radius: 10px !important;
               font-size: 14px !important;
               background: #ffffff !important;
               color: #111827 !important;
-              margin-bottom: 20px !important;
+              margin-bottom: 16px !important;
               font-weight: 400 !important;
             }
             
@@ -132,7 +117,6 @@ export default function InstitutionalAccess() {
             ::placeholder {
               color: #9ca3af !important;
               font-size: 13px !important;
-              font-weight: 400 !important;
             }
             
             button[type="submit"], .submit-btn, .btn-primary {
@@ -145,7 +129,7 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
               cursor: pointer !important;
               width: 100% !important;
-              margin-top: 16px !important;
+              margin-top: 8px !important;
             }
             
             button[type="submit"]:hover {
@@ -159,6 +143,65 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
+            /* CHECKBOX AND RADIO GROUPS - COMPACT */
+            .checkbox-group, .radio-group {
+              margin-bottom: 8px !important;
+              display: flex !important;
+              align-items: center !important;
+              gap: 8px !important;
+            }
+            
+            /* Make checkboxes and radios more compact */
+            .checkbox-group label, .radio-group label {
+              font-weight: 400 !important;
+              font-size: 14px !important;
+              color: #374151 !important;
+              margin-bottom: 0 !important;
+              cursor: pointer !important;
+            }
+            
+            input[type="checkbox"], input[type="radio"] {
+              width: 16px !important;
+              height: 16px !important;
+              margin: 0 !important;
+              cursor: pointer !important;
+              accent-color: #000000 !important;
+            }
+            
+            /* Grid layout for checkboxes - 2 or 3 columns for compactness */
+            .checkbox-group-container, .form-group:has(.checkbox-group) {
+              display: grid !important;
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 6px 12px !important;
+              margin-bottom: 16px !important;
+            }
+            
+            /* Wrap checkbox groups in a grid container */
+            .form-group {
+              margin-bottom: 16px !important;
+            }
+            
+            /* Any div containing multiple checkboxes */
+            div:has(> .checkbox-group:first-child):not(:has(> .checkbox-group:last-child)) {
+              display: grid !important;
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 6px 12px !important;
+            }
+            
+            /* Individual card/option styling - remove extra padding */
+            .card, [class*="card"], .option-card {
+              padding: 0 !important;
+              margin-bottom: 0 !important;
+              background: transparent !important;
+              border: none !important;
+              box-shadow: none !important;
+            }
+            
+            /* Remove any borders or lines */
+            hr, .divider, .separator {
+              display: none !important;
+            }
+            
             /* Regular text */
             span:not([class*="required"]), .text, .regular-text {
               color: #4b5563 !important;
@@ -166,48 +209,16 @@ export default function InstitutionalAccess() {
               font-size: 13px !important;
             }
             
-            /* Card styling */
-            .card, [class*="card"] {
-              padding: 12px !important;
-              margin-bottom: 12px !important;
-              background: #f9fafb !important;
-              border-radius: 12px !important;
-            }
-            
-            /* Radio and checkbox groups */
-            .radio-group, .checkbox-group {
-              margin-bottom: 16px !important;
-            }
-            
-            .radio-group label, .checkbox-group label {
-              font-weight: 500 !important;
-              font-size: 13px !important;
-              color: #374151 !important;
-            }
-            
-            input[type="radio"], input[type="checkbox"] {
-              width: 16px !important;
-              height: 16px !important;
-              margin-right: 8px !important;
-            }
-            
-            /* "Other" option styling */
-            .other-option, [class*="other"] {
-              margin-left: 24px !important;
-              margin-top: 8px !important;
-              margin-bottom: 12px !important;
-            }
-            
-            .other-option input, [class*="other"] input {
-              margin-top: 4px !important;
-            }
-            
-            .form-group, .field-group {
-              margin-bottom: 16px !important;
+            /* Description text */
+            .description, .help-text, .hint, .subtext {
+              color: #6b7280 !important;
+              font-size: 12px !important;
+              margin-top: 2px !important;
+              margin-bottom: 8px !important;
             }
             
             .row, .grid {
-              gap: 12px !important;
+              gap: 8px !important;
             }
             
             /* Hide default asterisk */
@@ -220,21 +231,48 @@ export default function InstitutionalAccess() {
         const finalHtml = styledHtml.replace(
           '</body>',
           `<script>
-            // Convert asterisk to (required) with italic thin style
+            // Convert asterisk to (required)
             document.querySelectorAll('label, .label, .form-label').forEach(function(label) {
               if (label.innerHTML && label.innerHTML.includes('*')) {
-                label.innerHTML = label.innerHTML.replace(/\\*/g, '<span style="font-weight: 300; font-style: italic; font-size: 12px; color: #6b7280;"> (required)</span>');
+                label.innerHTML = label.innerHTML.replace(/\\*/g, '<span style="font-weight: 300; font-style: italic; font-size: 11px; color: #6b7280;"> (required)</span>');
               }
             });
             
-            // Add spacing after description paragraph
-            var firstParagraph = document.querySelector('form > p:first-child, .description-text, p');
-            if (firstParagraph && firstParagraph.innerText.includes('Please complete this form')) {
-              firstParagraph.style.marginBottom = '32px';
-              firstParagraph.style.paddingBottom = '8px';
+            // Organize checkboxes into compact grid
+            function organizeCheckboxes() {
+              var checkboxContainers = document.querySelectorAll('.checkbox-group, [class*="checkbox"]');
+              var parentDivs = new Set();
+              
+              checkboxContainers.forEach(function(cb) {
+                var parent = cb.parentElement;
+                if (parent && parent.children.length > 2 && !parent.classList.contains('checkbox-grid')) {
+                  parent.classList.add('checkbox-grid');
+                  parent.style.display = 'grid';
+                  parent.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                  parent.style.gap = '6px 12px';
+                  parent.style.marginBottom = '16px';
+                }
+              });
+              
+              // Remove any borders/separators
+              document.querySelectorAll('hr, .divider, .separator, .border-top').forEach(function(el) {
+                if (el) el.style.display = 'none';
+              });
             }
             
-            // Find and add input field for "Other" options
+            // Remove underline/border from intro text
+            var firstPara = document.querySelector('form > p:first-child');
+            if (firstPara) {
+              firstPara.style.borderBottom = 'none';
+              firstPara.style.paddingBottom = '0';
+              firstPara.style.marginBottom = '28px';
+            }
+            
+            organizeCheckboxes();
+            setTimeout(organizeCheckboxes, 200);
+            setTimeout(organizeCheckboxes, 500);
+            
+            // Add other input functionality
             function addOtherInputs() {
               var otherRadios = document.querySelectorAll('input[type="radio"][value*="Other"], input[type="radio"][value*="other"]');
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
@@ -247,13 +285,13 @@ export default function InstitutionalAccess() {
                   textInput.type = 'text';
                   textInput.placeholder = 'Please specify...';
                   textInput.className = 'other-input-field form-control';
-                  textInput.style.marginTop = '8px';
+                  textInput.style.marginTop = '6px';
                   textInput.style.marginLeft = '24px';
                   textInput.style.width = 'calc(100% - 24px)';
-                  textInput.style.padding = '8px 12px';
+                  textInput.style.padding = '6px 10px';
+                  textInput.style.fontSize = '13px';
                   textInput.style.border = '1px solid #e5e7eb';
                   textInput.style.borderRadius = '8px';
-                  textInput.style.fontSize = '13px';
                   textInput.style.display = 'none';
                   parentDiv.appendChild(textInput);
                   
@@ -270,12 +308,15 @@ export default function InstitutionalAccess() {
             }
             
             addOtherInputs();
-            setTimeout(addOtherInputs, 500);
-            setTimeout(addOtherInputs, 1000);
+            setTimeout(addOtherInputs, 300);
             
-            var observer = new MutationObserver(function() { addOtherInputs(); });
+            var observer = new MutationObserver(function() { 
+              organizeCheckboxes();
+              addOtherInputs();
+            });
             observer.observe(document.body, { childList: true, subtree: true });
             
+            // Auto-resize iframe
             function sendHeight() {
               var height = document.body.scrollHeight;
               window.parent.postMessage({ type: 'resize', height: height }, '*');

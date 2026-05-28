@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,7 +87,7 @@ export default function Navbar() {
       </nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY WITH CARD
+          REFINED BLURRED MENU OVERLAY
       ========================================= */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
@@ -98,7 +99,10 @@ export default function Navbar() {
           {/* The Dropdown Menu Box */}
           <div className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
             
-            {/* PRODUCTS WITH DROPDOWN - Professional box style */}
+            {/* ASK LENS AI - KEPT */}
+            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Ask Lens AI</a>
+            
+            {/* PRODUCTS WITH DROPDOWN */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
@@ -110,37 +114,43 @@ export default function Navbar() {
                 </svg>
               </button>
               
-              {/* Professional Dropdown Box */}
-              {isProductsDropdownOpen && (
-                <div className="mt-2 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                  <Link 
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      setIsProductsDropdownOpen(false);
-                    }} 
-                    to="/" 
-                    className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50"
+              {/* Professional Dropdown Box - Each item has its own box, less shadow */}
+              <AnimatePresence>
+                {isProductsDropdownOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="mt-2 space-y-2"
                   >
-                    <span className="text-sm text-gray-700">Auvra Core</span>
-                    <span className="text-xs text-gray-400">Primary platform</span>
-                  </Link>
-                  <Link 
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      setIsProductsDropdownOpen(false);
-                    }} 
-                    to="/institutions" 
-                    className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50"
-                  >
-                    <span className="text-sm text-gray-700">Auvra for Institutions</span>
-                    <span className="text-xs text-gray-400">Enterprise solution</span>
-                  </Link>
-                  <div className="flex items-center justify-between px-4 py-3 bg-gray-50/50">
-                    <span className="text-sm text-gray-400">Auvra Node</span>
-                    <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">Coming soon</span>
-                  </div>
-                </div>
-              )}
+                    <Link 
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsProductsDropdownOpen(false);
+                      }} 
+                      to="/" 
+                      className="block w-full bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm text-black hover:bg-gray-50 transition-all duration-200"
+                    >
+                      Auvra Core
+                    </Link>
+                    <Link 
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setIsProductsDropdownOpen(false);
+                      }} 
+                      to="/institutions" 
+                      className="block w-full bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm text-black hover:bg-gray-50 transition-all duration-200"
+                    >
+                      Auvra for Institutions
+                    </Link>
+                    <div className="block w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm text-gray-400 cursor-default">
+                      Auvra Node
+                      <span className="ml-2 text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">Coming soon</span>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             
             <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>

@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
@@ -63,7 +62,7 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* INTRODUCTION / DESCRIPTION TEXT */
+            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
             p:first-of-type, .description-text, .intro-text, 
             form > p:first-child, .form-description {
               margin-bottom: 32px !important;
@@ -72,10 +71,12 @@ export default function InstitutionalAccess() {
               border-bottom: 1px solid #f0f0f0 !important;
             }
             
+            /* Any paragraph that contains the intro text */
             p {
               margin-bottom: 28px !important;
             }
             
+            /* First child of form gets extra spacing */
             form > *:first-child {
               margin-bottom: 32px !important;
             }
@@ -90,14 +91,15 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
-            /* Required field indicator - THINNER (CHANGE 1) */
+            /* Required field indicator - italic, thin, with brackets */
             .required, .required-star, [class*="required"] {
-              font-weight: 200 !important;
+              font-weight: 300 !important;
               font-style: italic !important;
-              font-size: 11px !important;
-              color: #9ca3af !important;
+              font-size: 12px !important;
+              color: #6b7280 !important;
             }
             
+            /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
             .field-description, .field-help {
@@ -156,26 +158,24 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
+            /* Regular text */
             span:not([class*="required"]), .text, .regular-text {
               color: #4b5563 !important;
               font-weight: 400 !important;
               font-size: 13px !important;
             }
             
-            /* Card styling - REDUCED BREADTH (CHANGE 2) */
+            /* Card styling */
             .card, [class*="card"] {
               padding: 12px !important;
               margin-bottom: 12px !important;
               background: #f9fafb !important;
               border-radius: 12px !important;
-              max-width: 320px !important;
-              width: auto !important;
             }
             
-            /* Radio and checkbox groups - REDUCED BREADTH */
+            /* Radio and checkbox groups */
             .radio-group, .checkbox-group {
               margin-bottom: 16px !important;
-              max-width: 300px !important;
             }
             
             .radio-group label, .checkbox-group label {
@@ -190,6 +190,7 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
+            /* "Other" option styling */
             .other-option, [class*="other"] {
               margin-left: 24px !important;
               margin-top: 8px !important;
@@ -208,6 +209,7 @@ export default function InstitutionalAccess() {
               gap: 12px !important;
             }
             
+            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
             }
@@ -217,19 +219,21 @@ export default function InstitutionalAccess() {
         const finalHtml = styledHtml.replace(
           '</body>',
           `<script>
-            // Convert asterisk to (required) with THINNER style
+            // Convert asterisk to (required) with italic thin style
             document.querySelectorAll('label, .label, .form-label').forEach(function(label) {
               if (label.innerHTML && label.innerHTML.includes('*')) {
-                label.innerHTML = label.innerHTML.replace(/\\*/g, '<span style="font-weight: 200; font-style: italic; font-size: 11px; color: #9ca3af;"> (required)</span>');
+                label.innerHTML = label.innerHTML.replace(/\\*/g, '<span style="font-weight: 300; font-style: italic; font-size: 12px; color: #6b7280;"> (required)</span>');
               }
             });
             
+            // Add spacing after description paragraph
             var firstParagraph = document.querySelector('form > p:first-child, .description-text, p');
             if (firstParagraph && firstParagraph.innerText.includes('Please complete this form')) {
               firstParagraph.style.marginBottom = '32px';
               firstParagraph.style.paddingBottom = '8px';
             }
             
+            // Find and add input field for "Other" options
             function addOtherInputs() {
               var otherRadios = document.querySelectorAll('input[type="radio"][value*="Other"], input[type="radio"][value*="other"]');
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');

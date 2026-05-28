@@ -34,6 +34,7 @@ import Blog from './pages/blog'
 import BlogPost from './pages/blogPost'
 import Hero from './pages/hero'
 import InstitutionalAccess from './pages/institutionalAccess'
+import Institutions from './pages/institutions'  // ADDED: New institutions page
 
 // 1. SCROLL HELPER
 function ScrollToTop() {
@@ -82,6 +83,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/institutional-access" element={<InstitutionalAccess />} />
+        <Route path="/institutions" element={<Institutions />} />  {/* ADDED: New route */}
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
 

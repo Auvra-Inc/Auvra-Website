@@ -49,141 +49,205 @@ export default function Navbar() {
   return (
     <>
       {/* =========================================
-          ULTRA-MODERN FLOATING NAV
+          ULTRA-MODERN FLOATING NAV WITH ANIMATIONS
       ========================================= */}
-      <nav 
+      <motion.nav 
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed z-[110] font-clash flex justify-between items-center px-4 py-2 shadow-sm transition-all duration-300 ease-in-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-5xl rounded-2xl
           ${isScrolled || isMenuOpen
             ? 'top-5 sm:top-6 bg-white/80 backdrop-blur-md border border-white/40 shadow-lg' 
             : 'top-5 sm:top-6 bg-white/90 border border-gray-100'
           }`}
       >
-        <Link to="/" className="flex items-center gap-3 font-medium text-lg sm:text-xl tracking-wide">
-          <img 
-             src="/Vector .png" 
-             alt="Auvra Logo" 
-             className="w-8 h-8 object-contain" 
-          />
-          Auvra
-        </Link>
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Link to="/" className="flex items-center gap-3 font-medium text-lg sm:text-xl tracking-wide">
+            <img 
+               src="/Vector .png" 
+               alt="Auvra Logo" 
+               className="w-8 h-8 object-contain" 
+            />
+            Auvra
+          </Link>
+        </motion.div>
       
         <div className="flex gap-2">
-          <button className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition"
+          >
             <FaAppStore className="text-lg" />
-          </button>
-          <button className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition ">
+          </motion.button>
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition "
+          >
             <FaGooglePlay className="text-lg font-bold" />
-          </button>
+          </motion.button>
           
           {/* ANIMATED HAMBURGER / X BUTTON */}
-          <button 
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="w-10 h-10 bg-gray-200 rounded-xl flex flex-col justify-center items-center hover:bg-gray-100 transition relative"
           >
-            <div className={`w-6 h-0.5 bg-black transition-all duration-300 absolute ${isMenuOpen ? 'rotate-45' : '-translate-y-1'}`}></div>
-            <div className={`w-6 h-0.5 bg-black transition-all duration-300 absolute ${isMenuOpen ? '-rotate-45' : 'translate-y-1'}`}></div>
-          </button>
+            <motion.div 
+              animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 0 : -4 }}
+              transition={{ duration: 0.3 }}
+              className="w-6 h-0.5 bg-black absolute"
+            ></motion.div>
+            <motion.div 
+              animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? 0 : 4 }}
+              transition={{ duration: 0.3 }}
+              className="w-6 h-0.5 bg-black absolute"
+            ></motion.div>
+          </motion.button>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY
+          REFINED BLURRED MENU OVERLAY WITH ANIMATIONS
       ========================================= */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
-          <div 
-            className="absolute inset-0 bg-black/40 backdrop-blur-md transition-all"
-            onClick={() => setIsMenuOpen(false)}
-          ></div>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5"
+          >
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/40 backdrop-blur-md transition-all"
+              onClick={() => setIsMenuOpen(false)}
+            ></motion.div>
 
-          {/* The Dropdown Menu Box */}
-          <div className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
-            
-            {/* ASK LENS AI - KEPT */}
-            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Ask Lens AI</a>
-            
-            {/* PRODUCTS WITH DROPDOWN */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
-                className="text-base font-medium text-gray-900 hover:text-gray-500 transition flex items-center justify-between w-full"
-              >
-                Products
-                <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {/* Professional Dropdown Box - Each item has its own box, less shadow */}
-              <AnimatePresence>
-                {isProductsDropdownOpen && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="mt-2 space-y-2"
-                  >
-                    <Link 
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        setIsProductsDropdownOpen(false);
-                      }} 
-                      to="/" 
-                      className="block w-full bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm text-black hover:bg-gray-50 transition-all duration-200"
-                    >
-                      Auvra Core
-                    </Link>
-                    <Link 
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        setIsProductsDropdownOpen(false);
-                      }} 
-                      to="/institutions" 
-                      className="block w-full bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm text-black hover:bg-gray-50 transition-all duration-200"
-                    >
-                      Auvra for Institutions
-                    </Link>
-                    <div className="block w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm text-gray-400 cursor-default">
-                      Auvra Node
-                      <span className="ml-2 text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">Coming soon</span>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-            
-            <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
-            <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
-            
-            <div className="pt-0.5"></div>
-            
-            {/* INSTITUTIONAL ACCESS CARD WITH IMAGE */}
-            <Link 
-              onClick={() => setIsMenuOpen(false)} 
-              to="/institutional-access"
-              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md w-full text-left"
+            {/* The Dropdown Menu Box */}
+            <motion.div 
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6"
             >
-              <img 
-                src="/IMG_inst.JPG" 
-                alt="Institutional Access" 
-                className="w-full h-full object-cover absolute inset-0"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-black/40"></div>
-              <div className="relative z-10 flex items-center justify-between p-3">
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
-                  <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
-                </div>
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+              
+              {/* ASK LENS AI */}
+              <motion.a 
+                whileHover={{ x: 5 }}
+                href="#" 
+                className="text-base font-medium text-gray-900 hover:text-gray-500 transition"
+              >
+                Ask Lens AI
+              </motion.a>
+              
+              {/* PRODUCTS WITH DROPDOWN - ONE UNIFIED CARD */}
+              <div className="relative" ref={dropdownRef}>
+                <motion.button
+                  whileHover={{ x: 5 }}
+                  onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
+                  className="text-base font-medium text-gray-900 hover:text-gray-500 transition flex items-center justify-between w-full"
+                >
+                  Products
+                  <motion.svg 
+                    animate={{ rotate: isProductsDropdownOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
+                </motion.button>
+                
+                {/* ONE UNIFIED DROPDOWN CARD - Less shadow */}
+                <AnimatePresence>
+                  {isProductsDropdownOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="mt-2 bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm"
+                    >
+                      <Link 
+                        onClick={() => {
+                          setIsMenuOpen(false);
+                          setIsProductsDropdownOpen(false);
+                        }} 
+                        to="/" 
+                        className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50"
+                      >
+                        <span className="text-sm text-black">Auvra Core</span>
+                      </Link>
+                      <Link 
+                        onClick={() => {
+                          setIsMenuOpen(false);
+                          setIsProductsDropdownOpen(false);
+                        }} 
+                        to="/institutions" 
+                        className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50"
+                      >
+                        <span className="text-sm text-black">Auvra for Institutions</span>
+                      </Link>
+                      <div className="flex items-center justify-between px-4 py-3 bg-gray-50/30">
+                        <span className="text-sm text-gray-400">Auvra Node</span>
+                        <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">Coming soon</span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </Link>
-          </div>
-        </div>
-      )}
+              
+              <motion.div whileHover={{ x: 5 }}>
+                <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition block">Company</Link>
+              </motion.div>
+              
+              <motion.div whileHover={{ x: 5 }}>
+                <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition block">Blog</Link>
+              </motion.div>
+              
+              <div className="pt-0.5"></div>
+              
+              {/* INSTITUTIONAL ACCESS CARD WITH IMAGE */}
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link 
+                  onClick={() => setIsMenuOpen(false)} 
+                  to="/institutional-access"
+                  className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:shadow-md w-full text-left"
+                >
+                  <img 
+                    src="/IMG_inst.JPG" 
+                    alt="Institutional Access" 
+                    className="w-full h-full object-cover absolute inset-0"
+                    loading="eager"
+                  />
+                  <div className="absolute inset-0 bg-black/40"></div>
+                  <div className="relative z-10 flex items-center justify-between p-3">
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
+                      <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
+                    </div>
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

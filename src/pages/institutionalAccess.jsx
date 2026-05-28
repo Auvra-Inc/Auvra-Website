@@ -36,7 +36,7 @@ export default function InstitutionalAccess() {
               background: #ffffff !important;
               font-family: system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif !important;
               color: #1a1a1a !important;
-              padding: 12px !important;
+              padding: 16px !important;
               margin: 0 !important;
               overflow-y: auto !important;
             }
@@ -63,17 +63,13 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* INTRODUCTION TEXT */
+            /* INTRODUCTION TEXT - NO UNDERLINE */
             p:first-of-type, .description-text, .intro-text {
               margin-bottom: 28px !important;
               display: block !important;
               color: #4b5563 !important;
               font-size: 14px !important;
               line-height: 1.5 !important;
-            }
-            
-            /* No underline/border on the intro text */
-            form > p:first-child {
               border-bottom: none !important;
               padding-bottom: 0 !important;
             }
@@ -96,10 +92,10 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
             }
             
-            /* Input fields - more compact */
+            /* Input fields */
             input, select, textarea, .input, .form-control {
               width: 100% !important;
-              padding: 8px 12px !important;
+              padding: 10px 12px !important;
               border: 1px solid #e5e7eb !important;
               border-radius: 10px !important;
               font-size: 14px !important;
@@ -143,15 +139,14 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
-            /* CHECKBOX AND RADIO GROUPS - COMPACT */
+            /* CHECKBOX AND RADIO GROUPS - REDUCED BREATH (smaller gap) */
             .checkbox-group, .radio-group {
-              margin-bottom: 8px !important;
+              margin-bottom: 6px !important;
               display: flex !important;
               align-items: center !important;
               gap: 8px !important;
             }
             
-            /* Make checkboxes and radios more compact */
             .checkbox-group label, .radio-group label {
               font-weight: 400 !important;
               font-size: 14px !important;
@@ -168,48 +163,28 @@ export default function InstitutionalAccess() {
               accent-color: #000000 !important;
             }
             
-            /* Grid layout for checkboxes - 2 or 3 columns for compactness */
+            /* Keep the vertical list layout (not grid) */
             .checkbox-group-container, .form-group:has(.checkbox-group) {
-              display: grid !important;
-              grid-template-columns: repeat(2, 1fr) !important;
-              gap: 6px 12px !important;
-              margin-bottom: 16px !important;
+              display: flex !important;
+              flex-direction: column !important;
+              gap: 0 !important;
             }
             
-            /* Wrap checkbox groups in a grid container */
             .form-group {
               margin-bottom: 16px !important;
             }
             
-            /* Any div containing multiple checkboxes */
-            div:has(> .checkbox-group:first-child):not(:has(> .checkbox-group:last-child)) {
-              display: grid !important;
-              grid-template-columns: repeat(2, 1fr) !important;
-              gap: 6px 12px !important;
-            }
-            
-            /* Individual card/option styling - remove extra padding */
-            .card, [class*="card"], .option-card {
-              padding: 0 !important;
-              margin-bottom: 0 !important;
-              background: transparent !important;
-              border: none !important;
-              box-shadow: none !important;
-            }
-            
-            /* Remove any borders or lines */
-            hr, .divider, .separator {
+            /* Remove any borders/lines */
+            hr, .divider, .separator, .border-top {
               display: none !important;
             }
             
-            /* Regular text */
-            span:not([class*="required"]), .text, .regular-text {
-              color: #4b5563 !important;
-              font-weight: 400 !important;
-              font-size: 13px !important;
+            .card, [class*="card"] {
+              padding: 0 !important;
+              background: transparent !important;
+              border: none !important;
             }
             
-            /* Description text */
             .description, .help-text, .hint, .subtext {
               color: #6b7280 !important;
               font-size: 12px !important;
@@ -217,11 +192,6 @@ export default function InstitutionalAccess() {
               margin-bottom: 8px !important;
             }
             
-            .row, .grid {
-              gap: 8px !important;
-            }
-            
-            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
             }
@@ -238,39 +208,14 @@ export default function InstitutionalAccess() {
               }
             });
             
-            // Organize checkboxes into compact grid
-            function organizeCheckboxes() {
-              var checkboxContainers = document.querySelectorAll('.checkbox-group, [class*="checkbox"]');
-              var parentDivs = new Set();
-              
-              checkboxContainers.forEach(function(cb) {
-                var parent = cb.parentElement;
-                if (parent && parent.children.length > 2 && !parent.classList.contains('checkbox-grid')) {
-                  parent.classList.add('checkbox-grid');
-                  parent.style.display = 'grid';
-                  parent.style.gridTemplateColumns = 'repeat(2, 1fr)';
-                  parent.style.gap = '6px 12px';
-                  parent.style.marginBottom = '16px';
-                }
-              });
-              
-              // Remove any borders/separators
-              document.querySelectorAll('hr, .divider, .separator, .border-top').forEach(function(el) {
-                if (el) el.style.display = 'none';
-              });
-            }
-            
-            // Remove underline/border from intro text
-            var firstPara = document.querySelector('form > p:first-child');
+            // Remove underline from intro text
+            var firstPara = document.querySelector('form > p:first-child, .description-text');
             if (firstPara) {
               firstPara.style.borderBottom = 'none';
               firstPara.style.paddingBottom = '0';
-              firstPara.style.marginBottom = '28px';
             }
             
-            organizeCheckboxes();
-            setTimeout(organizeCheckboxes, 200);
-            setTimeout(organizeCheckboxes, 500);
+            // Reduce checkbox spacing (already handled by CSS)
             
             // Add other input functionality
             function addOtherInputs() {
@@ -288,7 +233,7 @@ export default function InstitutionalAccess() {
                   textInput.style.marginTop = '6px';
                   textInput.style.marginLeft = '24px';
                   textInput.style.width = 'calc(100% - 24px)';
-                  textInput.style.padding = '6px 10px';
+                  textInput.style.padding = '8px 12px';
                   textInput.style.fontSize = '13px';
                   textInput.style.border = '1px solid #e5e7eb';
                   textInput.style.borderRadius = '8px';
@@ -308,15 +253,11 @@ export default function InstitutionalAccess() {
             }
             
             addOtherInputs();
-            setTimeout(addOtherInputs, 300);
+            setTimeout(addOtherInputs, 500);
             
-            var observer = new MutationObserver(function() { 
-              organizeCheckboxes();
-              addOtherInputs();
-            });
+            var observer = new MutationObserver(function() { addOtherInputs(); });
             observer.observe(document.body, { childList: true, subtree: true });
             
-            // Auto-resize iframe
             function sendHeight() {
               var height = document.body.scrollHeight;
               window.parent.postMessage({ type: 'resize', height: height }, '*');

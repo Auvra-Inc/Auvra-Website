@@ -181,19 +181,6 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
-            /* Other option styling - keeps the indentation */
-            .other-option, [class*="other"] {
-              margin-left: 0 !important;
-              margin-top: 8px !important;
-              margin-bottom: 12px !important;
-            }
-            
-            /* Make other checkbox group align with others */
-            .checkbox-group:has(input[value*="Other"]), 
-            .checkbox-group:has(input[value*="other"]) {
-              margin-left: 0 !important;
-            }
-            
             .form-group, .field-group {
               margin-bottom: 16px !important;
             }
@@ -223,12 +210,11 @@ export default function InstitutionalAccess() {
               firstParagraph.style.paddingBottom = '8px';
             }
             
-            // Find and add input field for "Other" options - properly aligned
+            // Find and add input field for "Other" options
             function addOtherInputs() {
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
               
               otherCheckboxes.forEach(function(otherInput) {
-                // Find the parent checkbox-group container
                 var parentDiv = otherInput.closest('.checkbox-group');
                 if (!parentDiv) {
                   parentDiv = otherInput.parentElement;
@@ -261,10 +247,19 @@ export default function InstitutionalAccess() {
               });
             }
             
-            function addCountryOtherInput() {
+            // Add "Other" text input for dropdowns (Country and Institution Type)
+            function addOtherInputsForSelects() {
               var selects = document.querySelectorAll('select');
               selects.forEach(function(select) {
                 var hasOther = false;
+                var selectLabel = '';
+                
+                // Find the label text for this select
+                var labelElement = select.closest('.form-group')?.querySelector('label');
+                if (labelElement) {
+                  selectLabel = labelElement.innerText.toLowerCase();
+                }
+                
                 for (var i = 0; i < select.options.length; i++) {
                   if (select.options[i].text.toLowerCase().includes('other') || 
                       (select.options[i].value && select.options[i].value.toLowerCase().includes('other'))) {
@@ -273,11 +268,20 @@ export default function InstitutionalAccess() {
                   }
                 }
                 
-                if (hasOther && select.parentElement && !select.parentElement.querySelector('.other-country-input')) {
+                if (hasOther && select.parentElement && !select.parentElement.querySelector('.other-select-input')) {
                   var textInput = document.createElement('input');
                   textInput.type = 'text';
-                  textInput.placeholder = 'Please specify your country/region...';
-                  textInput.className = 'other-country-input';
+                  
+                  // Set different placeholder text based on which select it is
+                  if (selectLabel.includes('institution') || selectLabel.includes('organization')) {
+                    textInput.placeholder = 'Please specify your institution type...';
+                  } else if (selectLabel.includes('country') || selectLabel.includes('region')) {
+                    textInput.placeholder = 'Please specify your country/region...';
+                  } else {
+                    textInput.placeholder = 'Please specify...';
+                  }
+                  
+                  textInput.className = 'other-select-input';
                   textInput.style.marginTop = '8px';
                   textInput.style.marginLeft = '0';
                   textInput.style.width = '100%';
@@ -302,15 +306,15 @@ export default function InstitutionalAccess() {
             }
             
             addOtherInputs();
-            addCountryOtherInput();
+            addOtherInputsForSelects();
             setTimeout(addOtherInputs, 500);
-            setTimeout(addCountryOtherInput, 500);
+            setTimeout(addOtherInputsForSelects, 500);
             setTimeout(addOtherInputs, 1000);
-            setTimeout(addCountryOtherInput, 1000);
+            setTimeout(addOtherInputsForSelects, 1000);
             
             var observer = new MutationObserver(function() { 
               addOtherInputs();
-              addCountryOtherInput();
+              addOtherInputsForSelects();
             });
             observer.observe(document.body, { childList: true, subtree: true });
             

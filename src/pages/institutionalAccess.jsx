@@ -15,14 +15,14 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    iframe.style.cssText = 'width: 100%; border: none; border-radius: 16px; background: white; display: block;';
+    iframe.style.cssText = 'width: 100%; min-height: 600px; border: none; border-radius: 16px; background: white; display: block; height: auto;';
     iframe.title = 'Auvra Institutional Access';
-    iframe.style.height = 'auto';
     container.appendChild(iframe);
 
     fetch('https://pxodpeirilfuzqtlbhqf.supabase.co/functions/v1/embed-form?slug=auvra-institutional-access')
       .then(function(r) { return r.text(); })
       .then(function(html) { 
+        // Inject CSS to improve thank you page styling
         const styledHtml = html.replace(
           '</head>',
           `<style>
@@ -39,8 +39,6 @@ export default function InstitutionalAccess() {
               padding: 16px !important;
               margin: 0 !important;
               overflow-y: auto !important;
-              -webkit-text-size-adjust: 100% !important;
-              touch-action: pan-y pinch-zoom !important;
             }
             
             /* Hide all footers */
@@ -48,6 +46,20 @@ export default function InstitutionalAccess() {
             div:has(> a[href*="foorm.xyz"]), .footer, .form-footer,
             .credit, .credits, [class*="credit"] {
               display: none !important;
+            }
+            
+            /* Thank you page styling - ensure black text */
+            .thank-you, [class*="thank"], [class*="success"] {
+              color: #111827 !important;
+              background: #ffffff !important;
+            }
+            
+            .thank-you p, [class*="thank"] p, [class*="success"] p {
+              color: #374151 !important;
+            }
+            
+            .thank-you h1, .thank-you h2, .thank-you h3 {
+              color: #111827 !important;
             }
             
             .container, .form-container, main, .main {
@@ -65,7 +77,6 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
             p:first-of-type, .description-text, .intro-text, 
             form > p:first-child, .form-description {
               margin-bottom: 32px !important;
@@ -74,17 +85,14 @@ export default function InstitutionalAccess() {
               border-bottom: 1px solid #f0f0f0 !important;
             }
             
-            /* Any paragraph that contains the intro text */
             p {
               margin-bottom: 28px !important;
             }
             
-            /* First child of form gets extra spacing */
             form > *:first-child {
               margin-bottom: 32px !important;
             }
             
-            /* LABELS / QUESTIONS - BOLD */
             label, .label, .form-label, .question, [class*="question"] {
               color: #111827 !important;
               font-weight: 600 !important;
@@ -94,7 +102,6 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
-            /* Required field indicator - italic, thin, with brackets */
             .required, .required-star, [class*="required"] {
               font-weight: 300 !important;
               font-style: italic !important;
@@ -102,7 +109,6 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
             }
             
-            /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
             .field-description, .field-help {
@@ -119,7 +125,7 @@ export default function InstitutionalAccess() {
               padding: 10px 12px !important;
               border: 1px solid #e5e7eb !important;
               border-radius: 10px !important;
-              font-size: 14px !important;
+              font-size: 16px !important;
               background: #ffffff !important;
               color: #111827 !important;
               margin-bottom: 20px !important;
@@ -161,22 +167,6 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
-            /* Regular text */
-            span:not([class*="required"]), .text, .regular-text {
-              color: #4b5563 !important;
-              font-weight: 400 !important;
-              font-size: 13px !important;
-            }
-            
-            /* Card styling */
-            .card, [class*="card"] {
-              padding: 12px !important;
-              margin-bottom: 12px !important;
-              background: #f9fafb !important;
-              border-radius: 12px !important;
-            }
-            
-            /* Radio and checkbox groups */
             .radio-group, .checkbox-group {
               margin-bottom: 16px !important;
             }
@@ -193,7 +183,6 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
-            /* "Other" option styling */
             .other-option, [class*="other"] {
               margin-left: 0 !important;
               margin-top: 8px !important;
@@ -208,12 +197,10 @@ export default function InstitutionalAccess() {
               gap: 12px !important;
             }
             
-            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
             }
             
-            /* Prevent zoom on inputs (iOS) */
             input, select, textarea {
               font-size: 16px !important;
             }
@@ -235,7 +222,6 @@ export default function InstitutionalAccess() {
               firstParagraph.style.paddingBottom = '8px';
             }
             
-            // Find and add input field for "Other" options
             function addOtherInputs() {
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
               
@@ -355,7 +341,7 @@ export default function InstitutionalAccess() {
         
         window.addEventListener('message', function(event) {
           if (event.data && event.data.type === 'resize') {
-            iframe.style.height = event.data.height + 'px';
+            iframe.style.height = event.data.height + 10 + 'px';
           }
         });
       })

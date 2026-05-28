@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';

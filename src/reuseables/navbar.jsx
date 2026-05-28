@@ -27,7 +27,6 @@ export default function Navbar() {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
-      setIsProductsOpen(false);
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -75,7 +74,7 @@ export default function Navbar() {
       </nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY
+          REFINED BLURRED MENU OVERLAY WITH CARD
       ========================================= */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
@@ -86,8 +85,9 @@ export default function Navbar() {
 
           {/* The Dropdown Menu Box */}
           <div className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
+            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Ask Lens AI</a>
             
-            {/* PRODUCTS DROPDOWN - NEW */}
+            {/* PRODUCTS DROPDOWN */}
             <div className="relative">
               <button
                 onClick={() => setIsProductsOpen(!isProductsOpen)}
@@ -115,20 +115,45 @@ export default function Navbar() {
                   >
                     Auvra for Institutions
                   </Link>
+                  {/* NEW: Auvra Node (coming soon) */}
+                  <span className="text-sm text-gray-400 cursor-default flex items-center justify-between">
+                    Auvra Node
+                    <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">Coming soon</span>
+                  </span>
                 </div>
               )}
             </div>
             
-            <Link onClick={() => setIsMenuOpen(false)} to="/company" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
+            <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            {/* GET EARLY ACCESS BUTTON */}
+            <div className="pt-0.5"></div>
+            
+            {/* INSTITUTIONAL ACCESS CARD WITH IMAGE */}
             <Link 
               onClick={() => setIsMenuOpen(false)} 
-              to="/waitlist" 
-              className="mt-2 bg-black text-white text-center py-3 rounded-xl font-medium hover:bg-gray-800 transition"
+              to="/institutional-access"
+              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md w-full text-left"
             >
-              Get Early Access
+              {/* Background Image */}
+              <img 
+                src="/IMG_inst.JPG" 
+                alt="Institutional Access" 
+                className="w-full h-full object-cover absolute inset-0"
+                loading="eager"
+              />
+              {/* Dark Overlay for text readability */}
+              <div className="absolute inset-0 bg-black/40"></div>
+              {/* Text Content */}
+              <div className="relative z-10 flex items-center justify-between p-3">
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
+                  <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
+                </div>
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </Link>
           </div>
         </div>

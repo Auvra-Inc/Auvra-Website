@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   // Handle background blur on scroll
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Navbar() {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
+      setIsProductsOpen(false);
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -73,7 +75,7 @@ export default function Navbar() {
       </nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY WITH CARD
+          REFINED BLURRED MENU OVERLAY
       ========================================= */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5">
@@ -84,38 +86,49 @@ export default function Navbar() {
 
           {/* The Dropdown Menu Box */}
           <div className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-200">
-            <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Ask Lens AI</a>
-            <a href="/#features" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Features</a>
-            <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
+            
+            {/* PRODUCTS DROPDOWN - NEW */}
+            <div className="relative">
+              <button
+                onClick={() => setIsProductsOpen(!isProductsOpen)}
+                className="text-base font-medium text-gray-900 hover:text-gray-500 transition flex items-center justify-between w-full"
+              >
+                Products
+                <svg className={`w-4 h-4 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isProductsOpen && (
+                <div className="mt-3 ml-4 pl-4 border-l-2 border-gray-200 flex flex-col gap-3">
+                  <Link 
+                    onClick={() => setIsMenuOpen(false)} 
+                    to="/" 
+                    className="text-sm text-gray-600 hover:text-black transition"
+                  >
+                    Auvra Core
+                  </Link>
+                  <Link 
+                    onClick={() => setIsMenuOpen(false)} 
+                    to="/institutions" 
+                    className="text-sm text-gray-600 hover:text-black transition"
+                  >
+                    Auvra for Institutions
+                  </Link>
+                </div>
+              )}
+            </div>
+            
+            <Link onClick={() => setIsMenuOpen(false)} to="/company" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Company</Link>
             <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition">Blog</Link>
             
-            <div className="pt-0.5"></div>
-            
-            {/* INSTITUTIONAL ACCESS CARD WITH IMAGE */}
+            {/* GET EARLY ACCESS BUTTON */}
             <Link 
               onClick={() => setIsMenuOpen(false)} 
-              to="/institutional-access"
-              className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:scale-[1.01] hover:shadow-md w-full text-left"
+              to="/waitlist" 
+              className="mt-2 bg-black text-white text-center py-3 rounded-xl font-medium hover:bg-gray-800 transition"
             >
-              {/* Background Image */}
-              <img 
-                src="/IMG_inst.JPG" 
-                alt="Institutional Access" 
-                className="w-full h-full object-cover absolute inset-0"
-                loading="eager"
-              />
-              {/* Dark Overlay for text readability */}
-              <div className="absolute inset-0 bg-black/40"></div>
-              {/* Text Content */}
-              <div className="relative z-10 flex items-center justify-between p-3">
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
-                  <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
-                </div>
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
+              Get Early Access
             </Link>
           </div>
         </div>

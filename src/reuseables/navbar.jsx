@@ -49,21 +49,21 @@ export default function Navbar() {
   return (
     <>
       {/* =========================================
-          ULTRA-MODERN FLOATING NAV WITH ANIMATIONS
+          ULTRA-MODERN FLOATING NAV
       ========================================= */}
       <motion.nav 
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed z-[110] font-clash flex justify-between items-center px-4 py-2 shadow-sm transition-all duration-300 ease-in-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-5xl rounded-2xl
+        transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        className={`fixed z-[110] font-clash flex justify-between items-center px-4 py-2 transition-all duration-300 ease-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-5xl rounded-2xl
           ${isScrolled || isMenuOpen
-            ? 'top-5 sm:top-6 bg-white/80 backdrop-blur-md border border-white/40 shadow-lg' 
+            ? 'top-5 sm:top-6 bg-white/80 backdrop-blur-md border border-white/30' 
             : 'top-5 sm:top-6 bg-white/90 border border-gray-100'
           }`}
       >
         <motion.div
           whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.15 }}
         >
           <Link to="/" className="flex items-center gap-3 font-medium text-lg sm:text-xl tracking-wide">
             <img 
@@ -79,6 +79,7 @@ export default function Navbar() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.1 }}
             className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition"
           >
             <FaAppStore className="text-lg" />
@@ -86,6 +87,7 @@ export default function Navbar() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.1 }}
             className="w-10 h-10 bg-gray-200 text-black rounded-xl flex items-center justify-center hover:bg-gray-100 transition "
           >
             <FaGooglePlay className="text-lg font-bold" />
@@ -93,19 +95,19 @@ export default function Navbar() {
           
           {/* ANIMATED HAMBURGER / X BUTTON */}
           <motion.button 
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.1 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="w-10 h-10 bg-gray-200 rounded-xl flex flex-col justify-center items-center hover:bg-gray-100 transition relative"
           >
             <motion.div 
               animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 0 : -4 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
               className="w-6 h-0.5 bg-black absolute"
             ></motion.div>
             <motion.div 
               animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? 0 : 4 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
               className="w-6 h-0.5 bg-black absolute"
             ></motion.div>
           </motion.button>
@@ -113,7 +115,7 @@ export default function Navbar() {
       </motion.nav>
 
       {/* =========================================
-          REFINED BLURRED MENU OVERLAY WITH ANIMATIONS
+          REFINED BLURRED MENU OVERLAY
       ========================================= */}
       <AnimatePresence>
         {isMenuOpen && (
@@ -121,61 +123,75 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[100] flex flex-col items-center px-4 pt-24 pb-5"
           >
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/40 backdrop-blur-md transition-all"
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-black/30 backdrop-blur-sm"
               onClick={() => setIsMenuOpen(false)}
             ></motion.div>
 
             {/* The Dropdown Menu Box */}
             <motion.div 
-              initial={{ opacity: 0, y: -30 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 shadow-xl flex flex-col gap-6"
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-2xl p-6 flex flex-col gap-5"
             >
               
               {/* ASK LENS AI */}
               <motion.a 
-                whileHover={{ x: 5 }}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.1 }}
                 href="#" 
                 className="text-base font-medium text-gray-900 hover:text-gray-500 transition"
               >
                 Ask Lens AI
               </motion.a>
               
-              {/* PRODUCTS WITH DROPDOWN - ONE UNIFIED CARD */}
+              {/* PRODUCTS WITH DROPDOWN - WITH CONTINUOUS CHEVRON ANIMATION */}
               <div className="relative" ref={dropdownRef}>
                 <motion.button
-                  whileHover={{ x: 5 }}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.1 }}
                   onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
                   className="text-base font-medium text-gray-900 hover:text-gray-500 transition flex items-center justify-between w-full"
                 >
                   Products
                   <motion.svg 
-                    animate={{ rotate: isProductsDropdownOpen ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    animate={{ 
+                      y: [0, -2, 0, 2, 0],
+                      opacity: [0.6, 1, 0.6]
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      repeatType: "loop"
+                    }}
+                    className="w-4 h-4 ml-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </motion.svg>
                 </motion.button>
                 
-                {/* ONE UNIFIED DROPDOWN CARD - Less shadow */}
+                {/* ONE UNIFIED DROPDOWN CARD */}
                 <AnimatePresence>
                   {isProductsDropdownOpen && (
                     <motion.div 
-                      initial={{ opacity: 0, y: -10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -10, scale: 0.98 }}
-                      transition={{ duration: 0.25, ease: "easeOut" }}
-                      className="mt-2 bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm"
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="mt-2 bg-white rounded-xl border border-gray-100 overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
                     >
                       <Link 
                         onClick={() => {
@@ -206,11 +222,11 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
               
-              <motion.div whileHover={{ x: 5 }}>
+              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.1 }}>
                 <Link onClick={() => setIsMenuOpen(false)} to="/about" className="text-base font-medium text-gray-900 hover:text-gray-500 transition block">Company</Link>
               </motion.div>
               
-              <motion.div whileHover={{ x: 5 }}>
+              <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.1 }}>
                 <Link onClick={() => setIsMenuOpen(false)} to="/blog" className="text-base font-medium text-gray-900 hover:text-gray-500 transition block">Blog</Link>
               </motion.div>
               
@@ -218,13 +234,13 @@ export default function Navbar() {
               
               {/* INSTITUTIONAL ACCESS CARD WITH IMAGE */}
               <motion.div
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.2 }}
+                whileHover={{ scale: 1.005 }}
+                transition={{ duration: 0.15 }}
               >
                 <Link 
                   onClick={() => setIsMenuOpen(false)} 
                   to="/institutional-access"
-                  className="relative block overflow-hidden rounded-xl bg-gray-900 transition-all duration-300 hover:shadow-md w-full text-left"
+                  className="relative block overflow-hidden rounded-xl bg-gray-900 w-full text-left"
                 >
                   <img 
                     src="/IMG_inst.JPG" 

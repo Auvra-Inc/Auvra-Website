@@ -1,6 +1,6 @@
 // src/pages/institutions.jsx
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '../reuseables/navbar';
@@ -70,10 +70,17 @@ const Icons = {
       </svg>
     </IconWrapper>
   ),
-  verify: (
+  speed: (
     <IconWrapper>
       <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      </svg>
+    </IconWrapper>
+  ),
+  growth: (
+    <IconWrapper>
+      <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m15-1.5v.75c0 .414.336.75.75.75h.75M3.75 9h15m-15 3h15m-15 3h15M12 3v15" />
       </svg>
     </IconWrapper>
   ),
@@ -96,7 +103,6 @@ const staggerContainer = {
 export default function Institutions() {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionHeight = useRef(0);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -320,10 +326,10 @@ export default function Institutions() {
           </div>
         </motion.section>
 
-        {/* PRESERVE WITH CONFIDENCE - SCROLL CHANGING CARDS - CLOSER TO EDGES */}
+        {/* PRESERVE WITH CONFIDENCE - SCROLL CHANGING CARDS */}
         <div className="relative bg-white" style={{ height: `${scrollSections.length * 100}vh` }}>
           <div ref={containerRef} className="sticky top-0 h-screen flex items-center">
-            <div className="w-full px-2 md:px-4">
+            <div className="w-full px-4">
               <div className="text-center">
                 <motion.h2 
                   initial={{ opacity: 0, y: 20 }}
@@ -352,7 +358,7 @@ export default function Institutions() {
           </div>
         </div>
 
-        {/* MADE TO LAST. BUILT TO PERFORM. - CARDS */}
+        {/* MADE TO LAST. BUILT TO PERFORM. */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -360,11 +366,11 @@ export default function Institutions() {
           variants={staggerContainer}
           className="bg-gray-50 py-20"
         >
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-6xl mx-auto px-6">
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-clash font-light text-black text-center mb-12">
               Made to last. Built to perform.
             </motion.h2>
-            <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
               <motion.div variants={fadeUp} className="bg-white rounded-2xl p-5 flex gap-4 items-start shadow-sm border border-gray-50">
                 <div className="flex-shrink-0">{Icons.blockchain}</div>
                 <div>
@@ -411,7 +417,95 @@ export default function Institutions() {
           </div>
         </motion.div>
 
-        {/* CONTROL SECTION */}
+        {/* WHY AUVRA FOR INSTITUTIONS - OSMO STYLE */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="max-w-6xl mx-auto px-6 py-20"
+        >
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-6">
+              Why Auvra for Institutions?
+            </h2>
+            <p className="text-gray-500 font-light leading-relaxed mb-8">
+              Level up your preservation infrastructure and join a community of museums, governments, and cultural organizations that refuse to let heritage disappear.
+            </p>
+          </div>
+        </motion.section>
+
+        {/* PRESERVE FASTER AND BETTER - OSMO STYLE */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="bg-gray-50 py-20"
+        >
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="mb-4">{Icons.speed}</div>
+                <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
+                  Preserve faster and better
+                </h2>
+                <p className="text-gray-500 font-light leading-relaxed">
+                  Our infrastructure saves you years of building from scratch. Every tool is made for real-world cultural assets, so you can focus on preserving what matters.
+                </p>
+              </div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* SPEED UP YOUR PROCESS - OSMO STYLE */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="max-w-6xl mx-auto px-6 py-20"
+        >
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="mb-4">{Icons.speed}</div>
+              <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
+                Speed up your process
+              </h2>
+              <p className="text-gray-500 font-light leading-relaxed">
+                This is not a stripped-down archive. Every feature is built to be fast, flexible, and production-ready. Preserve thousands of assets without trading quality for time.
+              </p>
+            </div>
+            <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+          </div>
+        </motion.section>
+
+        {/* A LIVING AND GROWING SYSTEM - OSMO STYLE */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="bg-gray-50 py-20"
+        >
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="mb-4">{Icons.growth}</div>
+                <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
+                  A living and growing system
+                </h2>
+                <p className="text-gray-500 font-light leading-relaxed">
+                  We keep adding new capabilities every month. The infrastructure evolves with you and your needs. Your toolkit never stops expanding.
+                </p>
+              </div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* YOU'RE IN CONTROL SECTION */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -430,20 +524,107 @@ export default function Institutions() {
           </p>
         </motion.div>
 
+        {/* PRICING SECTION - OSMO STYLE */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="bg-gray-50 py-20"
+        >
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-clash font-light text-black text-center mb-4">
+              Pricing
+            </h2>
+            <p className="text-gray-500 text-center mb-12">
+              One platform. Enterprise-ready. Flexible terms.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+                <h3 className="text-xl font-clash font-medium text-black mb-2">Member</h3>
+                <p className="text-gray-400 text-sm mb-4">Institutions getting started with digital preservation</p>
+                <p className="text-2xl font-clash font-light text-black">Custom pricing</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+                <h3 className="text-xl font-clash font-medium text-black mb-2">Enterprise</h3>
+                <p className="text-gray-400 text-sm mb-4">Large museums, government archives, national libraries</p>
+                <p className="text-2xl font-clash font-light text-black">Custom pricing</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+                <h3 className="text-xl font-clash font-medium text-black mb-2">Lifetime</h3>
+                <p className="text-gray-400 text-sm mb-4">Long-term partnerships, multi-year commitments</p>
+                <p className="text-2xl font-clash font-light text-black">Custom pricing</p>
+              </div>
+            </div>
+            <div className="text-center mt-8">
+              <p className="text-gray-500 text-sm">
+                Become a member. Join once. Stay part of the preservation community forever. All future updates included.
+              </p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* BENEFITS SECTION */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="max-w-4xl mx-auto px-6 py-20"
+        >
+          <h2 className="text-3xl md:text-4xl font-clash font-light text-black text-center mb-12">
+            Benefits
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            <motion.div variants={fadeUp} className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <span className="text-gray-600 text-sm">Blockchain provenance included</span>
+            </motion.div>
+            <motion.div variants={fadeUp} className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <span className="text-gray-600 text-sm">Permanent Arweave storage</span>
+            </motion.div>
+            <motion.div variants={fadeUp} className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <span className="text-gray-600 text-sm">Public registry access</span>
+            </motion.div>
+            <motion.div variants={fadeUp} className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <span className="text-gray-600 text-sm">API integration</span>
+            </motion.div>
+            <motion.div variants={fadeUp} className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <span className="text-gray-600 text-sm">Community verification tools</span>
+            </motion.div>
+            <motion.div variants={fadeUp} className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <span className="text-gray-600 text-sm">Bulk upload dashboard</span>
+            </motion.div>
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/institutional-access" className="text-black text-sm underline hover:no-underline">
+              View all benefits
+            </Link>
+          </div>
+        </motion.div>
+
         {/* FINAL CTA */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="bg-gray-50 py-16"
+          className="bg-gray-50 py-20"
         >
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-2xl md:text-3xl font-clash font-light text-black mb-4">
               Try Auvra for Institutions
             </h2>
-            <p className="text-gray-500 font-light mb-6">
+            <p className="text-gray-500 font-light mb-4">
               Be among the first to build on permanent, verifiable infrastructure for cultural heritage.
+            </p>
+            <p className="text-gray-400 text-sm mb-6">
+              Join once. Preserve forever. All future updates included.
             </p>
             <Link 
               to="/institutional-access"

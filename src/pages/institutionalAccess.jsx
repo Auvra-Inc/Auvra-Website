@@ -43,31 +43,34 @@ export default function InstitutionalAccess() {
               touch-action: pan-y pinch-zoom !important;
             }
             
-            /* Thank You Page Styling */
+            /* FIX: Thank You / Success Page - NO SCROLLING, BLACK TEXT */
+            body:has(.thank-you), 
+            body:has([class*="success"]),
+            body:has(.submission-success) {
+              overflow-y: hidden !important;
+              height: auto !important;
+              min-height: auto !important;
+            }
+            
             .thank-you, [class*="thank"], [class*="success"], 
-            .submission-message, .form-success-message {
+            .submission-message, .form-success-message,
+            div[class*="success-message"] {
               color: #111827 !important;
               background: #ffffff !important;
               min-height: auto !important;
               height: auto !important;
               margin: 0 !important;
-              padding: 40px 20px !important;
-              text-align: center !important;
+              padding: 20px !important;
+              overflow: hidden !important;
             }
             
             .thank-you p, [class*="thank"] p, [class*="success"] p {
               color: #374151 !important;
-              font-size: 16px !important;
-              line-height: 1.6 !important;
-              margin-bottom: 16px !important;
             }
             
             .thank-you h1, .thank-you h2, .thank-you h3,
             [class*="thank"] h1, [class*="success"] h1 {
               color: #111827 !important;
-              font-size: 28px !important;
-              font-weight: 600 !important;
-              margin-bottom: 20px !important;
             }
             
             /* Hide all footers */
@@ -250,64 +253,6 @@ export default function InstitutionalAccess() {
               firstParagraph.style.paddingBottom = '8px';
             }
             
-            // Function to enhance the thank you message
-            function enhanceThankYouMessage() {
-              // Look for thank you message containers
-              var thankYouElements = document.querySelectorAll('.thank-you, [class*="thank"], [class*="success"], .submission-message');
-              
-              thankYouElements.forEach(function(element) {
-                // Check if it's the thank you message
-                var text = element.innerText || element.textContent;
-                if (text.includes('Thank you') || text.includes('success') || text.includes('submitted')) {
-                  
-                  // Create new enhanced thank you message
-                  var enhancedHtml = \`
-                    <div style="text-align: center; padding: 20px;">
-                      <h2 style="color: #111827; font-size: 28px; font-weight: 600; margin-bottom: 20px;">Thank You for Your Interest</h2>
-                      <p style="color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-                        Your application for Institutional Access has been successfully submitted.
-                      </p>
-                      <p style="color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-                        Our team will review your submission and contact you within 3-5 business days to discuss your cultural preservation needs and how Auvra can support your institution.
-                      </p>
-                      <p style="color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
-                        We look forward to partnering with you to preserve cultural heritage for future generations.
-                      </p>
-                      <p style="color: #6b7280; font-size: 14px; margin-top: 24px;">
-                        A reference copy has been sent to your email.
-                      </p>
-                    </div>
-                  \`;
-                  
-                  // Replace the content
-                  element.innerHTML = enhancedHtml;
-                  
-                  // Remove any extra scrolling
-                  element.style.minHeight = 'auto';
-                  element.style.height = 'auto';
-                  element.style.overflow = 'visible';
-                }
-              });
-            }
-            
-            // Wait for thank you page to load
-            var checkInterval = setInterval(function() {
-              var thankYouPresent = document.querySelector('.thank-you, [class*="thank"], [class*="success"]');
-              if (thankYouPresent) {
-                clearInterval(checkInterval);
-                setTimeout(enhanceThankYouMessage, 100);
-              }
-            }, 500);
-            
-            // Also run when mutations occur
-            var observer = new MutationObserver(function() {
-              var thankYouPresent = document.querySelector('.thank-you, [class*="thank"], [class*="success"]');
-              if (thankYouPresent) {
-                enhanceThankYouMessage();
-              }
-            });
-            observer.observe(document.body, { childList: true, subtree: true });
-            
             function addOtherInputs() {
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
               
@@ -406,11 +351,11 @@ export default function InstitutionalAccess() {
             setTimeout(addOtherInputs, 1000);
             setTimeout(addOtherInputsForSelects, 1000);
             
-            var formObserver = new MutationObserver(function() { 
+            var observer = new MutationObserver(function() { 
               addOtherInputs();
               addOtherInputsForSelects();
             });
-            formObserver.observe(document.body, { childList: true, subtree: true });
+            observer.observe(document.body, { childList: true, subtree: true });
             
             function sendHeight() {
               var height = document.body.scrollHeight;

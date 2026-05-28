@@ -5,6 +5,13 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '../reuseables/navbar';
 
+// Icon wrapper component (same as About page)
+const IconWrapper = ({ children }) => (
+  <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+    {children}
+  </div>
+);
+
 export default function Institutions() {
   return (
     <>
@@ -17,18 +24,22 @@ export default function Institutions() {
 
       <main className="min-h-screen bg-white pt-32 pb-20">
         
-        {/* HERO SECTION */}
-        <div className="max-w-6xl mx-auto px-6 mb-24">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-clash font-light text-black mb-6 tracking-tight">
+        {/* HERO SECTION - With overlay image */}
+        <div className="relative min-h-[80vh] flex items-center justify-center bg-black mb-16">
+          <div className="absolute inset-0 bg-black/50 z-10"></div>
+          <div className="absolute inset-0 bg-gray-800">
+            {/* Your hero image here */}
+          </div>
+          <div className="relative z-20 max-w-4xl mx-auto text-center px-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-clash font-light text-white mb-6 tracking-tight">
               Auvra for Institutions
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 font-light mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-200 font-light mb-8 max-w-2xl mx-auto">
               Permanent, verifiable infrastructure for museums, governments, and cultural organizations.
             </p>
             <Link 
               to="/institutional-access"
-              className="inline-block bg-black text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
+              className="inline-block bg-white text-black px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
             >
               Apply for Institutional Access →
             </Link>
@@ -36,7 +47,7 @@ export default function Institutions() {
         </div>
 
         {/* ONE INFRASTRUCTURE LAYER */}
-        <section className="max-w-6xl mx-auto px-6 py-20 border-t border-gray-100">
+        <section className="max-w-6xl mx-auto px-6 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
@@ -126,7 +137,7 @@ export default function Institutions() {
               </h2>
               <p className="text-gray-500 font-light leading-relaxed">
                 Upload collections via CSV, API, or our dashboard. We handle the blockchain and storage. You focus on curation.
-              </p>
+                </p>
             </div>
             <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden">
               {/* Image space */}
@@ -155,48 +166,65 @@ export default function Institutions() {
           </div>
         </section>
 
-        {/* PRESERVE WITH CONFIDENCE - 4 CARDS (NOT a list, NOT scroll-changing) */}
+        {/* PRESERVE WITH CONFIDENCE - 4 CARDS (styled like About page) */}
         <div className="max-w-6xl mx-auto px-6 py-20">
           <h2 className="text-3xl md:text-4xl font-clash font-light text-black text-center mb-12">
             Preserve with confidence
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
+            
+            {/* Card 1 - Bulk upload */}
             <div className="bg-gray-50 rounded-2xl p-6 text-center">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375 7.444 2.25 12 2.25s8.25 1.847 8.25 4.125Zm0 0v5.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-5.25" />
-                </svg>
+              <div className="mb-4 flex justify-center">
+                <IconWrapper>
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375 7.444 2.25 12 2.25s8.25 1.847 8.25 4.125Zm0 0v5.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-5.25" />
+                  </svg>
+                </IconWrapper>
               </div>
-              <h3 className="font-medium text-black text-sm mb-1">Bulk upload</h3>
-              <p className="text-gray-400 text-xs">Thousands of assets at once</p>
+              <h3 className="text-lg font-clash font-medium text-black mb-1">Bulk upload</h3>
+              <p className="text-gray-500 text-sm">Thousands of assets at once</p>
             </div>
+
+            {/* Card 2 - Blockchain verified */}
             <div className="bg-gray-50 rounded-2xl p-6 text-center">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div className="mb-4 flex justify-center">
+                <IconWrapper>
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                </IconWrapper>
               </div>
-              <h3 className="font-medium text-black text-sm mb-1">Blockchain verified</h3>
-              <p className="text-gray-400 text-xs">Tamper-proof provenance</p>
+              <h3 className="text-lg font-clash font-medium text-black mb-1">Blockchain verified</h3>
+              <p className="text-gray-500 text-sm">Tamper-proof provenance</p>
             </div>
+
+            {/* Card 3 - Open access */}
             <div className="bg-gray-50 rounded-2xl p-6 text-center">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div className="mb-4 flex justify-center">
+                <IconWrapper>
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                </IconWrapper>
               </div>
-              <h3 className="font-medium text-black text-sm mb-1">Open access</h3>
-              <p className="text-gray-400 text-xs">Share with the world</p>
+              <h3 className="text-lg font-clash font-medium text-black mb-1">Open access</h3>
+              <p className="text-gray-500 text-sm">Share with the world</p>
             </div>
+
+            {/* Card 4 - API access */}
             <div className="bg-gray-50 rounded-2xl p-6 text-center">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3">
-                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
+              <div className="mb-4 flex justify-center">
+                <IconWrapper>
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </IconWrapper>
               </div>
-              <h3 className="font-medium text-black text-sm mb-1">API access</h3>
-              <p className="text-gray-400 text-xs">Connect your systems</p>
+              <h3 className="text-lg font-clash font-medium text-black mb-1">API access</h3>
+              <p className="text-gray-500 text-sm">Connect your systems</p>
             </div>
+
           </div>
         </div>
 

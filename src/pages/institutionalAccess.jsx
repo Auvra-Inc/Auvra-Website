@@ -15,14 +15,14 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    iframe.style.cssText = 'width: 100%; min-height: 600px; border: none; border-radius: 16px; background: white; display: block; height: auto;';
+    iframe.style.cssText = 'width: 100%; min-height: 500px; border: none; border-radius: 16px; background: white; display: block;';
     iframe.title = 'Auvra Institutional Access';
     container.appendChild(iframe);
 
     fetch('https://pxodpeirilfuzqtlbhqf.supabase.co/functions/v1/embed-form?slug=auvra-institutional-access')
       .then(function(r) { return r.text(); })
       .then(function(html) { 
-        // Inject CSS to improve thank you page styling
+        // FIX: Added CSS to fix Thank You page - black text and no extra scrolling
         const styledHtml = html.replace(
           '</head>',
           `<style>
@@ -41,25 +41,36 @@ export default function InstitutionalAccess() {
               overflow-y: auto !important;
             }
             
+            /* FIX: Thank You page - force black text */
+            .thank-you, [class*="thank"], [class*="success"], 
+            .submission-message, .form-success-message,
+            div[class*="success"], div[class*="thank"] {
+              color: #111827 !important;
+              background: #ffffff !important;
+            }
+            
+            .thank-you p, [class*="thank"] p, [class*="success"] p,
+            .submission-message p, .form-success-message p {
+              color: #374151 !important;
+            }
+            
+            .thank-you h1, .thank-you h2, .thank-you h3,
+            [class*="thank"] h1, [class*="success"] h1 {
+              color: #111827 !important;
+            }
+            
+            /* FIX: Remove extra spacing from thank you page */
+            .thank-you, [class*="thank"], [class*="success"] {
+              margin: 0 !important;
+              padding: 20px !important;
+              min-height: auto !important;
+            }
+            
             /* Hide all footers */
             footer, .foorm-footer, [class*="powered"], [class*="footer"], 
             div:has(> a[href*="foorm.xyz"]), .footer, .form-footer,
             .credit, .credits, [class*="credit"] {
               display: none !important;
-            }
-            
-            /* Thank you page styling - ensure black text */
-            .thank-you, [class*="thank"], [class*="success"] {
-              color: #111827 !important;
-              background: #ffffff !important;
-            }
-            
-            .thank-you p, [class*="thank"] p, [class*="success"] p {
-              color: #374151 !important;
-            }
-            
-            .thank-you h1, .thank-you h2, .thank-you h3 {
-              color: #111827 !important;
             }
             
             .container, .form-container, main, .main {

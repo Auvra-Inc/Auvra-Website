@@ -357,43 +357,6 @@ export default function InstitutionalAccess() {
             });
             observer.observe(document.body, { childList: true, subtree: true });
             
-            // ADDED: Enhance thank you message with more wording
-            function enhanceThankYouMessage() {
-              var thankYouElements = document.querySelectorAll('.thank-you, [class*="thank"], [class*="success"], .submission-message');
-              
-              thankYouElements.forEach(function(element) {
-                var text = element.innerText || element.textContent;
-                if (text.includes('Thank you') || text.includes('success') || text.includes('submitted')) {
-                  element.innerHTML = \`
-                    <div style="text-align: center; padding: 20px;">
-                      <h2 style="color: #111827; font-size: 24px; font-weight: 600; margin-bottom: 16px;">Thank You for Your Interest</h2>
-                      <p style="color: #374151; margin-bottom: 12px;">Your application for Institutional Access has been successfully submitted.</p>
-                      <p style="color: #374151; margin-bottom: 12px;">Our team will review your submission and contact you within 3-5 business days to discuss your cultural preservation needs.</p>
-                      <p style="color: #374151; margin-bottom: 12px;">We look forward to partnering with you to preserve cultural heritage for future generations.</p>
-                      <p style="color: #6b7280; font-size: 13px; margin-top: 16px;">A confirmation has been sent to your email.</p>
-                    </div>
-                  \`;
-                  element.style.minHeight = 'auto';
-                  element.style.height = 'auto';
-                }
-              });
-            }
-            
-            // Check for thank you page
-            var thankYouCheck = setInterval(function() {
-              if (document.querySelector('.thank-you, [class*="thank"], [class*="success"]')) {
-                clearInterval(thankYouCheck);
-                setTimeout(enhanceThankYouMessage, 100);
-              }
-            }, 500);
-            
-            var messageObserver = new MutationObserver(function() {
-              if (document.querySelector('.thank-you, [class*="thank"], [class*="success"]')) {
-                enhanceThankYouMessage();
-              }
-            });
-            messageObserver.observe(document.body, { childList: true, subtree: true });
-            
             function sendHeight() {
               var height = document.body.scrollHeight;
               window.parent.postMessage({ type: 'resize', height: height }, '*');

@@ -1,11 +1,11 @@
 // src/pages/institutions.jsx
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '../reuseables/navbar';
 
-// Icon wrapper component - GREY with shadow (since cards are white)
+// Icon wrapper component - GREY with shadow
 const IconWrapper = ({ children }) => (
   <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 rounded-xl flex items-center justify-center shadow-sm">
     {children}
@@ -89,13 +89,14 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 }
+    transition: { staggerChildren: 0.1 }
   }
 };
 
 export default function Institutions() {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const sectionHeight = useRef(0);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -103,10 +104,10 @@ export default function Institutions() {
   });
 
   const scrollSections = [
-    { title: "Bulk upload", description: "Thousands of assets at once", icon: Icons.bulk },
-    { title: "Blockchain verified", description: "Tamper-proof provenance", icon: Icons.blockchain },
-    { title: "Open access", description: "Share with the world", icon: Icons.open },
-    { title: "API access", description: "Connect your systems", icon: Icons.api }
+    { title: "Bulk upload", description: "Upload thousands of cultural assets at once via CSV, API, or our dashboard. We handle the infrastructure.", icon: Icons.bulk },
+    { title: "Blockchain verification", description: "Every asset becomes a tamper-proof, immutable record on the blockchain. Who created it. Who owned it. Who verified it. Forever.", icon: Icons.blockchain },
+    { title: "Open access registry", description: "Make your collections publicly accessible to researchers, journalists, and the diaspora. No login. No paywall.", icon: Icons.open },
+    { title: "API integration", description: "Connect Auvra to your existing systems. Pull records into your website. Push discoveries to the registry. Automate workflows.", icon: Icons.api }
   ];
 
   useEffect(() => {
@@ -137,7 +138,7 @@ export default function Institutions() {
         >
           <div className="absolute inset-0 bg-black/40 z-10"></div>
           <div className="absolute inset-0 bg-gray-800"></div>
-          <div className="relative z-20 max-w-4xl mx-auto text-center px-4">
+          <div className="relative z-20 max-w-4xl mx-auto text-center px-6">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -175,9 +176,9 @@ export default function Institutions() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="max-w-6xl mx-auto px-4 py-16 md:py-20"
+          className="max-w-6xl mx-auto px-6 py-20"
         >
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-4">{Icons.layer}</div>
               <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
@@ -189,9 +190,7 @@ export default function Institutions() {
                 Whether you are a national museum, a government archive, or a university library, Auvra gives you the tools to preserve, verify, and share cultural heritage permanently. No more fragmented systems. No more lost provenance. No more closed access.
               </p>
             </div>
-            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden">
-              {/* Image space */}
-            </div>
+            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
           </div>
         </motion.section>
 
@@ -201,10 +200,10 @@ export default function Institutions() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="bg-gray-50 py-16 md:py-20"
+          className="bg-gray-50 py-20"
         >
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <div className="mb-4">{Icons.record}</div>
                 <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
@@ -216,9 +215,7 @@ export default function Institutions() {
                   Every artifact, document, or oral history you preserve becomes an immutable record on the blockchain. Who created it. Who owned it. Who verified it. Forever.
                 </p>
               </div>
-              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden">
-                {/* Image space */}
-              </div>
+              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
             </div>
           </div>
         </motion.section>
@@ -229,9 +226,9 @@ export default function Institutions() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="max-w-6xl mx-auto px-4 py-16 md:py-20"
+          className="max-w-6xl mx-auto px-6 py-20"
         >
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-4">{Icons.open}</div>
               <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
@@ -243,9 +240,7 @@ export default function Institutions() {
                 The Auvra Registry makes every preserved asset publicly accessible. No login. No paywall. Researchers, journalists, and the diaspora can search, view, and verify your collections from anywhere.
               </p>
             </div>
-            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden">
-              {/* Image space */}
-            </div>
+            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
           </div>
         </motion.section>
 
@@ -255,10 +250,10 @@ export default function Institutions() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="bg-gray-50 py-16 md:py-20"
+          className="bg-gray-50 py-20"
         >
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <div className="mb-4">{Icons.community}</div>
                 <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
@@ -270,9 +265,7 @@ export default function Institutions() {
                   Invite community elders, academic experts, and other institutions to verify authenticity. Consensus builds trust faster than a single signature.
                 </p>
               </div>
-              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden">
-                {/* Image space */}
-              </div>
+              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
             </div>
           </div>
         </motion.section>
@@ -283,9 +276,9 @@ export default function Institutions() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="max-w-6xl mx-auto px-4 py-16 md:py-20"
+          className="max-w-6xl mx-auto px-6 py-20"
         >
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-4">{Icons.bulk}</div>
               <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
@@ -297,9 +290,7 @@ export default function Institutions() {
                 Upload collections via CSV, API, or our dashboard. We handle the blockchain and storage. You focus on curation.
               </p>
             </div>
-            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden">
-              {/* Image space */}
-            </div>
+            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
           </div>
         </motion.section>
 
@@ -309,10 +300,10 @@ export default function Institutions() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="bg-gray-50 py-16 md:py-20"
+          className="bg-gray-50 py-20"
         >
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <div className="mb-4">{Icons.api}</div>
                 <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
@@ -324,19 +315,15 @@ export default function Institutions() {
                   Pull records into your website. Push new discoveries to the registry. Automate preservation workflows. Your data, your systems, our infrastructure.
                 </p>
               </div>
-              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden">
-                {/* Image space */}
-              </div>
+              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
             </div>
           </div>
         </motion.section>
 
-        {/* PRESERVE WITH CONFIDENCE - SCROLL CHANGING CARDS */}
-        <div ref={containerRef} className="relative bg-white">
-          <div className="h-[15vh]" />
-          
-          <div className="sticky top-0 h-[70vh] flex items-center">
-            <div className="max-w-6xl mx-auto px-4 w-full">
+        {/* PRESERVE WITH CONFIDENCE - SCROLL CHANGING CARDS - CLOSER TO EDGES */}
+        <div className="relative bg-white" style={{ height: `${scrollSections.length * 100}vh` }}>
+          <div ref={containerRef} className="sticky top-0 h-screen flex items-center">
+            <div className="w-full px-2 md:px-4">
               <div className="text-center">
                 <motion.h2 
                   initial={{ opacity: 0, y: 20 }}
@@ -353,39 +340,31 @@ export default function Institutions() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="bg-white border border-gray-100 rounded-2xl p-8 text-center max-w-md mx-auto shadow-sm"
+                    className="bg-white border border-gray-100 rounded-2xl p-6 text-center max-w-2xl mx-auto shadow-sm"
                   >
-                    <div className="mb-4 flex justify-center">
-                      {scrollSections[activeIndex].icon}
-                    </div>
-                    <h3 className="text-xl font-clash font-medium text-black mb-2">
-                      {scrollSections[activeIndex].title}
-                    </h3>
-                    <p className="text-gray-500">
-                      {scrollSections[activeIndex].description}
-                    </p>
+                    <div className="mb-4 flex justify-center">{scrollSections[activeIndex].icon}</div>
+                    <h3 className="text-xl font-clash font-medium text-black mb-3">{scrollSections[activeIndex].title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{scrollSections[activeIndex].description}</p>
                   </motion.div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div className="h-[15vh]" />
         </div>
 
-        {/* MADE TO LAST. BUILT TO PERFORM. - WITH ICONS AND CARDS */}
+        {/* MADE TO LAST. BUILT TO PERFORM. - CARDS */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="bg-gray-50 py-16 md:py-20"
+          className="bg-gray-50 py-20"
         >
-          <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-7xl mx-auto px-6">
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-clash font-light text-black text-center mb-12">
               Made to last. Built to perform.
             </motion.h2>
-            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
               <motion.div variants={fadeUp} className="bg-white rounded-2xl p-5 flex gap-4 items-start shadow-sm border border-gray-50">
                 <div className="flex-shrink-0">{Icons.blockchain}</div>
                 <div>
@@ -438,7 +417,7 @@ export default function Institutions() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="max-w-4xl mx-auto px-4 py-16 md:py-20 text-center"
+          className="max-w-4xl mx-auto px-6 py-20 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-6">
             You're in control of your collections
@@ -459,7 +438,7 @@ export default function Institutions() {
           variants={fadeUp}
           className="bg-gray-50 py-16"
         >
-          <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-2xl md:text-3xl font-clash font-light text-black mb-4">
               Try Auvra for Institutions
             </h2>

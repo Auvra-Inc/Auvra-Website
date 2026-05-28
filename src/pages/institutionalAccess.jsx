@@ -43,6 +43,36 @@ export default function InstitutionalAccess() {
               touch-action: pan-y pinch-zoom !important;
             }
             
+            /* FIX: Thank You / Success Page - NO SCROLLING, BLACK TEXT */
+            body:has(.thank-you), 
+            body:has([class*="success"]),
+            body:has(.submission-success) {
+              overflow-y: hidden !important;
+              height: auto !important;
+              min-height: auto !important;
+            }
+            
+            .thank-you, [class*="thank"], [class*="success"], 
+            .submission-message, .form-success-message,
+            div[class*="success-message"] {
+              color: #111827 !important;
+              background: #ffffff !important;
+              min-height: auto !important;
+              height: auto !important;
+              margin: 0 !important;
+              padding: 20px !important;
+              overflow: hidden !important;
+            }
+            
+            .thank-you p, [class*="thank"] p, [class*="success"] p {
+              color: #374151 !important;
+            }
+            
+            .thank-you h1, .thank-you h2, .thank-you h3,
+            [class*="thank"] h1, [class*="success"] h1 {
+              color: #111827 !important;
+            }
+            
             /* Hide all footers */
             footer, .foorm-footer, [class*="powered"], [class*="footer"], 
             div:has(> a[href*="foorm.xyz"]), .footer, .form-footer,
@@ -65,7 +95,6 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
             p:first-of-type, .description-text, .intro-text, 
             form > p:first-child, .form-description {
               margin-bottom: 32px !important;
@@ -74,17 +103,14 @@ export default function InstitutionalAccess() {
               border-bottom: 1px solid #f0f0f0 !important;
             }
             
-            /* Any paragraph that contains the intro text */
             p {
               margin-bottom: 28px !important;
             }
             
-            /* First child of form gets extra spacing */
             form > *:first-child {
               margin-bottom: 32px !important;
             }
             
-            /* LABELS / QUESTIONS - BOLD */
             label, .label, .form-label, .question, [class*="question"] {
               color: #111827 !important;
               font-weight: 600 !important;
@@ -94,7 +120,6 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
-            /* Required field indicator - italic, thin, with brackets */
             .required, .required-star, [class*="required"] {
               font-weight: 300 !important;
               font-style: italic !important;
@@ -102,7 +127,6 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
             }
             
-            /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
             .field-description, .field-help {
@@ -161,14 +185,12 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
-            /* Regular text */
             span:not([class*="required"]), .text, .regular-text {
               color: #4b5563 !important;
               font-weight: 400 !important;
               font-size: 13px !important;
             }
             
-            /* Card styling */
             .card, [class*="card"] {
               padding: 12px !important;
               margin-bottom: 12px !important;
@@ -176,7 +198,6 @@ export default function InstitutionalAccess() {
               border-radius: 12px !important;
             }
             
-            /* Radio and checkbox groups */
             .radio-group, .checkbox-group {
               margin-bottom: 16px !important;
             }
@@ -193,7 +214,6 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
-            /* "Other" option styling */
             .other-option, [class*="other"] {
               margin-left: 0 !important;
               margin-top: 8px !important;
@@ -208,12 +228,10 @@ export default function InstitutionalAccess() {
               gap: 12px !important;
             }
             
-            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
             }
             
-            /* Prevent zoom on inputs (iOS) */
             input, select, textarea {
               font-size: 16px !important;
             }
@@ -235,7 +253,6 @@ export default function InstitutionalAccess() {
               firstParagraph.style.paddingBottom = '8px';
             }
             
-            // Find and add input field for "Other" options
             function addOtherInputs() {
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
               

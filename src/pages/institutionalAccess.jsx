@@ -41,7 +41,6 @@ export default function InstitutionalAccess() {
               overflow-y: auto !important;
             }
             
-            /* Hide all footers */
             footer, .foorm-footer, [class*="powered"], [class*="footer"], 
             div:has(> a[href*="foorm.xyz"]), .footer, .form-footer,
             .credit, .credits, [class*="credit"] {
@@ -182,6 +181,19 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
+            /* Other option styling - keeps the indentation */
+            .other-option, [class*="other"] {
+              margin-left: 0 !important;
+              margin-top: 8px !important;
+              margin-bottom: 12px !important;
+            }
+            
+            /* Make other checkbox group align with others */
+            .checkbox-group:has(input[value*="Other"]), 
+            .checkbox-group:has(input[value*="other"]) {
+              margin-left: 0 !important;
+            }
+            
             .form-group, .field-group {
               margin-bottom: 16px !important;
             }
@@ -211,24 +223,17 @@ export default function InstitutionalAccess() {
               firstParagraph.style.paddingBottom = '8px';
             }
             
-            // Find the parent container that holds the checkboxes
-            function findParentContainer(element) {
-              let parent = element.parentElement;
-              while (parent) {
-                if (parent.classList && (parent.classList.contains('checkbox-group') || parent.classList.contains('form-group') || parent.className.includes('checkbox'))) {
-                  return parent;
-                }
-                parent = parent.parentElement;
-              }
-              return element.parentElement;
-            }
-            
-            // Add Other input for checkboxes - aligned with the checkbox itself
+            // Find and add input field for "Other" options - properly aligned
             function addOtherInputs() {
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
               
               otherCheckboxes.forEach(function(otherInput) {
-                var parentDiv = findParentContainer(otherInput);
+                // Find the parent checkbox-group container
+                var parentDiv = otherInput.closest('.checkbox-group');
+                if (!parentDiv) {
+                  parentDiv = otherInput.parentElement;
+                }
+                
                 if (parentDiv && !parentDiv.querySelector('.other-input-field')) {
                   var textInput = document.createElement('input');
                   textInput.type = 'text';
@@ -256,7 +261,6 @@ export default function InstitutionalAccess() {
               });
             }
             
-            // Add Other input for Country/Region select - aligned with the select
             function addCountryOtherInput() {
               var selects = document.querySelectorAll('select');
               selects.forEach(function(select) {

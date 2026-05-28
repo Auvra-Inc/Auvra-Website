@@ -3,6 +3,31 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 
+// Complete list of all countries in the world
+const allCountries = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
+  "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+  "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
+  "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica",
+  "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+  "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland",
+  "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau",
+  "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
+  "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait",
+  "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+  "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico",
+  "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru",
+  "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan",
+  "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar",
+  "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa",
+  "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore",
+  "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan",
+  "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo",
+  "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates",
+  "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen",
+  "Zambia", "Zimbabwe"
+];
+
 export default function InstitutionalAccess() {
   const containerRef = useRef(null);
   const isScriptLoaded = useRef(false);
@@ -23,7 +48,17 @@ export default function InstitutionalAccess() {
     fetch('https://pxodpeirilfuzqtlbhqf.supabase.co/functions/v1/embed-form?slug=auvra-institutional-access')
       .then(function(r) { return r.text(); })
       .then(function(html) { 
-        const styledHtml = html.replace(
+        // Inject the full country list into the select dropdown
+        let modifiedHtml = html;
+        
+        // Find the country select and replace its options with full country list
+        const selectRegex = /<select[^>]*name="[^"]*country[^"]*"[^>]*>[\s\S]*?<\/select>/i;
+        const countryOptions = allCountries.map(country => `<option value="${country}">${country}</option>`).join('');
+        const newSelect = `<select name="country" id="country" required class="form-control" style="width: 100%; padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 14px;"><option value="">Select a country...</option>${countryOptions}</select>`;
+        
+        modifiedHtml = modifiedHtml.replace(selectRegex, newSelect);
+        
+        const styledHtml = modifiedHtml.replace(
           '</head>',
           `<style>
             * {
@@ -63,7 +98,7 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
+            /* INTRODUCTION / DESCRIPTION TEXT */
             p:first-of-type, .description-text, .intro-text, 
             form > p:first-child, .form-description {
               margin-bottom: 32px !important;
@@ -72,12 +107,10 @@ export default function InstitutionalAccess() {
               border-bottom: 1px solid #f0f0f0 !important;
             }
             
-            /* Any paragraph that contains the intro text */
             p {
               margin-bottom: 28px !important;
             }
             
-            /* First child of form gets extra spacing */
             form > *:first-child {
               margin-bottom: 32px !important;
             }
@@ -92,7 +125,7 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
-            /* Required field indicator - italic, thin, with brackets */
+            /* Required field indicator */
             .required, .required-star, [class*="required"] {
               font-weight: 300 !important;
               font-style: italic !important;
@@ -100,7 +133,6 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
             }
             
-            /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
             .field-description, .field-help {
@@ -159,14 +191,12 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
-            /* Regular text */
             span:not([class*="required"]), .text, .regular-text {
               color: #4b5563 !important;
               font-weight: 400 !important;
               font-size: 13px !important;
             }
             
-            /* Card styling */
             .card, [class*="card"] {
               padding: 12px !important;
               margin-bottom: 12px !important;
@@ -174,7 +204,7 @@ export default function InstitutionalAccess() {
               border-radius: 12px !important;
             }
             
-            /* Radio and checkbox groups */
+            /* Radio and checkbox groups - NO CHANGES, keep original layout */
             .radio-group, .checkbox-group {
               margin-bottom: 16px !important;
             }
@@ -191,30 +221,16 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
-            /* Other input field for Country/Region */
-            .other-country-input {
+            /* Other input field for checkboxes - centered same as list */
+            .other-input-field {
               margin-top: 8px !important;
+              margin-left: 0 !important;
               width: 100% !important;
               padding: 10px 12px !important;
               border: 1px solid #e5e7eb !important;
               border-radius: 10px !important;
               font-size: 14px !important;
               display: none !important;
-            }
-            
-            .other-country-input.show {
-              display: block !important;
-            }
-            
-            /* "Other" option styling */
-            .other-option, [class*="other"] {
-              margin-left: 24px !important;
-              margin-top: 8px !important;
-              margin-bottom: 12px !important;
-            }
-            
-            .other-option input, [class*="other"] input {
-              margin-top: 4px !important;
             }
             
             .form-group, .field-group {
@@ -225,7 +241,6 @@ export default function InstitutionalAccess() {
               gap: 12px !important;
             }
             
-            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
             }
@@ -235,7 +250,7 @@ export default function InstitutionalAccess() {
         const finalHtml = styledHtml.replace(
           '</body>',
           `<script>
-            // Convert asterisk to (required) with italic thin style
+            // Convert asterisk to (required)
             document.querySelectorAll('label, .label, .form-label').forEach(function(label) {
               if (label.innerHTML && label.innerHTML.includes('*')) {
                 label.innerHTML = label.innerHTML.replace(/\\*/g, '<span style="font-weight: 300; font-style: italic; font-size: 12px; color: #6b7280;"> (required)</span>');
@@ -249,7 +264,7 @@ export default function InstitutionalAccess() {
               firstParagraph.style.paddingBottom = '8px';
             }
             
-            // Find and add input field for "Other" options in checkboxes
+            // Find and add input field for "Other" options in checkboxes - centered alignment
             function addOtherInputs() {
               var otherRadios = document.querySelectorAll('input[type="radio"][value*="Other"], input[type="radio"][value*="other"]');
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
@@ -261,14 +276,14 @@ export default function InstitutionalAccess() {
                   var textInput = document.createElement('input');
                   textInput.type = 'text';
                   textInput.placeholder = 'Please specify...';
-                  textInput.className = 'other-input-field form-control';
+                  textInput.className = 'other-input-field';
                   textInput.style.marginTop = '8px';
-                  textInput.style.marginLeft = '24px';
-                  textInput.style.width = 'calc(100% - 24px)';
-                  textInput.style.padding = '8px 12px';
+                  textInput.style.marginLeft = '0';
+                  textInput.style.width = '100%';
+                  textInput.style.padding = '10px 12px';
                   textInput.style.border = '1px solid #e5e7eb';
-                  textInput.style.borderRadius = '8px';
-                  textInput.style.fontSize = '13px';
+                  textInput.style.borderRadius = '10px';
+                  textInput.style.fontSize = '14px';
                   textInput.style.display = 'none';
                   parentDiv.appendChild(textInput);
                   
@@ -284,58 +299,11 @@ export default function InstitutionalAccess() {
               });
             }
             
-            // Add "Other" text input for Country/Region select dropdown
-            function addCountryOtherInput() {
-              var selects = document.querySelectorAll('select');
-              selects.forEach(function(select) {
-                // Check if this select has an "Other" option
-                var hasOther = false;
-                for (var i = 0; i < select.options.length; i++) {
-                  if (select.options[i].text.toLowerCase().includes('other') || 
-                      (select.options[i].value && select.options[i].value.toLowerCase().includes('other'))) {
-                    hasOther = true;
-                    break;
-                  }
-                }
-                
-                if (hasOther && select.parentElement && !select.parentElement.querySelector('.other-country-input')) {
-                  var textInput = document.createElement('input');
-                  textInput.type = 'text';
-                  textInput.placeholder = 'Please specify your country/region...';
-                  textInput.className = 'other-country-input';
-                  textInput.style.marginTop = '8px';
-                  textInput.style.width = '100%';
-                  textInput.style.padding = '10px 12px';
-                  textInput.style.border = '1px solid #e5e7eb';
-                  textInput.style.borderRadius = '10px';
-                  textInput.style.fontSize = '14px';
-                  textInput.style.display = 'none';
-                  select.parentElement.appendChild(textInput);
-                  
-                  select.addEventListener('change', function() {
-                    var selectedValue = select.options[select.selectedIndex]?.text || select.value;
-                    if (selectedValue.toLowerCase().includes('other')) {
-                      textInput.style.display = 'block';
-                    } else {
-                      textInput.style.display = 'none';
-                      textInput.value = '';
-                    }
-                  });
-                }
-              });
-            }
-            
             addOtherInputs();
-            addCountryOtherInput();
             setTimeout(addOtherInputs, 500);
-            setTimeout(addCountryOtherInput, 500);
             setTimeout(addOtherInputs, 1000);
-            setTimeout(addCountryOtherInput, 1000);
             
-            var observer = new MutationObserver(function() { 
-              addOtherInputs();
-              addCountryOtherInput();
-            });
+            var observer = new MutationObserver(function() { addOtherInputs(); });
             observer.observe(document.body, { childList: true, subtree: true });
             
             function sendHeight() {

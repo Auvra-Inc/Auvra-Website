@@ -240,28 +240,3 @@ export default function Navbar() {
                   to="/institutional-access"
                   className="relative block overflow-hidden rounded-xl bg-gray-900 w-full text-left"
                 >
-                  <img 
-                    src="/IMG_inst.JPG" 
-                    alt="Institutional Access" 
-                    className="w-full h-full object-cover absolute inset-0"
-                    loading="eager"
-                  />
-                  <div className="absolute inset-0 bg-black/40"></div>
-                  <div className="relative z-10 flex items-center justify-between p-3">
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-white">Apply for Institutional Access</span>
-                      <span className="text-xs text-gray-200 mt-0.5">For Institutions & Government Bodies</span>
-                    </div>
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}

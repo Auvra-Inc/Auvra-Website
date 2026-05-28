@@ -49,13 +49,13 @@ export default function Navbar() {
   return (
     <>
       {/* =========================================
-          ULTRA-MODERN FLOATING NAV
+          ULTRA-MODERN FLOATING NAV - ORIGINAL ROUNDNESS RESTORED
       ========================================= */}
       <motion.nav 
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`fixed z-[110] font-clash flex justify-between items-center px-4 py-2 transition-all duration-300 ease-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-5xl rounded-2xl
+        className={`fixed z-[110] font-clash flex justify-between items-center px-4 py-2 transition-all duration-300 ease-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-5xl rounded-[2rem]
           ${isScrolled || isMenuOpen
             ? 'top-5 sm:top-6 bg-white/80 backdrop-blur-md border border-white/30' 
             : 'top-5 sm:top-6 bg-white/90 border border-gray-100'
@@ -141,7 +141,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-2xl p-6 flex flex-col gap-5"
+              className="relative z-10 w-full font-clash max-w-5xl bg-white rounded-[2rem] p-6 flex flex-col gap-5"
             >
               
               {/* ASK LENS AI */}
@@ -154,7 +154,7 @@ export default function Navbar() {
                 Ask Lens AI
               </motion.a>
               
-              {/* PRODUCTS WITH DROPDOWN - WITH CONTINUOUS CHEVRON ANIMATION */}
+              {/* PRODUCTS WITH DROPDOWN - CHEVRON ROTATES WHEN OPEN */}
               <div className="relative" ref={dropdownRef}>
                 <motion.button
                   whileHover={{ x: 4 }}
@@ -165,14 +165,12 @@ export default function Navbar() {
                   Products
                   <motion.svg 
                     animate={{ 
-                      y: [0, -2, 0, 2, 0],
-                      opacity: [0.6, 1, 0.6]
+                      rotate: isProductsDropdownOpen ? 180 : 0,
+                      y: isProductsDropdownOpen ? 0 : [0, -2, 0, 2, 0],
                     }}
                     transition={{ 
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      repeatType: "loop"
+                      rotate: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+                      y: { duration: 2, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }
                     }}
                     className="w-4 h-4 ml-1" 
                     fill="none" 

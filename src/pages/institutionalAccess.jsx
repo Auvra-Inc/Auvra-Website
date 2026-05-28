@@ -15,18 +15,14 @@ export default function InstitutionalAccess() {
     const container = containerRef.current;
     const iframe = document.createElement('iframe');
     iframe.id = 'foorm-embed-auvra-institutional-access';
-    // IMPORTANT: Remove fixed height to let iframe expand naturally
     iframe.style.cssText = 'width: 100%; border: none; border-radius: 16px; background: white; display: block;';
     iframe.title = 'Auvra Institutional Access';
-    
-    // Set initial height, will auto-adjust to content
     iframe.style.height = 'auto';
     container.appendChild(iframe);
 
     fetch('https://pxodpeirilfuzqtlbhqf.supabase.co/functions/v1/embed-form?slug=auvra-institutional-access')
       .then(function(r) { return r.text(); })
       .then(function(html) { 
-        // Modify the iframe content to communicate its height
         const styledHtml = html.replace(
           '</head>',
           `<style>
@@ -67,6 +63,12 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
+            /* Description text at top - increased margin bottom */
+            .form-description, .description-text, .intro-text {
+              margin-bottom: 24px !important;
+              display: block !important;
+            }
+            
             /* LABELS / QUESTIONS - BOLD */
             label, .label, .form-label, .question, [class*="question"] {
               color: #111827 !important;
@@ -76,6 +78,20 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
+            /* Required field indicator - italic, thin, with brackets */
+            .required, .required-star, [class*="required"] {
+              font-weight: 300 !important;
+              font-style: italic !important;
+              font-size: 12px !important;
+              color: #6b7280 !important;
+            }
+            
+            /* Replace * with (required) using CSS when possible */
+            label:has(span.required-star), .required-star {
+              font-weight: 300 !important;
+              font-style: italic !important;
+            }
+            
             /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
@@ -83,8 +99,8 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
               font-weight: 400 !important;
               font-size: 12px !important;
-              margin-top: 2px !important;
-              margin-bottom: 6px !important;
+              margin-top: 4px !important;
+              margin-bottom: 8px !important;
               line-height: 1.4 !important;
             }
             
@@ -96,7 +112,7 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
               background: #ffffff !important;
               color: #111827 !important;
-              margin-bottom: 12px !important;
+              margin-bottom: 16px !important;
               font-weight: 400 !important;
             }
             
@@ -141,11 +157,17 @@ export default function InstitutionalAccess() {
               font-size: 13px !important;
             }
             
+            /* Card styling */
             .card, [class*="card"] {
               padding: 12px !important;
               margin-bottom: 12px !important;
               background: #f9fafb !important;
               border-radius: 12px !important;
+            }
+            
+            /* Radio and checkbox groups */
+            .radio-group, .checkbox-group {
+              margin-bottom: 12px !important;
             }
             
             .radio-group label, .checkbox-group label {
@@ -154,14 +176,21 @@ export default function InstitutionalAccess() {
               color: #374151 !important;
             }
             
-            .radio-group, .checkbox-group {
-              margin-bottom: 8px !important;
-            }
-            
             input[type="radio"], input[type="checkbox"] {
               width: 16px !important;
               height: 16px !important;
               margin-right: 8px !important;
+            }
+            
+            /* "Other" option styling - with input field */
+            .other-option, [class*="other"] {
+              margin-left: 24px !important;
+              margin-top: 8px !important;
+              margin-bottom: 12px !important;
+            }
+            
+            .other-option input, [class*="other"] input {
+              margin-top: 4px !important;
             }
             
             .form-group, .field-group {
@@ -171,15 +200,78 @@ export default function InstitutionalAccess() {
             .row, .grid {
               gap: 12px !important;
             }
+            
+            /* Hide default asterisk, show custom required text */
+            .required-star, .required-asterisk {
+              display: inline-block !important;
+            }
+            
+            .required-asterisk {
+              display: none !important;
+            }
           </style>`
         );
         
-        // Add script to auto-resize iframe height based on content
+        // Add JavaScript to:
+        // 1. Convert * to (required) in italic thin
+        // 2. Add "Other" text input functionality
         const finalHtml = styledHtml.replace(
           '</body>',
           `<script>
+            // Convert asterisk to (required) with italic thin style
+            document.querySelectorAll('label, .label, .form-label').forEach(function(label) {
+              if (label.innerHTML.includes('*')) {
+                label.innerHTML = label.innerHTML.replace(/\\*/g, '<span style="font-weight: 300; font-style: italic; font-size: 12px; color: #6b7280;"> (required)</span>');
+              }
+            });
+            
+            // Find and add input field for "Other" options
+            function addOtherInputs() {
+              // Look for any "Other" radio or checkbox option
+              const otherRadios = document.querySelectorAll('input[type="radio"][value*="Other"], input[type="radio"][value*="other"]');
+              const otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
+              
+              const allOthers = [...otherRadios, ...otherCheckboxes];
+              
+              allOthers.forEach(function(otherInput) {
+                // Check if input already exists
+                var parentDiv = otherInput.closest('.radio-group, .checkbox-group, .form-group, div');
+                if (parentDiv && !parentDiv.querySelector('.other-input-field')) {
+                  var textInput = document.createElement('input');
+                  textInput.type = 'text';
+                  textInput.placeholder = 'Please specify...';
+                  textInput.className = 'other-input-field form-control other-option-input';
+                  textInput.style.marginTop = '8px';
+                  textInput.style.marginLeft = '24px';
+                  textInput.style.width = 'calc(100% - 24px)';
+                  textInput.style.display = 'none';
+                  parentDiv.appendChild(textInput);
+                  
+                  // Show/hide text input based on checkbox/radio state
+                  otherInput.addEventListener('change', function() {
+                    if (this.checked) {
+                      textInput.style.display = 'block';
+                    } else {
+                      textInput.style.display = 'none';
+                      textInput.value = '';
+                    }
+                  });
+                }
+              });
+            }
+            
+            // Run on load and when content changes
+            addOtherInputs();
+            setTimeout(addOtherInputs, 500);
+            setTimeout(addOtherInputs, 1000);
+            
+            // Watch for DOM changes
+            var observer = new MutationObserver(function() { addOtherInputs(); });
+            observer.observe(document.body, { childList: true, subtree: true });
+            
+            // Auto-resize iframe
             function sendHeight() {
-              const height = document.body.scrollHeight;
+              var height = document.body.scrollHeight;
               window.parent.postMessage({ type: 'resize', height: height }, '*');
             }
             window.addEventListener('load', sendHeight);
@@ -191,7 +283,6 @@ export default function InstitutionalAccess() {
         
         iframe.srcdoc = finalHtml;
         
-        // Listen for height messages from iframe
         window.addEventListener('message', function(event) {
           if (event.data && event.data.type === 'resize') {
             iframe.style.height = event.data.height + 'px';

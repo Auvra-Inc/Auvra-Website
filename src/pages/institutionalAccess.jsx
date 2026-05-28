@@ -63,7 +63,6 @@ export default function InstitutionalAccess() {
               padding: 0 !important;
             }
             
-            /* INTRODUCTION / DESCRIPTION TEXT - Increased margin bottom */
             p:first-of-type, .description-text, .intro-text, 
             form > p:first-child, .form-description {
               margin-bottom: 32px !important;
@@ -72,17 +71,14 @@ export default function InstitutionalAccess() {
               border-bottom: 1px solid #f0f0f0 !important;
             }
             
-            /* Any paragraph that contains the intro text */
             p {
               margin-bottom: 28px !important;
             }
             
-            /* First child of form gets extra spacing */
             form > *:first-child {
               margin-bottom: 32px !important;
             }
             
-            /* LABELS / QUESTIONS - BOLD */
             label, .label, .form-label, .question, [class*="question"] {
               color: #111827 !important;
               font-weight: 600 !important;
@@ -92,7 +88,6 @@ export default function InstitutionalAccess() {
               font-size: 14px !important;
             }
             
-            /* Required field indicator - italic, thin, with brackets */
             .required, .required-star, [class*="required"] {
               font-weight: 300 !important;
               font-style: italic !important;
@@ -100,7 +95,6 @@ export default function InstitutionalAccess() {
               color: #6b7280 !important;
             }
             
-            /* SUB-BODY TEXT - Normal weight */
             .description, .help-text, .hint, .subtext, 
             .form-text, .small-text, [class*="description"],
             .field-description, .field-help {
@@ -159,14 +153,12 @@ export default function InstitutionalAccess() {
               margin-bottom: 12px !important;
             }
             
-            /* Regular text */
             span:not([class*="required"]), .text, .regular-text {
               color: #4b5563 !important;
               font-weight: 400 !important;
               font-size: 13px !important;
             }
             
-            /* Card styling */
             .card, [class*="card"] {
               padding: 12px !important;
               margin-bottom: 12px !important;
@@ -174,7 +166,6 @@ export default function InstitutionalAccess() {
               border-radius: 12px !important;
             }
             
-            /* Radio and checkbox groups */
             .radio-group, .checkbox-group {
               margin-bottom: 16px !important;
             }
@@ -191,17 +182,6 @@ export default function InstitutionalAccess() {
               margin-right: 8px !important;
             }
             
-            /* "Other" option styling */
-            .other-option, [class*="other"] {
-              margin-left: 24px !important;
-              margin-top: 8px !important;
-              margin-bottom: 12px !important;
-            }
-            
-            .other-option input, [class*="other"] input {
-              margin-top: 4px !important;
-            }
-            
             .form-group, .field-group {
               margin-bottom: 16px !important;
             }
@@ -210,7 +190,6 @@ export default function InstitutionalAccess() {
               gap: 12px !important;
             }
             
-            /* Hide default asterisk */
             .required-asterisk {
               display: none !important;
             }
@@ -220,36 +199,44 @@ export default function InstitutionalAccess() {
         const finalHtml = styledHtml.replace(
           '</body>',
           `<script>
-            // Convert asterisk to (required) with italic thin style
             document.querySelectorAll('label, .label, .form-label').forEach(function(label) {
               if (label.innerHTML && label.innerHTML.includes('*')) {
                 label.innerHTML = label.innerHTML.replace(/\\*/g, '<span style="font-weight: 300; font-style: italic; font-size: 12px; color: #6b7280;"> (required)</span>');
               }
             });
             
-            // Add spacing after description paragraph
             var firstParagraph = document.querySelector('form > p:first-child, .description-text, p');
             if (firstParagraph && firstParagraph.innerText.includes('Please complete this form')) {
               firstParagraph.style.marginBottom = '32px';
               firstParagraph.style.paddingBottom = '8px';
             }
             
-            // Find and add input field for "Other" options in checkboxes
+            // Find the parent container that holds the checkboxes
+            function findParentContainer(element) {
+              let parent = element.parentElement;
+              while (parent) {
+                if (parent.classList && (parent.classList.contains('checkbox-group') || parent.classList.contains('form-group') || parent.className.includes('checkbox'))) {
+                  return parent;
+                }
+                parent = parent.parentElement;
+              }
+              return element.parentElement;
+            }
+            
+            // Add Other input for checkboxes - aligned with the checkbox itself
             function addOtherInputs() {
-              var otherRadios = document.querySelectorAll('input[type="radio"][value*="Other"], input[type="radio"][value*="other"]');
               var otherCheckboxes = document.querySelectorAll('input[type="checkbox"][value*="Other"], input[type="checkbox"][value*="other"]');
-              var allOthers = [...otherRadios, ...otherCheckboxes];
               
-              allOthers.forEach(function(otherInput) {
-                var parentDiv = otherInput.closest('.radio-group, .checkbox-group, .form-group, div');
+              otherCheckboxes.forEach(function(otherInput) {
+                var parentDiv = findParentContainer(otherInput);
                 if (parentDiv && !parentDiv.querySelector('.other-input-field')) {
                   var textInput = document.createElement('input');
                   textInput.type = 'text';
                   textInput.placeholder = 'Please specify...';
                   textInput.className = 'other-input-field form-control';
                   textInput.style.marginTop = '8px';
-                  textInput.style.marginLeft = '0';
-                  textInput.style.width = 'calc(100% - 0px)';
+                  textInput.style.marginLeft = '24px';
+                  textInput.style.width = 'calc(100% - 24px)';
                   textInput.style.padding = '8px 12px';
                   textInput.style.border = '1px solid #e5e7eb';
                   textInput.style.borderRadius = '8px';
@@ -269,11 +256,10 @@ export default function InstitutionalAccess() {
               });
             }
             
-            // Add "Other" text input for Country/Region select dropdown - FIXED ALIGNMENT
+            // Add Other input for Country/Region select - aligned with the select
             function addCountryOtherInput() {
               var selects = document.querySelectorAll('select');
               selects.forEach(function(select) {
-                // Check if this select has an "Other" option
                 var hasOther = false;
                 for (var i = 0; i < select.options.length; i++) {
                   if (select.options[i].text.toLowerCase().includes('other') || 

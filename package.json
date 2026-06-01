@@ -34,12 +34,12 @@
     "vite": "^8.0.1"
   },
   "reactSnap": {
-    "include": [
-      "/",
-      "/about",
-      "/blog",
-      "/blogPost",
-      "/institutions"
+  "source": "dist",
+  "include": [
+    "/",
+    "/about",
+    "/blog",
+    "/institutional-access"
     ]
   }
 }

@@ -13,7 +13,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about.html'),
         blog: resolve(__dirname, 'blog.html'),
-        institutional: resolve(__dirname, 'institutional-access.html')
+        institutional: resolve(__dirname, 'institutions.html')
       }
     }
   }

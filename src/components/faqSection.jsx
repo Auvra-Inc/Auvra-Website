@@ -140,14 +140,18 @@ export default function FaqAndCardsSection() {
 				</div>
 
 				{/* =========================================
-            SECTION 2: VISUAL CARDS
+            SECTION 2: VISUAL CARDS (STACKING ANIMATION)
         ========================================= */}
-				<div className='flex flex-col gap-8 w-full'>
+				<div className='relative w-full'>
 					{/* --- THE LOOP STARTS HERE --- */}
 					{featureCards.map((card, index) => (
 						<div
 							key={index}
-							className='relative w-full aspect-[4/5] sm:aspect-square bg-gray-900 rounded-[2rem] overflow-hidden shadow-xl'
+							className='sticky w-full aspect-[4/5] sm:aspect-square bg-gray-900 rounded-[2rem] overflow-hidden shadow-xl relative'
+							style={{
+								top: `${index * 20}px`,
+								zIndex: index,
+							}}
 						>
 							{/* Background Image */}
 							<img
@@ -169,45 +173,46 @@ export default function FaqAndCardsSection() {
 					))}
 					{/* --- THE LOOP ENDS HERE! --- */}
 
-					{/* THE NEW CONTENT SITS FREELY BELOW THE LOOP */}
+					{/* Spacer for scroll room */}
+					<div className='h-64'></div>
+				</div>
 
-					{/* Glassmorphism Quote Card */}
-					<div className='relative w-full rounded-[2rem] overflow-hidden shadow-2xl mt-8 aspect-[4/3] flex items-center justify-center p-6'>
-						{/* Background Image */}
-						<img
-							src='/art3.png'
-							alt='Auvra Culture'
-							className='absolute inset-0 w-full h-full object-cover'
-						/>
-						{/* Dark Overlay */}
-						<div className='absolute inset-0 bg-black/40'></div>
+				{/* Glassmorphism Quote Card */}
+				<div className='relative w-full rounded-[2rem] overflow-hidden shadow-2xl mt-8 aspect-[4/3] flex items-center justify-center p-6'>
+					{/* Background Image */}
+					<img
+						src='/art3.png'
+						alt='Auvra Culture'
+						className='absolute inset-0 w-full h-full object-cover'
+					/>
+					{/* Dark Overlay */}
+					<div className='absolute inset-0 bg-black/40'></div>
 
-						{/* Glassmorphism Quote Box */}
-						<div className='relative z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg font-clash'>
-							<p className='text-white text-sm md:text-base font-light leading-relaxed mb-4'>
-								{/* FIXED: Unescaped quotation marks */}
-								&quot;From the rhythms of Africa to the voices of the world,
-								culture is more than memory. It is identity. It is ownership. It
-								is legacy. It is you.&quot;
-							</p>
-							<p className='text-white/80 text-xs font-medium text-right italic'>
-								- Auvra
-							</p>
-						</div>
+					{/* Glassmorphism Quote Box */}
+					<div className='relative z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-lg font-clash'>
+						<p className='text-white text-sm md:text-base font-light leading-relaxed mb-4'>
+							{/* FIXED: Unescaped quotation marks */}
+							&quot;From the rhythms of Africa to the voices of the world,
+							culture is more than memory. It is identity. It is ownership. It
+							is legacy. It is you.&quot;
+						</p>
+						<p className='text-white/80 text-xs font-medium text-right italic'>
+							- Auvra
+						</p>
 					</div>
+				</div>
 
-					{/* Download Buttons (Centered) */}
-					<div className='flex flex-col gap-4 w-full max-w-xs mx-auto mt-4'>
-						<button className='flex items-center justify-center gap-3 w-full bg-[#111111] text-white py-4 rounded-full font-medium hover:bg-black transition shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
-							<FaApple className='text-2xl' />
-							Download for iPhone
-						</button>
+				{/* Download Buttons (Centered) */}
+				<div className='flex flex-col gap-4 w-full max-w-xs mx-auto mt-4'>
+					<button className='flex items-center justify-center gap-3 w-full bg-[#111111] text-white py-4 rounded-full font-medium hover:bg-black transition shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
+						<FaApple className='text-2xl' />
+						Download for iPhone
+					</button>
 
-						<button className='flex items-center justify-center gap-3 w-full bg-gray-100 text-gray-900 py-4 rounded-full font-medium hover:bg-gray-200 transition'>
-							<FaGooglePlay className='text-xl ' />
-							Get it on Android
-						</button>
-					</div>
+					<button className='flex items-center justify-center gap-3 w-full bg-gray-100 text-gray-900 py-4 rounded-full font-medium hover:bg-gray-200 transition'>
+						<FaGooglePlay className='text-xl ' />
+						Get it on Android
+					</button>
 				</div>
 			</div>
 		</section>

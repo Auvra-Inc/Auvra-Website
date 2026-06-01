@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 // --- YOUR COMPONENT IMPORTS ---
-import FadeSection from './fadeSection'
-import ProblemSection from './problemSection'
-import FeaturesSection from './featuresSection'
-import AppDownloadSection from './appDownloadSection'
-import LivingRecordsSection from './recordsSection'
-import PhotoStack from './photoStack'
-import VaultSection from './vaultSection'
-import Design from './design'
-import AudienceSection from './audienceSection'
-import ImpactSection from './impactSection'
-import FaqAndCardsSection from './faqSection'
-import PartnersSection from './partnerSection'
-import Newsletter from './newsletter' 
+import FadeSection from './components/fadeSection'
+import ProblemSection from './components/problemSection'
+import FeaturesSection from './components/featuresSection'
+import AppDownloadSection from './components/appDownloadSection'
+import LivingRecordsSection from './components/recordsSection'
+import PhotoStack from './components/photoStack'
+import VaultSection from './components/vaultSection'
+import Design from './components/design'
+import AudienceSection from './components/audienceSection'
+import ImpactSection from './components/impactSection'
+import FaqAndCardsSection from './components/faqSection'
+import PartnersSection from './components/partnerSection'
+import Newsletter from './components/newsletter' 
 import FooterSection from './reuseables/footerSection' 
 import Navbar from './reuseables/navbar'
 
@@ -33,7 +33,6 @@ import About from './pages/about'
 import Blog from './pages/blog'
 import BlogPost from './pages/blogPost'
 import Hero from './pages/hero'
-import InstitutionalAccess from './pages/institutionalAccess'
 import Institutions from './pages/institutions'  // ADDED: New institutions page
 
 // 1. SCROLL HELPER

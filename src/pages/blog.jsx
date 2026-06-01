@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';  // ← ADDED useNavigate
+import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 // Keep the ?raw query here to prevent the build error
 const markdownFiles = import.meta.glob('/src/content/blog/*.md', { query: '?raw', eager: true });
@@ -91,6 +92,23 @@ export default function Blog() {
 
   return (
     <div className="w-full bg-white pb-20">
+      <Helmet>
+        <title>Blog | Auvra - Cultural Discoveries & Preserved Legacies</title>
+        <meta name="description" content="Explore Auvra's blog for cultural discoveries, preserved legacies, and authentic stories from around the world." />
+        <link rel="canonical" href="https://www.goauvra.com/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.goauvra.com/blog" />
+        <meta property="og:title" content="Blog | Auvra - Cultural Discoveries & Preserved Legacies" />
+        <meta property="og:description" content="Explore Auvra's blog for cultural discoveries, preserved legacies, and authentic stories from around the world." />
+        <meta property="og:image" content="https://www.goauvra.com/og-image.png" />
+        <meta property="og:site_name" content="Auvra" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.goauvra.com/blog" />
+        <meta name="twitter:title" content="Blog | Auvra - Cultural Discoveries & Preserved Legacies" />
+        <meta name="twitter:description" content="Explore Auvra's blog for cultural discoveries, preserved legacies, and authentic stories from around the world." />
+        <meta name="twitter:image" content="https://www.goauvra.com/og-image.png" />
+      </Helmet>
+      
       {/* Logo - restored to original position pt-15 pb-7 */}
       <Link to="/" className="pt-15 pb-7 flex justify-center items-center gap-2 font-medium text-xl tracking-wide text-gray-900 relative">
         <img 

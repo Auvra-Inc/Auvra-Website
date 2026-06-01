@@ -127,8 +127,11 @@ export default function Institutions() {
   return (
     <>
       <Helmet>
-        <title>Auvra for Institutions | Auvra</title>
-        <meta name="description" content="Permanent, verifiable infrastructure for museums, governments, and cultural organizations." />
+        <title>Institutional Access | Auvra</title>
+        <meta property="og:title" content="Apply for Institutional Access | Auvra" />
+        <meta property="og:description" content="For museums and government bodies looking to preserve cultural heritage at scale." />
+        <meta property="og:image" content="https://goauvra.com/institutional-preview.png" />
+        <meta property="og:url" content="https://goauvra.com/institutions" />
       </Helmet>
 
       <Navbar />

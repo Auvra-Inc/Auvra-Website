@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "postbuild": "react-snap",
+    "postbuild": "node generate-seo.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -30,17 +30,15 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
-    "react-snap": "^1.23.0",
     "vite": "^8.0.1"
   },
   "reactSnap": {
-  "source": "dist",
-  "include": [
-    "/",
-    "/about",
-    "/blog",
-    "/institutional-access"
+    "source": "dist",
+    "include": [
+      "/",
+      "/about",
+      "/blog",
+      "/institutional-access"
     ]
   }
 }
-

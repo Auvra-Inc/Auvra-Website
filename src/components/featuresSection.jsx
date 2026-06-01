@@ -31,8 +31,8 @@ const FeaturesSection = () => {
         </p>
       </div>
 
-      {/* Grid Container - gap-0 for custom spacing */}
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-0'>
+      {/* Grid Container - gap-12 for proper spacing */}
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
         
         {/* =========================================
             CARD 1: COLLECTIBLE BADGES
@@ -73,7 +73,7 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.12 }}
-          className='w-full bg-black rounded-[2.5rem] p-8 md:p-10 text-white shadow-xl flex flex-col h-full border border-neutral-800 mt-12'
+          className='w-full bg-black rounded-[2.5rem] p-8 md:p-10 text-white shadow-xl flex flex-col h-full border border-neutral-800'
         >
           <div className='flex items-center justify-start gap-3 mb-4'>
             <Crown className='text-yellow-500 fill-yellow-500 w-6 h-6' />
@@ -146,7 +146,7 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.18 }}
-          className='w-full bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col mt-12'
+          className='w-full bg-gradient-to-b from-[#F9F9F9] to-[#EBEBEB] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'
         >
           <div className='flex items-center justify-start gap-3 mb-4'>
             <div className='w-8 h-8 flex items-center justify-center'>
@@ -279,7 +279,7 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.28 }}
-          className='w-full bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col mt-12'
+          className='w-full bg-gradient-to-b from-[#FDFDFD] to-[#EAEAEA] rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-sm flex flex-col'
         >
           <div className='flex items-center justify-start gap-3 mb-4'>
             <BadgeCheck className='w-8 h-8 text-white fill-[#FF7518]' />
@@ -372,7 +372,7 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.22 }}
-          className='w-full lg:col-span-2 bg-[#0f1d14] rounded-[2.5rem] p-8 pt-4 md:p-12 text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row gap-12 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition mt-12'
+          className='w-full lg:col-span-2 bg-[#0f1d14] rounded-[2.5rem] p-8 pt-4 md:p-12 text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row gap-12 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition'
         >
           <img
             src='/3img.jpg'

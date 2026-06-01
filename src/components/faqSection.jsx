@@ -142,14 +142,14 @@ export default function FaqAndCardsSection() {
 				{/* =========================================
             SECTION 2: VISUAL CARDS (STACKING ANIMATION)
         ========================================= */}
-				<div className='relative w-full'>
+				<div className='relative w-full space-y-12'>
 					{/* --- THE LOOP STARTS HERE --- */}
 					{featureCards.map((card, index) => (
 						<div
 							key={index}
-							className='sticky w-full aspect-[4/5] sm:aspect-square bg-gray-900 rounded-[2rem] overflow-hidden shadow-xl relative'
+							className='sticky w-full aspect-[4/5] sm:aspect-square bg-gray-900 rounded-[2rem] overflow-hidden shadow-xl'
 							style={{
-								top: `${index * 20}px`,
+								top: `${index * 24}px`,
 								zIndex: index,
 							}}
 						>

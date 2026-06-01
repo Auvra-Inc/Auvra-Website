@@ -237,7 +237,7 @@ export default function Navbar() {
               >
                 <Link 
                   onClick={() => setIsMenuOpen(false)} 
-                  to="/institutional-access"
+                  to="/institutions"
                   className="relative block overflow-hidden rounded-xl bg-gray-900 w-full text-left"
                 >
                   <img 

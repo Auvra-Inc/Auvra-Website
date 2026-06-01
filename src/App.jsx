@@ -82,7 +82,7 @@ function App() {
         <Route path="/governance" element={<ContentGovernance />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/instituional-access" element={<InstitutionalAccess />} />  {/* ADDED: New route */} 
+        <Route path="/institutional-access" element={<InstitutionalAccess />} />  {/* ADDED: New route */} 
         <Route path="/institutions" element={<Institutions />} />  {/* ADDED: New route */}
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>

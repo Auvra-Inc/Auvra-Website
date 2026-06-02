@@ -64,7 +64,6 @@ const PhotoStack = () => {
               src={src}
               alt={`Gallery item ${index}`}
               className={`${baseClasses} ${transformClasses}`}
-              loading="lazy"
             />
           );
         })}

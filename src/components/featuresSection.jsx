@@ -61,7 +61,6 @@ const FeaturesSection = () => {
               src='/framer.png'
               alt='Dancer'
               className='w-full h-full object-contain opacity-90'
-              loading='lazy'
             />
           </div>
         </motion.div>
@@ -94,7 +93,6 @@ const FeaturesSection = () => {
                   src='https://images.unsplash.com/photo-1542259009477-d625272157b7?q=80&w=100&auto=format&fit=crop'
                   alt='Profile'
                   className='w-full h-full object-cover opacity-80'
-                  loading='lazy'
                 />
               </div>
               <div>

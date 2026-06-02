@@ -120,19 +120,19 @@ const Hero = () => {
                   
                   {/* Six Profile Circles */}
                   <div className="absolute top-[20%] left-[25%] w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/1img.jpg" alt="Profile node Red Headwrap pattern" className="w-full h-full object-cover" loading="lazy" />
+                      <img src="/1img.jpg" alt="Profile node Red Headwrap pattern" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute bottom-[10%] left-[50%] -translate-x-1/2 w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/hs.jpg" alt="Profile node Hmong Girl portrait" className="w-full h-full object-cover" loading="lazy" />
+                      <img src="/hs.jpg" alt="Profile node Hmong Girl portrait" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute top-[20%] right-[30%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/2img.jpg" alt="Profile circle African Child" className="w-full h-full object-cover" loading="lazy" />
+                      <img src="/2img.jpg" alt="Profile circle African Child" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute bottom-[20%] left-[14%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/justin-lagat-9fPrUATxdIc-unsplash.jpg" alt="Profile circle Older Asian Elder" className="w-full h-full object-cover" loading="lazy" />
+                      <img src="/justin-lagat-9fPrUATxdIc-unsplash.jpg" alt="Profile circle Older Asian Elder" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute bottom-[30%] right-[20%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/hassan-kibwana-G85LQv2dj2o-unsplash.jpg" alt="Profile circle African Woman" className="w-full h-full object-cover" loading="lazy" />
+                      <img src="/hassan-kibwana-G85LQv2dj2o-unsplash.jpg" alt="Profile circle African Woman" className="w-full h-full object-cover" />
                   </div>
                </div>
              </div>

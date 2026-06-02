@@ -15,7 +15,6 @@ export default function FooterSection() {
              src="/Vector .png" 
              alt="Auvra Logo" 
              className="w-8 h-8 object-contain" 
-             loading="lazy"
              />
             <span className="font-clash text-xl font-medium tracking-wide">Auvra</span>
           </div>

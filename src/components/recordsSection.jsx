@@ -40,7 +40,6 @@ const LivingRecordsSection = () => {
             alt="Diamond"
             src="Vector.png"
             className="inline-block h-6 md:h-8 lg:h-10 w-auto align-middle mx-2 md:mx-3 drop-shadow-md -translate-y-1"
-            loading="lazy"
           />
           meaning across generations.
         </h2>
@@ -68,7 +67,6 @@ const LivingRecordsSection = () => {
             src="phone.png"
             alt="Auvra Mobile App"
             className=" rounded-[2.5rem]  w-[250px] sm:w-[280px] md:w-[320px] h-[500px] sm:h-[580px] md:h-[650px] object-cover "
-            loading="lazy"
           />
           
         </div>
@@ -77,28 +75,28 @@ const LivingRecordsSection = () => {
 
         {/* Left Side Floating */}
         <div className="absolute left-[2%] sm:left-[5%] md:left-[5%] top-[50%] w-16 sm:w-20 md:w-24 bg-white p-2 sm:p-3 rounded-2xl shadow-xl border border-gray-100 text-center z-10 -translate-y-1/2 animate-float-normal">
-          <img src="li.clone-item .png" className="w-full h-full object-cover rounded-xl" alt="Mockup left 1" loading="lazy" />
+          <img src="li.clone-item .png" className="w-full h-full object-cover rounded-xl" alt="Mockup left 1" />
         </div>
 
         <div className="absolute left-[-4%] sm:left-[15%] md:left-[15%] top-[25%] w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 rounded-3xl shadow-xl overflow-hidden z-0  animate-float-slow">
-          <img src="1img.jpg" alt="Red harvest" className="w-full h-full object-cover" loading="lazy" />
+          <img src="1img.jpg" alt="Red harvest" className="w-full h-full object-cover" />
         </div>
 
         <div className="absolute left-[-1%] sm:left-[8%] md:left-[8%] bottom-[15%] w-24 sm:w-32 md:w-40 h-24 sm:h-32 md:h-40 rounded-3xl shadow-2xl overflow-hidden z-10 animate-float-fast">
-          <img src="li.clone-item3.png" alt="Elder" className="w-full h-full object-cover" loading="lazy" />
+          <img src="li.clone-item3.png" alt="Elder" className="w-full h-full object-cover" />
         </div>
 
         {/* Right Side Floating */}
         <div className="absolute right-[-4%] sm:right-[15%] md:right-[15%] top-[25%] w-25 sm:w-25 md:w-32 h-20 sm:h-24 md:h-32 rounded-3xl shadow-xl overflow-hidden z-0  animate-float-normal" style={{ animationDelay: '1s' }}>   
-          <img src="li.clone-item 4.png" alt="Blue dancer" className="w-full h-full object-cover" loading="lazy" />
+          <img src="li.clone-item 4.png" alt="Blue dancer" className="w-full h-full object-cover" />
         </div>
 
         <div className="absolute right-[-4%] sm:right-[2%] md:right-[2%] top-[50%] w-20 sm:w-24 md:w-32 bg-white p-2 sm:p-3 md:p-4 rounded-3xl shadow-xl border border-gray-100 text-center z-10 animate-float-fast" style={{ animationDelay: '2s' }}>
-          <img src="li.clone-item.png" alt="Library" className="w-full h-full object-cover rounded-2xl" loading="lazy" />
+          <img src="li.clone-item.png" alt="Library" className="w-full h-full object-cover rounded-2xl" />
         </div>  
 
         <div className="absolute right-[-4%] sm:right-[8%] md:right-[8%] bottom-[20%] w-25 sm:w-20 md:w-28 bg-white p-2 sm:p-3 md:p-4 rounded-3xl shadow-xl border border-gray-100 text-center z-10 animate-float-slow">
-          <img src="Default.png" alt="Library" className="w-full h-full object-cover rounded-2xl" loading="lazy" />
+          <img src="Default.png" alt="Library" className="w-full h-full object-cover rounded-2xl" />
         </div>
 
       </div>

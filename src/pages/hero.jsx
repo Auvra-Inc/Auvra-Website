@@ -22,6 +22,7 @@ const Hero = () => {
         alt="Culture Background" 
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
+        fetchPriority="high"
       />
 
       {/* Light Frosted Glass Overlay */}

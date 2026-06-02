@@ -150,6 +150,7 @@ export default function ImpactSection() {
 							muted
 							loop
 							playsInline
+							preload="none"
 							className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
 							index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
 						}`}

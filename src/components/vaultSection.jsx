@@ -6,6 +6,7 @@ const VaultSection = () => {
       alt="Vault User" 
       className={`absolute rounded-full object-cover shadow-lg animate-float-mini z-10 ${className}`}
       style={{ animationDelay: delay }}
+      loading="lazy"
     />
   );
 
@@ -80,6 +81,7 @@ const VaultSection = () => {
           src="/Rectangle 2124.png" 
           alt="Main Vault Profile" 
           className="w-full h-auto object-contain"
+          loading="lazy"
         />
       </div>
 

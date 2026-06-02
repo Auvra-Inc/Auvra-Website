@@ -126,14 +126,14 @@ export default function BlogPost() {
       <div className='min-h-screen bg-white' style={{ margin: 0, padding: 0 }}>
         <div className='relative w-full h-screen max-h-screen overflow-hidden' style={{ margin: 0, padding: 0 }}>
           <div className='absolute inset-0 w-full h-full'>
-            <img src={post.imageUrl} alt={post.title} className='w-full h-full object-cover' />
+            <img src={post.imageUrl} alt={post.title} className='w-full h-full object-cover' loading="eager" />
             <div className='absolute inset-0 bg-black/50' />
           </div>
 
           <div className='relative z-10 flex flex-col justify-between h-full'>
             <div className='flex justify-center items-center -mt-8'>
               <Link to='/' className='flex justify-center'>
-                <img src='/Logo-png.PNG' alt='Auvra Logo' className='w-50 h-50 object-contain' />
+                <img src='/Logo-png.PNG' alt='Auvra Logo' className='w-50 h-50 object-contain' loading="lazy" />
               </Link>
             </div>
 

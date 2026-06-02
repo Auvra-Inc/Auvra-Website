@@ -70,6 +70,7 @@ export default function Navbar() {
                src="/Vector .png" 
                alt="Auvra Logo" 
                className="w-8 h-8 object-contain" 
+               loading="lazy"
             />
             Auvra
           </Link>

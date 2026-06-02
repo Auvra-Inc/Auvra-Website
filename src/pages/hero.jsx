@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaCog } from 'react-icons/fa';
 // 1. Import your brand new Navbar!
 import Navbar from '../reuseables/navbar';
 
 const Hero = () => {
+  useEffect(() => {
+    // Preload hero background image
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = '/nature2.avif';
+    document.head.appendChild(link);
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-hidden font-clash text-black w-full">
   
@@ -12,6 +21,7 @@ const Hero = () => {
         src="/nature2.avif" 
         alt="Culture Background" 
         className="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
       />
 
       {/* Light Frosted Glass Overlay */}
@@ -109,19 +119,19 @@ const Hero = () => {
                   
                   {/* Six Profile Circles */}
                   <div className="absolute top-[20%] left-[25%] w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/1img.jpg" alt="Profile node Red Headwrap pattern" className="w-full h-full object-cover" />
+                      <img src="/1img.jpg" alt="Profile node Red Headwrap pattern" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="absolute bottom-[10%] left-[50%] -translate-x-1/2 w-6 h-6 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/hs.jpg" alt="Profile node Hmong Girl portrait" className="w-full h-full object-cover" />
+                      <img src="/hs.jpg" alt="Profile node Hmong Girl portrait" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="absolute top-[20%] right-[30%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/2img.jpg" alt="Profile circle African Child" className="w-full h-full object-cover" />
+                      <img src="/2img.jpg" alt="Profile circle African Child" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="absolute bottom-[20%] left-[14%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/justin-lagat-9fPrUATxdIc-unsplash.jpg" alt="Profile circle Older Asian Elder" className="w-full h-full object-cover" />
+                      <img src="/justin-lagat-9fPrUATxdIc-unsplash.jpg" alt="Profile circle Older Asian Elder" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="absolute bottom-[30%] right-[20%] w-7 h-7 rounded-full border border-white/40 overflow-hidden shadow-md">
-                      <img src="/hassan-kibwana-G85LQv2dj2o-unsplash.jpg" alt="Profile circle African Woman" className="w-full h-full object-cover" />
+                      <img src="/hassan-kibwana-G85LQv2dj2o-unsplash.jpg" alt="Profile circle African Woman" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                </div>
              </div>

@@ -8,7 +8,7 @@ image: /blog/DF28A923-BEE9-463C-9CED-15DA62E06FAF.png
 
 [NVIDIA](https://www.nvidia.com/en-us/) Inception provides qualifying startups with access to GPU credits, preferred pricing on hardware and software, deep learning training, and introductions to a worldwide network of investors and technology partners. For Auvra, this means faster development of Lens AI, our custom model for transcribing and translating African oral histories, and the ability to scale our cultural preservation infrastructure across more languages, communities, and institutions.
 
-**Why This Matters**
+**Why This Matterss**
 
 Most AI models are trained on dominant languages such as English, French, Mandarin, and Spanish. African languages remain severely underrepresented. Lens AI is built to close that gap, fine tuned for low resource African languages, oral storytelling patterns, and cultural contexts that generic models routinely miss.
 

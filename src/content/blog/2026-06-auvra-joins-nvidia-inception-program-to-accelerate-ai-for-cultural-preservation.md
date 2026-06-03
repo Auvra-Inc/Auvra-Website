@@ -8,8 +8,6 @@ image: /blog/DF28A923-BEE9-463C-9CED-15DA62E06FAF.png
 
 [NVIDIA](https://www.nvidia.com/en-us/) Inception provides qualifying startups with access to GPU credits, preferred pricing on hardware and software, deep learning training, and introductions to a worldwide network of investors and technology partners. For Auvra, this means faster development of Lens AI, our custom model for transcribing and translating African oral histories, and the ability to scale our cultural preservation infrastructure across more languages, communities, and institutions.
 
-***
-
 **Why This Matters**
 
 Most AI models are trained on dominant languages such as English, French, Mandarin, and Spanish. African languages remain severely underrepresented. Lens AI is built to close that gap, fine tuned for low resource African languages, oral storytelling patterns, and cultural contexts that generic models routinely miss.
@@ -30,23 +28,17 @@ With access to NVIDIA's infrastructure, we can train Lens AI to understand her t
 
 That is not just faster technology. That is dignity.
 
-***
-
 **What This Means for Lens AI**
 
 Lens AI is not a wrapper around existing models. It is being fine tuned from the ground up for African languages, oral traditions, and the specific acoustic environments of field recorded histories. With access to NVIDIA's advanced AI infrastructure, we can train models faster, cutting development cycles from months to weeks. We can improve transcription accuracy for low resource languages that global models ignore. We can run real time inference in low connectivity environments, critical for rural communities where elders hold irreplaceable knowledge. And we can scale the Auvra Registry, our public infrastructure for verifiable cultural records, to handle millions of preserved assets.
 
 "Our entire platform runs on GPU accelerated AI," said Emmanuel John, founder of Auvra. "From transcribing oral histories to verifying provenance on the blockchain, every part of Auvra depends on reliable, fast, and culturally aware AI. NVIDIA Inception gives us the tools to build that at scale."
 
-***
-
 **What Comes Next**
 
 In the immediate term, Auvra's engineering team will use NVIDIA's resources to accelerate Lens AI training for four initial African languages: Yoruba, Igbo, Hausa, and Swahili. We will optimize models for offline deployment, ensuring that oral histories can be transcribed even when internet connectivity is unavailable. We will scale the Auvra Registry to handle high volume queries from researchers, institutions, and diaspora communities. And we will apply for the NVIDIA Innovation Lab to achieve the 17x performance gains that early stage participants have reported.
 
 In the long term, this partnership signals something bigger. NVIDIA is backing African AI as a priority, not an afterthought. The same company that powers autonomous vehicles and climate research is now powering the preservation of Ijaw proverbs, Yoruba oriki, Awka blacksmithing techniques, and countless other traditions.
-
-***
 
 **The Takeaway**
 

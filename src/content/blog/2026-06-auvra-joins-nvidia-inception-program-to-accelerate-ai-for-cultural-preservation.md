@@ -4,7 +4,7 @@ date: 2026-06-03T03:13:00
 image: /blog/DF28A923-BEE9-463C-9CED-15DA62E06FAF.png
 ---
 
-**_The world's leading AI hardware company is now backing Africa's cultural infrastructure. This week, Auvra was officially accepted into the NVIDIA Inception Program, a global initiative that supports cutting edge AI startups with technical resources, mentorship, and go to market support._**
+**_The world's leading AI hardware company is now backing cultural infrastructure. This week, Auvra was officially accepted into the NVIDIA Inception Program, a global initiative that supports cutting edge AI startups with technical resources, mentorship, and go to market support._**
 
 [NVIDIA](https://www.nvidia.com/en-us/) Inception provides qualifying startups with access to GPU credits, preferred pricing on hardware and software, deep learning training, and introductions to a worldwide network of investors and technology partners. For Auvra, this means faster development of Lens AI, our custom model for transcribing and translating African oral histories, and the ability to scale our cultural preservation infrastructure across more languages, communities, and institutions.
 

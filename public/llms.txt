@@ -1,0 +1,95 @@
+# AUVRA - The Permanent Home for Human Culture
+
+> Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities, and institutions.
+
+## Quick Facts
+- Founded: 2026
+- Mission: To preserve, structure, and empower culture by giving creators, communities, families, and institutions the tools to own and pass down their cultural assets.
+- Vision: To become the global infrastructure where human culture is permanently stored, intelligently understood, and generationally transferred.
+- Blockchain: Ethereum for immutable provenance
+- Storage: Arweave for permanent decentralized storage
+- AI: Lens AI for transcribing and translating oral histories
+
+## Core Offerings
+
+### Auvra Core
+The permanent home for individual creators, families, and communities to preserve cultural heritage.
+- URL: https://www.goauvra.com/
+- Features: Blockchain provenance, permanent storage, community verification, open access
+
+### Auvra for Institutions
+Permanent, verifiable infrastructure for museums, governments, universities, archives, and cultural organizations.
+- URL: https://www.goauvra.com/institutions
+- Features: Bulk upload, verification dashboard, API access, public registry, institutional verification
+
+### Lens AI
+AI-powered transcription and translation for oral histories, built specifically for African languages.
+- URL: https://www.goauvra.com/#ai
+- Features: Speech-to-text, language translation, oral history preservation
+
+## Key Pages
+
+| Page | URL | Purpose |
+|------|-----|---------|
+| Home | https://www.goauvra.com/ | Main entry point for all users |
+| About | https://www.goauvra.com/about | Mission, vision, and values |
+| Blog | https://www.goauvra.com/blog | Cultural preservation news and updates |
+| Institutions | https://www.goauvra.com/institutions | Enterprise cultural preservation for institutions |
+| Institutional Access | https://www.goauvra.com/institutional-access | Application form for institutions, museums, and governments |
+
+## Legal Pages
+
+| Page | URL |
+|------|-----|
+| Privacy Policy | https://www.goauvra.com/privacy |
+| Terms of Service | https://www.goauvra.com/terms |
+| AML/CFT Policy | https://www.goauvra.com/aml |
+| AI Policy | https://www.goauvra.com/ai-policy |
+| Community Guidelines | https://www.goauvra.com/community |
+| Collaboration Terms | https://www.goauvra.com/collab |
+| Copyright Policy | https://www.goauvra.com/copyright |
+| Content Governance | https://www.goauvra.com/governance |
+
+## Core Values (C.U.L.T.U.R.E.)
+
+1. **Cultural Integrity** - Treating cultural heritage with utmost respect and reverence
+2. **Universal Access** - Breaking down technological and financial barriers for all users, communities, and institutions
+3. **Lasting Stewardship** - Building for the long term, not engagement or algorithms
+4. **Trust Through Transparency** - Operating with honesty and clarity
+5. **User Empowerment** - Designing with deep empathy for users, communities, and institutions
+6. **Respectful Collaboration** - Fostering meaningful connections between creators, communities, and institutions
+7. **Excellence in Craft** - Pursuing beautiful, immersive, museum-quality design
+
+## Contact Information
+
+- Email: info@goauvra.com
+- Twitter/X: https://x.com/goauvra
+- Instagram: https://www.instagram.com/goauvra
+- LinkedIn: https://www.linkedin.com/company/auvra
+
+## Frequently Asked Questions
+
+**What is a badge on Auvra?**
+A badge is a permanently verifiable cultural record. It can be a piece of art, a family story, a traditional recipe, a language lesson, or a craft technique.
+
+**What's the difference between a Collectible Badge and a Contribution Badge?**
+A Collectible Badge is meant to be owned and collected. A Contribution Badge is for records that belong to everyone, like languages and oral history, verified by the community.
+
+**How does Auvra ensure cultural authenticity?**
+Auvra relies on a decentralized network of community elders, institutions, and verified cultural custodians to review and authenticate records.
+
+**Do I need to understand blockchain to use Auvra?**
+Not at all. Auvra handles all the complex technology in the background. You can use it just like any other app.
+
+**Can communities and institutions use Auvra?**
+Yes, communities, museums, universities, government bodies, NGOs, and cultural organizations can create verified accounts to preserve their cultural archives.
+
+**What types of communities and institutions does Auvra work with?**
+Auvra works with cultural communities, indigenous groups, museums, government archives, universities, libraries, NGOs, and heritage institutions worldwide.
+
+## Partners & Supporters
+
+- NVIDIA Inception Program - AI acceleration support
+- (Additional partners to be listed as announced)
+
+## Site Structure

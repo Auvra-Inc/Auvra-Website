@@ -28,9 +28,11 @@ export default function BlogPost() {
         let mainContent = parts[2] || parts[1] || rawContent;
         mainContent = mainContent.replace(/^---[\s\S]*?---/, '').trim();
 
+        // UPDATED: Support both *italic* and _italic_ markdown syntax
         mainContent = mainContent
-          .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 500; color: black;">$1</strong>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong style="font-weight: 600; color: black;">$1</strong>')
           .replace(/\*(.*?)\*/g, '<em style="font-style: italic;">$1</em>')
+          .replace(/_(.*?)_/g, '<em style="font-style: italic;">$1</em>')  // ADDED: underscore italic support
           .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #2563eb; text-decoration: underline;">$1</a>')
           .replace(/_?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})_?/g, '<a href="mailto:$1" style="color: #2563eb; text-decoration: underline;">$1</a>')
           .split('\n\n')
@@ -38,7 +40,6 @@ export default function BlogPost() {
             if (para.trim()) {
               return `<p style="color: black; font-weight: 300; line-height: 1.75; margin-bottom: 1rem; font-size: 1rem; width: 100%; max-width: 100%; text-align: justify; letter-spacing: 0.01em;">${para.replace(/\n/g, ' ')}</p>`;
             }
-
             return '';
           })
           .join('');

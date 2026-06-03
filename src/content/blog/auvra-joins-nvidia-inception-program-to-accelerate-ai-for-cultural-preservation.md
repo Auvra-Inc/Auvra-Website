@@ -16,7 +16,7 @@ Through NVIDIA Inception, [Auvra](https://www.goauvra.com/) gains GPU credits an
 
 **A Story from the Field**
 
-A few weeks ago, [Emmanuel John](https://www.linkedin.com/in/john-emmanuelbd?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app), founder of [Auvra](https://www.goauvra.com/), was speaking with a community elder in Delta State. She is 82 years old. She speaks a dialect that fewer than 50 people in the world still understand. Her children speak English and Pidgin. Her grandchildren do not understand her at all.
+A few weeks ago, [Emmanuel John](https://www.linkedin.com/in/john-emmanuelbd?), founder of [Auvra](https://www.goauvra.com/), was speaking with a community elder in Delta State. She is 82 years old. She speaks a dialect that fewer than 50 people in the world still understand. Her children speak English and Pidgin. Her grandchildren do not understand her at all.
 
 She wanted to record a story. A story her grandmother told her. A story about a war, a migration, a river that changed course. It took her fifteen minutes to tell it. Her voice cracked in the middle. She laughed at the end.
 

@@ -43,6 +43,7 @@ const AnimatedCounter = ({ target, duration = 600 }) => {
 
 export default function ImpactSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+	const videoRef = useRef(null);
 
   const carouselItems = [
     {
@@ -84,6 +85,31 @@ export default function ImpactSection() {
   };
 
   const currentVideo = carouselItems[currentSlide];
+
+	// Only attach the video src and play when the carousel video is visible.
+	useEffect(() => {
+		const el = videoRef.current;
+		if (!el) return;
+
+		const obs = new IntersectionObserver((entries) => {
+			const e = entries[0];
+			if (e && e.isIntersecting) {
+				// Ensure current slide is loaded and played when visible
+				el.src = currentVideo.src;
+				try { el.load(); } catch (err) {}
+				const p = el.play();
+				if (p && p.catch) p.catch(() => {});
+			} else {
+				// Pause and remove src when out of view to avoid background downloads
+				try { el.pause(); } catch (err) {}
+				el.removeAttribute('src');
+				try { el.load(); } catch (err) {}
+			}
+		}, { threshold: 0.5 });
+
+		obs.observe(el);
+		return () => obs.disconnect();
+	}, [currentSlide, currentVideo.src]);
 
   return (
 		<section className='w-full bg-white text-gray-900 py-20 px-6 flex flex-col items-center overflow-hidden'>
@@ -142,19 +168,17 @@ export default function ImpactSection() {
 							{currentVideo.label}
 						</span>
 					</div>
-					{carouselItems.map((item, index) => (
-						<video
-							key={index}
-							src={item.src}
-							autoPlay
-							muted
-							loop
-							playsInline
-							className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
-							index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-						}`}
-						/>
-					))}
+					{/* Render only the active video to avoid downloading all sources at once */}
+					<video
+						ref={videoRef}
+						key={currentSlide}
+						preload="metadata"
+						autoPlay
+						muted
+						loop
+						playsInline
+						className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100 z-10"
+					/>
 					<div className='absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/70 to-transparent px-6 py-6'>
 						<h3 className='text-xl font-clash font-semibold text-white mb-2'>
 							{currentVideo.title}

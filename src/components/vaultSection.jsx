@@ -23,35 +23,35 @@ const VaultSection = () => {
         
         {/* 1. Top Left (Dark/Red background) */}
         <FloatingAvatar 
-          src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=200&auto=format&fit=crop" 
+          src="/Group 1396.png" 
           className="top-[5%] left-[8%] md:left-[15%] w-16 h-16 md:w-20 md:h-20" 
           delay="0s" 
         />
         
         {/* 2. Mid Left (Blue/Yellow background) */}
         <FloatingAvatar 
-          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" 
+          src="/Group 1397.png" 
           className="top-[55%] left-[5%] md:left-[10%] w-14 h-14 md:w-16 md:h-16" 
           delay="1.2s" 
         />
         
         {/* 3. Top Right (Cut off at the edge) */}
         <FloatingAvatar 
-          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" 
+          src="/Group 1399.png" 
           className="top-[0%] right-[-5%] md:right-[5%] w-12 h-12 md:w-14 md:h-14" 
           delay="0.5s" 
         />
         
         {/* 4. Mid Right (Smiling Woman) */}
         <FloatingAvatar 
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" 
+          src="/Rectangle 2125.png" 
           className="top-[25%] right-[6%] md:right-[15%] w-16 h-16 md:w-20 md:h-20" 
           delay="2.1s" 
         />
         
         {/* 5. Lower Right (Red texture) */}
         <FloatingAvatar 
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" 
+          src="/caro2.png" 
           className="bottom-[10%] right-[15%] md:right-[22%] w-12 h-12 md:w-14 md:h-14" 
           delay="1.8s" 
         />

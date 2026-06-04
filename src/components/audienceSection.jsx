@@ -68,7 +68,7 @@ const AudienceSection = () => {
 
         {/* The Frosted Glass Card */}
         {/* THE FIX: Removed the md: positioning rules so it stretches perfectly across the bottom on ALL screens */}
-        <div className="absolute bottom-2  w-[220px] h-[200px] right-6 bg-black/20 backdrop-blur-xl border border-white/20 p-4 md: rounded-3xl shadow-2xl text-white">
+        <div className="absolute bottom-2  w-[220px] h-[200px] right-6 bg-black/20 backdrop-blur-xl border border-white/20 p-4 md: rounded-2xl shadow-2xl text-white">
           
           <p className="font-medium text-md  leading-snug mb-4 ">
             For creators turning culture into lasting work.

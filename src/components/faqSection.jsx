@@ -47,13 +47,13 @@ const featureCards = [
 	{
 		title: 'A home for your culture',
 		description:
-			'Document, verify, and share your traditions. Keep them safe and make them accessible to your people.',
+			'Document stories, traditions, and creations. Keep them safe. Share them across generations',
 		image: '/art.png',
 	},
 	{
 		title: 'Collaboration without compromise',
 		description:
-			"We don't sell your data to any third party company. Your institution remains yours to control.",
+			"Work with others while keeping full ownership of your work. Clear attribution, protected IP, and shared control",
 		image: '/art1.png',
 	},
 	{

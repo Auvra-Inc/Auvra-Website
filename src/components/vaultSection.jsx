@@ -61,7 +61,7 @@ const VaultSection = () => {
           <p className="text-[13px] md:text-sm text-black font-medium mb-2 tracking-wide">
             Personal Legacy
           </p>
-          <h2 className="text-5xl md:text-7xl font-bold text-black tracking-tight mb-3">
+          <h2 className="text-5xl md:text-7xl font-semibold text-black tracking-tight mb-3">
             My Vault
           </h2>
           <p className="text-[15px] md:text-lg text-black leading-tight font-medium">

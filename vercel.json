@@ -1,9 +1,8 @@
 {
-  "cleanUrls": true,
   "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/institutional-access", "destination": "/institutional-access.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

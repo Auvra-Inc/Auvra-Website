@@ -9,7 +9,7 @@ const partners = [
   { name: "Paystack", imagePath: "/logos/paystack.png" },
   { name: "Quidax", imagePath: "/logos/quidax.svg" },
   { name: "OpenAI", imagePath: "/logos/openai.svg" },
-  { name: "NVIDIA", imagePath: "/logos/nvidia.png" },
+  // { name: "NVIDIA", imagePath: "/logos/nvidia.png" },
   { name: "Crossmint", imagePath: "/logos/crossmint.svg" }
 ];
 

@@ -23,7 +23,7 @@ const LivingRecordsSection = () => {
           Build living
           
           {/* THE FIX: Perfectly rounded video pill with no spaces! */}
-          <span className="relative inline-block w-16 h-8 md:w-24 md:h-12 lg:w-28 lg:h-14 bg-orange-200 rounded-full align-middle mx-2 md:mx-3 overflow-hidden shadow-inner -translate-y-1">        
+          <span className="relative inline-block w-16 h-10 md:w-24 md:h-12 lg:w-28 lg:h-14 bg-orange-200 rounded-full align-middle mx-2 md:mx-3 overflow-hidden shadow-inner -translate-y-1">        
             <video
               src="/video.mp4"
               preload="auto"

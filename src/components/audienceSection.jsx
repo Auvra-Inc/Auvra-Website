@@ -57,7 +57,7 @@ const AudienceSection = () => {
 
       {/* 4. THE GLASSMORPHISM SHOWCASE */}
       {/* THE FIX: Changed max-w-5xl to max-w-[420px] to keep it strictly portrait-sized! */}
-      <div className="relative w-full max-w-[420px] h-[550px] md:h-[650px] mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl z-10">
+      <div className="relative w-full max-w-[420px] h-[550px] md:h-[650px] mx-auto rounded-2xl overflow-hidden shadow-2xl z-10">
         
         {/* Background Image */}
         <img 

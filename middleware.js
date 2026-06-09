@@ -6,7 +6,7 @@ const PREVIEW_PAGES = {
   '/': {
     title: 'Auvra - The Permanent Home For Human Culture',
     description:
-      'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. B',
+      'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.',
     image: 'https://www.goauvra.com/og-image.png',
   },
   '/about': {

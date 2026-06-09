@@ -24,7 +24,7 @@ export default function PartnersSection() {
             src={partner.imagePath} 
             alt={`${partner.name} Logo`} 
             style={{ maxHeight: '85%', maxWidth: '85%', width: 'auto', height: 'auto', objectFit: 'contain' }}
-            className="opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
+            className="opacity-100 hover:opacity-100 transition-all duration-300 cursor-pointer"
           />
         </div>
       ))}

@@ -485,8 +485,8 @@ export default function About() {
       </section>
 
       {/* 7. SDG CARDS - HORIZONTAL SLIDING CAROUSEL */}
-      <section className='w-full bg-white py-16 overflow-hidden'>
-        <div className='mb-8 text-center px-6'>
+      <section className='w-full bg-white py-12 overflow-hidden'>
+        <div className='mb-6 text-center px-6'>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -501,7 +501,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className='text-sm text-gray-500 font-clash mt-2'
+            className='text-sm text-gray-500 font-clash mt-1'
           >
             Auvra's contribution to global development
           </motion.p>
@@ -509,124 +509,117 @@ export default function About() {
 
         <div className='relative w-full overflow-hidden'>
           <motion.div 
-            className='flex gap-5 w-max'
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+            className='flex gap-6 w-max'
+            animate={{ x: ['0%', '-33.33%'] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           >
-            {/* SDG 11 - Using your filename SDG 11.JPG */}
-            <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
+            {/* SDG 11 Card */}
+            <div className='relative w-[300px] md:w-[360px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[280px]'>
               <img 
                 src="/SDG%2011.JPG" 
                 alt="SDG 11" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 min-h-[260px] justify-end">
+              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
+              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-8">
+                {/* SDG 11 Icon - City/Building */}
                 <div className="w-10 h-10 mb-3">
                   <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 11</h3>
-                <p className="text-xs text-white/80 mb-2">Sustainable Cities & Communities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
+                <p className="text-xs text-white/90 mb-2">Sustainable Cities & Communities</p>
+                <p className="text-[11px] text-white/80 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
               </div>
             </div>
 
-            <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
+            {/* SDG 8 Card */}
+            <div className='relative w-[300px] md:w-[360px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[280px]'>
               <img 
-                src="/SDG%2011.JPG" 
-                alt="SDG 11" 
+                src="/SDG%208%20.JPG" 
+                alt="SDG 8" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 min-h-[260px] justify-end">
+              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
+              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-8">
+                {/* SDG 8 Icon - Economic Growth */}
+                <div className="w-10 h-10 mb-3">
+                  <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m15-1.5v.75c0 .414.336.75.75.75h.75M3.75 9h15m-15 3h15m-15 3h15M12 3v15" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 8</h3>
+                <p className="text-xs text-white/90 mb-2">Decent Work & Economic Growth</p>
+                <p className="text-[11px] text-white/80 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
+              </div>
+            </div>
+
+            {/* SDG 10 Card */}
+            <div className='relative w-[300px] md:w-[360px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[280px]'>
+              <img 
+                src="/SDG%2010%20JPG" 
+                alt="SDG 10" 
+                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => { e.target.src = '/og-image.png'; }}
+              />
+              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
+              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-8">
+                {/* SDG 10 Icon - Reduced Inequalities */}
+                <div className="w-10 h-10 mb-3">
+                  <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 10</h3>
+                <p className="text-xs text-white/90 mb-2">Reduced Inequalities</p>
+                <p className="text-[11px] text-white/80 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
+              </div>
+            </div>
+
+            {/* Duplicate for seamless loop */}
+            <div className='relative w-[300px] md:w-[360px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[280px]'>
+              <img src="/SDG%2011.JPG" alt="SDG 11" className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
+              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-8">
                 <div className="w-10 h-10 mb-3">
                   <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 11</h3>
-                <p className="text-xs text-white/80 mb-2">Sustainable Cities & Communities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
+                <p className="text-xs text-white/90 mb-2">Sustainable Cities & Communities</p>
+                <p className="text-[11px] text-white/80 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
               </div>
             </div>
 
-            {/* SDG 8 - Using your filename SDG 8 .JPG */}
-            <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
-              <img 
-                src="/SDG%208%20.JPG" 
-                alt="SDG 8" 
-                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 min-h-[260px] justify-end">
+            <div className='relative w-[300px] md:w-[360px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[280px]'>
+              <img src="/SDG%208%20.JPG" alt="SDG 8" className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
+              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-8">
                 <div className="w-10 h-10 mb-3">
                   <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m15-1.5v.75c0 .414.336.75.75.75h.75M3.75 9h15m-15 3h15m-15 3h15M12 3v15" />
                   </svg>
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 8</h3>
-                <p className="text-xs text-white/80 mb-2">Decent Work & Economic Growth</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
+                <p className="text-xs text-white/90 mb-2">Decent Work & Economic Growth</p>
+                <p className="text-[11px] text-white/80 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
               </div>
             </div>
 
-            <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
-              <img 
-                src="/SDG%208%20.JPG" 
-                alt="SDG 8" 
-                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 min-h-[260px] justify-end">
-                <div className="w-10 h-10 mb-3">
-                  <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m15-1.5v.75c0 .414.336.75.75.75h.75M3.75 9h15m-15 3h15m-15 3h15M12 3v15" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 8</h3>
-                <p className="text-xs text-white/80 mb-2">Decent Work & Economic Growth</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
-              </div>
-            </div>
-
-            {/* SDG 10 - Using your filename SDG 10 JPG */}
-            <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
-              <img 
-                src="/SDG%2010%20JPG" 
-                alt="SDG 10" 
-                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 min-h-[260px] justify-end">
+            <div className='relative w-[300px] md:w-[360px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[280px]'>
+              <img src="/SDG%2010%20JPG" alt="SDG 10" className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500" onError={(e) => { e.target.src = '/og-image.png'; }} />
+              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
+              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-8">
                 <div className="w-10 h-10 mb-3">
                   <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   </svg>
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 10</h3>
-                <p className="text-xs text-white/80 mb-2">Reduced Inequalities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
-              </div>
-            </div>
-
-            <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
-              <img 
-                src="/SDG%2010%20JPG" 
-                alt="SDG 10" 
-                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 min-h-[260px] justify-end">
-                <div className="w-10 h-10 mb-3">
-                  <svg className="w-full h-full text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 10</h3>
-                <p className="text-xs text-white/80 mb-2">Reduced Inequalities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
+                <p className="text-xs text-white/90 mb-2">Reduced Inequalities</p>
+                <p className="text-[11px] text-white/80 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
               </div>
             </div>
           </motion.div>

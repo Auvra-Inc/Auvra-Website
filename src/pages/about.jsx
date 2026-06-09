@@ -207,6 +207,60 @@ export default function About() {
     },
   ];
 
+  // SDG Cards Data with targets
+  const sdgCards = [
+    {
+      id: 11,
+      title: 'SDG 11',
+      subtitle: 'Sustainable Cities & Communities',
+      target: 'Target 11.4: Protect and safeguard cultural and natural heritage',
+      description: 'Auvra permanently preserves endangered intangible cultural heritage including oral histories, languages, rituals, and craft techniques using blockchain technology.',
+      image: '/SDG%2011.JPG',
+      color: '#F99D26',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" fill="#F99D26" stroke="white" strokeWidth="1"/>
+          <path d="M7 12L12 7L17 12L12 17L7 12Z" fill="white"/>
+          <rect x="10" y="10" width="4" height="4" fill="#F99D26"/>
+        </svg>
+      )
+    },
+    {
+      id: 8,
+      title: 'SDG 8',
+      subtitle: 'Decent Work & Economic Growth',
+      target: 'Target 8.3 & 8.5: Promote decent work for creative professionals',
+      description: 'Auvra enables creators to monetize their work, retain intellectual property, and earn fair income through a transparent, low-fee platform.',
+      image: '/SDG%208%20.JPG',
+      color: '#A21942',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" fill="#A21942" stroke="white" strokeWidth="1"/>
+          <path d="M8 16L16 8" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="12" cy="12" r="3" fill="white"/>
+          <path d="M10 10L14 14" stroke="#A21942" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      )
+    },
+    {
+      id: 10,
+      title: 'SDG 10',
+      subtitle: 'Reduced Inequalities',
+      target: 'Target 10.2: Promote social and economic inclusion of all',
+      description: 'Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership and cultural infrastructure.',
+      image: '/SDG%2010.JPG',
+      color: '#DD1367',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" fill="#DD1367" stroke="white" strokeWidth="1"/>
+          <path d="M8 12H16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="12" cy="8" r="2" fill="white"/>
+          <circle cx="12" cy="16" r="2" fill="white"/>
+        </svg>
+      )
+    }
+  ];
+
   // Animation variants
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -484,7 +538,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 7. SDG CARDS - HORIZONTAL SLIDING CAROUSEL */}
+      {/* 7. SDG CARDS - HORIZONTAL SLIDING CAROUSEL WITH TARGETS */}
       <section className='w-full bg-white py-12 overflow-hidden'>
         <div className='mb-6 text-center px-6'>
           <motion.h2 
@@ -513,131 +567,32 @@ export default function About() {
             animate={{ x: ['0%', '-50%'] }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "loop" }}
           >
-            {/* SDG 11 Card */}
-            <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
-              <img 
-                src="/SDG%2011.JPG" 
-                alt="SDG 11" 
-                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
-                <div className="w-10 h-10 mb-2">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="#F99D26" stroke="white" strokeWidth="1"/>
-                    <path d="M7 12L12 7L17 12L12 17L7 12Z" fill="white"/>
-                    <rect x="10" y="10" width="4" height="4" fill="#F99D26"/>
-                  </svg>
+            {/* Map through SDG Cards and duplicate for seamless loop */}
+            {[...sdgCards, ...sdgCards].map((card, idx) => (
+              <div 
+                key={`${card.id}-${idx}`}
+                className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[280px] md:h-[300px]'
+              >
+                <img 
+                  src={card.image} 
+                  alt={card.title} 
+                  className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
+                <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
+                  <div className="w-10 h-10 mb-2">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-lg font-clash font-bold text-white mb-0.5">{card.title}</h3>
+                  <p className="text-xs text-white/90 mb-1">{card.subtitle}</p>
+                  <p className="text-[10px] font-mono text-yellow-300/90 mb-2 tracking-wide">{card.target}</p>
+                  <p className="text-[11px] text-white/80 leading-relaxed">{card.description}</p>
                 </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 11</h3>
-                <p className="text-xs text-white/90 mb-2">Sustainable Cities & Communities</p>
-                <p className="text-[11px] text-white/80 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
               </div>
-            </div>
-
-            {/* SDG 8 Card */}
-            <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
-              <img 
-                src="/SDG%208%20.JPG" 
-                alt="SDG 8" 
-                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
-                <div className="w-10 h-10 mb-2">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="#A21942" stroke="white" strokeWidth="1"/>
-                    <path d="M8 16L16 8" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <circle cx="12" cy="12" r="3" fill="white"/>
-                    <path d="M10 10L14 14" stroke="#A21942" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 8</h3>
-                <p className="text-xs text-white/90 mb-2">Decent Work & Economic Growth</p>
-                <p className="text-[11px] text-white/80 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
-              </div>
-            </div>
-
-            {/* SDG 10 Card - Using correct path SDG 10.JPG */}
-            <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
-              <img 
-                src="/SDG%2010.JPG" 
-                alt="SDG 10" 
-                className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-all duration-300"></div>
-              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
-                <div className="w-10 h-10 mb-2">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="#DD1367" stroke="white" strokeWidth="1"/>
-                    <path d="M8 12H16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <circle cx="12" cy="8" r="2" fill="white"/>
-                    <circle cx="12" cy="16" r="2" fill="white"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 10</h3>
-                <p className="text-xs text-white/90 mb-2">Reduced Inequalities</p>
-                <p className="text-[11px] text-white/80 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
-              </div>
-            </div>
-
-            {/* Duplicate for seamless loop */}
-            <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
-              <img src="/SDG%2011.JPG" alt="SDG 11" className="w-full h-full object-cover absolute inset-0" />
-              <div className="absolute inset-0 bg-black/45"></div>
-              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
-                <div className="w-10 h-10 mb-2">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="#F99D26" stroke="white" strokeWidth="1"/>
-                    <path d="M7 12L12 7L17 12L12 17L7 12Z" fill="white"/>
-                    <rect x="10" y="10" width="4" height="4" fill="#F99D26"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 11</h3>
-                <p className="text-xs text-white/90 mb-2">Sustainable Cities & Communities</p>
-                <p className="text-[11px] text-white/80 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
-              </div>
-            </div>
-
-            <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
-              <img src="/SDG%208%20.JPG" alt="SDG 8" className="w-full h-full object-cover absolute inset-0" />
-              <div className="absolute inset-0 bg-black/45"></div>
-              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
-                <div className="w-10 h-10 mb-2">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="#A21942" stroke="white" strokeWidth="1"/>
-                    <path d="M8 16L16 8" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <circle cx="12" cy="12" r="3" fill="white"/>
-                    <path d="M10 10L14 14" stroke="#A21942" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 8</h3>
-                <p className="text-xs text-white/90 mb-2">Decent Work & Economic Growth</p>
-                <p className="text-[11px] text-white/80 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
-              </div>
-            </div>
-
-            <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
-              <img src="/SDG%2010.JPG" alt="SDG 10" className="w-full h-full object-cover absolute inset-0" />
-              <div className="absolute inset-0 bg-black/45"></div>
-              <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
-                <div className="w-10 h-10 mb-2">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="#DD1367" stroke="white" strokeWidth="1"/>
-                    <path d="M8 12H16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                    <circle cx="12" cy="8" r="2" fill="white"/>
-                    <circle cx="12" cy="16" r="2" fill="white"/>
-                  </svg>
-                </div>
-                <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 10</h3>
-                <p className="text-xs text-white/90 mb-2">Reduced Inequalities</p>
-                <p className="text-[11px] text-white/80 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
-              </div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 }

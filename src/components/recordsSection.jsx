@@ -25,14 +25,16 @@ const LivingRecordsSection = () => {
           {/* THE FIX: Perfectly rounded video pill with no spaces! */}
           <span className="relative inline-block w-16 h-10 md:w-24 md:h-12 lg:w-28 lg:h-14 bg-orange-200 rounded-full align-middle mx-2 md:mx-3 overflow-hidden shadow-inner -translate-y-1">        
             <video
-              src="/video.mp4"
               preload="auto"
               autoPlay
               loop
               muted
               playsInline
               className="absolute inset-0 w-full h-full object-cover rounded-full"
-            />
+            >
+              <source src={`${import.meta.env.BASE_URL}video.mp4`} type="video/mp4" />
+              Your browser does not support embedded videos.
+            </video>
           </span>
           
           records of <span className="font-medium">culture that connect stories,</span> people, and

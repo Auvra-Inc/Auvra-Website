@@ -1,6 +1,3 @@
-Here is your complete About.jsx with the horizontal sliding SDG cards section (matching the logos style) at the end:
-
-```jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -487,7 +484,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 7. SDG CARDS - HORIZONTAL SLIDING CAROUSEL (like logos) */}
+      {/* 7. SDG CARDS - HORIZONTAL SLIDING CAROUSEL */}
       <section className='w-full bg-white py-16 overflow-hidden'>
         <div className='mb-8 text-center px-6'>
           <motion.h2 
@@ -510,23 +507,16 @@ export default function About() {
           </motion.p>
         </div>
 
-        {/* Horizontal Sliding Carousel */}
         <div className='relative w-full overflow-hidden'>
           <motion.div 
             className='flex gap-5 w-max'
-            animate={{
-              x: ['0%', '-50%']
-            }}
-            transition={{
-              duration: 50,
-              repeat: Infinity,
-              ease: "linear"
-            }}
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
           >
-            {/* SDG 11 Cards */}
+            {/* SDG 11 - Using your filename SDG 11.JPG */}
             <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
               <img 
-                src="/SDG 11.JPG" 
+                src="/SDG%2011.JPG" 
                 alt="SDG 11" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
@@ -539,15 +529,13 @@ export default function About() {
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 11</h3>
                 <p className="text-xs text-white/80 mb-2">Sustainable Cities & Communities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">
-                  Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.
-                </p>
+                <p className="text-[11px] text-white/70 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
               </div>
             </div>
 
             <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
               <img 
-                src="/SDG 11.JPG" 
+                src="/SDG%2011.JPG" 
                 alt="SDG 11" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
@@ -560,16 +548,14 @@ export default function About() {
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 11</h3>
                 <p className="text-xs text-white/80 mb-2">Sustainable Cities & Communities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">
-                  Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.
-                </p>
+                <p className="text-[11px] text-white/70 leading-relaxed">Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.</p>
               </div>
             </div>
 
-            {/* SDG 8 Cards */}
+            {/* SDG 8 - Using your filename SDG 8 .JPG */}
             <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
               <img 
-                src="/SDG 8.JPG" 
+                src="/SDG%208%20.JPG" 
                 alt="SDG 8" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
@@ -582,15 +568,13 @@ export default function About() {
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 8</h3>
                 <p className="text-xs text-white/80 mb-2">Decent Work & Economic Growth</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">
-                  Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.
-                </p>
+                <p className="text-[11px] text-white/70 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
               </div>
             </div>
 
             <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
               <img 
-                src="/SDG 8.JPG" 
+                src="/SDG%208%20.JPG" 
                 alt="SDG 8" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
@@ -603,16 +587,14 @@ export default function About() {
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 8</h3>
                 <p className="text-xs text-white/80 mb-2">Decent Work & Economic Growth</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">
-                  Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.
-                </p>
+                <p className="text-[11px] text-white/70 leading-relaxed">Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.</p>
               </div>
             </div>
 
-            {/* SDG 10 Cards */}
+            {/* SDG 10 - Using your filename SDG 10 JPG */}
             <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
               <img 
-                src="/SDG 10.JPG" 
+                src="/SDG%2010%20JPG" 
                 alt="SDG 10" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
@@ -625,15 +607,13 @@ export default function About() {
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 10</h3>
                 <p className="text-xs text-white/80 mb-2">Reduced Inequalities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">
-                  Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.
-                </p>
+                <p className="text-[11px] text-white/70 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
               </div>
             </div>
 
             <div className='relative w-[280px] md:w-[320px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer'>
               <img 
-                src="/SDG 10.JPG" 
+                src="/SDG%2010%20JPG" 
                 alt="SDG 10" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
@@ -646,9 +626,7 @@ export default function About() {
                 </div>
                 <h3 className="text-lg font-clash font-bold text-white mb-1">SDG 10</h3>
                 <p className="text-xs text-white/80 mb-2">Reduced Inequalities</p>
-                <p className="text-[11px] text-white/70 leading-relaxed">
-                  Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.
-                </p>
+                <p className="text-[11px] text-white/70 leading-relaxed">Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.</p>
               </div>
             </div>
           </motion.div>
@@ -658,4 +636,3 @@ export default function About() {
     </div>
   );
 }
-```

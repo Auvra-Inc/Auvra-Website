@@ -127,37 +127,6 @@ const ApproachIcons = {
   ),
 };
 
-// SDG Cards Data for Horizontal Sliding Carousel
-const sdgCards = [
-  {
-    id: 11,
-    title: 'SDG 11',
-    subtitle: 'Sustainable Cities and Communities',
-    target: 'Target 11.4: Protect and safeguard cultural heritage',
-    description: 'Auvra permanently preserves endangered intangible cultural heritage including oral histories, languages, rituals, and craft techniques.',
-    color: '#F99D26'
-  },
-  {
-    id: 8,
-    title: 'SDG 8',
-    subtitle: 'Decent Work and Economic Growth',
-    target: 'Target 8.3 and 8.5: Promote decent work for creative professionals',
-    description: 'Auvra enables creators to monetize their work, retain intellectual property, and earn fair income through a transparent, low-fee platform.',
-    color: '#A21942'
-  },
-  {
-    id: 10,
-    title: 'SDG 10',
-    subtitle: 'Reduced Inequalities',
-    target: 'Target 10.2: Promote social and economic inclusion of all',
-    description: 'Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.',
-    color: '#DD1367'
-  }
-];
-
-// Duplicate cards for seamless infinite scroll
-const duplicatedSdgCards = [...sdgCards, ...sdgCards, ...sdgCards];
-
 export default function About() {
   const values = [
     {
@@ -515,78 +484,94 @@ export default function About() {
         </div>
       </section>
 
-      {/* 7. NEW: HORIZONTAL SLIDING SDG CARDS SECTION */}
-      <section className='w-full bg-gray-50 py-16 overflow-hidden'>
-        <div className='mb-10 text-center px-6'>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className='text-3xl md:text-4xl font-clash font-medium text-black tracking-tight mb-3'
-          >
-            Aligned with UN Sustainable Development Goals
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+      {/* 7. SDG CARDS SECTION - Built-in icons, no external files needed */}
+      <section className='max-w-7xl mx-auto px-6 md:px-12 py-16'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className='text-center mb-10'
+        >
+          <h2 className='text-2xl md:text-3xl font-clash font-medium text-black tracking-tight'>
+            UN Sustainable Development Goals
+          </h2>
+          <p className='text-sm text-gray-500 font-clash mt-2'>
+            Auvra's contribution to global development
+          </p>
+        </motion.div>
+
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+          {/* SDG 11 Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className='text-gray-500 font-clash max-w-2xl mx-auto'
+            className='relative block overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 to-teal-800 h-full group cursor-pointer hover:scale-[1.02] transition-transform duration-300 shadow-lg'
           >
-            Auvra contributes to global sustainable development through cultural preservation and creative empowerment.
-          </motion.p>
-        </div>
-
-        {/* Horizontal Sliding Carousel */}
-        <div className='relative w-full overflow-hidden'>
-          <motion.div 
-            className='flex gap-6 md:gap-8 w-max'
-            animate={{
-              x: ['0%', '-33.33%']
-            }}
-            transition={{
-              duration: 60,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
-            {duplicatedSdgCards.map((card, index) => (
-              <div 
-                key={`${card.id}-${index}`}
-                className='relative w-[300px] md:w-[350px] rounded-2xl overflow-hidden flex-shrink-0 shadow-lg hover:shadow-xl transition-shadow duration-300'
-              >
-                {/* SDG Color Header Bar */}
-                <div className='h-1.5' style={{ backgroundColor: card.color }} />
-                
-                {/* Card Content */}
-                <div className='bg-white p-5 md:p-6'>
-                  {/* SDG Number Circle */}
-                  <div className='flex items-center gap-3 mb-3'>
-                    <div 
-                      className='w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg'
-                      style={{ backgroundColor: card.color }}
-                    >
-                      {card.id}
-                    </div>
-                    <div>
-                      <h3 className='text-base font-clash font-bold text-black'>{card.title}</h3>
-                      <p className='text-xs text-gray-500'>{card.subtitle}</p>
-                    </div>
-                  </div>
-                  
-                  {/* Target */}
-                  <p className='text-[11px] font-semibold text-gray-600 uppercase tracking-wider mb-2'>
-                    {card.target}
-                  </p>
-                  
-                  {/* Description */}
-                  <p className='text-xs text-gray-600 leading-relaxed'>
-                    {card.description}
-                  </p>
-                </div>
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+            <div className="relative z-10 flex flex-col p-6 min-h-[280px]">
+              {/* SDG 11 Icon - Built-in SVG */}
+              <div className="mb-4">
+                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-            ))}
+              <h3 className="text-xl font-clash font-semibold text-white mb-2">SDG 11</h3>
+              <p className="text-sm text-white/90 mb-3">Sustainable Cities & Communities</p>
+              <p className="text-xs text-white/80 leading-relaxed">
+                Auvra preserves endangered cultural heritage including oral histories, languages, and rituals using blockchain technology.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* SDG 8 Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className='relative block overflow-hidden rounded-2xl bg-gradient-to-br from-amber-800 to-orange-700 h-full group cursor-pointer hover:scale-[1.02] transition-transform duration-300 shadow-lg'
+          >
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+            <div className="relative z-10 flex flex-col p-6 min-h-[280px]">
+              {/* SDG 8 Icon - Built-in SVG */}
+              <div className="mb-4">
+                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m15-1.5v.75c0 .414.336.75.75.75h.75M3.75 9h15m-15 3h15m-15 3h15M12 3v15" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-clash font-semibold text-white mb-2">SDG 8</h3>
+              <p className="text-sm text-white/90 mb-3">Decent Work & Economic Growth</p>
+              <p className="text-xs text-white/80 leading-relaxed">
+                Auvra enables creators to monetize their work, retain intellectual property, and earn fair income.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* SDG 10 Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className='relative block overflow-hidden rounded-2xl bg-gradient-to-br from-rose-800 to-red-700 h-full group cursor-pointer hover:scale-[1.02] transition-transform duration-300 shadow-lg'
+          >
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+            <div className="relative z-10 flex flex-col p-6 min-h-[280px]">
+              {/* SDG 10 Icon - Built-in SVG */}
+              <div className="mb-4">
+                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-clash font-semibold text-white mb-2">SDG 10</h3>
+              <p className="text-sm text-white/90 mb-3">Reduced Inequalities</p>
+              <p className="text-xs text-white/80 leading-relaxed">
+                Auvra serves indigenous communities, endangered language speakers, and diaspora populations excluded from digital ownership.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

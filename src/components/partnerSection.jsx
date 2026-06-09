@@ -11,7 +11,7 @@ const partners = [
   { name: "OpenAI", imagePath: "/logos/openai.svg" },
   { name: "NVIDIA", imagePath: "/logos/kindpng_280277.png" },
   { name: "Crossmint", imagePath: "/logos/crossmint.svg" },
-  { name: "Breet", imagePath: "/logos/breet.svg" },
+  { name: "Breet", imagePath: "/logos/logo.svg" },
 ];
 
 export default function PartnersSection() {

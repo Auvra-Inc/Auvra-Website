@@ -536,10 +536,10 @@ export default function About() {
               </div>
             </div>
 
-            {/* SDG 8 Card */}
+            {/* SDG 8 Card - CORRECTED PATH */}
             <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
               <img 
-                src="/SDG%208%20.JPG" 
+                src="/SDG%208.JPG" 
                 alt="SDG 8" 
                 className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
               />
@@ -584,7 +584,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Duplicate for seamless loop */}
+            {/* Duplicate for seamless loop - SDG 11 */}
             <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
               <img src="/SDG%2011.JPG" alt="SDG 11" className="w-full h-full object-cover absolute inset-0" />
               <div className="absolute inset-0 bg-black/45"></div>
@@ -603,8 +603,9 @@ export default function About() {
               </div>
             </div>
 
+            {/* Duplicate for seamless loop - SDG 8 with CORRECTED PATH */}
             <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
-              <img src="/SDG%208%20.JPG" alt="SDG 8" className="w-full h-full object-cover absolute inset-0" />
+              <img src="/SDG%208.JPG" alt="SDG 8" className="w-full h-full object-cover absolute inset-0" />
               <div className="absolute inset-0 bg-black/45"></div>
               <div className="relative z-10 flex flex-col p-5 h-full justify-start pt-6">
                 <div className="w-10 h-10 mb-2">
@@ -622,6 +623,7 @@ export default function About() {
               </div>
             </div>
 
+            {/* Duplicate for seamless loop - SDG 10 */}
             <div className='relative w-[340px] md:w-[400px] flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer h-[240px]'>
               <img src="/SDG%2010.JPG" alt="SDG 10" className="w-full h-full object-cover absolute inset-0" />
               <div className="absolute inset-0 bg-black/45"></div>

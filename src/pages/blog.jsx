@@ -59,6 +59,9 @@ export default function Blog() {
     
     setPosts(loadedPosts);
     setCurrentPage(1);
+
+    document.title = 'Blog |Read the latest stories and updates on cultural preservation and technology.'
+
   }, []);
 
   // Pagination logic

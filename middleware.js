@@ -1,5 +1,5 @@
 export const config = {
-  matcher: ['/', '/about', '/blog', '/institutional-access'],
+  matcher: ['/', '/about', '/blog', '/blog/:slug*', '/institutional-access'],
 };
 
 const PREVIEW_PAGES = {
@@ -203,14 +203,26 @@ function buildFullHtml({ title, description, image, url }) {
 
 export default async function middleware(request) {
   const url = new URL(request.url);
-const pathname = url.pathname.toLowerCase().replace(/\/$/, '') || '/';
+  const pathname = url.pathname.toLowerCase().replace(/\/$/, '') || '/';
   const userAgent = request.headers.get('user-agent') || '';
-  
-  // Check if this is a bot request
+
   if (isBot(userAgent)) {
-    const previewData = PREVIEW_PAGES[pathname] || PREVIEW_PAGES['/'];
+    let previewData;
+
+    // Handle dynamic blog post routes
+    if (pathname.startsWith('/blog/')) {
+      const slug = pathname.replace('/blog/', '')
+      previewData = {
+        title: `${slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} | Auvra Blog`,
+        description: 'Read the latest stories and updates on cultural preservation and technology.',
+        image: 'https://www.goauvra.com/blog-preview.png',
+        url: request.url,
+      }
+    } else {
+      previewData = PREVIEW_PAGES[pathname] || PREVIEW_PAGES['/']
+    }
+
     const html = buildFullHtml({ ...previewData, url: request.url });
-    
     return new Response(html, {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',
@@ -219,8 +231,6 @@ const pathname = url.pathname.toLowerCase().replace(/\/$/, '') || '/';
       },
     });
   }
-  
-  // For normal users, let Next.js handle the request
-  // This is the key fix - we don't return fetch(request), we just let Next.js continue
+
   return;
 }

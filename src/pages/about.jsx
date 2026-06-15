@@ -128,6 +128,10 @@ const ApproachIcons = {
 };
 
 export default function About() {
+  useEffect(() => {
+  document.title = 'About | Learn about our mission to build a permanent home for human history and traditions.'
+}, [])
+
   const values = [
     {
       title: 'Cultural Integrity.',

@@ -397,6 +397,7 @@ export default function InstitutionalAccess() {
       }
       isScriptLoaded.current = false;
     };
+    document.title = 'Institution-Access | For museums and government bodies looking to preserve cultural heritage at scale.'
   }, []);
 
   return (

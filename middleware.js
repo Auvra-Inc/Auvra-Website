@@ -61,7 +61,7 @@ function buildHtml({ title, description, image, url }) {
 
 export default function middleware(request) {
   const url = new URL(request.url);
-  const pathname = url.pathname.replace(/\/$/, '') || '/';
+const pathname = url.pathname.toLowerCase().replace(/\/$/, '') || '/';
   const userAgent = request.headers.get('user-agent') || '';
 
   if (!isBot(userAgent)) {

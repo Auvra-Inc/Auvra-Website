@@ -4,13 +4,11 @@ export default function Waitlist() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    // Load Tally widget script
     const script = document.createElement('script');
     script.src = 'https://tally.so/widgets/embed.js';
     script.async = true;
     document.body.appendChild(script);
 
-    // Listen for form submission
     const handleMessage = (event) => {
       if (event.data && event.data.type === 'tally-submission') {
         setSubmitted(true);
@@ -25,11 +23,11 @@ export default function Waitlist() {
 
   return (
     <div style={styles.page}>
-      {/* Background Image - covers entire screen */}
+      {/* Background Image */}
       <div style={styles.backgroundImage}></div>
 
-      {/* Dark Overlay - matches image size */}
-      <div style={styles.darkOverlay}></div>
+      {/* Glass Overlay */}
+      <div style={styles.glassOverlay}></div>
 
       {/* Content */}
       <div style={styles.container}>
@@ -41,23 +39,19 @@ export default function Waitlist() {
 
         <div style={styles.content}>
           <h1 style={styles.title}>
-            The permanent home for human culture is coming.
+            Discover new ways to preserve culture.
           </h1>
           <p style={styles.subtitle}>
-            We are building a place where stories are kept, traditions endure,
-            and creation becomes legacy.
-          </p>
-          <p style={styles.subtitle2}>
-            Join the waitlist. Be the first to experience it.
+            Join the waitlist for the permanent home of human culture.
           </p>
         </div>
 
         {!submitted ? (
           <div style={styles.formWrapper}>
             <iframe
-              src="https://tally.so/embed/1AB0YL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              src="https://tally.so/embed/1AB0YL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&textColor=ffffff&primaryColor=8b5cf6"
               width="100%"
-              height="380"
+              height="400"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
@@ -68,10 +62,8 @@ export default function Waitlist() {
         ) : (
           <div style={styles.thankYou}>
             <span style={styles.checkmark}>🎉</span>
-            <h2 style={styles.thankTitle}>You are on the list.</h2>
-            <p style={styles.thankSub}>
-              We will notify you the moment we launch.
-            </p>
+            <h2 style={styles.thankTitle}>You're on the list.</h2>
+            <p style={styles.thankSub}>We'll notify you at launch.</p>
           </div>
         )}
 
@@ -90,12 +82,11 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     padding: '20px',
-    fontFamily: '"Season", "Clash Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: '"Clash Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     position: 'relative',
     overflow: 'hidden',
   },
 
-  // Background Image - covers entire screen without zoom
   backgroundImage: {
     position: 'absolute',
     top: 0,
@@ -109,31 +100,33 @@ const styles = {
     zIndex: 0,
   },
 
-  // Dark Overlay - matches image size exactly
-  darkOverlay: {
+  glassOverlay: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.65)',
+    backgroundColor: 'rgba(0, 0, 0, 0.55)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
     zIndex: 1,
   },
 
   container: {
     maxWidth: '560px',
     width: '100%',
-    padding: '48px 40px',
-    backgroundColor: 'rgba(20, 20, 20, 0.0)', // Fully transparent
-    borderRadius: '24px',
-    border: 'none',
-    boxShadow: 'none',
+    padding: '40px 32px',
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+    borderRadius: '16px',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
     position: 'relative',
     zIndex: 2,
+    backdropFilter: 'blur(4px)',
+    WebkitBackdropFilter: 'blur(4px)',
   },
 
   header: {
-    marginBottom: '32px',
+    marginBottom: '28px',
     textAlign: 'center',
   },
 
@@ -142,7 +135,7 @@ const styles = {
   },
 
   logo: {
-    fontSize: '2rem',
+    fontSize: '1.75rem',
     fontWeight: '700',
     color: '#ffffff',
     letterSpacing: '-0.02em',
@@ -155,41 +148,32 @@ const styles = {
 
   content: {
     textAlign: 'center',
-    marginBottom: '32px',
+    marginBottom: '28px',
   },
 
   title: {
-    fontSize: '2.2rem',
-    fontWeight: '700',
+    fontSize: '2.4rem',
+    fontWeight: '600',
     color: '#ffffff',
-    lineHeight: '1.2',
-    marginBottom: '16px',
+    lineHeight: '1.15',
+    marginBottom: '12px',
     letterSpacing: '-0.02em',
-    fontFamily: '"Clash Display", sans-serif',
+    fontFamily: '"Season", serif',
   },
 
   subtitle: {
-    fontSize: '1.05rem',
-    color: '#d1d5db',
+    fontSize: '1rem',
+    color: 'rgba(255, 255, 255, 0.75)',
     lineHeight: '1.6',
-    maxWidth: '480px',
-    margin: '0 auto 8px',
-    fontFamily: '"Season", serif',
-  },
-
-  subtitle2: {
-    fontSize: '1.05rem',
-    color: '#f3f4f6',
-    lineHeight: '1.6',
-    maxWidth: '480px',
+    maxWidth: '440px',
     margin: '0 auto',
-    fontWeight: '500',
-    fontFamily: '"Season", serif',
+    fontFamily: '"Clash Display", sans-serif',
+    fontWeight: '400',
   },
 
   formWrapper: {
     width: '100%',
-    marginBottom: '24px',
+    marginBottom: '20px',
   },
 
   iframe: {
@@ -202,28 +186,28 @@ const styles = {
   thankYou: {
     textAlign: 'center',
     padding: '20px 0',
-    marginBottom: '24px',
+    marginBottom: '20px',
   },
 
   checkmark: {
     fontSize: '3rem',
     display: 'block',
-    marginBottom: '16px',
+    marginBottom: '12px',
   },
 
   thankTitle: {
     fontSize: '1.5rem',
     fontWeight: '600',
     color: '#ffffff',
-    marginBottom: '8px',
-    fontFamily: '"Clash Display", sans-serif',
+    marginBottom: '6px',
+    fontFamily: '"Season", serif',
   },
 
   thankSub: {
     fontSize: '1rem',
-    color: '#d1d5db',
+    color: 'rgba(255, 255, 255, 0.75)',
     lineHeight: '1.6',
-    fontFamily: '"Season", serif',
+    fontFamily: '"Clash Display", sans-serif',
   },
 
   footer: {
@@ -232,10 +216,10 @@ const styles = {
   },
 
   backLink: {
-    fontSize: '0.875rem',
-    color: '#9ca3af',
+    fontSize: '0.8rem',
+    color: 'rgba(255, 255, 255, 0.4)',
     textDecoration: 'none',
     transition: 'color 0.2s',
-    fontFamily: '"Season", sans-serif',
+    fontFamily: '"Clash Display", sans-serif',
   },
 };

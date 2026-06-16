@@ -31,14 +31,16 @@ export default function Waitlist() {
 
       {/* Content */}
       <div style={styles.container}>
-        {/* Glass Button - like "GET INTO TECH NOW" in the screenshot */}
+        {/* Glass Button - shortened */}
         <div style={styles.glassButton}>
-          <span style={styles.glassButtonText}>JOIN THE WAITLIST FOR AUVRA</span>
+          <span style={styles.glassButtonText}>JOIN OUR WAITLIST</span>
         </div>
 
         <div style={styles.content}>
           <h1 style={styles.title}>
-            Your culture deserves a <span style={styles.italicPurple}>permanent</span> home.
+            Your culture deserves
+            <br />
+            a <span style={styles.italicPurple}>permanent</span> home.
           </h1>
           <p style={styles.subtitle}>
             Discover new ways to preserve, own, and pass down what matters.
@@ -117,13 +119,12 @@ const styles = {
     zIndex: 2,
   },
 
-  // Glass Button - like "GET INTO TECH NOW"
   glassButton: {
     display: 'inline-block',
-    padding: '8px 24px',
+    padding: '6px 18px',
     marginBottom: '32px',
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
-    border: '1px solid rgba(255, 255, 255, 0.15)',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
     borderRadius: '30px',
     backdropFilter: 'blur(4px)',
     WebkitBackdropFilter: 'blur(4px)',
@@ -135,10 +136,10 @@ const styles = {
   },
 
   glassButtonText: {
-    fontSize: '0.7rem',
+    fontSize: '0.65rem',
     fontWeight: '600',
     color: '#ffffff',
-    letterSpacing: '0.08em',
+    letterSpacing: '0.1em',
     fontFamily: '"Clash Display", sans-serif',
     textTransform: 'uppercase',
   },
@@ -152,7 +153,7 @@ const styles = {
     fontSize: '2.4rem',
     fontWeight: '500',
     color: '#ffffff',
-    lineHeight: '1.1',
+    lineHeight: '1.15',
     marginBottom: '12px',
     letterSpacing: '-0.01em',
     fontFamily: '"Season", serif',

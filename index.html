@@ -19,7 +19,7 @@
     <meta name="theme-color" content="#ffffff">
     
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translacent" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
@@ -46,15 +46,10 @@
     <meta name="twitter:description" content="Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records." />
     <meta name="twitter:image" content="https://www.goauvra.com/og-image.png" />
     
-    <!-- Canonical -->
-    <link rel="canonical" href="https://www.goauvra.com/" />
-    
     <!-- Language -->
     <meta http-equiv="Content-Language" content="en" />
-    <link rel="alternate" hreflang="en" href="https://www.goauvra.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.goauvra.com/" />
     
-    <!-- Schema.org Structured Data - UPDATED with knowsAbout and memberOf -->
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -147,27 +142,22 @@
     <!-- FORCE CORRECT DESCRIPTION - OVERRIDES ANY DYNAMIC CONTENT -->
     <script>
       (function() {
-        // Force correct description on homepage
         if (window.location.pathname === '/') {
-          // Update meta description
           let metaDesc = document.querySelector('meta[name="description"]');
           if (metaDesc) {
             metaDesc.setAttribute('content', 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.');
           }
           
-          // Update Open Graph description
           let ogDesc = document.querySelector('meta[property="og:description"]');
           if (ogDesc) {
             ogDesc.setAttribute('content', 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.');
           }
           
-          // Update Twitter description
           let twitterDesc = document.querySelector('meta[name="twitter:description"]');
           if (twitterDesc) {
             twitterDesc.setAttribute('content', 'Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records.');
           }
           
-          // Also update title to be safe
           let ogTitle = document.querySelector('meta[property="og:title"]');
           if (ogTitle) {
             ogTitle.setAttribute('content', 'Auvra - The Permanent Home For Human Culture');
@@ -184,7 +174,7 @@
   <body>
     <div id="root"></div>
     
-    <!-- Hidden SEO content - visible to search engines, not to users -->
+    <!-- Hidden SEO content -->
     <div style="display: none; visibility: hidden; position: absolute;">
       <h1>Auvra</h1>
       <p><a href="https://www.goauvra.com/">Auvra</a> is the permanent home for human culture.</p>
@@ -195,7 +185,6 @@
       <p>GoAuvra is the call to action to join <a href="https://www.goauvra.com/">Auvra</a>.</p>
       <p><a href="https://www.goauvra.com/">Auvra</a> is built for creators, families, and communities worldwide.</p>
       
-      <!-- Additional SEO content for better ranking -->
       <h2>What is Auvra?</h2>
       <p>Auvra is the permanent home for human culture. Preserve traditions, languages, and stories as verified permanent records. Built for creators, families, communities and institutions.</p>
       

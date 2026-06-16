@@ -27,7 +27,7 @@ export default function Waitlist() {
       <div style={styles.glassOverlay}></div>
 
       <div style={styles.container}>
-        {/* Glass Button - now fits text width like "GET INTO TECH NOW" */}
+        {/* Glass Button - properly centered with padding */}
         <div style={styles.glassButtonWrapper}>
           <div style={styles.glassButton}>
             <span style={styles.glassButtonText}>JOIN OUR WAITLIST</span>
@@ -112,23 +112,27 @@ const styles = {
   },
 
   container: {
-    maxWidth: '420px',
+    maxWidth: '400px',
     width: '100%',
-    padding: '30px 16px 16px',
+    padding: '40px 16px 20px',
     position: 'relative',
     zIndex: 2,
   },
 
   glassButtonWrapper: {
-    textAlign: 'center',
-    marginBottom: '24px',
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '32px',
+    width: '100%',
   },
 
   glassButton: {
-    display: 'inline-block',
-    padding: '4px 14px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '6px 18px',
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
-    border: '1px solid rgba(255, 255, 255, 0.08)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
     borderRadius: '30px',
     backdropFilter: 'blur(4px)',
     WebkitBackdropFilter: 'blur(4px)',
@@ -143,19 +147,20 @@ const styles = {
     fontFamily: '"Clash Display", sans-serif',
     textTransform: 'uppercase',
     whiteSpace: 'nowrap',
+    textAlign: 'center',
   },
 
   content: {
     textAlign: 'center',
-    marginBottom: '20px',
+    marginBottom: '28px',
   },
 
   title: {
     fontSize: '2rem',
     fontWeight: '500',
     color: '#ffffff',
-    lineHeight: '1.1',
-    marginBottom: '10px',
+    lineHeight: '1.15',
+    marginBottom: '14px',
     letterSpacing: '-0.01em',
     fontFamily: '"Season", serif',
     textShadow: '0 4px 30px rgba(0,0,0,0.6)',
@@ -169,16 +174,18 @@ const styles = {
   subtitle: {
     fontSize: '0.85rem',
     color: 'rgba(255, 255, 255, 0.8)',
-    lineHeight: '1.4',
-    maxWidth: '380px',
+    lineHeight: '1.5',
+    maxWidth: '360px',
     margin: '0 auto',
     fontFamily: '"Clash Display", sans-serif',
     fontWeight: '400',
     textShadow: '0 2px 20px rgba(0,0,0,0.5)',
+    paddingTop: '4px',
   },
 
   formWrapper: {
     width: '100%',
+    marginTop: '8px',
   },
 
   iframe: {

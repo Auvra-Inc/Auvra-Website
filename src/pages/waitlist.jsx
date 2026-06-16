@@ -26,17 +26,19 @@ export default function Waitlist() {
       {/* Background Image */}
       <div style={styles.backgroundImage}></div>
 
-      {/* Glass Effect - matches image size exactly */}
+      {/* Glass Effect */}
       <div style={styles.glassOverlay}></div>
 
       {/* Content */}
       <div style={styles.container}>
         <div style={styles.content}>
           <h1 style={styles.title}>
-            Your culture deserves a permanent home.
+            Your culture deserves a <span style={styles.italicPurple}>permanent</span> home.
           </h1>
           <p style={styles.subtitle}>
-            Discover new ways to preserve, own, and pass down what matters. Join the waitlist for Auvra.
+            Discover new ways to preserve, own, and pass down what matters.
+            <br />
+            Join the waitlist for Auvra.
           </p>
         </div>
 
@@ -45,7 +47,7 @@ export default function Waitlist() {
             <iframe
               src="https://tally.so/embed/1AB0YL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&textColor=ffffff&primaryColor=8b5cf6"
               width="100%"
-              height="380"
+              height="360"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
@@ -79,7 +81,6 @@ const styles = {
     backgroundColor: '#0a0a0a',
   },
 
-  // Background Image - covers entire screen
   backgroundImage: {
     position: 'absolute',
     top: 0,
@@ -93,7 +94,6 @@ const styles = {
     zIndex: 0,
   },
 
-  // Glass Effect - matches image size exactly
   glassOverlay: {
     position: 'absolute',
     top: 0,
@@ -106,36 +106,40 @@ const styles = {
     zIndex: 1,
   },
 
-  // Container - no extra background, just content
   container: {
-    maxWidth: '480px',
+    maxWidth: '460px',
     width: '100%',
-    padding: '60px 20px 20px',
+    padding: '80px 20px 20px',
     position: 'relative',
     zIndex: 2,
   },
 
   content: {
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: '28px',
   },
 
   title: {
-    fontSize: '2.8rem',
+    fontSize: '2.2rem',
     fontWeight: '500',
     color: '#ffffff',
-    lineHeight: '1.1',
-    marginBottom: '12px',
-    letterSpacing: '-0.02em',
+    lineHeight: '1.15',
+    marginBottom: '10px',
+    letterSpacing: '-0.01em',
     fontFamily: '"Season", serif',
     textShadow: '0 4px 30px rgba(0,0,0,0.6)',
   },
 
+  italicPurple: {
+    fontStyle: 'italic',
+    color: '#a78bfa',
+  },
+
   subtitle: {
-    fontSize: '1rem',
+    fontSize: '0.95rem',
     color: 'rgba(255, 255, 255, 0.85)',
     lineHeight: '1.5',
-    maxWidth: '440px',
+    maxWidth: '420px',
     margin: '0 auto',
     fontFamily: '"Clash Display", sans-serif',
     fontWeight: '400',
@@ -144,9 +148,6 @@ const styles = {
 
   formWrapper: {
     width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    borderRadius: '12px',
-    padding: '4px',
   },
 
   iframe: {
@@ -154,15 +155,12 @@ const styles = {
     border: 'none',
     outline: 'none',
     background: 'transparent',
-    borderRadius: '12px',
   },
 
   thankYou: {
     textAlign: 'center',
     padding: '30px 20px',
-    backgroundColor: 'rgba(0,0,0,0.3)',
     borderRadius: '16px',
-    backdropFilter: 'blur(8px)',
   },
 
   checkmark: {

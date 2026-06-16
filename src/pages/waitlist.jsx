@@ -23,17 +23,15 @@ export default function Waitlist() {
 
   return (
     <div style={styles.page}>
-      {/* Background Image */}
       <div style={styles.backgroundImage}></div>
-
-      {/* Glass Effect */}
       <div style={styles.glassOverlay}></div>
 
-      {/* Content */}
       <div style={styles.container}>
-        {/* Glass Button - smaller and centered */}
-        <div style={styles.glassButton}>
-          <span style={styles.glassButtonText}>JOIN OUR WAITLIST</span>
+        {/* Glass Button - now fits text width like "GET INTO TECH NOW" */}
+        <div style={styles.glassButtonWrapper}>
+          <div style={styles.glassButton}>
+            <span style={styles.glassButtonText}>JOIN OUR WAITLIST</span>
+          </div>
         </div>
 
         <div style={styles.content}>
@@ -54,7 +52,7 @@ export default function Waitlist() {
             <iframe
               src="https://tally.so/embed/1AB0YL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&textColor=ffffff&primaryColor=8b5cf6"
               width="100%"
-              height="380"
+              height="280"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
@@ -114,49 +112,50 @@ const styles = {
   },
 
   container: {
-    maxWidth: '480px',
+    maxWidth: '420px',
     width: '100%',
-    padding: '40px 20px 20px',
+    padding: '30px 16px 16px',
     position: 'relative',
     zIndex: 2,
   },
 
+  glassButtonWrapper: {
+    textAlign: 'center',
+    marginBottom: '24px',
+  },
+
   glassButton: {
     display: 'inline-block',
-    padding: '4px 12px',
-    marginBottom: '28px',
+    padding: '4px 14px',
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
     borderRadius: '30px',
     backdropFilter: 'blur(4px)',
     WebkitBackdropFilter: 'blur(4px)',
-    textAlign: 'center',
-    width: 'auto',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    display: 'block',
+    // Width is auto — fits the text exactly
   },
 
   glassButtonText: {
     fontSize: '0.55rem',
     fontWeight: '600',
     color: '#ffffff',
-    letterSpacing: '0.12em',
+    letterSpacing: '0.1em',
     fontFamily: '"Clash Display", sans-serif',
     textTransform: 'uppercase',
+    whiteSpace: 'nowrap',
   },
 
   content: {
     textAlign: 'center',
-    marginBottom: '28px',
+    marginBottom: '20px',
   },
 
   title: {
-    fontSize: '2.4rem',
+    fontSize: '2rem',
     fontWeight: '500',
     color: '#ffffff',
-    lineHeight: '1.15',
-    marginBottom: '12px',
+    lineHeight: '1.1',
+    marginBottom: '10px',
     letterSpacing: '-0.01em',
     fontFamily: '"Season", serif',
     textShadow: '0 4px 30px rgba(0,0,0,0.6)',
@@ -168,10 +167,10 @@ const styles = {
   },
 
   subtitle: {
-    fontSize: '0.95rem',
+    fontSize: '0.85rem',
     color: 'rgba(255, 255, 255, 0.8)',
-    lineHeight: '1.5',
-    maxWidth: '420px',
+    lineHeight: '1.4',
+    maxWidth: '380px',
     margin: '0 auto',
     fontFamily: '"Clash Display", sans-serif',
     fontWeight: '400',
@@ -191,27 +190,27 @@ const styles = {
 
   thankYou: {
     textAlign: 'center',
-    padding: '30px 20px',
+    padding: '20px 0',
   },
 
   checkmark: {
-    fontSize: '3rem',
+    fontSize: '2.5rem',
     display: 'block',
     marginBottom: '12px',
   },
 
   thankTitle: {
-    fontSize: '1.5rem',
+    fontSize: '1.3rem',
     fontWeight: '500',
     color: '#ffffff',
-    marginBottom: '6px',
+    marginBottom: '4px',
     fontFamily: '"Season", serif',
   },
 
   thankSub: {
-    fontSize: '1rem',
+    fontSize: '0.9rem',
     color: 'rgba(255, 255, 255, 0.75)',
-    lineHeight: '1.6',
+    lineHeight: '1.5',
     fontFamily: '"Clash Display", sans-serif',
   },
 };

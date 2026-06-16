@@ -23,26 +23,17 @@ export default function Waitlist() {
 
   return (
     <div style={styles.page}>
-      {/* Background Image */}
+      {/* Background Image - already has glass effect, no extra overlay */}
       <div style={styles.backgroundImage}></div>
 
-      {/* Glass Overlay */}
-      <div style={styles.glassOverlay}></div>
-
-      {/* Content */}
+      {/* Content - no extra glass layer */}
       <div style={styles.container}>
-        <div style={styles.header}>
-          <a href="/" style={styles.logoLink}>
-            <span style={styles.logo}>Auvra<span style={styles.dot}>.</span></span>
-          </a>
-        </div>
-
         <div style={styles.content}>
           <h1 style={styles.title}>
-            Discover new ways to preserve culture.
+            Your culture deserves a permanent home.
           </h1>
           <p style={styles.subtitle}>
-            Join the waitlist for the permanent home of human culture.
+            Discover new ways to preserve, own, and pass down what matters. Join the waitlist for Auvra.
           </p>
         </div>
 
@@ -51,7 +42,7 @@ export default function Waitlist() {
             <iframe
               src="https://tally.so/embed/1AB0YL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&textColor=ffffff&primaryColor=8b5cf6"
               width="100%"
-              height="400"
+              height="420"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
@@ -66,10 +57,6 @@ export default function Waitlist() {
             <p style={styles.thankSub}>We'll notify you at launch.</p>
           </div>
         )}
-
-        <div style={styles.footer}>
-          <a href="/" style={styles.backLink}>← Back to Auvra</a>
-        </div>
       </div>
     </div>
   );
@@ -82,11 +69,14 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     padding: '20px',
+    margin: 0,
     fontFamily: '"Clash Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     position: 'relative',
     overflow: 'hidden',
+    backgroundColor: '#0a0a0a',
   },
 
+  // Background Image - single layer, no extra overlay
   backgroundImage: {
     position: 'absolute',
     top: 0,
@@ -100,80 +90,44 @@ const styles = {
     zIndex: 0,
   },
 
-  glassOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.55)',
-    backdropFilter: 'blur(12px)',
-    WebkitBackdropFilter: 'blur(12px)',
-    zIndex: 1,
-  },
-
+  // Clean container - no extra glass, no logo
   container: {
-    maxWidth: '560px',
+    maxWidth: '520px',
     width: '100%',
-    padding: '40px 32px',
-    backgroundColor: 'rgba(255, 255, 255, 0.04)',
-    borderRadius: '16px',
-    border: '1px solid rgba(255, 255, 255, 0.08)',
+    padding: '0 20px',
     position: 'relative',
-    zIndex: 2,
-    backdropFilter: 'blur(4px)',
-    WebkitBackdropFilter: 'blur(4px)',
-  },
-
-  header: {
-    marginBottom: '28px',
-    textAlign: 'center',
-  },
-
-  logoLink: {
-    textDecoration: 'none',
-  },
-
-  logo: {
-    fontSize: '1.75rem',
-    fontWeight: '700',
-    color: '#ffffff',
-    letterSpacing: '-0.02em',
-    fontFamily: '"Clash Display", sans-serif',
-  },
-
-  dot: {
-    color: '#8b5cf6',
+    zIndex: 1,
   },
 
   content: {
     textAlign: 'center',
-    marginBottom: '28px',
+    marginBottom: '32px',
   },
 
   title: {
-    fontSize: '2.4rem',
-    fontWeight: '600',
+    fontSize: '2.6rem',
+    fontWeight: '500',
     color: '#ffffff',
     lineHeight: '1.15',
     marginBottom: '12px',
     letterSpacing: '-0.02em',
     fontFamily: '"Season", serif',
+    textShadow: '0 2px 20px rgba(0,0,0,0.5)',
   },
 
   subtitle: {
-    fontSize: '1rem',
-    color: 'rgba(255, 255, 255, 0.75)',
+    fontSize: '1.05rem',
+    color: 'rgba(255, 255, 255, 0.85)',
     lineHeight: '1.6',
-    maxWidth: '440px',
+    maxWidth: '460px',
     margin: '0 auto',
     fontFamily: '"Clash Display", sans-serif',
     fontWeight: '400',
+    textShadow: '0 1px 12px rgba(0,0,0,0.4)',
   },
 
   formWrapper: {
     width: '100%',
-    marginBottom: '20px',
   },
 
   iframe: {
@@ -185,8 +139,10 @@ const styles = {
 
   thankYou: {
     textAlign: 'center',
-    padding: '20px 0',
-    marginBottom: '20px',
+    padding: '30px 0',
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    borderRadius: '16px',
+    backdropFilter: 'blur(8px)',
   },
 
   checkmark: {
@@ -197,7 +153,7 @@ const styles = {
 
   thankTitle: {
     fontSize: '1.5rem',
-    fontWeight: '600',
+    fontWeight: '500',
     color: '#ffffff',
     marginBottom: '6px',
     fontFamily: '"Season", serif',
@@ -207,19 +163,6 @@ const styles = {
     fontSize: '1rem',
     color: 'rgba(255, 255, 255, 0.75)',
     lineHeight: '1.6',
-    fontFamily: '"Clash Display", sans-serif',
-  },
-
-  footer: {
-    textAlign: 'center',
-    marginTop: '8px',
-  },
-
-  backLink: {
-    fontSize: '0.8rem',
-    color: 'rgba(255, 255, 255, 0.4)',
-    textDecoration: 'none',
-    transition: 'color 0.2s',
     fontFamily: '"Clash Display", sans-serif',
   },
 };

@@ -31,14 +31,17 @@ export default function Waitlist() {
 
       {/* Content */}
       <div style={styles.container}>
+        {/* Glass Button - like "GET INTO TECH NOW" in the screenshot */}
+        <div style={styles.glassButton}>
+          <span style={styles.glassButtonText}>JOIN THE WAITLIST FOR AUVRA</span>
+        </div>
+
         <div style={styles.content}>
           <h1 style={styles.title}>
             Your culture deserves a <span style={styles.italicPurple}>permanent</span> home.
           </h1>
           <p style={styles.subtitle}>
             Discover new ways to preserve, own, and pass down what matters.
-            <br />
-            Join the waitlist for Auvra.
           </p>
         </div>
 
@@ -47,7 +50,7 @@ export default function Waitlist() {
             <iframe
               src="https://tally.so/embed/1AB0YL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&textColor=ffffff&primaryColor=8b5cf6"
               width="100%"
-              height="360"
+              height="380"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
@@ -107,11 +110,37 @@ const styles = {
   },
 
   container: {
-    maxWidth: '460px',
+    maxWidth: '480px',
     width: '100%',
-    padding: '80px 20px 20px',
+    padding: '40px 20px 20px',
     position: 'relative',
     zIndex: 2,
+  },
+
+  // Glass Button - like "GET INTO TECH NOW"
+  glassButton: {
+    display: 'inline-block',
+    padding: '8px 24px',
+    marginBottom: '32px',
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    border: '1px solid rgba(255, 255, 255, 0.15)',
+    borderRadius: '30px',
+    backdropFilter: 'blur(4px)',
+    WebkitBackdropFilter: 'blur(4px)',
+    textAlign: 'center',
+    width: 'auto',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    display: 'block',
+  },
+
+  glassButtonText: {
+    fontSize: '0.7rem',
+    fontWeight: '600',
+    color: '#ffffff',
+    letterSpacing: '0.08em',
+    fontFamily: '"Clash Display", sans-serif',
+    textTransform: 'uppercase',
   },
 
   content: {
@@ -120,11 +149,11 @@ const styles = {
   },
 
   title: {
-    fontSize: '2.2rem',
+    fontSize: '2.4rem',
     fontWeight: '500',
     color: '#ffffff',
-    lineHeight: '1.15',
-    marginBottom: '10px',
+    lineHeight: '1.1',
+    marginBottom: '12px',
     letterSpacing: '-0.01em',
     fontFamily: '"Season", serif',
     textShadow: '0 4px 30px rgba(0,0,0,0.6)',
@@ -137,7 +166,7 @@ const styles = {
 
   subtitle: {
     fontSize: '0.95rem',
-    color: 'rgba(255, 255, 255, 0.85)',
+    color: 'rgba(255, 255, 255, 0.8)',
     lineHeight: '1.5',
     maxWidth: '420px',
     margin: '0 auto',
@@ -160,7 +189,6 @@ const styles = {
   thankYou: {
     textAlign: 'center',
     padding: '30px 20px',
-    borderRadius: '16px',
   },
 
   checkmark: {

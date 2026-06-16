@@ -31,16 +31,18 @@ export default function Waitlist() {
 
       {/* Content */}
       <div style={styles.container}>
-        {/* Glass Button - shortened */}
+        {/* Glass Button - smaller and centered */}
         <div style={styles.glassButton}>
           <span style={styles.glassButtonText}>JOIN OUR WAITLIST</span>
         </div>
 
         <div style={styles.content}>
           <h1 style={styles.title}>
-            Your culture deserves
+            Your culture
             <br />
-            a <span style={styles.italicPurple}>permanent</span> home.
+            deserves a
+            <br />
+            <span style={styles.italicPurple}>permanent</span> home.
           </h1>
           <p style={styles.subtitle}>
             Discover new ways to preserve, own, and pass down what matters.
@@ -121,10 +123,10 @@ const styles = {
 
   glassButton: {
     display: 'inline-block',
-    padding: '6px 18px',
-    marginBottom: '32px',
+    padding: '4px 12px',
+    marginBottom: '28px',
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
     borderRadius: '30px',
     backdropFilter: 'blur(4px)',
     WebkitBackdropFilter: 'blur(4px)',
@@ -136,10 +138,10 @@ const styles = {
   },
 
   glassButtonText: {
-    fontSize: '0.65rem',
+    fontSize: '0.55rem',
     fontWeight: '600',
     color: '#ffffff',
-    letterSpacing: '0.1em',
+    letterSpacing: '0.12em',
     fontFamily: '"Clash Display", sans-serif',
     textTransform: 'uppercase',
   },

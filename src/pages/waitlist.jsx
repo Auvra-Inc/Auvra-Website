@@ -27,7 +27,7 @@ export default function Waitlist() {
       <div style={styles.glassOverlay}></div>
 
       <div style={styles.container}>
-        {/* Glass Button - properly centered with padding */}
+        {/* Glass Button */}
         <div style={styles.glassButtonWrapper}>
           <div style={styles.glassButton}>
             <span style={styles.glassButtonText}>JOIN OUR WAITLIST</span>
@@ -136,7 +136,6 @@ const styles = {
     borderRadius: '30px',
     backdropFilter: 'blur(4px)',
     WebkitBackdropFilter: 'blur(4px)',
-    // Width is auto — fits the text exactly
   },
 
   glassButtonText: {
@@ -156,7 +155,7 @@ const styles = {
   },
 
   title: {
-    fontSize: '2rem',
+    fontSize: '2.6rem',  // Increased from 2rem to 2.6rem
     fontWeight: '500',
     color: '#ffffff',
     lineHeight: '1.15',

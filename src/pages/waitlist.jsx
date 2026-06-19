@@ -30,7 +30,7 @@ export default function Waitlist() {
         {/* Glass Button */}
         <div style={styles.glassButtonWrapper}>
           <div style={styles.glassButton}>
-            <span style={styles.glassButtonText}>JOIN OUR WAITLIST</span>
+            <span style={styles.glassButtonText}>JOIN OUR FOUNDING TESTER</span>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ export default function Waitlist() {
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
-              title="Join the Auvra Waitlist"
+              title="Join the Auvra Founding Tester Program"
               style={styles.iframe}
             />
           </div>
@@ -155,7 +155,7 @@ const styles = {
   },
 
   title: {
-    fontSize: '2.6rem',  // Increased from 2rem to 2.6rem
+    fontSize: '2.6rem',
     fontWeight: '500',
     color: '#ffffff',
     lineHeight: '1.15',

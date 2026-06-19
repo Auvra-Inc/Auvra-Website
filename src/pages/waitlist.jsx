@@ -2,13 +2,28 @@ import React, { useState, useEffect } from 'react';
 
 export default function Waitlist() {
   const [submitted, setSubmitted] = useState(false);
+  const [formLoaded, setFormLoaded] = useState(false);
 
   useEffect(() => {
+    // Load Tally widget script
     const script = document.createElement('script');
     script.src = 'https://tally.so/widgets/embed.js';
     script.async = true;
+    script.onload = () => {
+      // Once script loads, load the embeds and show the form
+      if (window.Tally) {
+        window.Tally.loadEmbeds();
+        setFormLoaded(true);
+      }
+    };
     document.body.appendChild(script);
 
+    // Fallback: if script doesn't fire, show form after 3 seconds anyway
+    const timeout = setTimeout(() => {
+      setFormLoaded(true);
+    }, 3000);
+
+    // Listen for form submission
     const handleMessage = (event) => {
       if (event.data && event.data.type === 'tally-submission') {
         setSubmitted(true);
@@ -18,6 +33,7 @@ export default function Waitlist() {
 
     return () => {
       window.removeEventListener('message', handleMessage);
+      clearTimeout(timeout);
     };
   }, []);
 
@@ -27,7 +43,6 @@ export default function Waitlist() {
       <div style={styles.glassOverlay}></div>
 
       <div style={styles.container}>
-        {/* Glass Button */}
         <div style={styles.glassButtonWrapper}>
           <div style={styles.glassButton}>
             <span style={styles.glassButtonText}>JOIN OUR FOUNDING TESTER</span>
@@ -49,6 +64,12 @@ export default function Waitlist() {
 
         {!submitted ? (
           <div style={styles.formWrapper}>
+            {!formLoaded && (
+              <div style={styles.loadingPlaceholder}>
+                <span style={styles.loadingSpinner}></span>
+                <p style={styles.loadingText}>Loading form...</p>
+              </div>
+            )}
             <iframe
               src="https://tally.so/embed/1AB0YL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&textColor=ffffff&primaryColor=8b5cf6"
               width="100%"
@@ -57,7 +78,11 @@ export default function Waitlist() {
               marginHeight="0"
               marginWidth="0"
               title="Join the Auvra Founding Tester Program"
-              style={styles.iframe}
+              style={{
+                ...styles.iframe,
+                opacity: formLoaded ? 1 : 0,
+                transition: 'opacity 0.5s ease-in-out',
+              }}
             />
           </div>
         ) : (
@@ -185,6 +210,8 @@ const styles = {
   formWrapper: {
     width: '100%',
     marginTop: '8px',
+    position: 'relative',
+    minHeight: '280px',
   },
 
   iframe: {
@@ -192,6 +219,35 @@ const styles = {
     border: 'none',
     outline: 'none',
     background: 'transparent',
+  },
+
+  loadingPlaceholder: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 0,
+  },
+
+  loadingSpinner: {
+    width: '32px',
+    height: '32px',
+    border: '3px solid rgba(255, 255, 255, 0.1)',
+    borderTop: '3px solid #a78bfa',
+    borderRadius: '50%',
+    animation: 'spin 0.8s linear infinite',
+  },
+
+  loadingText: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: '0.75rem',
+    marginTop: '12px',
+    fontFamily: '"Clash Display", sans-serif',
   },
 
   thankYou: {
@@ -220,3 +276,14 @@ const styles = {
     fontFamily: '"Clash Display", sans-serif',
   },
 };
+
+// Add this to your global CSS or include it in the page
+// You can also add a style tag for the keyframes
+const styleSheet = document.createElement("style");
+styleSheet.textContent = `
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(styleSheet);

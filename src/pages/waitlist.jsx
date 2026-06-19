@@ -45,7 +45,7 @@ export default function Waitlist() {
       <div style={styles.container}>
         <div style={styles.glassButtonWrapper}>
           <div style={styles.glassButton}>
-            <span style={styles.glassButtonText}>JOIN OUR FOUNDING TESTER</span>
+            <span style={styles.glassButtonText}>JOIN OUR FOUNDING TESTERS</span>
           </div>
         </div>
 

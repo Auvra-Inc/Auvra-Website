@@ -15,9 +15,7 @@ const PhotoStack = () => {
     "/pexels-5.jpg",
     "/pexels-6.jpg",
     "/pexels-7.jpg",
-    "/pexels-8.jpg",
-    // "/pexels-9.jpg",
-    "/pexels-10.jpg"
+    "/pexels-8.jpg"
   ];
 
   // This state tracks which image is currently sitting at the very front
@@ -42,7 +40,7 @@ const PhotoStack = () => {
 
       {/* 2. The Interactive Image Stack */}
       <div 
-        className="relative w-[300px] h-[400px] md:w-[350px] md:h-[450px] cursor-pointer px-8" 
+        className="relative w-[300px] h-[400px] md:w-[350px] md:h-[450px] cursor-pointer px-8 overflow-hidden" 
         onClick={handleNextPhoto}
       >
         {images.map((src, index) => {
@@ -50,33 +48,28 @@ const PhotoStack = () => {
           // relative to the activeIndex
           const position = (index - activeIndex + images.length) % images.length;
 
-          // Base classes that every single image gets (the smooth transition is here!)
-          let baseClasses = "absolute top-0 left-0 w-full h-full object-contain rounded-3xl transition-all duration-500 ease-in-out";
-          
-          // We apply different transforms based on their position in the stack
-          let transformClasses = "";
+          // Transform classes are applied to the wrapper so each card
+          // rotates and scales consistently while the image fills the frame.
+          let transformClasses = "absolute top-0 left-0 w-full h-full transition-all duration-500 ease-in-out rounded-3xl overflow-hidden";
 
           if (position === 0) {
-            // Front Image: Straight, full size, top layer
-            transformClasses = "z-30 rotate-0 scale-100 opacity-100";
+            transformClasses += " z-30 rotate-0 scale-100 opacity-100";
           } else if (position === 1) {
-            // Second Image: Tilted right, slightly pushed back
-            transformClasses = "z-20 rotate-[6deg] scale-95 opacity-100 translate-y-2";
+            transformClasses += " z-20 rotate-[6deg] scale-95 opacity-100 translate-y-2";
           } else if (position === 2) {
-            // Third Image: Tilted left, pushed back further
-            transformClasses = "z-10 -rotate-[6deg] scale-90 opacity-100 translate-y-4";
+            transformClasses += " z-10 -rotate-[6deg] scale-90 opacity-100 translate-y-4";
           } else {
-            // Any extra images: Hidden safely behind the stack waiting for their turn
-            transformClasses = "z-0 rotate-0 scale-50 opacity-0 translate-y-10";
+            transformClasses += " z-0 rotate-0 scale-50 opacity-0 translate-y-10";
           }
 
           return (
-            <img
-              key={index}
-              src={src}
-              alt={`Gallery item ${index}`}
-              className={`${baseClasses} ${transformClasses}`}
-            />
+            <div key={index} className={transformClasses}>
+              <img
+                src={src}
+                alt={`Gallery item ${index}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
           );
         })}
       </div>

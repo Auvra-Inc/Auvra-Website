@@ -5,7 +5,19 @@ const PhotoStack = () => {
   // Put all your image URLs here. You can add as many as you want!
   // It will perfectly cycle through them infinitely.
   const images = [
-    "/caro4.png", "/caro3.png", "/caro2.png"
+    "/caro4.png",
+    "/caro3.png", 
+    "/caro2.png",
+    "/pexels-1.jpg",
+    "/pexels-2.jpg",
+    "/pexels-3.jpg",
+    "/pexels-4.jpg",
+    "/pexels-5.jpg",
+    "/pexels-6.jpg",
+    "/pexels-7.jpg",
+    "/pexels-8.jpg",
+    "/pexels-9.jpg",
+    "/pexels-10.jpg"
   ];
 
   // This state tracks which image is currently sitting at the very front

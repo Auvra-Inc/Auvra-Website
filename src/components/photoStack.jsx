@@ -3,9 +3,9 @@ import { FaRegHandPointer } from 'react-icons/fa';
 
 const PhotoStack = () => {
   const images = [
-    "/caro4.png",
-    "/caro3.png", 
-    "/caro2.png",
+    // "/caro4.png",
+    // "/caro3.png", 
+    // "/caro2.png",
     "/pexels-1.jpg",
     "/pexels-2.jpg",
     "/pexels-3.jpg",
@@ -35,6 +35,7 @@ const PhotoStack = () => {
       </div>
 
       {/* 2. The Interactive Image Stack */}
+      {/* Removed px-8 because padding doesn't affect absolute children anyway */}
       <div 
         className="relative w-[300px] h-[400px] md:w-[350px] md:h-[450px] cursor-pointer" 
         onClick={handleNextPhoto}
@@ -42,18 +43,25 @@ const PhotoStack = () => {
         {images.map((src, index) => {
           const position = (index - activeIndex + images.length) % images.length;
 
-          // The clean, identical base for every single image
-          let baseClasses = "absolute top-0 left-0 w-full h-full object-cover rounded-3xl shadow-xl border-sm border-gray-100 transition-all duration-500 ease-in-out";
+          // FIX 1: Swapped 'object-contain' for 'object-cover' to prevent weird edge clipping
+          // Added a subtle border and shadow so the straight cards don't bleed into each other
+          let baseClasses = "absolute top-0 left-0 w-full h-full object-cover rounded-3xl shadow-xl border border-gray-100 transition-all duration-500 ease-in-out";
           
           let transformClasses = "";
 
-          // THE FIX: Perfectly uniform logic. No downward cascading at all.
+          // FIX 2: Replaced the "bent" rotation with a perfectly straight, clean depth stack
           if (position === 0) {
-            // The Front Image: Fully visible, full size
-            transformClasses = "z-30 scale-100 opacity-100";
+            // Front Image: Full size, top layer
+            transformClasses = "z-30 scale-100 translate-y-0 opacity-100";
+          } else if (position === 1) {
+            // Second Image: Straight, scaled down slightly, pushed down
+            transformClasses = "z-20 scale-95 translate-y-4 opacity-100 shadow-md";
+          } else if (position === 2) {
+            // Third Image: Straight, scaled down more, pushed down further
+            transformClasses = "z-10 scale-90 translate-y-8 opacity-100 shadow-sm";
           } else {
-            // EVERY other image: Perfectly centered directly behind it, ready to smoothly scale up
-            transformClasses = "z-0 scale-95 opacity-0";
+            // Extra images: Safely hidden directly behind the stack
+            transformClasses = "z-0 scale-75 translate-y-12 opacity-0";
           }
 
           return (

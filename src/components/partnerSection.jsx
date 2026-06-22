@@ -7,7 +7,7 @@ const partners = [
   { name: "Polygon", imagePath: "/logos/polygon.svg" },
   { name: "Dojah", imagePath: "/logos/dojah.svg" },
   { name: "Paystack", imagePath: "/logos/paystack.png" },
-  { name: "Quidax", imagePath: "/logos/quidax.svg" },
+  { name: "Fonbnk", imagePath: "/logos/fonbnk.svg" },
   { name: "OpenAI", imagePath: "/logos/openai.svg" },
   { name: "NVIDIA", imagePath: "/logos/kindpng_280277.png" },
   { name: "Crossmint", imagePath: "/logos/crossmint.svg" },

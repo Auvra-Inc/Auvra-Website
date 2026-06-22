@@ -53,11 +53,11 @@ const PhotoStack = () => {
           let transformClasses = "absolute top-0 left-0 w-full h-full transition-all duration-500 ease-in-out rounded-3xl overflow-hidden";
 
           if (position === 0) {
-            transformClasses += " z-30 rotate-0 scale-100 opacity-100";
+            transformClasses += " z-0 rotate-0 scale-50 opacity-0 translate-y-10";  
           } else if (position === 1) {
-            transformClasses += " z-20 rotate-[6deg] scale-95 opacity-100 translate-y-2";
+            transformClasses += " z-0 rotate-0 scale-50 opacity-0 translate-y-10";
           } else if (position === 2) {
-            transformClasses += " z-10 -rotate-[6deg] scale-90 opacity-100 translate-y-4";
+            transformClasses += " z-0 rotate-0 scale-50 opacity-0 translate-y-10";
           } else {
             transformClasses += " z-0 rotate-0 scale-50 opacity-0 translate-y-10";
           }

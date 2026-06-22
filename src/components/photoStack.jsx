@@ -16,7 +16,7 @@ const PhotoStack = () => {
     "/pexels-6.jpg",
     "/pexels-7.jpg",
     "/pexels-8.jpg",
-    "/pexels-9.jpg",
+    // "/pexels-9.jpg",
     "/pexels-10.jpg"
   ];
 

@@ -35,6 +35,7 @@ const Blog = lazy(() => import('./pages/blog'))
 const BlogPost = lazy(() => import('./pages/blogPost'))
 const InstitutionalAccess = lazy(() => import('./pages/institutionalAccess'))
 const Institutions = lazy(() => import('./pages/institutions'))
+const Waitlist = lazy(() => import('./pages/waitlist'))
 
 // 1. SCROLL HELPER
 function ScrollToTop() {
@@ -98,6 +99,7 @@ function App() {
           <Route path="/institutional-access" element={<InstitutionalAccess />} />
           <Route path="/institutions" element={<Institutions />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/waitlist" element={<Waitlist />} />
         </Routes>
       </Suspense>
 

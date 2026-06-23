@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '../reuseables/navbar';
@@ -96,13 +96,7 @@ const staggerContainer = {
 };
 
 export default function Institutions() {
-  const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
 
   const scrollSections = [
     { title: "Bulk upload", description: "Upload thousands of cultural assets at once via CSV, API, or our dashboard. We handle the infrastructure.", icon: Icons.bulk },
@@ -111,14 +105,14 @@ export default function Institutions() {
     { title: "API integration", description: "Connect Auvra to your existing systems. Pull records into your website. Push discoveries to the registry. Automate workflows.", icon: Icons.api }
   ];
 
-  // FIX 1: Prevent lag by only updating state when the index ACTUALLY changes
+  // THE FIX: An automatic timer. No scroll tracking. No lag. 
+  // It changes smoothly every 3.5 seconds all on its own.
   useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((latest) => {
-      const newIndex = Math.min(Math.floor(latest * scrollSections.length), scrollSections.length - 1);
-      setActiveIndex((prev) => (prev !== newIndex ? newIndex : prev));
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress, scrollSections.length]);
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % scrollSections.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [scrollSections.length]);
 
   return (
     <>
@@ -183,7 +177,6 @@ export default function Institutions() {
           variants={fadeUp}
           className="max-w-6xl mx-auto px-6 py-20"
         >
-          {/* FIX 2: Removed confusing mobile ordering. Text is always top, image always bottom. */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-4">{Icons.layer}</div>
@@ -196,7 +189,6 @@ export default function Institutions() {
                 Whether you are a national museum, a government archive, or a university library, Auvra gives you the tools to preserve, verify, and share cultural heritage permanently. No more fragmented systems. No more lost provenance. No more closed access.
               </p>
             </div>
-            {/* FIX 3: Added actual image tags inside the gray boxes */}
             <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
               <img src="/national-meseum.jpg" alt="Infrastructure Layer" className="w-full h-full object-cover absolute inset-0" />
             </div>
@@ -278,10 +270,6 @@ export default function Institutions() {
                   Invite community elders, academic experts, and other institutions to verify authenticity. Consensus builds trust faster than a single signature.
                 </p>
               </div>
-              {/* FIX 4: Removed the strict gray box completely. The image sits freely outside styling. */}
-              <div className="flex justify-center items-center">
-                <img src="/community.jpg" alt="Community Verification" className="w-full h-auto object-contain" />
-              </div>
             </div>
           </div>
         </motion.section>
@@ -340,37 +328,40 @@ export default function Institutions() {
           </div>
         </motion.section>
 
-        {/* PRESERVE WITH CONFIDENCE - SCROLL CHANGING CARDS */}
-        <div className="relative bg-white" style={{ height: `${scrollSections.length * 100}vh` }}>
-          <div ref={containerRef} className="sticky top-0 h-screen flex items-center">
-            <div className="w-full px-4">
-              <div className="text-center">
-                <motion.h2 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="text-3xl md:text-4xl font-clash font-light text-black mb-8"
-                >
-                  Preserve with confidence
-                </motion.h2>
-                <div className="flex flex-col items-center justify-center">
+        {/* PRESERVE WITH CONFIDENCE - AUTOMATIC LOOPING CARDS (FIXED) */}
+        <section className="bg-white py-24">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-3xl md:text-4xl font-clash font-light text-black mb-8"
+              >
+                Preserve with confidence
+              </motion.h2>
+              
+              <div className="flex flex-col items-center justify-center min-h-[220px]">
+                <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
                     transition={{ duration: 0.4 }}
-                    className="bg-white border border-gray-100 rounded-2xl p-6 text-center max-w-2xl mx-auto shadow-sm"
+                    className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 text-center max-w-2xl w-full mx-auto shadow-sm"
                   >
                     <div className="mb-4 flex justify-center">{scrollSections[activeIndex].icon}</div>
                     <h3 className="text-xl font-clash font-medium text-black mb-3">{scrollSections[activeIndex].title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{scrollSections[activeIndex].description}</p>
                   </motion.div>
-                </div>
+                </AnimatePresence>
               </div>
+
             </div>
           </div>
-        </div>
+        </section>
 
         {/* MADE TO LAST. BUILT TO PERFORM. */}
         <motion.div 

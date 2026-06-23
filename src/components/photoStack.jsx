@@ -58,16 +58,22 @@ const PhotoStack = () => {
         {images.map((src, index) => {
           const position = (index - activeIndex + images.length) % images.length;
 
-          // Show only the front image, hide all others
-          let baseClasses = "absolute top-0 left-0 w-full h-full object-cover rounded-3xl shadow-xl border border-gray-100 transition-all duration-100 ease-in-out";
+          // Keep the top three images visible for a stacked effect
+          let baseClasses = "absolute top-0 left-0 w-full h-full object-cover rounded-3xl shadow-lg border border-gray-200 transition-all duration-200 ease-in-out";
           
           let transformClasses = "";
 
           if (position === 0) {
-            // Front Image: Full size, top layer
+            // Front image: full size, top layer
             transformClasses = "z-30 scale-100 translate-y-0 opacity-100";
+          } else if (position === 1) {
+            // Second image: slightly smaller and pushed down a bit
+            transformClasses = "z-20 scale-95 translate-y-4 opacity-100 shadow-md";
+          } else if (position === 2) {
+            // Third image: smaller and further down
+            transformClasses = "z-10 scale-90 translate-y-8 opacity-100 shadow-sm";
           } else {
-            // All other images: Hidden behind
+            // Hide extra images behind the stack
             transformClasses = "z-0 scale-75 translate-y-12 opacity-0";
           }
 

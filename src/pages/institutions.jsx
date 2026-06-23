@@ -1,4 +1,3 @@
-// src/pages/institutions.jsx
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -86,7 +85,6 @@ const Icons = {
   ),
 };
 
-// Fade up animation variant
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -94,10 +92,7 @@ const fadeUp = {
 
 const staggerContainer = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
 export default function Institutions() {
@@ -116,10 +111,11 @@ export default function Institutions() {
     { title: "API integration", description: "Connect Auvra to your existing systems. Pull records into your website. Push discoveries to the registry. Automate workflows.", icon: Icons.api }
   ];
 
+  // FIX 1: Prevent lag by only updating state when the index ACTUALLY changes
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) => {
-      const index = Math.min(Math.floor(latest * scrollSections.length), scrollSections.length - 1);
-      setActiveIndex(index);
+      const newIndex = Math.min(Math.floor(latest * scrollSections.length), scrollSections.length - 1);
+      setActiveIndex((prev) => (prev !== newIndex ? newIndex : prev));
     });
     return () => unsubscribe();
   }, [scrollYProgress, scrollSections.length]);
@@ -187,6 +183,7 @@ export default function Institutions() {
           variants={fadeUp}
           className="max-w-6xl mx-auto px-6 py-20"
         >
+          {/* FIX 2: Removed confusing mobile ordering. Text is always top, image always bottom. */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-4">{Icons.layer}</div>
@@ -199,7 +196,10 @@ export default function Institutions() {
                 Whether you are a national museum, a government archive, or a university library, Auvra gives you the tools to preserve, verify, and share cultural heritage permanently. No more fragmented systems. No more lost provenance. No more closed access.
               </p>
             </div>
-            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+            {/* FIX 3: Added actual image tags inside the gray boxes */}
+            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="/national-meseum.jpg" alt="Infrastructure Layer" className="w-full h-full object-cover absolute inset-0" />
+            </div>
           </div>
         </motion.section>
 
@@ -213,7 +213,7 @@ export default function Institutions() {
         >
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
+              <div>
                 <div className="mb-4">{Icons.record}</div>
                 <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
                   Permanent, immutable records
@@ -224,7 +224,9 @@ export default function Institutions() {
                   Every artifact, document, or oral history you preserve becomes an immutable record on the blockchain. Who created it. Who owned it. Who verified it. Forever.
                 </p>
               </div>
-              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+                <img src="/verify.jpg" alt="Permanent Records" className="w-full h-full object-cover absolute inset-0" />
+              </div>
             </div>
           </div>
         </motion.section>
@@ -249,7 +251,9 @@ export default function Institutions() {
                 The Auvra Registry makes every preserved asset publicly accessible. No login. No paywall. Researchers, journalists, and the diaspora can search, view, and verify your collections from anywhere.
               </p>
             </div>
-            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="/collection.jpg" alt="Open Access" className="w-full h-full object-cover absolute inset-0" />
+            </div>
           </div>
         </motion.section>
 
@@ -263,7 +267,7 @@ export default function Institutions() {
         >
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
+              <div>
                 <div className="mb-4">{Icons.community}</div>
                 <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
                   Community + institutional verification
@@ -274,7 +278,10 @@ export default function Institutions() {
                   Invite community elders, academic experts, and other institutions to verify authenticity. Consensus builds trust faster than a single signature.
                 </p>
               </div>
-              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+              {/* FIX 4: Removed the strict gray box completely. The image sits freely outside styling. */}
+              <div className="flex justify-center items-center">
+                <img src="/community.jpg" alt="Community Verification" className="w-full h-auto object-contain" />
+              </div>
             </div>
           </div>
         </motion.section>
@@ -299,7 +306,9 @@ export default function Institutions() {
                 Upload collections via CSV, API, or our dashboard. We handle the blockchain and storage. You focus on curation.
               </p>
             </div>
-            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="/bulk.jpg" alt="Bulk Upload" className="w-full h-full object-cover absolute inset-0" />
+            </div>
           </div>
         </motion.section>
 
@@ -313,7 +322,7 @@ export default function Institutions() {
         >
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
+              <div>
                 <div className="mb-4">{Icons.api}</div>
                 <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
                   API for everything
@@ -324,7 +333,9 @@ export default function Institutions() {
                   Pull records into your website. Push new discoveries to the registry. Automate preservation workflows. Your data, your systems, our infrastructure.
                 </p>
               </div>
-              <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+                <img src="/connecting.jpg" alt="API Integration" className="w-full h-full object-cover absolute inset-0" />
+              </div>
             </div>
           </div>
         </motion.section>
@@ -457,7 +468,9 @@ export default function Institutions() {
                   Our infrastructure saves you years of building from scratch. Every tool is made for real-world cultural assets, so you can focus on preserving what matters.
                 </p>
               </div>
-              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+                <img src="/faster.jpg" alt="Preserve Faster" className="w-full h-full object-cover absolute inset-0" />
+              </div>
             </div>
           </div>
         </motion.section>
@@ -471,7 +484,7 @@ export default function Institutions() {
           className="max-w-6xl mx-auto px-6 py-20"
         >
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
+            <div>
               <div className="mb-4">{Icons.speed}</div>
               <h2 className="text-3xl md:text-4xl font-clash font-light text-black mb-4">
                 Speed up your process
@@ -480,7 +493,9 @@ export default function Institutions() {
                 This is not a stripped-down archive. Every feature is built to be fast, flexible, and production-ready. Preserve thousands of assets without trading quality for time.
               </p>
             </div>
-            <div className="order-1 md:order-2 aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+            <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img src="/speed.jpg" alt="Speed Up Process" className="w-full h-full object-cover absolute inset-0" />
+            </div>
           </div>
         </motion.section>
 
@@ -503,7 +518,9 @@ export default function Institutions() {
                   We keep adding new capabilities every month. The infrastructure evolves with you and your needs. Your toolkit never stops expanding.
                 </p>
               </div>
-              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden"></div>
+              <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden relative">
+                <img src="/living.jpg" alt="Growing System" className="w-full h-full object-cover absolute inset-0" />
+              </div>
             </div>
           </div>
         </motion.section>

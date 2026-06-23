@@ -14,6 +14,21 @@ const PhotoStack = () => {
     "/pexels-6.jpg",
     "/pexels-7.jpg",
     "/pexels-8.jpg",
+    "/pexels-11.jpg",
+    "/pexels-12.jpg",
+    "/pexels-13.jpg",
+    "/pexels-14.jpg",
+    "/pexels-15.jpg",
+    "/pexels-16.jpg",
+    "/pexels-17.jpg",
+    "/pexels-18.jpg",
+    "/pexels-19.jpg",
+    "/pexels-20.jpg",
+    "/pexels-21.jpg",
+    "/pexels-22.jpg",
+    "/pexels-23.jpg",
+    "/pexels-24.jpg",
+    "/pexels-25.jpg"
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -43,24 +58,16 @@ const PhotoStack = () => {
         {images.map((src, index) => {
           const position = (index - activeIndex + images.length) % images.length;
 
-          // FIX 1: Swapped 'object-contain' for 'object-cover' to prevent weird edge clipping
-          // Added a subtle border and shadow so the straight cards don't bleed into each other
-          let baseClasses = "absolute top-0 left-0 w-full h-full object-cover rounded-3xl shadow-xl border border-gray-100 transition-all duration-500 ease-in-out";
+          // Show only the front image, hide all others
+          let baseClasses = "absolute top-0 left-0 w-full h-full object-cover rounded-3xl shadow-xl border border-gray-100 transition-all duration-100 ease-in-out";
           
           let transformClasses = "";
 
-          // FIX 2: Replaced the "bent" rotation with a perfectly straight, clean depth stack
           if (position === 0) {
             // Front Image: Full size, top layer
             transformClasses = "z-30 scale-100 translate-y-0 opacity-100";
-          } else if (position === 1) {
-            // Second Image: Straight, scaled down slightly, pushed down
-            transformClasses = "z-20 scale-95 translate-y-4 opacity-100 shadow-md";
-          } else if (position === 2) {
-            // Third Image: Straight, scaled down more, pushed down further
-            transformClasses = "z-10 scale-90 translate-y-8 opacity-100 shadow-sm";
           } else {
-            // Extra images: Safely hidden directly behind the stack
+            // All other images: Hidden behind
             transformClasses = "z-0 scale-75 translate-y-12 opacity-0";
           }
 

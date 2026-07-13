@@ -1,23 +1,25 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
-// --- YOUR COMPONENT IMPORTS ---
-import FadeSection from './components/fadeSection'
-import ProblemSection from './components/problemSection'
-import FeaturesSection from './components/featuresSection'
-import AppDownloadSection from './components/appDownloadSection'
-import LivingRecordsSection from './components/recordsSection'
-import PhotoStack from './components/photoStack'
-import VaultSection from './components/vaultSection'
-import Design from './components/design'
-import AudienceSection from './components/audienceSection'
-import ImpactSection from './components/impactSection'
-import FaqAndCardsSection from './components/faqSection'
-import PartnersSection from './components/partnerSection'
-import Newsletter from './components/newsletter' 
-import FooterSection from './reuseables/footerSection' 
-import Navbar from './reuseables/navbar'
+// Above-the-fold: loaded eagerly
 import Hero from './pages/hero'
+import Navbar from './reuseables/navbar'
+import FooterSection from './reuseables/footerSection'
+import FadeSection from './components/fadeSection'
+
+// Below-the-fold homepage sections: lazy loaded
+const PartnersSection = lazy(() => import('./components/partnerSection'))
+const LivingRecordsSection = lazy(() => import('./components/recordsSection'))
+const AppDownloadSection = lazy(() => import('./components/appDownloadSection'))
+const ProblemSection = lazy(() => import('./components/problemSection'))
+const PhotoStack = lazy(() => import('./components/photoStack'))
+const FeaturesSection = lazy(() => import('./components/featuresSection'))
+const VaultSection = lazy(() => import('./components/vaultSection'))
+const Design = lazy(() => import('./components/design'))
+const AudienceSection = lazy(() => import('./components/audienceSection'))
+const ImpactSection = lazy(() => import('./components/impactSection'))
+const FaqAndCardsSection = lazy(() => import('./components/faqSection'))
+const Newsletter = lazy(() => import('./components/newsletter'))
 
 // --- LAZY LOADED LEGAL PAGES ---
 const PrivacyPolicy = lazy(() => import('./legals/privacyPolicy'))
@@ -58,22 +60,27 @@ function LoadingFallback() {
   );
 }
 
+// Lightweight section placeholder shown while a lazy section loads
+function SectionFallback() {
+  return <div className="w-full py-20 bg-white" aria-hidden="true" />;
+}
+
 // 2. THE HOMEPAGE BUNDLE
 const Home = () => (
   <>
     <Hero />
-    <FadeSection><PartnersSection /></FadeSection>
-    <FadeSection><LivingRecordsSection /></FadeSection>
-    <FadeSection><AppDownloadSection /></FadeSection>
-    <FadeSection><ProblemSection /></FadeSection>
-    <FadeSection><PhotoStack /></FadeSection>
-    <FadeSection><FeaturesSection /></FadeSection>
-    <FadeSection><VaultSection /></FadeSection>
-    <FadeSection><Design /></FadeSection>
-    <FadeSection><AudienceSection /></FadeSection>
-    <FadeSection><ImpactSection /></FadeSection>
-    <FadeSection><FaqAndCardsSection /></FadeSection>
-    <FadeSection><Newsletter /></FadeSection>
+    <Suspense fallback={<SectionFallback />}><FadeSection><PartnersSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><LivingRecordsSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><AppDownloadSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><ProblemSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><PhotoStack /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><FeaturesSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><VaultSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><Design /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><AudienceSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><ImpactSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><FaqAndCardsSection /></FadeSection></Suspense>
+    <Suspense fallback={<SectionFallback />}><FadeSection><Newsletter /></FadeSection></Suspense>
   </>
 );
 

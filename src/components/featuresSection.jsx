@@ -58,8 +58,9 @@ const FeaturesSection = () => {
 
           <div className='w-full max-w-[340px] mx-auto mt-auto bg-black rounded-3xl overflow-hidden relative shadow-lg'>
             <img
-              src='/framer.png'
+              src='/webp/framer.webp'
               alt='Dancer'
+              loading="lazy"
               className='w-full h-full object-contain opacity-90'
             />
           </div>
@@ -299,8 +300,9 @@ const FeaturesSection = () => {
             <div className='flex items-center justify-start gap-3 mb-6 text-left'>
               <div className='w-10 h-10 rounded-xl overflow-hidden shadow-sm bg-red-900 shrink-0'>
                 <img
-                  src='/1img.jpg'
+                  src='/webp/1img.webp'
                   alt='Maasai Heritage'
+                  loading="lazy"
                   className='w-full h-full object-cover'
                 />
               </div>
@@ -375,8 +377,9 @@ const FeaturesSection = () => {
           className='w-full lg:col-span-2 bg-[#0f1d14] rounded-2xl p-8 pt-4 md:p-12 text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row gap-12 md:gap-16 items-center border border-green-900/50 hover:border-green-800 transition'
         >
           <img
-            src='/3img.jpg'
+            src='/webp/3img.webp'
             alt='Lens AI Background'
+            loading="lazy"
             className='absolute inset-0 w-full h-full object-cover z-0 opacity-80'
           />
           <div className='absolute inset-0 bg-gradient-to-r from-[#0f1d14] via-[#0f1d14]/90 to-[#0f1d14]/40 z-0 pointer-events-none'></div>

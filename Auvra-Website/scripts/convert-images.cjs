@@ -35,10 +35,10 @@ async function convertDir(dir, relPath = '') {
       continue;
     }
 
-    if (!/\.(jpg|jpeg|png|gif|avif|JPG|JPEG|PNG)$/.test(entry.name)) continue;
+    if (!/\.(jpg|jpeg|png|gif|avif)$/i.test(entry.name)) continue;
 
     // Determine output path (mirror folder structure under /webp)
-    const outputName = entry.name.replace(/\.[^.]+$/, '.webp');
+    const outputName = entry.name.replace(/\.\w+$/, '.webp');
     const outputSubDir = relPath
       ? path.join(outputBaseDir, relPath.split('/').slice(0, -1).join('/'))
       : outputBaseDir;
@@ -49,15 +49,19 @@ async function convertDir(dir, relPath = '') {
 
     const outputPath = path.join(outputSubDir, outputName);
 
-    // Force regenerate (delete old file if exists)
-    if (fs.existsSync(outputPath)) {
-      fs.unlinkSync(outputPath);
+    // Skip if already up-to-date (output newer than input)
+    if (
+      fs.existsSync(outputPath) &&
+      fs.statSync(outputPath).mtimeMs > fs.statSync(fullInput).mtimeMs
+    ) {
+      console.log(`Skipped (up-to-date): ${relEntry}`);
+      continue;
     }
 
     try {
       const meta = await sharp(fullInput).metadata();
       const resizeOptions =
-        meta.width && meta.width > MAX_WIDTH ? { width: MAX_WIDTH, withoutEnlargement: true } : {};
+        meta.width && meta.width > MAX_WIDTH ? { width: MAX_WIDTH } : {};
 
       await sharp(fullInput)
         .resize(resizeOptions)

@@ -122,7 +122,7 @@ export default function ImpactSection() {
           height: 100%;
           border-radius: 50%;
           /* We continue using your pre-shaped earth ball texture */
-          background-image: url('/earth-ball.png');
+          background-image: url('/webp/earth-ball.webp');
           
           /* CRITICAL FOR SPIN: We must use 'cover' or specific scaling, not 'contain',
              to allow the texture to repeat seamlessly. */
@@ -164,13 +164,12 @@ export default function ImpactSection() {
                         </span>
                     </div>
                     
-                    {/* THE FIX: Added src, preload="auto", and poster directly to the tag */}
+                                    {/* preload="none" — video only loads when the user scrolls to it (IntersectionObserver handles play/pause) */}
                     <video
                         ref={videoRef}
                         key={currentSlide}
                         src={currentVideo.src}
-                        poster="/video-placeholder.jpg"
-                        preload="auto"
+                        preload="none"
                         autoPlay
                         muted
                         loop

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../reuseables/navbar';
 
-const FORM_EMBED_URL = 'https://link.foorm.xyz/f/auvra-institutional-access';
+const FORM_EMBED_URL = 'https://app.foorm.xyz/f/auvra-institutional-access';
 
 export default function InstitutionalAccess() {
   const [loaded, setLoaded] = useState(false);

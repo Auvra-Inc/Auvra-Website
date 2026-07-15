@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { PrefetchLink } from '../App';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -205,7 +206,7 @@ export default function Navbar() {
                       >
                         <span className="text-sm text-black">Auvra Core</span>
                       </Link>
-                      <Link 
+                      <PrefetchLink 
                         onClick={() => {
                           setIsMenuOpen(false);
                           setIsProductsDropdownOpen(false);
@@ -214,7 +215,7 @@ export default function Navbar() {
                         className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50"
                       >
                         <span className="text-sm text-black">Auvra for Institutions</span>
-                      </Link>
+                      </PrefetchLink>
                       <div className="flex items-center justify-between px-4 py-3 bg-gray-50/30">
                         <span className="text-sm text-gray-400">Auvra Node</span>
                         <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">Coming soon</span>
@@ -239,7 +240,7 @@ export default function Navbar() {
                 whileHover={{ scale: 1.005 }}
                 transition={{ duration: 0.15 }}
               >
-                <Link 
+                <PrefetchLink 
                   onClick={() => setIsMenuOpen(false)} 
                   to="/institutions"
                   className="relative block overflow-hidden rounded-xl bg-gray-900 w-full text-left"
@@ -260,7 +261,7 @@ export default function Navbar() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
-                </Link>
+                </PrefetchLink>
               </motion.div>
             </motion.div>
           </motion.div>

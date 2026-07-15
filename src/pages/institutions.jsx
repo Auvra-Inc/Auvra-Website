@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Navbar from '../reuseables/navbar';
+import { PrefetchLink } from '../App';
 
 // Icon wrapper component - GREY with shadow
 const IconWrapper = ({ children }) => (
@@ -159,12 +160,12 @@ export default function Institutions() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Link 
+              <PrefetchLink 
                 to="/institutional-access"
                 className="inline-block bg-white text-black px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
               >
                 Apply for Institutional Access →
-              </Link>
+              </PrefetchLink>
             </motion.div>
           </div>
         </motion.div>
@@ -613,9 +614,9 @@ export default function Institutions() {
             </motion.div>
           </div>
           <div className="text-center mt-8">
-            <Link to="/institutional-access" className="text-black text-sm underline hover:no-underline">
+            <PrefetchLink to="/institutional-access" className="text-black text-sm underline hover:no-underline">
               View all benefits
-            </Link>
+            </PrefetchLink>
           </div>
         </motion.div>
 
@@ -637,12 +638,12 @@ export default function Institutions() {
             <p className="text-gray-400 text-sm mb-6">
               Join once. Preserve forever. All future updates included.
             </p>
-            <Link 
+            <PrefetchLink 
               to="/institutional-access"
               className="inline-block bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
             >
               Apply for Institutional Access →
-            </Link>
+            </PrefetchLink>
           </div>
         </motion.div>
 

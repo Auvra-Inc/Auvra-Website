@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaAppStore, FaGooglePlay } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
@@ -50,15 +51,20 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsProductsDropdownOpen(false);
+  }, [location.pathname]);
+
   return (
     <>
       {/* =========================================
           ULTRA-MODERN FLOATING NAV WITH ANIMATIONS
       ========================================= */}
       <motion.nav 
-        initial={{ y: -100, opacity: 0 }}
+        initial={false}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         className={`fixed z-[110] font-clash flex justify-between items-center px-4 py-2 transition-all duration-300 ease-out left-0 right-0 mx-auto w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-5xl rounded-[2rem]
           ${isScrolled || isMenuOpen
             ? 'top-5 sm:top-6 bg-white/80 backdrop-blur-md border border-white/30' 

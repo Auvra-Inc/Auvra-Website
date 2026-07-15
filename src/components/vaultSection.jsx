@@ -4,54 +4,43 @@ const VaultSection = () => {
     <img 
       src={src} 
       alt="Vault User" 
+      loading="lazy"
       className={`absolute rounded-full object-cover shadow-lg animate-float-mini z-10 ${className}`}
       style={{ animationDelay: delay }}
     />
   );
 
   return (
-    // We removed the fixed height! Let the content dictate the size.
     <section className="relative w-full bg-white overflow-hidden font-clash flex flex-col items-center pt-5 md:pt-16">
       
-      {/*=========================================
-          BOX A: TEXT & FLOATING AVATARS 
-          This acts as a "container" so avatars float around the text, not the whole page.
-      ========================================= */}
       <div className="relative w-full max-w-4xl min-h-[260px] md:min-h-[320px] flex flex-col justify-center items-center px-6">
         
-        {/* EXACTLY 5 AVATARS POSITIONED LIKE YOUR SCREENSHOT */}
-        
-        {/* 1. Top Left (Dark/Red background) */}
         <FloatingAvatar 
-          src="/Group 1396.png" 
+          src="/webp/Group 1396.webp" 
           className="top-[5%] left-[8%] md:left-[15%] w-16 h-16 md:w-20 md:h-20" 
           delay="0s" 
         />
         
-        {/* 2. Mid Left (Blue/Yellow background) */}
         <FloatingAvatar 
-          src="/Group 1397.png" 
+          src="/webp/Group 1397.webp" 
           className="top-[55%] left-[5%] md:left-[10%] w-14 h-14 md:w-16 md:h-16" 
           delay="1.2s" 
         />
         
-        {/* 3. Top Right (Cut off at the edge) */}
         <FloatingAvatar 
-          src="/Group 1399.png" 
+          src="/webp/Group 1399.webp" 
           className="top-[0%] right-[-5%] md:right-[5%] w-12 h-12 md:w-14 md:h-14" 
           delay="0.5s" 
         />
         
-        {/* 4. Mid Right (Smiling Woman) */}
         <FloatingAvatar 
-          src="/Rectangle 2125.png" 
+          src="/webp/Rectangle 2125.webp" 
           className="top-[25%] right-[6%] md:right-[15%] w-16 h-16 md:w-20 md:h-20" 
           delay="2.1s" 
         />
         
-        {/* 5. Lower Right (Red texture) */}
         <FloatingAvatar 
-          src="/caro2.png" 
+          src="/webp/caro2.webp" 
           className="bottom-[10%] right-[15%] md:right-[22%] w-12 h-12 md:w-14 md:h-14" 
           delay="1.8s" 
         />
@@ -77,8 +66,11 @@ const VaultSection = () => {
       ========================================= */}
       <div className="relative w-full max-w-[450px] md:max-w-[550px] z-20 -mt-8 md:-mt-12">
         <img 
-          src="/Rectangle 2124.png" 
+          src="/webp/Rectangle 2124.webp" 
           alt="Main Vault Profile" 
+          loading="lazy"
+          width={550}
+          height={600}
           className="w-full h-auto object-contain"
         />
       </div>

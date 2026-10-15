@@ -36,7 +36,7 @@ function isBot(userAgent) {
   return BOT_UA_REGEX.test(userAgent || '');
 }
 
-function buildFullHtml({ title, description, image, url }) {
+function buildFullHtml({ title, description, image, url, isHome }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,6 +74,17 @@ function buildFullHtml({ title, description, image, url }) {
   <link rel="alternate" hreflang="en" href="${url}" />
   <link rel="alternate" hreflang="x-default" href="${url}" />
   
+  ${isHome ? `<!-- Site name for Google Search (must be on the homepage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Auvra",
+    "alternateName": ["GoAuvra", "Auvra Inc"],
+    "url": "https://www.goauvra.com/"
+  }
+  </script>
+  ` : ''}
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -161,22 +172,6 @@ function buildFullHtml({ title, description, image, url }) {
   }
   </script>
   
-  <!-- Schema.org Website -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Auvra",
-    "url": "https://www.goauvra.com",
-    "description": "${description}",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.goauvra.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
   {
@@ -207,7 +202,7 @@ function buildFullHtml({ title, description, image, url }) {
 </head>
 <body>
   <div class="seo-content">
-    <h1>${title}</h1>
+    <h1>${isHome ? 'Auvra' : title}</h1>
     <p><a href="https://www.goauvra.com/">Auvra</a> is the permanent home for human culture.</p>
     <p><a href="https://www.goauvra.com/about">About Auvra</a> — learn how Auvra preserves traditions, languages, and stories.</p>
     <p><a href="https://www.goauvra.com/blog">Auvra Blog</a> — latest news and updates from Auvra.</p>
@@ -226,7 +221,7 @@ function buildFullHtml({ title, description, image, url }) {
     <p>Creators use Auvra to turn their art into collectible digital badges while retaining ownership. Families use Auvra to preserve personal legacies. Communities and museums use Auvra to create living archives.</p>
     
     <h3>Why Cultural Preservation Matters</h3>
-    <p>According to UNESCO, 40% of the world's 7,000 languages are endangered. Auvra was built to stop this loss by providing a permanent, verifiable home for human culture.</p>
+    <p>According to <a href="https://www.unesco.org/en/articles/multilingual-education-bet-preserve-indigenous-languages-and-justice">UNESCO</a>, 40% of the world's 7,000 languages are endangered. Auvra was built to stop this loss by providing a permanent, verifiable home for human culture.</p>
   </div>
   
   <p>Loading Auvra... Please enable JavaScript to experience the full platform.</p>
@@ -255,7 +250,7 @@ export default async function middleware(request) {
       previewData = PREVIEW_PAGES[pathname] || PREVIEW_PAGES['/'];
     }
 
-    const html = buildFullHtml({ ...previewData, url: request.url });
+    const html = buildFullHtml({ ...previewData, url: request.url, isHome: pathname === '/' });
     return new Response(html, {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',

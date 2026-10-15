@@ -221,7 +221,7 @@ function buildFullHtml({ title, description, image, url, isHome }) {
     <p>Creators use Auvra to turn their art into collectible digital badges while retaining ownership. Families use Auvra to preserve personal legacies. Communities and museums use Auvra to create living archives.</p>
     
     <h3>Why Cultural Preservation Matters</h3>
-    <p>According to UNESCO, 40% of the world's 7,000 languages are endangered. Auvra was built to stop this loss by providing a permanent, verifiable home for human culture.</p>
+    <p>According to <a href="https://www.unesco.org/en/articles/multilingual-education-bet-preserve-indigenous-languages-and-justice">UNESCO</a>, 40% of the world's 7,000 languages are endangered. Auvra was built to stop this loss by providing a permanent, verifiable home for human culture.</p>
   </div>
   
   <p>Loading Auvra... Please enable JavaScript to experience the full platform.</p>

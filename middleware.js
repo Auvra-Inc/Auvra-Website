@@ -29,9 +29,8 @@ const PREVIEW_PAGES = {
   },
 };
 
-// Only real search/social crawlers. Generic words (e.g. "linux", "check", "search")
-// must not appear here: "linux" alone matched every Android browser.
-const BOT_UA_REGEX = /googlebot|google-inspectiontool|googleother|storebot-google|adsbot-google|mediapartners-google|bingbot|slurp|duckduckbot|baiduspider|yandex|applebot|petalbot|seznambot|sogou|naver|facebookexternalhit|facebookcatalog|meta-externalagent|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|pinterest|redditbot|embedly|skypeuripreview|ahrefsbot|semrushbot|mj12bot|dotbot|ia_archiver/i;
+// Expanded bot detection for better coverage
+const BOT_UA_REGEX = /bot|crawler|spider|facebookexternalhit|facebookcatalog|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegram|pinterest|googlebot|bingbot|yandex|baiduspider|duckduckbot|applebot|google-inspection|ahrefs|semrush|mj12bot|dotbot|rogerbot|exabot|fastbot|ia_archiver|seznam|sogou|naver|mediapartners|zoom|alpinescanner|analyzer|archive|biglotron|buzzbot|check|chrome-lighthouse|coccoc|datadog|dataminr|discord|drupal|easou|ec2linkfinder|exalead|facebook|feedfetcher|find|findexa|fluffy|gigabot|girafabot|gooblog|google|gulper|hatena|holmes|htdig|ia_archiver|ichiro|ingrid|ioibot|jack|jike|kalooga|kansalliskirjasto|kaspersky|komodo|leech|libwww|linkidato|linklint|linux|ltd|lycos|mailru|mediapartners|microsoft|mj12|modulus|monitor|nationaldirectory|netcraft|netresearch|netvibes|news|nutch|oegp|onb|orange|pagebitesheritrix|perl|php|pillar|pingdom|postrank|python|qseero|radian6|rank|rapid|rediff|research|robozilla|sage|scanner|scout|search|seer|sherlock|silk|simpy|sitesearch|slurp|sosospider|sputnik|stat|survey|symantec|technorati|teoma|theweb|trend|turnitin|twiceler|unicorn|urllib|vocus|voyager|webbase|webcrawler|webmaster|websquash|wget|wordpress|yahoo|yandex|zeal|zspider/i;
 
 function isBot(userAgent) {
   return BOT_UA_REGEX.test(userAgent || '');
@@ -245,15 +244,13 @@ export default async function middleware(request) {
         title: `${slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} | Auvra Blog`,
         description: 'Read the latest stories and updates on cultural preservation and technology.',
         image: 'https://www.goauvra.com/blog-preview.png',
-        url: `https://www.goauvra.com/blog/${slug}`,
+        url: request.url,
       };
     } else {
       previewData = PREVIEW_PAGES[pathname] || PREVIEW_PAGES['/'];
     }
 
-    // Always use the clean www URL as canonical, never request.url (which can carry
-    // query strings or the non-www host and split signals across URLs).
-    const html = buildFullHtml({ ...previewData, isHome: pathname === '/' });
+    const html = buildFullHtml({ ...previewData, url: request.url, isHome: pathname === '/' });
     return new Response(html, {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',

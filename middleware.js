@@ -29,14 +29,15 @@ const PREVIEW_PAGES = {
   },
 };
 
-// Expanded bot detection for better coverage
-const BOT_UA_REGEX = /bot|crawler|spider|facebookexternalhit|facebookcatalog|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegram|pinterest|googlebot|bingbot|yandex|baiduspider|duckduckbot|applebot|google-inspection|ahrefs|semrush|mj12bot|dotbot|rogerbot|exabot|fastbot|ia_archiver|seznam|sogou|naver|mediapartners|zoom|alpinescanner|analyzer|archive|biglotron|buzzbot|check|chrome-lighthouse|coccoc|datadog|dataminr|discord|drupal|easou|ec2linkfinder|exalead|facebook|feedfetcher|find|findexa|fluffy|gigabot|girafabot|gooblog|google|gulper|hatena|holmes|htdig|ia_archiver|ichiro|ingrid|ioibot|jack|jike|kalooga|kansalliskirjasto|kaspersky|komodo|leech|libwww|linkidato|linklint|linux|ltd|lycos|mailru|mediapartners|microsoft|mj12|modulus|monitor|nationaldirectory|netcraft|netresearch|netvibes|news|nutch|oegp|onb|orange|pagebitesheritrix|perl|php|pillar|pingdom|postrank|python|qseero|radian6|rank|rapid|rediff|research|robozilla|sage|scanner|scout|search|seer|sherlock|silk|simpy|sitesearch|slurp|sosospider|sputnik|stat|survey|symantec|technorati|teoma|theweb|trend|turnitin|twiceler|unicorn|urllib|vocus|voyager|webbase|webcrawler|webmaster|websquash|wget|wordpress|yahoo|yandex|zeal|zspider/i;
+// Only real search/social crawlers. Generic words (e.g. "linux", "check", "search")
+// must not appear here: "linux" alone matched every Android browser.
+const BOT_UA_REGEX = /googlebot|google-inspectiontool|googleother|storebot-google|adsbot-google|mediapartners-google|bingbot|slurp|duckduckbot|baiduspider|yandex|applebot|petalbot|seznambot|sogou|naver|facebookexternalhit|facebookcatalog|meta-externalagent|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|pinterest|redditbot|embedly|skypeuripreview|ahrefsbot|semrushbot|mj12bot|dotbot|ia_archiver/i;
 
 function isBot(userAgent) {
   return BOT_UA_REGEX.test(userAgent || '');
 }
 
-function buildFullHtml({ title, description, image, url }) {
+function buildFullHtml({ title, description, image, url, isHome }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,6 +75,17 @@ function buildFullHtml({ title, description, image, url }) {
   <link rel="alternate" hreflang="en" href="${url}" />
   <link rel="alternate" hreflang="x-default" href="${url}" />
   
+  ${isHome ? `<!-- Site name for Google Search (must be on the homepage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Auvra",
+    "alternateName": ["GoAuvra", "Auvra Inc"],
+    "url": "https://www.goauvra.com/"
+  }
+  </script>
+  ` : ''}
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -161,22 +173,6 @@ function buildFullHtml({ title, description, image, url }) {
   }
   </script>
   
-  <!-- Schema.org Website -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Auvra",
-    "url": "https://www.goauvra.com",
-    "description": "${description}",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.goauvra.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  
   <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
   {
@@ -207,7 +203,7 @@ function buildFullHtml({ title, description, image, url }) {
 </head>
 <body>
   <div class="seo-content">
-    <h1>${title}</h1>
+    <h1>${isHome ? 'Auvra' : title}</h1>
     <p><a href="https://www.goauvra.com/">Auvra</a> is the permanent home for human culture.</p>
     <p><a href="https://www.goauvra.com/about">About Auvra</a> — learn how Auvra preserves traditions, languages, and stories.</p>
     <p><a href="https://www.goauvra.com/blog">Auvra Blog</a> — latest news and updates from Auvra.</p>
@@ -249,13 +245,15 @@ export default async function middleware(request) {
         title: `${slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} | Auvra Blog`,
         description: 'Read the latest stories and updates on cultural preservation and technology.',
         image: 'https://www.goauvra.com/blog-preview.png',
-        url: request.url,
+        url: `https://www.goauvra.com/blog/${slug}`,
       };
     } else {
       previewData = PREVIEW_PAGES[pathname] || PREVIEW_PAGES['/'];
     }
 
-    const html = buildFullHtml({ ...previewData, url: request.url });
+    // Always use the clean www URL as canonical, never request.url (which can carry
+    // query strings or the non-www host and split signals across URLs).
+    const html = buildFullHtml({ ...previewData, isHome: pathname === '/' });
     return new Response(html, {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',

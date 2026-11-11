@@ -1,10 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /about
-Allow: /blog
-Allow: /contact
-Allow: /faqs
-Disallow: /terms-of-service
-Disallow: /privacy-policy
 
 Sitemap: https://www.goauvra.com/sitemap.txt

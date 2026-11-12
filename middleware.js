@@ -29,8 +29,12 @@ const PREVIEW_PAGES = {
   },
 };
 
-// Expanded bot detection for better coverage
-const BOT_UA_REGEX = /bot|crawler|spider|facebookexternalhit|facebookcatalog|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegram|pinterest|googlebot|bingbot|yandex|baiduspider|duckduckbot|applebot|google-inspection|ahrefs|semrush|mj12bot|dotbot|rogerbot|exabot|fastbot|ia_archiver|seznam|sogou|naver|mediapartners|zoom|alpinescanner|analyzer|archive|biglotron|buzzbot|check|chrome-lighthouse|coccoc|datadog|dataminr|discord|drupal|easou|ec2linkfinder|exalead|facebook|feedfetcher|find|findexa|fluffy|gigabot|girafabot|gooblog|google|gulper|hatena|holmes|htdig|ia_archiver|ichiro|ingrid|ioibot|jack|jike|kalooga|kansalliskirjasto|kaspersky|komodo|leech|libwww|linkidato|linklint|linux|ltd|lycos|mailru|mediapartners|microsoft|mj12|modulus|monitor|nationaldirectory|netcraft|netresearch|netvibes|news|nutch|oegp|onb|orange|pagebitesheritrix|perl|php|pillar|pingdom|postrank|python|qseero|radian6|rank|rapid|rediff|research|robozilla|sage|scanner|scout|search|seer|sherlock|silk|simpy|sitesearch|slurp|sosospider|sputnik|stat|survey|symantec|technorati|teoma|theweb|trend|turnitin|twiceler|unicorn|urllib|vocus|voyager|webbase|webcrawler|webmaster|websquash|wget|wordpress|yahoo|yandex|zeal|zspider/i;
+// Only link-preview bots (social apps that fetch a page to build a share card)
+// get the lightweight preview HTML. Real browsers, search engines (Googlebot,
+// Bingbot etc. render JavaScript fine) and uptime/review checkers always get
+// the full site. Keep this list narrow: an over-broad list (e.g. matching
+// "linux" or "microsoft") sends real visitors a blank "Loading..." page.
+const BOT_UA_REGEX = /facebookexternalhit|facebookcatalog|meta-externalagent|twitterbot|linkedinbot|slackbot|slack-imgproxy|discordbot|whatsapp|telegrambot|pinterestbot|redditbot|skypeuripreview|embedly|vkshare|tumblr|bitlybot|iframely/i;
 
 function isBot(userAgent) {
   return BOT_UA_REGEX.test(userAgent || '');
@@ -193,20 +197,13 @@ function buildFullHtml({ title, description, image, url }) {
   }
   </script>
   
-  <!-- Hidden SEO content for bots -->
   <style>
-    .seo-content {
-      display: none;
-      visibility: hidden;
-      position: absolute;
-      height: 0;
-      width: 0;
-      overflow: hidden;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #111; }
+    a { color: #0b57d0; }
   </style>
 </head>
 <body>
-  <div class="seo-content">
+  <main>
     <h1>${title}</h1>
     <p><a href="https://www.goauvra.com/">Auvra</a> is the permanent home for human culture.</p>
     <p><a href="https://www.goauvra.com/about">About Auvra</a> — learn how Auvra preserves traditions, languages, and stories.</p>
@@ -227,9 +224,8 @@ function buildFullHtml({ title, description, image, url }) {
     
     <h3>Why Cultural Preservation Matters</h3>
     <p>According to UNESCO, 40% of the world's 7,000 languages are endangered. Auvra was built to stop this loss by providing a permanent, verifiable home for human culture.</p>
-  </div>
-  
-  <p>Loading Auvra... Please enable JavaScript to experience the full platform.</p>
+    <p><a href="${url}">Continue to Auvra &rarr;</a></p>
+  </main>
 </body>
 </html>`;
 }

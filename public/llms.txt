@@ -6,8 +6,7 @@
 - Founded: 2026
 - Mission: To preserve, structure, and empower culture by giving creators, communities, families, and institutions the tools to own and pass down their cultural assets.
 - Vision: To become the global infrastructure where human culture is permanently stored, intelligently understood, and generationally transferred.
-- Blockchain: Ethereum for immutable provenance
-- Storage: Arweave for permanent decentralized storage
+- Storage: Permanent, verifiable cultural records
 - AI: Lens AI for transcribing and translating oral histories
 
 ## Core Offerings
@@ -15,7 +14,7 @@
 ### Auvra Core
 The permanent home for individual creators, families, and communities to preserve cultural heritage.
 - URL: https://www.goauvra.com/
-- Features: Blockchain provenance, permanent storage, community verification, open access
+- Features: Permanent, verifiable records, community verification, open access
 
 ### Auvra for Institutions
 Permanent, verifiable infrastructure for museums, governments, universities, archives, and cultural organizations.
@@ -72,13 +71,13 @@ AI-powered transcription and translation for oral histories, built specifically 
 **What is a badge on Auvra?**
 A badge is a permanently verifiable cultural record. It can be a piece of art, a family story, a traditional recipe, a language lesson, or a craft technique.
 
-**What's the difference between a Collectible Badge and a Contribution Badge?**
-A Collectible Badge is meant to be owned and collected. A Contribution Badge is for records that belong to everyone, like languages and oral history, verified by the community.
+**What's the difference between a Creator Badge and a Contribution Badge?**
+A creator badge records a creator's own work with its context and attribution. A Contribution Badge is for records that belong to everyone, like languages and oral history, verified by the community.
 
 **How does Auvra ensure cultural authenticity?**
 Auvra relies on a decentralized network of community elders, institutions, and verified cultural custodians to review and authenticate records.
 
-**Do I need to understand blockchain to use Auvra?**
+**Do I need technical knowledge to use Auvra?**
 Not at all. Auvra handles all the complex technology in the background. You can use it just like any other app.
 
 **Can communities and institutions use Auvra?**

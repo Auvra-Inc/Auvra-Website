@@ -15,7 +15,7 @@ const AppDownloadSection = () => {
         Stay rooted in what matters with a platform that honors your stories. Simple tools, clear progress, and gentle guidance help you build a legacy that lasts.
       </p>
 
-      <h4 className="font-bold text-xl text-gray-900 mb-8">Built with blockchain.</h4>
+      <h4 className="font-bold text-xl text-gray-900 mb-8">Powered by Lens AI.</h4>
 
       {/* Buttons */}
       <div className="flex flex-col gap-4 w-full max-w-xs">

@@ -53,7 +53,7 @@ const LivingRecordsSection = () => {
 
         {/* Tags */}
         <div className="flex flex-wrap justify-center gap-3 font-clash">
-          {['#Creators', '#Families', '#Communities', '#Collectors', '#Diaspora', '#Museums'].map((tag) => (
+          {['#Creators', '#Families', '#Communities', '#Diaspora', '#Museums'].map((tag) => (
             <span key={tag} className="px-4 py-1.5 bg-gray-100/80 rounded-full text-sm font-medium text-gray-700 border border-gray-200 shadow-sm">
               {tag}
             </span>

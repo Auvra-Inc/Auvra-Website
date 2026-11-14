@@ -25,7 +25,7 @@ const FeaturesSection = () => {
           Everything you need to safeguard your heritage.
         </h2>
         <p className='text-lg text-gray-600 font-clash leading-relaxed'>
-          Auvra gives creators, communities, collectors, and families tools, not
+          Auvra gives creators, communities, diaspora and families tools, not
           just storage. Every feature is designed to make cultural preservation
           sustainable and accessible.
         </p>

@@ -34,10 +34,10 @@ const AudienceSection = () => {
             <Users className="w-5 h-5" /> Communities
           </button>
         </div>
-        {/* Second row: Collectors, Families, Individuals */}
+        {/* Second row: Diaspora, Families, Individuals */}
         <div className="flex justify-center gap-4">
           <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-gray-50 text-gray-700 font-medium hover:bg-gray-100 transition border border-transparent">
-            <Archive className="w-5 h-5" /> Collectors
+            <Archive className="w-5 h-5" /> Diaspora
           </button>
           <button className="flex items-center gap-2.5 px-4 py-2 rounded-xl border border-gray-200 border-dashed text-gray-600 font-medium hover:bg-gray-50 transition bg-white shadow-sm">
             <Home className="w-5 h-5" /> Families

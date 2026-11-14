@@ -28,12 +28,12 @@ const faqs = [
 	{
 		question: 'How does Auvra ensure cultural authenticity?',
 		answer:
-			'Auvra relies on a decentralized network of community elders and verified cultural custodians to review and authenticate records before they are permanently minted.',
+			'Auvra relies on a decentralized network of community elders and verified cultural custodians to review and authenticate records before they are permanently preserved.',
 	},
 	{
-		question: 'Do I need to understand blockchain to use Auvra?',
+		question: 'Do I need technical knowledge to use Auvra?',
 		answer:
-			'Not at all. Auvra handles all the complex web3 technology in the background. You can use it just like any other app.',
+			'Not at all. Auvra handles the technology in the background, and Lens AI helps with transcription and translation. You can use it just like any other app.',
 	},
 	{
 		question: 'Can institutions and communities use Auvra?',
